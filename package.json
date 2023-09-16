@@ -1,0 +1,40 @@
+{
+  "name": "fabianmiranda.com-decapcms-nextjs",
+  "version": "1.0.0",
+  "description": "My Personal Website",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "export": "npm run build && next export"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fmir86/fabianmiranda.com-decapcms-nextjs.git"
+  },
+  "keywords": [
+    "fabianmiranda.com",
+    "decapcms",
+    "nextjs",
+    "react",
+    "jamstack",
+    "ssg"
+  ],
+  "author": "Fabian Miranda Palma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fmir86/fabianmiranda.com-decapcms-nextjs/issues"
+  },
+  "homepage": "https://github.com/fmir86/fabianmiranda.com-decapcms-nextjs#readme",
+  "dependencies": {
+    "next": "^13.4.19",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.22.19",
+    "@babel/preset-react": "^7.22.15",
+    "frontmatter-markdown-loader": "^3.7.0"
+  }
+}
