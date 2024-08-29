@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    @apply min-h-screen bg-black;
+}
+
+.magenta{
+    @apply text-magenta;
+}
+
+.lightblue{
+    @apply text-lightblue;
+}
+
+.lightblue-cta{
+    @apply text-black bg-lightblue px-6 py-4 block w-full sm:w-fit h-fit text-center;
+    @apply mb-6 sm:mb-0;
+
+}

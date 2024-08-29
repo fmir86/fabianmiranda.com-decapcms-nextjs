@@ -1,0 +1,82 @@
+.hero{
+    @apply w-full px-4;
+    background: linear-gradient(168deg, rgb(0, 0, 0) 50%, rgb(5, 30, 36) 100%);
+
+    .wrapper{
+
+        @apply max-w-7xl mx-auto;
+        @apply flex flex-col-reverse sm:flex-row justify-center;
+
+        .left-block{
+
+            @apply w-full md:w-1/2 flex flex-col justify-center;
+            @apply py-0 pb-10 sm:py-20;
+            @apply text-center sm:text-left;
+        
+            h1{
+                @apply text-white font-bold leading-[1.1];
+                @apply text-2xl sm:text-3xl xl:text-4xl;
+                @apply mb-4 sm:mb-8;
+
+                span{
+                    @apply inline-block;
+                    @apply text-3xl sm:text-4xl xl:text-5xl;
+
+                    em{
+                        @apply not-italic;
+                    }
+                }
+            }
+
+            p{
+                @apply text-[1rem] text-white font-[200];
+                @apply mb-6 sm:mb-12;
+            }
+
+            .cta-social-row{
+
+                @apply flex flex-col md:flex-row justify-between;
+
+                .social-block{
+
+                    @apply flex flex-col sm:flex-row md:flex-col text-right justify-center sm:justify-start items-center sm:items-end;
+                    @apply mt-6 md:mt-0;
+
+                    p{
+                        @apply mb-4 sm:mb-0 md:mb-4;
+                    }
+
+                    a{
+                        @apply inline-block mx-4 sm:ml-6 sm:mr-0;
+
+                        img{
+                            @apply w-14 sm:w-8;
+                        }
+                    }
+                }
+            }
+        }
+
+        .right-block{
+
+            @apply w-full md:w-1/2 flex justify-center items-center lg:items-end;
+            @apply p-10 sm:p-0;
+
+            .glow-and-textures{
+                @apply absolute top-0 left-0 w-full h-full;
+            }
+
+            .portrait{
+                @apply relative rounded-b-[5rem] lg:rounded-none overflow-hidden;
+                @apply w-full sm:w-auto aspect-square sm:aspect-auto;
+                @apply max-w-[12rem] sm:max-w-none;
+                @apply border-2 border-white sm:border-0;
+                @apply rounded-[20rem] sm:rounded-b-[15rem] lg:rounded-none;
+
+                img{
+                    @apply h-full object-cover;
+                }
+            }
+        }
+    }
+}

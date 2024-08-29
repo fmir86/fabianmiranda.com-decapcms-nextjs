@@ -1,0 +1,38 @@
+.main-footer{
+    @apply bg-darkgray;
+
+    .container{
+        @apply flex flex-col items-center justify-between max-w-7xl mx-auto p-5 pt-7;
+
+        .subnav{
+            @apply mt-4;
+            ul{
+                li{
+                    @apply inline-block mx-2 text-white text-sm font-[200] hover:text-lightblue;
+                    @apply transition-colors;
+
+                    &::after{
+                        content: "|";
+                        @apply mr-2 ml-6;
+                        pointer-events: none;
+                        @apply text-white hover:text-white last:content-none;
+                    }
+                }
+            }
+        }
+
+        p{
+            @apply font-[200] text-white text-xs relative mx-auto;
+        }
+
+        :global(.social-icon){
+            transition: color 1s ease;
+            @apply mx-[10px] my-0 align-middle;
+            @apply text-white hover:text-lightblue transition-colors;                
+        }
+
+        svg{
+            @apply text-white hover:text-lightblue transition-colors;
+        }
+    }
+}

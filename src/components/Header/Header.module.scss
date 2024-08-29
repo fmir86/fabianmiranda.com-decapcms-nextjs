@@ -1,0 +1,32 @@
+.main-header{
+    @apply bg-darkgray py-5 px-4;
+
+    .container{
+        @apply flex items-center justify-between max-w-7xl mx-auto;
+    
+
+        nav{
+            ul{
+                li{
+                    @apply inline-block mx-4 last:mr-0;
+                    a{
+                        @apply font-[200] text-lightblue relative;
+
+                        &::after{
+                            content: "";
+                            @apply transition-all duration-300;
+                            @apply block absolute w-0 h-[1px] bg-lightblue bottom-[-1px] left-0;
+                        }
+
+                        &:hover{
+                            &::after{
+                                content: "";
+                                @apply block absolute w-full h-[1px] bg-lightblue bottom-[-1px] left-0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

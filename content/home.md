@@ -1,6 +1,8 @@
 ---
-title: Awesome kitties
-date: 2019-03-17T19:31:20.591Z
+title: Fabian Miranda - Creative Technologist | Web Development | Digital Production
+date: 2024-08-19
+description: Expert in Digital Production and Web Development. Technology Consultant.
+
 cats:
   - description: Maru is a Scottish Fold from Japan, and he loves boxes.
     name: Maru (まる)
