@@ -1,6 +1,7 @@
 .main-layout{
 
     @apply min-h-screen flex flex-col;
+    @apply pt-[5.625rem];
 
     main{
         @apply grow;
