@@ -1,0 +1,20 @@
+.overlay{
+    @apply fixed inset-0 bg-black bg-opacity-90 z-30;
+    @apply flex justify-center items-center;
+
+    .popup-modal{
+        @apply relative;
+        @apply min-w-[40%] min-h-[40vh] p-10 flex justify-center items-center;
+        background: rgba(255,255,255,0.1);
+        backdrop-filter: blur(10px);
+
+        .close{ 
+            @apply absolute top-2 right-2 text-lightblue;
+            @apply cursor-pointer;
+
+            svg{
+                @apply w-6 h-6;
+            }
+        }
+    }
+}

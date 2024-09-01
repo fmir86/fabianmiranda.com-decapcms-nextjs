@@ -1,12 +1,31 @@
+import { useState } from "react";
 import Head from "next/head"
 import Layout from "../components/Layout/Layout";
+import Popup from '../components/Popup/Popup';
 import styles from '../styles/contact.module.scss'
 import Image from "next/image";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 
+
 const Contact = () => {
+
+  const [popupContent, setPopupContent] = useState(null);
+
+  const successMsg = (
+    <>
+      <h3 className="text-2xl fon-thin">Thank you for your message.</h3>
+      <p className="text-base fon-thin">I will get back to you as soon as possible.</p>
+    </>
+  );
+  
+  const errorMsg = (
+    <>
+      <h3 className="text-2xl fon-thin">An Error Happened.</h3>
+      <p className="text-base fon-thin">There was an error sending your message. Please try again later.</p>
+    </>
+  );
 
   const submitForm = (event)=> {
     event.preventDefault()
@@ -21,8 +40,11 @@ const Contact = () => {
     })
     .then(() => {
        console.log("Form successfully submitted")
+       setPopupContent(successMsg)
     })
-    .catch((error) => alert(error));
+    .catch((error) => {
+      setPopupContent(errorMsg)
+    })
   }  
 
 
@@ -87,6 +109,8 @@ const Contact = () => {
           </div>
         </div>
       </div>
+
+      {popupContent && <Popup content={popupContent} onClose={() => setPopupContent(null) }/>}
     </Layout>
   )
 }
