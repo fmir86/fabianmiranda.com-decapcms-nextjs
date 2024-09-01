@@ -19,16 +19,15 @@ const Header = () => {
       tl.set(q('.navPanel ul li'), { opacity: 0, x:'20%' });
       tl.to(q('.navPanel'), { duration: 0.2, x: '0', opacity: 1, ease:'expo.out' });
       tl.to(q('.navPanel ul li'), { duration: 0.3, x: '0', opacity: 1, ease:'expo.out', stagger: 0.1 }, '-=0.05');
-
-      gsap.set('body', { overflow: 'hidden', height: '100vh' });
+      document.body.classList.add('no-scroll');
     }else{
+      document.body.classList.remove('no-scroll');
       const tl = gsap.timeline();
       tl.to(q('.navPanel ul li'), { duration: 0.2, x: '20%', opacity: 0, ease:'expo.in', stagger: 0.05 }, '-=0.05');
       tl.to(q('.navPanel'), { duration: 0.2, x: '100%', opacity: 0, ease:'expo.out', onComplete: () => {
         headerWrapper.current.classList.remove(styles['open']);
         headerWrapper.current.setAttribute('aria-expanded', 'false');
         q('.navPanel')[0].removeAttribute('style')
-        document.querySelector('body').removeAttribute('style')
       }}, '-=0.0');
     }
   }

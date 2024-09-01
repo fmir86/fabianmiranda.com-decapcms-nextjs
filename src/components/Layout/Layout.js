@@ -3,10 +3,16 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import { Inter } from 'next/font/google';
 import styles from "./Layout.module.scss";
+import { useEffect } from "react";
 
 const inter = Inter({ subsets: ['latin'] })
 
 const Layout = ({ children }) => {
+
+  useEffect(() => {
+    document.body.classList.remove('no-scroll');
+  }, []);
+
   return (
     <div className={styles['main-layout']}>
       <Head>
