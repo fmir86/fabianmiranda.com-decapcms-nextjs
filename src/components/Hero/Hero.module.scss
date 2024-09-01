@@ -1,5 +1,5 @@
 .hero{
-    @apply w-full px-4;
+    @apply w-full px-6;
     background: linear-gradient(168deg, rgb(0, 0, 0) 50%, rgb(5, 30, 36) 100%);
 
     .wrapper{
@@ -55,11 +55,10 @@
                     }
 
                     .social-icons{
-                        @apply bg-lightblue;
                         @apply transition-all duration-300;
 
                         &:hover{
-                            @apply bg-magenta;
+                            filter: invert(54%) sepia(55%) saturate(2465%) hue-rotate(273deg) brightness(88%) contrast(88%);
                         }                          
 
 
@@ -81,7 +80,7 @@
             .portrait{
                 @apply relative rounded-b-[5rem] lg:rounded-none overflow-hidden;
                 @apply w-full sm:w-auto aspect-square sm:aspect-auto;
-                @apply max-w-[12rem] sm:max-w-none;
+                @apply max-w-[16rem] sm:max-w-none;
                 @apply border-2 border-white sm:border-0;
                 @apply rounded-[20rem] sm:rounded-b-[15rem] lg:rounded-none;
 

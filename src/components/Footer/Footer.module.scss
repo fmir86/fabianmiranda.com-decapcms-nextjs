@@ -1,5 +1,8 @@
 .main-footer{
     @apply bg-darkgray;
+    border-top: 1px solid;
+    border-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0, rgb(255 255 255 / 10%) 50%, rgba(255, 255, 255, 0) 100%) 1;
+
 
     .container{
         @apply flex flex-col items-center justify-between max-w-7xl mx-auto p-5 pt-7;
@@ -8,12 +11,12 @@
             @apply mt-4;
             ul{
                 li{
-                    @apply inline-block mx-2 text-white text-sm font-[200] hover:text-lightblue;
+                    @apply inline-block text-white text-sm font-[200] hover:text-lightblue;
                     @apply transition-colors;
 
                     &::after{
                         content: "|";
-                        @apply mr-2 ml-6;
+                        @apply mx-4 sm:mx-6;
                         pointer-events: none;
                         @apply text-white hover:text-white last:content-none;
                     }
@@ -23,6 +26,10 @@
 
         p{
             @apply font-[200] text-white text-xs relative mx-auto;
+        }
+
+        ul{
+            @apply text-center;
         }
 
         :global(.social-icon){

@@ -1,0 +1,39 @@
+.page-wrapper{
+    
+    @apply relative w-full px-6 flex flex-col grow bg-no-repeat bg-left pb-6;
+    background-image: url('/images/laptop-bg.jpg');
+    background-size: auto 100%;
+
+    p{
+        @apply font-thin;
+    }
+
+    .main-img{
+        @apply max-w-[18rem] md:max-w-none;
+    }
+    
+    &::before{
+        content: "";
+        @apply absolute inset-0;
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0.8) 30%, rgba(0, 0, 0, 1) 60%);
+    }
+
+    .form{
+        @apply flex gap-4 flex-col;
+
+        input, textarea{
+            @apply w-full bg-[rgba(255,255,255,0.1)] px-4 py-3;
+            outline: none;
+            border: none;
+            backdrop-filter: blur(3px);
+        }
+        textarea{
+            @apply min-h-[12rem];
+        }
+
+        button{
+            @apply bg-lightblue text-black p-4 transition-all duration-300 mt-4;
+            @apply hover:bg-magenta hover:text-white;
+        }
+    }
+}

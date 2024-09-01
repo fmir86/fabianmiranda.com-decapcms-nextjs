@@ -1,6 +1,8 @@
 .main-header{
-    @apply w-full bg-darkgray py-5 px-4;
+    @apply w-full bg-darkgray py-5 px-6;
     @apply fixed md:relative z-10 md:z-0 top-0;
+    border-bottom: 1px solid;
+    border-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0, rgb(255 255 255 / 10%) 50%, rgba(255, 255, 255, 0) 100%) 1;
 
     &.open .container{
 
@@ -12,7 +14,7 @@
             .nav-panel{
                 @apply flex fixed w-full h-full right-0 top-0 z-10;
                 @apply opacity-0 translate-x-full;
-                background: linear-gradient(168deg, #430842 0%, #000 50%, #052e39 100%);
+                background: linear-gradient(338deg, #270327 0%, #000 50%, #052e39 100%);
 
                 ul{
                     @apply flex flex-col justify-center w-full;
@@ -64,7 +66,7 @@
                             @apply block md:hidden;
                             content: "";
                             border: 1px solid;
-                            border-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0, rgb(107 12 105) 50%, rgba(255, 255, 255, 0) 100%) 1;
+                            border-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0, rgb(255 255 255 / 20%) 50%, rgba(255, 255, 255, 0) 100%) 1;
                             margin-top: 2rem;
                         }
 
