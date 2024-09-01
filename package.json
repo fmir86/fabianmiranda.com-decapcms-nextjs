@@ -29,6 +29,7 @@
   "homepage": "https://github.com/fmir86/fabianmiranda.com-decapcms-nextjs#readme",
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@netlify/plugin-nextjs": "^5.7.0",
     "gsap": "^3.12.5",
     "next": "14.2.5",
     "react": "^18",
