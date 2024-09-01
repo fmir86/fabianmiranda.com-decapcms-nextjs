@@ -4,6 +4,6 @@
     @apply pt-[5.625rem] md:pt-0;
 
     main{
-        @apply grow;
+        @apply flex flex-col grow;
     }
 }

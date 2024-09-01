@@ -53,6 +53,18 @@
                             @apply w-14 sm:w-8;
                         }
                     }
+
+                    .social-icons{
+                        @apply bg-lightblue;
+                        @apply transition-all duration-300;
+
+                        &:hover{
+                            @apply bg-magenta;
+                        }                          
+
+
+                    }
+
                 }
             }
         }

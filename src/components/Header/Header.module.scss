@@ -12,7 +12,7 @@
             .nav-panel{
                 @apply flex fixed w-full h-full right-0 top-0 z-10;
                 @apply opacity-0 translate-x-full;
-                background: linear-gradient(168deg, rgb(0, 0, 0) 50%, rgb(5, 30, 36) 100%);
+                background: linear-gradient(168deg, #430842 0%, #000 50%, #052e39 100%);
 
                 ul{
                     @apply flex flex-col justify-center w-full;
@@ -59,6 +59,14 @@
                     li{
                         @apply inline-block mx-4 md:last:mr-0;
                         @apply my-4 md:my-0;
+
+                        &::after{
+                            @apply block md:hidden;
+                            content: "";
+                            border: 1px solid;
+                            border-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0, rgb(107 12 105) 50%, rgba(255, 255, 255, 0) 100%) 1;
+                            margin-top: 2rem;
+                        }
 
                         a{
                             @apply font-[200] text-lightblue relative;

@@ -17,5 +17,9 @@ body{
 .lightblue-cta{
     @apply text-black bg-lightblue px-6 py-4 block w-full sm:w-fit h-fit text-center;
     @apply mb-6 sm:mb-0;
+    @apply hover:bg-magenta hover:text-white transition-all duration-300;
+}
 
+.dark-glow-gradient{
+    background: linear-gradient(168deg, #430842 0%, #000 50%, #052e39 100%);
 }

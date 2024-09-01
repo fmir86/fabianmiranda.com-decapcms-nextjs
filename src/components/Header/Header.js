@@ -55,8 +55,8 @@ const Header = () => {
             <div className={`${styles['nav-panel']} navPanel`}>
               <ul>
                 <li><Link href="/about">About</Link></li>
-                <li><Link href="/about">Services</Link></li>
-                <li><Link href="/about">Portfolio</Link></li>
+                <li><Link href="/services">Services</Link></li>
+                <li><Link href="/portfolio">Portfolio</Link></li>
                 <li><Link href="/blog">Blog</Link></li>
               </ul>
             </div>

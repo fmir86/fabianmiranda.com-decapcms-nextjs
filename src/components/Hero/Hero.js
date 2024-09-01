@@ -26,10 +26,22 @@ const Hero = () => {
 
                             <div className='flex'>
                                 <Link href="https://www.linkedin.com/in/fmir86/" target='_blank'>
-                                    <Image src="/images/social-media/icon-li.svg" alt="My LinkedIn Profile" width={36} height={36}/>
+                                    <Image 
+                                        src="/images/social-media/icon-li.svg" 
+                                        alt="My LinkedIn Profile" 
+                                        width={36} 
+                                        height={36} 
+                                        className={styles['social-icons']}
+                                    />
                                 </Link>
                                 <Link href="https://github.com/fmir86" target='_blank'>
-                                    <Image src="/images/social-media/icon-github.svg" alt="My Github Profile" width={36} height={36}/>
+                                    <Image 
+                                        src="/images/social-media/icon-github.svg" 
+                                        alt="My Github Profile" 
+                                        width={36} 
+                                        height={36} 
+                                        className={styles['social-icons']}
+                                    />
                                 </Link>
                             </div>
                         </div>
