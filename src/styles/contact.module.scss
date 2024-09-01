@@ -24,25 +24,35 @@
         input, textarea, .custom-select{
             @apply w-full bg-[rgba(255,255,255,0.1)] px-4 py-3;
             outline: none;
-            border: none;
             backdrop-filter: blur(3px);
+            @apply border-double border-2 border-transparent;
+
+            &:focus{
+                @apply border-double border-2 border-lightblue;
+            }
         }
         textarea{
             @apply min-h-[12rem];
         }
 
         .custom-select{
-            @apply relative inline-block;
+            @apply relative inline-block p-0;
 
             select{
-                @apply bg-transparent relative z-10;
+                @apply bg-transparent relative z-10 px-4 py-3;
                 appearance: none; /* Removes the default arrow */
                 -webkit-appearance: none;
                 -moz-appearance: none;
                 width: 100%;
+                height: 100%;
                 outline: none;
-                border: none;
                 cursor: pointer;
+                @apply border-double border-2 border-transparent;
+
+                &:focus{
+                    @apply border-double border-2 border-lightblue;
+                }
+    
             }
 
             .custom-arrow{
@@ -53,6 +63,9 @@
         button{
             @apply bg-lightblue text-black p-4 transition-all duration-300 mt-4;
             @apply hover:bg-magenta hover:text-white;
+            @apply focus:bg-magenta focus:text-white;
+            @apply outline-none;
+            
         }
     }
 }
