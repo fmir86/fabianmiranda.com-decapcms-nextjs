@@ -25,10 +25,10 @@ const Contact = () => {
         'Content-Type': 'application/x-www-form-urlencoded'
       }
     }).then(() => {
-        showMessage('Success! Will reach back to you soon.');
+        console.log('Success! Will reach back to you soon.');
         event.target.reset();
     }).catch(error => {
-        showMessage(`An error has occurred [${error}].<br> Try again later.`);
+        console.log(`An error has occurred [${error}].<br> Try again later.`);
         event.target.reset();
     });
 }
