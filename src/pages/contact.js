@@ -15,14 +15,14 @@ const Contact = () => {
 
   const successMsg = (
     <>
-      <h3 className="text-2xl fon-thin">Thank you for your message.</h3>
+      <h3 className="text-2xl fon-thin uppercase text-lightblue mb-4">Thank you for your message.</h3>
       <p className="text-base fon-thin">I will get back to you as soon as possible.</p>
     </>
   );
-  
+
   const errorMsg = (
     <>
-      <h3 className="text-2xl fon-thin">An Error Happened.</h3>
+      <h3 className="text-2xl fon-thin uppercase text-magenta mb-4">An Error Happened.</h3>
       <p className="text-base fon-thin">There was an error sending your message. Please try again later.</p>
     </>
   );
@@ -37,17 +37,15 @@ const Contact = () => {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams(formData).toString(),
-    })
-    .then(() => {
+    }).then(() => {
        console.log("Form successfully submitted")
        setPopupContent(successMsg)
-    })
-    .catch((error) => {
+       myForm.reset();
+       window.scrollTo(0, 0, 'smooth');
+    }).catch((error) => {
       setPopupContent(errorMsg)
     })
   }  
-
-
 
   return (
     <Layout>
