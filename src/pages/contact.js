@@ -2,6 +2,8 @@ import Head from "next/head"
 import Layout from "../components/Layout/Layout";
 import styles from '../styles/contact.module.scss'
 import Image from "next/image";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 
 const Contact = () => {
@@ -17,8 +19,9 @@ const Contact = () => {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams(formData).toString(),
     })
-    .then(() => console.log("Form successfully submitted"))
-    
+    .then(() => {
+       console.log("Form successfully submitted")
+    })
     .catch((error) => alert(error));
   }  
 
@@ -60,8 +63,18 @@ const Contact = () => {
 
               <input type="email" id="email" name="email" placeholder="Email" required/>
 
-              <textarea id="message" name="message" placeholder="Message" required>
-              </textarea>
+              <div class={styles['custom-select']}>
+                <select id="subject" name="subject" required>
+                  <option value="" disabled selected>I want to talk about...</option>
+                  <option value="Web Development">Web Development</option>
+                  <option value="Consulting">Consulting</option>
+                  <option value="Digital Production">Digital Production</option>
+                  <option value="Other">Other</option>
+                </select>
+                <FontAwesomeIcon icon={faChevronDown} className={styles['custom-arrow']} />
+              </div>
+
+              <textarea id="message" name="message" placeholder="Message" required></textarea>
 
               <button type="submit">Submit</button>
             </form>   

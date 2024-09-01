@@ -18,7 +18,7 @@ const Hero = () => {
                
                     <div className={styles['cta-social-row']}>
 
-                        <Link className='lightblue-cta' href="/">GET IN TOUCH</Link>
+                        <Link className='lightblue-cta' href="/contact">GET IN TOUCH</Link>
 
                         <div className={styles['social-block']}>
                             

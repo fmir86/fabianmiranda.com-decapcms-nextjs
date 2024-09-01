@@ -21,7 +21,7 @@
     .form{
         @apply flex gap-4 flex-col;
 
-        input, textarea{
+        input, textarea, .custom-select{
             @apply w-full bg-[rgba(255,255,255,0.1)] px-4 py-3;
             outline: none;
             border: none;
@@ -29,6 +29,25 @@
         }
         textarea{
             @apply min-h-[12rem];
+        }
+
+        .custom-select{
+            @apply relative inline-block;
+
+            select{
+                @apply bg-transparent relative z-10;
+                appearance: none; /* Removes the default arrow */
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                width: 100%;
+                outline: none;
+                border: none;
+                cursor: pointer;
+            }
+
+            .custom-arrow{
+                @apply absolute top-[38%] right-5 text-lightblue;
+            }
         }
 
         button{
