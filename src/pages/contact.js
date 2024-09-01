@@ -9,33 +9,17 @@ const Contact = () => {
   const submitForm = (event)=> {
     event.preventDefault()
 
+    const myForm = event.target;
+    const formData = new FormData(myForm);
+
     fetch("/", {
       method: "POST",
-      body: encode({ 'form-name': 'contact', 'name': 'pedro' }),
-    }).then(() => {
-        console.log('Success! Will reach back to you soon.')
-        event.target.reset();
-    }).catch(error => {
-        console.log(`An error has ocurred [${error}].<br> Try again later.`)
-        event.target.reset();
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString(),
     })
-}  
-
-const encode = (data) => {
-  const formData = new FormData()
-  
-  Object.keys(data).forEach(key => {
-      if (key === 'files') {
-        for (const file of data[key]) {
-          formData.append(key, file, file.name)
-        }
-      } else {
-        formData.append(key, data[key])
-      }
-  })
-  
-  return formData
-}
+    .then(() => console.log("Form successfully submitted"))
+    .catch((error) => alert(error));
+  }  
 
 
 
