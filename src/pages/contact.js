@@ -6,31 +6,16 @@ import Image from "next/image";
 
 const Contact = () => {
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     
-    const myForm = event.target;
-    const formData = new FormData(myForm);
-    
-    // Convert FormData to a plain object
-    const formDataObj = Object.fromEntries(formData.entries());
-    
-    // Add the form-name key
-    formDataObj['form-name'] = 'contact-form';
-    
-    fetch("/", {
-      method: "POST",
-      body: new URLSearchParams(formDataObj).toString(),
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      }
-    }).then(() => {
-        console.log('Success! Will reach back to you soon.');
-        event.target.reset();
-    }).catch(error => {
-        console.log(`An error has occurred [${error}].<br> Try again later.`);
-        event.target.reset();
+    const formData = new FormData(event.target);
+    await fetch('/__forms.html', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: new URLSearchParams(formData).toString()
     });
+    
 }
 
   return (
@@ -69,7 +54,8 @@ const Contact = () => {
 
               <input type="email" id="email" name="email" placeholder="Email" required/>
 
-              <textarea id="message" name="message" placeholder="Message" required/>
+              <textarea id="message" name="message" placeholder="Message" required>
+              </textarea>
 
               <button type="submit">Submit</button>
             </form>   
