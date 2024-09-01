@@ -10,12 +10,18 @@ const Contact = () => {
     event.preventDefault();
     
     const formData = new FormData(event.target);
-    await fetch('/__forms.html', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-        body: new URLSearchParams(formData).toString()
-    });
     
+    fetch("/", {
+      method: "POST",
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+      body: new URLSearchParams(formData).toString()
+    }).then(() => {
+        console.log('Success! Will reach back to you soon.');
+        event.target.reset();
+    }).catch(error => {
+        console.log(`An error has occurred [${error}].<br> Try again later.`);
+        event.target.reset();
+    });
 }
 
   return (
