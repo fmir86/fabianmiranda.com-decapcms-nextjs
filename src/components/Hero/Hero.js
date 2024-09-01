@@ -51,7 +51,7 @@ const Hero = () => {
 
                 <div className={styles['right-block']}>
                     <div className={styles['portrait']}>
-                        <Image src="/images/home-hero/textures.png" alt="" width={500} height={500} className={styles['glow-and-textures']}/>
+                        <Image src="/images/home-hero/background-glow.png" alt="" width={500} height={500} className={styles['glow-and-textures']}/>
                         <Image src="/images/home-hero/hero-portrait.png" alt="Portrait of Fabián Miranda" width={796} height={615} className='relative'/>
                     </div>
                 </div>
