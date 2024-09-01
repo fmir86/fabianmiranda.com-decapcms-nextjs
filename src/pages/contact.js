@@ -6,23 +6,16 @@ import Image from "next/image";
 
 const Contact = () => {
 
-  const handleSubmit = async (event) => {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
-    
     const formData = new FormData(event.target);
-    
-    fetch("/", {
-      method: "POST",
-      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-      body: new URLSearchParams(formData).toString()
-    }).then(() => {
-        console.log('Success! Will reach back to you soon.');
-        event.target.reset();
-    }).catch(error => {
-        console.log(`An error has occurred [${error}].<br> Try again later.`);
-        event.target.reset();
+    await fetch('/__forms.html', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: new URLSearchParams(formData).toString()
     });
-}
+    // Success & error handling should come here
+  };
 
   return (
     <Layout>
@@ -43,15 +36,11 @@ const Contact = () => {
 
             <form 
               className={styles['form']} 
-              onSubmit={handleSubmit}
-              data-netlify="true"
-              data-netlify-honeypot="bot-field"
-              name="contact-form"
-              method="post"
-              action="#"
+              onSubmit={handleFormSubmit}
+              name="contactme"
             >                
               {/* You still need to add the hidden input with the form name to your JSX form */}
-              <input type="hidden" name="form-name" value="contact-form" />
+              <input type="hidden" name="form-name" value="contactme" />
 
               <div className="flex flex-col md:flex-row gap-4">
                 <input type="text" id="firstname" name="firstname" placeholder="Firstame" required/>
