@@ -73,6 +73,7 @@
                         a{
                             @apply font-[200] text-lightblue relative;
                             @apply text-xl  md:text-base;
+                            @apply transition-all duration-300;
 
                             &::after{
                                 content: "";
@@ -80,12 +81,20 @@
                                 @apply block absolute w-0 h-[1px] bg-lightblue bottom-[-1px] left-0;
                             }
 
-                            &:hover{
+                            &:hover, &:focus{
                                 &::after{
                                     content: "";
                                     @apply block absolute w-full h-[1px] bg-lightblue bottom-[-1px] left-0;
                                 }
                             }
+                            &.active{
+                                @apply text-magenta;
+                                &::after{
+                                    content: "";
+                                    @apply block absolute w-full h-[1px] bg-magenta bottom-[-1px] left-0;
+                                }
+                            }
+                            
                         }
                     }
                 }

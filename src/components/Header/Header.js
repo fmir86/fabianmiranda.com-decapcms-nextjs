@@ -2,15 +2,17 @@ import Image from "next/image";
 import styles from "./Header.module.scss";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
+import { useRouter } from "next/router";
 import gsap from "gsap";
 
 const Header = () => {
 
+  const router = useRouter();
   const headerWrapper = useRef(null);
   const q = gsap.utils.selector(headerWrapper);
+  const isActive = (path) => router.pathname === path;
 
-
-  const toggleMobileNav = (e) => {
+  const toggleMobileNav = () => {
     if(!(headerWrapper.current.getAttribute('aria-expanded') === 'true')){
       headerWrapper.current.setAttribute('aria-expanded', 'true');
       headerWrapper.current.classList.add(styles['open']);
@@ -21,12 +23,19 @@ const Header = () => {
       tl.to(q('.navPanel ul li'), { duration: 0.3, x: '0', opacity: 1, ease:'expo.out', stagger: 0.1 }, '-=0.05');
       document.body.classList.add('no-scroll');
     }else{
+
       document.body.classList.remove('no-scroll');
       const tl = gsap.timeline();
-      tl.to(q('.navPanel ul li'), { duration: 0.2, x: '20%', opacity: 0, ease:'expo.in', stagger: 0.05 }, '-=0.05');
+
+      tl.to(q('.navPanel ul li'), { duration: 0.2, x: '20%', opacity: 0, ease:'expo.in', stagger: 0.05, onComplete:()=>{
+        document.querySelectorAll('.navPanel ul li').forEach(item => item.removeAttribute('style'));
+      }}, '-=0.05');
+
       tl.to(q('.navPanel'), { duration: 0.2, x: '100%', opacity: 0, ease:'expo.out', onComplete: () => {
-        headerWrapper.current.classList.remove(styles['open']);
-        headerWrapper.current.setAttribute('aria-expanded', 'false');
+        if(headerWrapper.current){
+          headerWrapper.current.classList.remove(styles['open']);
+          headerWrapper.current.setAttribute('aria-expanded', 'false');
+        }
         q('.navPanel')[0].removeAttribute('style')
       }}, '-=0.0');
     }
@@ -35,13 +44,28 @@ const Header = () => {
   useEffect(() => {
     const mediaQuery = window.matchMedia('(min-width: 768px)');
 
+    // Remove the open class and aria-expanded attribute when the screen is resized
     const handleMediaChange = (e) => {
-      if (e.matches) {
+      if (e.matches && headerWrapper.current) {
         headerWrapper.current.classList.remove(styles['open']);
         headerWrapper.current.removeAttribute('aria-expanded');
       }
     }
     mediaQuery.addEventListener('change', handleMediaChange);
+
+    // Close mobile nav when user clicks the same page
+    headerWrapper.current.querySelectorAll('a').forEach(item => {
+      item.addEventListener('click', (e) => {
+        console.log(e.currentTarget.getAttribute('href'), router.pathname);
+        if( 
+          e.currentTarget.getAttribute('href') === router.pathname && 
+          headerWrapper.current.getAttribute('aria-expanded')==='true'
+        ){
+            toggleMobileNav();
+        }
+      });
+    });
+    
   }, []);
 
   return (
@@ -53,11 +77,13 @@ const Header = () => {
         <nav>
             <div className={`${styles['nav-panel']} navPanel`}>
               <ul>
-                <li><Link href="/about">About</Link></li>
-                <li><Link href="/services">Services</Link></li>
-                <li><Link href="/portfolio">Portfolio</Link></li>
-                <li><Link href="/blog">Blog</Link></li>
-                <li><Link href="/contact">Contact</Link></li>
+                <li>
+                  <Link href="/about" className={isActive('/about') ? styles.active : ''}>About</Link>
+                </li>
+                <li><Link href="/services" className={isActive('/services') ? styles.active : ''}>Services</Link></li>
+                <li><Link href="/portfolio" className={isActive('/portfolio') ? styles.active : ''}>Portfolio</Link></li>
+                <li><Link href="/blog" className={isActive('/blog') ? styles.active : ''}>Blog</Link></li>
+                <li><Link href="/contact" className={isActive('/contact') ? styles.active : ''}>Contact</Link></li>
               </ul>
             </div>
 
