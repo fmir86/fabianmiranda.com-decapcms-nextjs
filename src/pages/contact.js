@@ -21,6 +21,23 @@ const Contact = () => {
     })
 }  
 
+const encode = (data) => {
+  const formData = new FormData()
+  
+  Object.keys(data).forEach(key => {
+      if (key === 'files') {
+        for (const file of data[key]) {
+          formData.append(key, file, file.name)
+        }
+      } else {
+        formData.append(key, data[key])
+      }
+  })
+  
+  return formData
+}
+
+
 
   return (
     <Layout>
