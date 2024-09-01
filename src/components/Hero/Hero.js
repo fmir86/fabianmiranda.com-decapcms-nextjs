@@ -2,6 +2,7 @@ import Link from 'next/link';
 import styles from './Hero.module.scss';
 import Image from 'next/image';
 
+
 const Hero = () => {
     return (
         <div className={styles['hero']}>
