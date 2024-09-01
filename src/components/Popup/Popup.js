@@ -16,10 +16,12 @@ const Popup = ({content, onClose}) => {
         tl.to( q('.modal'), {duration: 0.5, scale:0.9, opacity: 0, ease: 'power3.out'});
         tl.to( q('.overlay'), {duration: 0.5, opacity: 0, ease: 'power3.out', onComplete:()=>{
             onClose();
+            document.body.classList.remove('no-scroll');
         }}, '-=0.4');
     }
 
     useEffect(() => {
+        document.body.classList.add('no-scroll');
         const tl = gsap.timeline();
         tl.from(q('.overlay'), {duration: 0.5, opacity: 0, ease: 'power3.out'})
         tl.from(q('.modal'), {duration: 0.5, scale:0.9, opacity: 0, ease: 'power3.out'}, '-=0.4')

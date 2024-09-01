@@ -12,6 +12,10 @@ body{
     p{
         @apply text-base mb-4 sm:mb-8;
     }
+
+    &.no-scroll{
+        @apply overflow-hidden h-[100vh];
+    }
 }
 
 .magenta{
