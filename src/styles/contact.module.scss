@@ -1,7 +1,7 @@
 .page-wrapper{
     
     @apply relative w-full px-6 flex flex-col grow bg-no-repeat bg-left pb-6;
-    background-image: url('/images/laptop-bg.jpg');
+    background-image: url('/images/bg-network.jpg');
     background-size: auto 100%;
 
     p{
@@ -9,13 +9,18 @@
     }
 
     .main-img{
-        @apply max-w-[18rem] md:max-w-none;
+        @apply w-full md:max-w-none;
     }
     
     &::before{
         content: "";
         @apply absolute inset-0;
-        background: linear-gradient(90deg, rgba(0, 0, 0, 0.8) 30%, rgba(0, 0, 0, 1) 60%);
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 30%, rgba(0, 0, 0, 1) 60%);
+
+        @media screen and (min-width: 768px){
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.6) 30%, rgba(0, 0, 0, 1) 60%);
+        }
+
     }
 
     .form{
@@ -24,7 +29,7 @@
         input, textarea, .custom-select{
             @apply w-full bg-[rgba(255,255,255,0.1)] px-4 py-3;
             outline: none;
-            backdrop-filter: blur(3px);
+            backdrop-filter: blur(6px);
             @apply border-double border-2 border-transparent;
 
             &:focus{

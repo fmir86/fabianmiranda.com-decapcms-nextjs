@@ -101,7 +101,7 @@ const Contact = () => {
           </div>        
 
           <div className="col-span-6 flex justify-center items-center order-1 md:order-2">
-            <Image className={styles['main-img']} src={'/images/cyber-david.png'} width={435} height={513} alt="A futuristic version of Michelangelo's David" />
+            <Image className={styles['main-img']} src={'/images/encounter.png'} width={435} height={513} alt="" />
           </div>
 
           </div>
