@@ -1,0 +1,62 @@
+.main-wrapper{
+
+    @apply  px-6 py-20 w-full;  
+
+    h2{
+        @apply text-lightblue mb-12;
+    }
+
+    .block{
+
+        @apply flex flex-col max-w-7xl mx-auto;
+
+        .boxes-container{
+            @apply flex flex-col lg:flex-row gap-8;
+
+            .box{
+                @apply relative flex flex-col justify-evenly;
+                @apply border border-trans-white w-full p-6 ; 
+                background: linear-gradient(200deg, rgba(255, 255, 255, 0.1) 0%, transparent 80%);
+
+                &::before{
+                    content:"";
+                    @apply absolute top-0 left-0 w-full h-full;
+                    background-image: 
+                    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), 
+                    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+                    background-size: 30px 30px; /* Adjust grid cell size */
+                    background-position: center;
+                    pointer-events: none;
+                  
+                }
+
+                h3{
+                    @apply text-center text-3xl font-[300] text-lightblue;
+                }
+
+                .icon{
+                    @apply w-20 h-20 mb-4 mx-auto ;
+                }
+
+                ul{
+                    @apply pl-[1.5rem] mb-6;
+                    li{
+                        @apply relative;
+
+                        &::before{
+                            content:"◼";
+                            @apply absolute left-[-1.5rem] inline-block mr-2 text-lightblue;
+                            
+                        }
+                    }
+                }
+
+                :global(.lightblue-cta){
+                    display: block;
+                    @apply w-full text-center py-2 px-6 mt-8 ;
+                    
+                }
+            }
+        }
+    }
+}
