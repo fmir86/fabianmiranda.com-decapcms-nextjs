@@ -1,0 +1,47 @@
+.wrapper{
+    @apply w-full px-6;
+    background: linear-gradient(-5deg, rgb(0, 0, 0) 70%, rgba(5, 30, 36, 0.7) 100%);
+
+    .container{
+        @apply w-full max-w-7xl mx-auto;
+        @apply flex flex-col-reverse sm:flex-row justify-center;
+
+        .left-block{
+
+            @apply w-full md:w-1/2 flex flex-col justify-center;
+            @apply py-0 pb-10 sm:py-20;
+            @apply text-center sm:text-left;
+
+            p{
+                @apply text-[1rem] text-white font-[200];
+                @apply mb-6 sm:mb-12;
+            }
+        }
+
+        .right-block{
+
+            @apply w-full md:w-1/2 flex justify-center items-center;
+            @apply p-10 pt-6 sm:p-0 sm:pt-8;
+
+            .glow-and-textures{
+                @apply absolute top-0 left-0 w-full h-full saturate-100;
+            }
+
+            .portrait{
+                @apply relative rounded-b-[5rem] lg:rounded-none overflow-hidden;
+                @apply w-full sm:w-auto aspect-square sm:aspect-auto;
+                @apply max-w-[16rem] sm:max-w-none;
+                @apply border-2 border-white sm:border-0;
+                @apply rounded-[20rem] sm:rounded-b-[15rem] lg:rounded-none;
+
+                img{
+                    @apply h-full object-cover;
+
+                    &.picture{
+                        @apply saturate-0
+                    }
+                }
+            }
+        }
+    }
+}

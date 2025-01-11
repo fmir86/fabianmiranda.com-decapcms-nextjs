@@ -11,8 +11,14 @@ const Hero = () => {
                 <div className={styles['left-block']}>
                     <h1 className={styles.title}>
                         I am Fabián Miranda, <br/>
-                        <span>
+                        <span className='tag'>
                             <em className='magenta'>Creative</em> <em className='lightblue'>Technologist</em>
+                        </span>
+                        <span className='tag off'>
+                            <em className='magenta'>Full-Stack</em> <em className='lightblue'>Developer</em>
+                        </span>
+                        <span className='tag off'>
+                            <em className='magenta'>Tech/AI</em> <em className='lightblue'>Consultant</em>
                         </span>
                     </h1>
                     <p>Discover how I can develop scalable & performant applications, conceptualize efficient solutions, and establish smart workflows. With expertise in training and shaping tech teams, I can help your organization operate smarter and faster. <br/><b>Allow me to help you succeed</b>.</p>
@@ -31,7 +37,7 @@ const Hero = () => {
                                         src="/images/social-media/icon-li.svg" 
                                         alt="My LinkedIn Profile" 
                                         width={36} 
-                                        height={36} 
+                                        height={36}
                                         className={styles['social-icons']}
                                     />
                                 </Link>

@@ -26,6 +26,13 @@
                         @apply not-italic;
                     }
                 }
+
+                :global(.tag){
+
+                    &:global(.off){
+                        @apply hidden; 
+                    }
+                }
             }
 
             p{

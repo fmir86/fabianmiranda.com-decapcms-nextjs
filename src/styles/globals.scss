@@ -11,7 +11,7 @@ body{
 
     h2{
         @apply text-3xl font-[200] uppercase sm:text-4xl xl:text-5xl mb-6 mx-auto;
-
+        @apply text-lightblue mb-12;
     }
 
     h3{
