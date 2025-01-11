@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       colors: {
         "darkgray": "#1d1d1d",
+        "darkgray-trans": "rgb(21 21 21 / 0.90)",
         "lightblue": '#26d6fc',
         "magenta": '#d648d0',
         "trans-white": "rgba(255,255,255,0.1)"

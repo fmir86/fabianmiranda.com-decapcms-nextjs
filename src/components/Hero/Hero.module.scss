@@ -1,5 +1,5 @@
 .hero{
-    @apply w-full px-6;
+    @apply w-full pl-6;
     background: linear-gradient(168deg, rgb(0, 0, 0) 50%, rgb(5, 30, 36) 100%);
 
     .wrapper{
@@ -71,7 +71,13 @@
         .right-block{
 
             @apply w-full md:w-1/2 flex justify-center items-center lg:items-end;
-            @apply p-10 sm:p-0;
+            @apply p-10 pt-6 sm:p-0 sm:pt-8;
+
+            .david{
+                @apply h-full;
+                object-fit: cover;
+                object-position: left;
+            }
 
             .glow-and-textures{
                 @apply absolute top-0 left-0 w-full h-full;

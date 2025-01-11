@@ -50,10 +50,12 @@ const Hero = () => {
                 </div>
 
                 <div className={styles['right-block']}>
-                    <div className={styles['portrait']}>
-                        <Image src="/images/home-hero/background-glow.png" alt="" width={500} height={500} className={styles['glow-and-textures']}/>
-                        <Image src="/images/home-hero/portrait.png" alt="Portrait of Fabián Miranda" width={796} height={615} className='relative'/>
-                    </div>
+                <Image 
+                    src="/images/home-hero/cyber-david.png" alt="Portrait of Fabián Miranda" 
+                    width={796} 
+                    height={615} 
+                    className={styles["david"]}
+                />
                 </div>
             </div>
         </div>

@@ -1,6 +1,9 @@
 .main-header{
-    @apply w-full bg-darkgray py-5 px-6;
-    @apply fixed md:relative z-10 md:z-0 top-0;
+    @apply w-full h-[6rem] bg-darkgray-trans px-6;
+    @apply fixed z-10 top-0;
+    backdrop-filter: blur(15px);
+
+
     border-bottom: 1px solid;
     border-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0, rgb(255 255 255 / 10%) 50%, rgba(255, 255, 255, 0) 100%) 1;
 
@@ -12,7 +15,7 @@
 
         nav{
             .nav-panel{
-                @apply flex fixed w-full h-full right-0 top-0 z-10;
+                @apply flex fixed w-full h-screen right-0 top-0 z-10;
                 @apply opacity-0 translate-x-full;
                 background: linear-gradient(338deg, #270327 0%, #000 50%, #052e39 100%);
 
@@ -48,6 +51,7 @@
 
     .container{
         @apply flex items-center justify-between max-w-7xl mx-auto;
+        @apply h-full;
     
         nav{
 
@@ -65,7 +69,7 @@
                         &::after{
                             @apply block md:hidden;
                             content: "";
-                            border: 1px solid;
+                            border: 0.05rem solid;
                             border-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0, rgb(255 255 255 / 20%) 50%, rgba(255, 255, 255, 0) 100%) 1;
                             margin-top: 2rem;
                         }
@@ -102,20 +106,20 @@
 
             .close-btn {
                 @apply block md:hidden;
-                @apply w-[2.6rem] h-[2.4rem] relative mx-auto transform rotate-0 cursor-pointer;
+                @apply w-[2.6rem] h-[2.1rem] relative mx-auto transform rotate-0 cursor-pointer;
                 @apply transition ease-in-out duration-500;
             
                 span {
-                    @apply block absolute h-[0.35rem] w-full bg-lightblue opacity-100 left-0 transform rotate-0 transition-all duration-200 ease-in-out;
+                    @apply block absolute h-[0.10rem] w-full bg-lightblue opacity-100 left-0 transform rotate-0 transition-all duration-200 ease-in-out;
                 
                     &:nth-child(1) {
                         top: 0;
                     }
                     &:nth-child(2), &:nth-child(3) {
-                        top: 38%;
+                        top: 49%;
                     }
                     &:nth-child(4) {
-                        top: 76%;
+                        bottom: 0%;
                     }
                 }
             }     
