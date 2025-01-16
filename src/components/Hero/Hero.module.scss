@@ -1,5 +1,5 @@
 .hero{
-    @apply w-full pl-6;
+    @apply w-full px-6 sm:pl-6 pr-0;
     background: linear-gradient(168deg, rgb(0, 0, 0) 50%, rgb(5, 30, 36) 100%);
 
     .wrapper{
@@ -14,7 +14,7 @@
             @apply text-center sm:text-left;
         
             h1{
-                @apply text-white font-bold leading-[1.1];
+                @apply text-white font-bold leading-[1.1] text-left;
                 @apply text-2xl sm:text-3xl xl:text-4xl;
                 @apply mb-4 sm:mb-8;
 
@@ -27,7 +27,7 @@
                         @apply hidden first:block;
     
                         em{
-                            @apply not-italic;
+                            @apply not-italic whitespace-nowrap;
                         }
 
                         span{
@@ -38,7 +38,7 @@
             }
 
             p{
-                @apply text-[1rem] text-white font-[200];
+                @apply text-[1rem] text-white font-[200] text-left;
                 @apply mb-6 sm:mb-12;
             }
 
