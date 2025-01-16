@@ -18,19 +18,21 @@
                 @apply text-2xl sm:text-3xl xl:text-4xl;
                 @apply mb-4 sm:mb-8;
 
-                span{
-                    @apply inline-block;
-                    @apply text-3xl sm:text-4xl xl:text-5xl;
+                .tags-container{
+                    @apply block relative mb-10 ;
 
-                    em{
-                        @apply not-italic;
-                    }
-                }
+                    .tag{
+                        @apply absolute top-0 left-0;
+                        @apply text-3xl sm:text-4xl xl:text-5xl;
+                        @apply hidden first:block;
+    
+                        em{
+                            @apply not-italic;
+                        }
 
-                :global(.tag){
-
-                    &:global(.off){
-                        @apply hidden; 
+                        span{
+                            @apply inline-block;
+                        }
                     }
                 }
             }

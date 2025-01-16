@@ -27,9 +27,9 @@
         @apply flex gap-4 flex-col;
 
         input, textarea, .custom-select{
-            @apply w-full bg-[rgba(255,255,255,0.1)] px-4 py-3;
+            @apply w-full bg-[rgba(35,35,35,0.8)] px-4 py-3;
             outline: none;
-            backdrop-filter: blur(6px);
+            backdrop-filter: blur(2px);
             @apply border-double border-2 border-transparent;
 
             &:focus{
