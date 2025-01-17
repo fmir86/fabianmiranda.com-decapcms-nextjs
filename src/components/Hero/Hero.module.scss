@@ -1,6 +1,6 @@
 .hero{
-    @apply w-full px-6 sm:pl-6 pr-0;
-    background: linear-gradient(168deg, rgb(0, 0, 0) 50%, rgb(5, 30, 36) 100%);
+    @apply w-full px-6 sm:pl-6 sm:pr-0;
+    background: linear-gradient(168deg, rgb(0, 0, 0) 50%, rgb(5, 30, 36) 80%,  rgb(9, 59, 72) 100%);
 
     .wrapper{
 
@@ -19,7 +19,8 @@
                 @apply mb-4 sm:mb-8;
 
                 .tags-container{
-                    @apply block relative mb-10 ;
+                    @apply block relative mb-[1.5rem] xs:mb-[0.5rem] h-[4rem] xs:h-[2rem] w-[80%];
+                    
 
                     .tag{
                         @apply absolute top-0 left-0;

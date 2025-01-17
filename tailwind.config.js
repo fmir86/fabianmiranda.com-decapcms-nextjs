@@ -13,8 +13,10 @@ module.exports = {
         "lightblue": '#26d6fc',
         "magenta": '#d648d0',
         "trans-white": "rgba(255,255,255,0.1)"
-
-      }
+      },
+      screens: {
+        'xs': '460px',
+      },
     },
   },
   plugins: [],

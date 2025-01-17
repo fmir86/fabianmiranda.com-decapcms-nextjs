@@ -9,14 +9,38 @@ import SplitText from '../../libs/SplitText';
 const Hero = () => {
 
     const tagsContainer = useRef(null);
+    const q = gsap.utils.selector(tagsContainer);
+    const tl = gsap.timeline({repeat: -1});
+    const staggerProps = {each: 0.025, amount: 1.5, from: "random"}
+
 
     useEffect(() => {
         handleTagAnimation();
     }, []);
 
-    const handleTagAnimation = () => {
+    const animatePhrase = (elem, offset) => {
 
-        const q = gsap.utils.selector(tagsContainer);
+        tl.set(elem, {display:'block'}, `-=${offset}`);
+        tl.set( elem.querySelectorAll(`.letter`), { opacity:0, filter: 'blur(10px)', y:() => gsap.utils.random([-15, 15]) },`-=${offset}` )
+        tl.to( elem.querySelectorAll(`.letter`), {
+            duration:1, 
+            ease:'expo.out', 
+            opacity:1, 
+            y: 0, 
+            filter: 'blur(0px)',  
+            stagger:staggerProps,
+        }, `-=${offset}`)
+        tl.to( elem.querySelectorAll(`.letter`), {
+            duration:.7, 
+            ease:'expo.in', 
+            opacity:0,
+            y:() => gsap.utils.random([-15, 15]), 
+            filter: 'blur(10px)',  
+            stagger:staggerProps, 
+        }, `+=4`)
+    }
+
+    const handleTagAnimation = () => {
 
         const splitter = new SplitText(tagsContainer.current, {
             selector: '.tag em',
@@ -25,64 +49,9 @@ const Hero = () => {
         });
         splitter.split();
 
-        const tl = gsap.timeline();
-
-        tl
-            .to( q('.tag-1 .letter'), {
-                duration:.7, 
-                ease:'expo.in', 
-                opacity:0, 
-                y:() => gsap.utils.random([-15, 15]), 
-                filter: 'blur(10px)',  
-                stagger: {
-                    each: 0.05, // Base stagger delay
-                    amount: 1, // Total duration of staggered animations
-                    from: "random", // Apply animations in random order
-                },
-            }, '+=4')
-            .set( q('.tag-2'), {display:'block'}, '-=0.5')
-            .from( q('.tag-2 .letter'), {
-                duration:.7, 
-                ease:'expo.out', 
-                opacity:0, 
-                y:() => gsap.utils.random([-15, 15]), 
-                filter: 'blur(10px)',  
-                stagger: {
-                    each: 0.05, // Base stagger delay
-                    amount: 1, // Total duration of staggered animations
-                    from: "random", // Apply animations in random order
-                }
-            }, '-=0.5')
-            .to( q('.tag-2 .letter'), {
-                duration:.7, 
-                ease:'expo.in', 
-                opacity:0, 
-                y:() => gsap.utils.random([-15, 15]), 
-                filter: 'blur(10px)',  
-                stagger: {
-                    each: 0.05, // Base stagger delay
-                    amount: 1, // Total duration of staggered animations
-                    from: "random", // Apply animations in random order
-                },
-            }, '+=4')
-            .set( q('.tag-3'), {display:'block'}, '-=0.5')
-            .from( q('.tag-3 .letter'), {
-                duration:.7, 
-                ease:'expo.out', 
-                opacity:0, 
-                y:() => gsap.utils.random([-15, 15]), 
-                filter: 'blur(10px)',  
-                stagger: {
-                    each: 0.05, // Base stagger delay
-                    amount: 1, // Total duration of staggered animations
-                    from: "random", // Apply animations in random order
-                }
-            }, '-=0.5')
-
-
-          
-
-        
+        tagsContainer.current.querySelectorAll('.tag').forEach((tag, index) => {
+            animatePhrase(tag, (index > 0) ? 0.7 : 0);
+        })
     }
 
     return (
