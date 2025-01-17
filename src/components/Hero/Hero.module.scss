@@ -19,13 +19,13 @@
                 @apply mb-4 sm:mb-8;
 
                 .tags-container{
-                    @apply block relative mb-[1.5rem] xs:mb-[0.5rem] h-[4rem] xs:h-[2rem] w-[80%] xs:w-full;
+                    @apply block relative mb-[3rem];
                     
 
                     .tag{
                         @apply absolute top-0 left-0;
-                        @apply text-3xl sm:text-4xl xl:text-5xl;
-                        @apply hidden first:block;
+                        @apply text-[1.6rem] xs:text-3xl sm:text-4xl xl:text-5xl;
+                        @apply hidden first:block whitespace-nowrap;
     
                         em{
                             @apply not-italic whitespace-nowrap;
