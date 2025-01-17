@@ -19,7 +19,7 @@
                 @apply mb-4 sm:mb-8;
 
                 .tags-container{
-                    @apply block relative mb-[1.5rem] xs:mb-[0.5rem] h-[4rem] xs:h-[2rem] w-[80%];
+                    @apply block relative mb-[1.5rem] xs:mb-[0.5rem] h-[4rem] xs:h-[2rem] w-[80%] xs:w-full;
                     
 
                     .tag{
