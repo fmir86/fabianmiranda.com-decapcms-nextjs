@@ -4,6 +4,7 @@ import { attributes, react as HomeContent } from '../../content/home.md'
 import Hero from "../components/Hero/Hero";
 import ThreeColumns from "../components/ThreeColumns/ThreeColumns";
 import AboutMe from "../components/AboutMe/AboutMe";
+import WorkSamples from "../components/WorkSamples/WorkSamples";
 
 const Home = () => {
 
@@ -23,6 +24,8 @@ const Home = () => {
         <ThreeColumns />
 
         <AboutMe />
+
+        <WorkSamples />
 
       </div>
     </Layout>

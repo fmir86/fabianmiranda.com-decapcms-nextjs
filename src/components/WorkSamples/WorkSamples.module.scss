@@ -1,0 +1,175 @@
+.workSamplesSection {
+  @apply py-16 px-6 w-full;
+  background: linear-gradient(180deg, rgb(15, 15, 15) 70%, rgba(2, 10, 12, 0.7) 100%);
+}
+
+.container {
+  @apply w-full max-w-7xl mx-auto;
+}
+
+.sectionTitle {
+  @apply text-3xl font-[200] uppercase sm:text-4xl xl:text-5xl mb-6 mx-auto;
+  @apply text-lightblue mb-12 text-center;
+}
+
+.sectionDescription {
+  @apply text-base font-[300] mb-4 sm:mb-8 text-center;
+  @apply text-gray-300 max-w-3xl mx-auto;
+}
+
+.filterButtons {
+  @apply flex justify-center gap-4 mb-8;
+}
+
+.activeFilterButton {
+  @apply rounded-full bg-white text-black hover:bg-gray-200 px-6 py-2 font-medium transition-all duration-200;
+}
+
+.inactiveFilterButton {
+  @apply rounded-full border border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white px-6 py-2 font-medium transition-all duration-200;
+}
+
+/* Two column grid on desktop */
+.projectGridTwoColumn {
+  @apply grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12;
+}
+
+.projectGrid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+}
+
+.projectCard {
+  @apply relative flex flex-col;
+  @apply border border-trans-white overflow-hidden transition-all duration-500;
+  background: linear-gradient(200deg, rgba(255, 255, 255, 0.1) 0%, transparent 80%);
+  
+  &::before{
+    content:"";
+    @apply absolute top-0 left-0 w-full h-full;
+    background-image: 
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), 
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 30px 30px;
+    background-position: center;
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+
+.projectCard:hover {
+  @apply transform -translate-y-1;
+  @apply border-lightblue/30;
+  background: linear-gradient(200deg, rgba(38, 214, 252, 0.1) 0%, transparent 80%);
+}
+
+.imageContainer {
+  @apply relative overflow-hidden bg-black/20;
+  z-index: 2;
+}
+
+.projectImage {
+  @apply w-full h-auto block;
+  @apply transition-all duration-500;
+}
+
+.projectCard:hover .projectImage {
+  @apply scale-105 brightness-110;
+}
+
+.featuredBadge {
+  @apply absolute top-4 left-4 z-20 px-3 py-1 text-xs font-semibold;
+  @apply text-black bg-lightblue rounded-full shadow-lg;
+}
+
+/* Tags overlay at bottom left of image */
+.tagsOverlay {
+  @apply absolute bottom-4 left-4 z-20 flex flex-wrap gap-2;
+  @apply max-w-[90%];
+}
+
+.tagBadgeOverlay {
+  @apply inline-block px-3 py-1 text-xs font-[200];
+  @apply bg-black/80 backdrop-blur-sm text-white rounded-full;
+  @apply border border-white/50 transition-colors duration-200;
+}
+
+
+.actionButtons {
+  @apply absolute bottom-4 right-4 z-20 flex gap-2 opacity-0 transition-opacity duration-300;
+}
+
+.projectCard:hover .actionButtons {
+  @apply opacity-100;
+}
+
+.actionButton {
+  @apply p-2 rounded-full bg-black/60 backdrop-blur-sm hover:bg-lightblue/20 text-white transition-colors duration-200 block;
+  @apply border border-trans-white hover:border-lightblue;
+}
+
+.cardContent {
+  @apply p-6 lg:p-8;
+  z-index: 2;
+  position: relative;
+}
+
+.projectTitle {
+  @apply text-2xl font-thin uppercase sm:text-3xl mb-6;
+  @apply text-lightblue;
+}
+
+.projectCard:hover .projectTitle {
+  @apply text-white;
+}
+
+.projectDescription {
+  @apply text-base font-[300] mb-4 sm:mb-8;
+  @apply text-gray-300;
+}
+
+/* Highlights - always visible */
+.highlightsList {
+  @apply space-y-2 mb-4;
+}
+
+.highlightItem {
+  @apply flex items-start text-sm text-gray-300;
+  @apply text-base font-[200];
+}
+
+.checkIcon {
+  @apply text-lightblue mr-2 flex-shrink-0;
+}
+
+/* Removed from tagsContainer since tags are now on the image */
+.tagsContainer {
+  @apply hidden;
+}
+
+/* Impact statement - always visible */
+.impactStatement {
+  @apply text-sm font-[200] text-lightblue;
+  @apply border-t border-trans-white pt-4 mt-4;
+}
+
+.impactStatement strong {
+  @apply text-gray-400 font-[300];
+}
+
+/* CTA Section */
+.ctaSection {
+  @apply text-center mt-16 pt-16;
+}
+
+.ctaText {
+  @apply text-lg font-normal mb-8 sm:mb-8;
+  @apply text-gray-300;
+}
+
+.viewAllContainer {
+  @apply text-center mt-12;
+}
+
+.viewAllButton {
+  @apply px-8 py-3 rounded-full bg-gray-800 text-white border border-gray-700 hover:bg-gray-700 hover:text-gray-100 font-medium transition-colors duration-200;
+}
