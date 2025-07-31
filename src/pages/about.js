@@ -1,23 +1,225 @@
 import Head from "next/head"
 import Layout from "../components/Layout/Layout";
+import Image from 'next/image';
+import Link from 'next/link';
+import styles from '../styles/About.module.scss';
+import TechStackToggle from '../components/TechStack/TechStackToggle';
 
 const About = () => {
 
   return (
     <Layout>
       <Head>
-        <title>About | Fabian Miranda - Creative Technologist</title>
-        <meta name="description" content={'About | Fabian Miranda - Creative Technologist'} />
+        <title>About | Fabian Miranda - Nearshore AI & Tech Expert</title>
+        <meta name="description" content={'Learn about Fabian Miranda - A seasoned Full-Stack Developer, AI Consultant, and Tech Leader with 15+ years of experience delivering innovative solutions from Costa Rica to global clients.'} />
       </Head>
 
-      <div className="w-full px-4 flex flex-col grow justify-center items-center dark-glow-gradient">
-        <div className="max-w-7xl mx-auto">
-            <h1>About Me</h1>
-            <p>Throughout my career as a Full-Stack Developer, I have witnessed the evolution and decline of numerous technologies—ranging from Flash and Silverlight to ColdFusion and Flex. This has help me to develop a tech-agnostic mindset, that allows me to focus on implementing creative strategies that align with my clients’ business objectives rather than constraining solutions to a single technology stack. This approach enables me to deliver engaging and future-proof digital products.</p>
-            <p>Over the years, I have developed software for a diverse array of organizations, including game developers, major pharmaceutical companies, small businesses, startups, Fortune 500 corporations, and expansive advertising networks. In addition, I have led development teams by establishing coding standards, optimizing workflows to reduce errors and turnaround times, and automating tasks—all while nurturing individual growth and career advancement.</p>
-            <p>For the past four years, my primary focus has been creating multichannel applications and experiences that amplify advertising and communication initiatives. I place a strong emphasis on performance, security, scalability, responsiveness, usability, and accessibility, as well as integrating technical SEO from the ground up to secure a strong online presence.</p>
-            <p>My technical toolkit often revolves around NodeJS, supported by modern frameworks such as NextJS, Gatsby, and Astro, along with popular libraries like React, Vue, and Angular. I implement architectural and rendering patterns—such as JamStack, SSR, and SSG—and deploy to leading platforms, including Vercel, Netlify, Render, AWS, and Azure.</p>
-            <p>Recently, I have delved into artificial intelligence research to identify strategies for incorporating AI into day-to-day workflows, reducing development time and costs while enhancing overall campaign execution and efficiency.</p>
+      <div className="w-full">
+        {/* Hero Section */}
+        <div className={styles['hero-section']}>
+          <div className={styles['hero-wrapper']}>
+            
+            <div className={styles['hero-content']}>
+
+              <div className={styles['hero-video']}>
+                <div className={styles['video-gradient-overlay']}></div>
+                <video 
+                  className={styles['hero-video-element']}
+                  autoPlay 
+                  muted 
+                  playsInline
+                >
+                  <source src="/video/about-banner.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+
+
+
+              <h1 className={styles['hero-title']}>
+                Bridging Innovation
+                <span className="block">
+                  <em className='magenta'>From Costa Rica</em><br/>
+                  <em className='lightblue'>To The World</em>
+                </span>
+              </h1>
+              <p className={styles['hero-subtitle']}>
+                15+ years transforming ideas into scalable digital solutions, leading teams, and pioneering AI integration in enterprise environments.
+              </p>
+            </div>
+            
+            
+          </div>
+        </div>
+
+        {/* Journey Section */}
+        <div className={styles['journey-section']}>
+          <div className={styles['container']}>
+            <h2>My Journey</h2>
+            <div className={styles['timeline']}>
+              <div className={styles['timeline-item']}>
+                <div className={styles['timeline-marker']}></div>
+                <div className={styles['timeline-content']}>
+                  <h3>Tech Evolution Witness</h3>
+                  <p>Throughout my career as a Full-Stack Developer, I have witnessed the evolution and decline of numerous technologies—ranging from Flash and Silverlight to ColdFusion and Flex. This has helped me develop a tech-agnostic mindset, allowing me to focus on implementing creative strategies that align with my clients' business objectives rather than constraining solutions to a single technology stack.</p>
+                </div>
+              </div>
+              
+              <div className={styles['timeline-item']}>
+                <div className={styles['timeline-marker']}></div>
+                <div className={styles['timeline-content']}>
+                  <h3>Diverse Industry Experience</h3>
+                  <p>Over the years, I have developed software for a diverse array of organizations, including game developers, major pharmaceutical companies, small businesses, startups, Fortune 500 corporations, and expansive advertising networks. This breadth of experience has equipped me with unique insights into various business models and technical requirements.</p>
+                </div>
+              </div>
+              
+              <div className={styles['timeline-item']}>
+                <div className={styles['timeline-marker']}></div>
+                <div className={styles['timeline-content']}>
+                  <h3>Leadership & Innovation</h3>
+                  <p>I have led development teams by establishing coding standards, optimizing workflows to reduce errors and turnaround times by up to 40%, and automating tasks—all while nurturing individual growth and career advancement. My leadership philosophy centers on empowering teams to deliver exceptional results.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Expertise Grid */}
+        <div className={styles['expertise-section']}>
+          <div className={styles['container']}>
+            <h2>Areas of Expertise</h2>
+            <div className={styles['expertise-grid']}>
+              <div className={styles['expertise-card']}>
+                <div className={styles['card-icon']}>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                  </svg>
+                </div>
+                <h3>Full-Stack Development</h3>
+                <p>Building scalable applications with modern frameworks like Next.js, React, Vue, and Angular. Expertise in Node.js backend development and microservices architecture.</p>
+              </div>
+              
+              <div className={styles['expertise-card']}>
+                <div className={styles['card-icon']}>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                  </svg>
+                </div>
+                <h3>AI Integration</h3>
+                <p>Pioneering artificial intelligence integration into business workflows, reducing development time and costs while enhancing overall campaign execution and efficiency.</p>
+              </div>
+              
+              <div className={styles['expertise-card']}>
+                <div className={styles['card-icon']}>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                </div>
+                <h3>Team Leadership</h3>
+                <p>Leading and mentoring development teams, establishing best practices, and creating environments where talent thrives and delivers exceptional results.</p>
+              </div>
+              
+              <div className={styles['expertise-card']}>
+                <div className={styles['card-icon']}>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </div>
+                <h3>Nearshore Excellence</h3>
+                <p>Leveraging Costa Rica's strategic timezone (GMT-6) and talented workforce to deliver premium development services with real-time collaboration for US clients.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Current Focus */}
+        <div className={styles['focus-section']}>
+          <div className={styles['container']}>
+            <div className={styles['focus-content']}>
+              <div className={styles['focus-text']}>
+                <h2>Current Focus</h2>
+                <p className="text-lg mb-6">
+                  For the past four years, my primary focus has been creating multichannel applications and experiences that amplify advertising and communication initiatives. I place a strong emphasis on:
+                </p>
+                <ul className={styles['focus-list']}>
+                  <li>Performance optimization and scalability</li>
+                  <li>Security-first architecture</li>
+                  <li>Responsive design and accessibility (WCAG 2.1 AA)</li>
+                  <li>Technical SEO implementation from the ground up</li>
+                  <li>AI-powered workflow automation</li>
+                </ul>
+                <p className="text-lg mt-6">
+                  My technical toolkit often revolves around Node.js, supported by modern frameworks such as Next.js, Gatsby, and Astro. I implement architectural patterns like JAMstack, SSR, and SSG, deploying to leading platforms including Vercel, Netlify, AWS, and Azure.
+                </p>
+              </div>
+              <div className={styles['focus-image']}>
+                <TechStackToggle />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Costa Rica Connection */}
+        <div className={styles['location-section']}>
+          <div className={styles['container']}>
+            <div className={styles['location-content']}>
+              <div className={styles['location-image']}>
+                <Image 
+                  src="/images/about/costa-rica-tech.svg" 
+                  alt="Costa Rica tech hub" 
+                  width={600} 
+                  height={400} 
+                  className={styles['location-photo']}
+                />
+              </div>
+              <div className={styles['location-text']}>
+                <h2>The Costa Rica Advantage</h2>
+                <p className="text-lg mb-6">
+                  Based in San José, Costa Rica, I offer the perfect nearshore solution for North American companies. Our GMT-6 timezone ensures real-time collaboration, while Costa Rica's stable democracy, excellent education system, and growing tech ecosystem provide the ideal environment for innovation.
+                </p>
+                <div className={styles['location-benefits']}>
+                  <div className={styles['benefit']}>
+                    <div className={styles['benefit-icon']}>🌎</div>
+                    <h4>Strategic Location</h4>
+                    <p>Same timezone as CST, perfect for US collaboration</p>
+                  </div>
+                  <div className={styles['benefit']}>
+                    <div className={styles['benefit-icon']}>🎓</div>
+                    <h4>Educated Workforce</h4>
+                    <p>High English proficiency and technical expertise</p>
+                  </div>
+                  <div className={styles['benefit']}>
+                    <div className={styles['benefit-icon']}>💡</div>
+                    <h4>Innovation Hub</h4>
+                    <p>Growing tech ecosystem with Fortune 500 presence</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* CTA Section */}
+        <div className={styles['cta-section']}>
+          <div className={styles['container']}>
+            <div className={styles['cta-content']}>
+              <h2>Ready to Transform Your Business?</h2>
+              <p className="text-xl mb-8">
+                Let's discuss how my expertise in AI, full-stack development, and nearshore team leadership can accelerate your next project.
+              </p>
+              <div className={styles['cta-buttons']}>
+                <Link className='lightblue-cta' href="/contact">START A CONVERSATION</Link>
+                <Link className={styles['secondary-cta']} href="/portfolio">VIEW MY WORK</Link>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </Layout>

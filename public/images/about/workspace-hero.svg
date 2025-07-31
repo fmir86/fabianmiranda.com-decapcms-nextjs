@@ -1,0 +1,15 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#052e39;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#430842;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <text x="400" y="280" font-family="Arial, sans-serif" font-size="24" fill="#26d6fc" text-anchor="middle">Modern Tech Workspace</text>
+  <text x="400" y="320" font-family="Arial, sans-serif" font-size="16" fill="#ffffff" text-anchor="middle" opacity="0.7">Costa Rica Innovation Hub</text>
+  <rect x="100" y="380" width="600" height="140" fill="none" stroke="#26d6fc" stroke-width="2" opacity="0.3"/>
+  <circle cx="200" cy="450" r="30" fill="none" stroke="#d648d0" stroke-width="2" opacity="0.5"/>
+  <circle cx="400" cy="450" r="30" fill="none" stroke="#26d6fc" stroke-width="2" opacity="0.5"/>
+  <circle cx="600" cy="450" r="30" fill="none" stroke="#d648d0" stroke-width="2" opacity="0.5"/>
+</svg>

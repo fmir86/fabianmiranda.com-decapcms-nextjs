@@ -1,0 +1,209 @@
+.techStackShowcase {
+  position: relative;
+  padding: 2rem 0;
+  min-height: 400px;
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+
+  &.loaded {
+    opacity: 1;
+  }
+}
+
+/* Filter Tabs */
+.filterTabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.filterTab {
+  background: rgba(21, 21, 21, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 0.75rem 1.5rem;
+  color: #E5E5E5;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &:hover {
+    border-color: rgba(0, 212, 255, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.2);
+  }
+
+  &.active {
+    background: linear-gradient(135deg, #00D4FF 0%, #9945FF 100%);
+    border-color: transparent;
+    color: #FFFFFF;
+    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.4);
+
+    .tabCount {
+      background: rgba(255, 255, 255, 0.3);
+    }
+  }
+}
+
+.tabText {
+  font-weight: 500;
+}
+
+.tabCount {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 0.125rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* Tech Grid */
+.techGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1.5rem;
+  position: relative;
+  z-index: 1;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1rem;
+  }
+}
+
+.techItem {
+  opacity: 0;
+  transform: translateY(20px) scale(0.9);
+  animation: fadeInUp 0.6s ease-out forwards;
+  animation-delay: var(--delay);
+
+  &.hidden {
+    display: none;
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.techCard {
+  background: rgba(26, 26, 26, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at center,
+      var(--category-color) 0%,
+      transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: var(--category-color);
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+
+    &::before {
+      opacity: 0.1;
+    }
+  }
+}
+
+.techIconWrapper {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(153, 69, 255, 0.1) 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.techIcon {
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) invert(1);
+}
+
+.techName {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: #FFFFFF;
+}
+
+.techCategory {
+  font-size: 0.75rem;
+  color: var(--category-color);
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Floating Background Animation */
+.floatingTechBg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0.03;
+}
+
+.floatingIcon {
+  position: absolute;
+  animation: float var(--float-duration) ease-in-out infinite;
+  animation-delay: var(--float-delay);
+
+  &:nth-child(1) { top: 10%; left: 10%; }
+  &:nth-child(2) { top: 20%; right: 15%; }
+  &:nth-child(3) { bottom: 30%; left: 20%; }
+  &:nth-child(4) { bottom: 20%; right: 10%; }
+  &:nth-child(5) { top: 50%; left: 50%; }
+  &:nth-child(6) { top: 70%; right: 30%; }
+}
+
+.floatIconSvg {
+  width: 60px;
+  height: 60px;
+  filter: brightness(0) invert(1);
+  opacity: 0.5;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(100px, -100px) rotate(120deg);
+  }
+  66% {
+    transform: translate(-100px, 100px) rotate(240deg);
+  }
+}

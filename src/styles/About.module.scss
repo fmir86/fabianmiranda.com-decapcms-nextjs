@@ -1,0 +1,362 @@
+// Hero Section
+.hero-section {
+    @apply w-full relative overflow-hidden min-h-[none] sm:min-h-[300px] lg:min-h-[500px];
+    background: rgb(0, 0, 0);
+
+    .hero-wrapper {
+        @apply w-full relative;
+        @apply flex flex-col lg:flex-row items-center;
+        @apply sm:pl-6;
+
+        .hero-content {
+            @apply relative w-full text-left;
+            @apply mb-0;
+            @apply relative;
+            @apply sm:py-8 lg:py-16;
+            @apply max-w-7xl mx-auto;
+
+            .hero-title {
+                @apply text-3xl sm:text-4xl lg:text-5xl xl:text-6xl relative;
+                @apply font-bold leading-tight mb-6 mx-6 sm:mx-0 mt-6 sm:mt-0;
+                @apply text-white;
+
+                span {
+                    @apply block mt-2;
+
+                    em {
+                        @apply not-italic;
+                        
+                        &.magenta {
+                            @apply text-magenta;
+                            text-shadow: 0 0 20px rgba(214, 72, 208, 0.5);
+                        }
+
+                        &.lightblue {
+                            @apply text-lightblue;
+                            text-shadow: 0 0 20px rgba(38, 214, 252, 0.5);
+                        }
+                    }
+                }
+            }
+
+            .hero-subtitle {
+                @apply relative text-lg lg:text-xl text-gray-300;
+                @apply max-w-xl mb-6 mx-6 sm:mx-0 mt-6 sm:mt-0;
+                @apply font-light leading-relaxed;
+            }
+        }
+
+        .hero-video {
+            @apply sm:absolute right-0 top-0;
+            @apply max-h-[220px] sm:max-h-[300px] md:max-h-[500px];
+            @apply overflow-hidden;
+            pointer-events: none;
+
+            @media (max-width: 1680px) and (min-width: 1280px) {
+                margin-right: calc( 0px - (100vw - 1280px) / 2 );
+            }
+
+            @media (min-width: 1681px) {
+                margin-right: -10rem;
+            }
+
+
+            .video-gradient-overlay {
+                @apply hidden sm:block absolute right-0;
+                top: 0;
+                bottom: 0;
+                width: 100%;
+                background: linear-gradient(to right, 
+                    rgba(0, 0, 0, 1) 0%,
+                    rgba(0, 0, 0, 0.9) 10%,
+                    rgba(0, 0, 0, 0.0) 50%,
+                    rgba(0, 0, 0, 0.5) 90%,
+                    rgba(0, 0, 0, 1) 100%);
+            }
+
+            .hero-video-element {
+                @apply h-full w-auto sm:w-full  sm:w-auto;
+                @apply max-h-[none] md:max-h-[300px] lg:max-h-[500px];
+                @apply object-contain;
+                
+            }
+        }
+    }
+}
+
+
+// Journey Section
+.journey-section {
+    @apply py-10 sm:py-20 px-6;
+    background: rgb(0, 0, 0);
+
+    .container {
+        @apply max-w-7xl mx-auto;
+
+        h2 {
+            @apply text-center;
+        }
+
+        .timeline {
+            @apply relative;
+            @apply mx-auto;
+
+            &::before {
+                content: '';
+                @apply absolute left-4 sm:left-8 lg:left-1/2 top-0 bottom-0;
+                @apply w-px bg-gradient-to-b from-lightblue via-magenta to-lightblue;
+                @apply opacity-30;
+                transform: translateX(-50%);
+            }
+
+            .timeline-item {
+                @apply relative flex items-start mb-12;
+                @apply pl-10 sm:pl-20 lg:pl-0;
+
+                &:nth-child(even) {
+                    @apply lg:flex-row-reverse;
+                }
+
+                .timeline-marker {
+                    @apply absolute left-4 sm:left-8 lg:left-1/2 top-8;
+                    @apply w-4 h-4 rounded-full;
+                    @apply bg-gradient-to-br from-lightblue to-magenta;
+                    @apply ring-4 ring-black;
+                    transform: translateX(-50%);
+                    box-shadow: 0 0 20px rgba(38, 214, 252, 0.5);
+                }
+
+                .timeline-content {
+                    @apply lg:w-1/2 lg:px-12;
+                    @apply bg-darkgray rounded-xl p-8;
+                    @apply border border-trans-white;
+                    @apply transition-all duration-300;
+                    
+                    &:hover {
+                        @apply border-lightblue;
+                        box-shadow: 0 10px 40px rgba(38, 214, 252, 0.1);
+                        transform: translateY(-4px);
+                    }
+
+                    h3 {
+                        @apply text-2xl font-semibold mb-4;
+                        @apply text-lightblue;
+                    }
+
+                    p {
+                        @apply text-gray-300 leading-relaxed;
+                        @apply mb-0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Expertise Grid
+.expertise-section {
+    @apply py-10 sm:py-20 px-6;
+    background: rgb(0, 0, 0);
+
+    .container {
+        @apply max-w-7xl mx-auto;
+
+        h2 {
+            @apply text-center;
+        }
+
+        .expertise-grid {
+            @apply grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6;
+
+            .expertise-card {
+                @apply bg-darkgray rounded-xl p-8;
+                @apply border border-trans-white;
+                @apply transition-all duration-300;
+                @apply relative overflow-hidden;
+
+                &::before {
+                    content: '';
+                    @apply absolute inset-0;
+                    background: radial-gradient(circle at center, rgba(38, 214, 252, 0.1) 0%, transparent 70%);
+                    @apply opacity-0 transition-opacity duration-300;
+                }
+
+                &:hover {
+                    @apply border-lightblue;
+                    transform: translateY(-8px);
+                    box-shadow: 0 20px 40px rgba(38, 214, 252, 0.2);
+
+                    &::before {
+                        @apply opacity-100;
+                    }
+
+                    .card-icon {
+                        transform: scale(1.1) rotate(5deg);
+                    }
+                }
+
+                .card-icon {
+                    @apply w-16 h-16 mb-6;
+                    @apply bg-gradient-to-br from-lightblue to-magenta;
+                    @apply rounded-xl flex items-center justify-center;
+                    @apply transition-transform duration-300;
+
+                    svg {
+                        @apply w-8 h-8 text-white;
+                    }
+                }
+
+                h3 {
+                    @apply text-xl font-semibold mb-4;
+                    @apply text-white;
+                }
+
+                p {
+                    @apply text-gray-400 text-sm leading-relaxed;
+                    @apply mb-0;
+                }
+            }
+        }
+    }
+}
+
+// Focus Section
+.focus-section {
+    @apply py-10 sm:py-20 px-6;
+    background: rgb(0, 0, 0);
+    overflow: visible; // Ensure glow effects can show
+
+    .container {
+        @apply max-w-7xl mx-auto;
+        overflow: visible; // Ensure glow effects can show
+
+        .focus-content {
+            @apply flex flex-col lg:flex-row gap-12 items-center;
+
+            .focus-text {
+                @apply w-full lg:w-1/2;
+
+                h2 {
+                    @apply text-left;
+                }
+
+                .focus-list {
+                    @apply space-y-3 my-8;
+
+                    li {
+                        @apply flex items-start;
+                        @apply text-gray-300;
+
+                        &::before {
+                            content: '▸';
+                            @apply text-lightblue mr-3 text-xl;
+                            @apply flex-shrink-0;
+                        }
+                    }
+                }
+            }
+
+            .focus-image {
+                @apply w-full lg:w-1/2;
+                @apply relative;
+                overflow: visible; // Allow tech stack glow to show
+                min-width: 900px; // Ensure enough space for wider honeycomb
+                
+                @media (max-width: 1200px) {
+                    min-width: auto;
+                }
+
+                .tech-image {
+                    @apply rounded-2xl overflow-hidden;
+                    @apply shadow-2xl;
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                }
+            }
+        }
+    }
+}
+
+// Location Section
+.location-section {
+    @apply py-20 px-6;
+    background: rgb(0, 0, 0);
+
+    .container {
+        @apply max-w-7xl mx-auto;
+
+        .location-content {
+            @apply flex flex-col lg:flex-row gap-12 items-center;
+
+            .location-image {
+                @apply w-full lg:w-1/2 order-2 lg:order-1;
+
+                .location-photo {
+                    @apply rounded-2xl overflow-hidden;
+                    @apply shadow-2xl;
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                }
+            }
+
+            .location-text {
+                @apply w-full lg:w-1/2 order-1 lg:order-2;
+
+                h2 {
+                    @apply text-left;
+                }
+
+                .location-benefits {
+                    @apply grid grid-cols-1 md:grid-cols-3 gap-6 mt-8;
+
+                    .benefit {
+                        @apply text-center;
+
+                        .benefit-icon {
+                            @apply text-4xl mb-4;
+                        }
+
+                        h4 {
+                            @apply text-lg font-semibold mb-2;
+                            @apply text-lightblue;
+                        }
+
+                        p {
+                            @apply text-sm text-gray-400;
+                            @apply mb-0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// CTA Section
+.cta-section {
+    @apply py-20 px-6;
+    background: rgb(0, 0, 0);
+    @apply relative overflow-hidden;
+
+    .container {
+        @apply max-w-4xl mx-auto relative z-10;
+
+        .cta-content {
+            @apply text-center;
+
+            h2 {
+                @apply mb-6;
+            }
+
+            .cta-buttons {
+                @apply flex flex-col sm:flex-row gap-4 justify-center items-center;
+                @apply mt-12;
+
+                .secondary-cta {
+                    @apply text-lightblue border-2 border-lightblue px-6 py-4;
+                    @apply hover:bg-lightblue hover:text-black transition-all duration-300;
+                    @apply inline-block;
+                }
+            }
+        }
+    }
+}
+

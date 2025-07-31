@@ -1,0 +1,53 @@
+.container {
+  position: relative;
+  overflow: visible; // Allow glow to show
+}
+
+.viewToggle {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 10;
+}
+
+.toggleBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(21, 21, 21, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #E5E5E5;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  &:hover {
+    border-color: rgba(0, 212, 255, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.2);
+  }
+
+  &.active {
+    background: linear-gradient(135deg, #00D4FF 0%, #9945FF 100%);
+    border-color: transparent;
+    color: #FFFFFF;
+    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.4);
+  }
+}
+
+.content {
+  position: relative;
+  min-height: 400px;
+  overflow: visible; // Allow glow to show
+}

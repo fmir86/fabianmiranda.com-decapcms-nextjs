@@ -1,0 +1,279 @@
+// Honeycomb Grid Styles
+.honeycombContainer {
+  position: relative;
+  padding: 2rem; // Uniform padding
+  min-height: 650px; // Adjusted for 6 rows with uniform spacing
+  opacity: 0;
+  transition: opacity 0.8s ease-out;
+  overflow: visible; // Important - allow glow to show
+  z-index: 1; // Ensure it's above other elements
+
+  &.loaded {
+    opacity: 1;
+  }
+}
+
+.honeycombGrid {
+  position: relative;
+  width: 520px; // Adjusted for 5 hexagons with proper spacing
+  height: 550px; // 6 rows with vertical spacing
+  margin: 0; // No auto margin - not centered
+  padding: 20px; // Small padding for glow space
+  overflow: visible; // Allow glow to extend outside
+  
+  @media (max-width: 768px) {
+    width: 390px; // Adjusted for smaller hexagons
+    height: 425px; // 6 rows with smaller spacing
+    padding: 15px;
+  }
+  
+  @media (max-width: 600px) {
+    width: 300px;
+    height: 350px;
+    padding: 10px;
+  }
+}
+
+// Individual Hexagon
+.hexagon {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  opacity: 0;
+  transform: scale(0);
+  animation: hexAppear 0.5s ease-out forwards;
+  animation-delay: var(--delay);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+
+  // Position calculation for proper interlocking honeycomb pattern
+  // For hexagons with equal visual spacing:
+  // We need to account for the hexagon geometry
+  // Horizontal spacing needs to be adjusted for the angled sides
+  $hex-width: 100px;
+  $hex-height: 100px;
+  $gap: 8px; // Uniform gap between all hexagons
+  // For equal visual spacing, horizontal needs to account for hexagon geometry
+  $h-spacing: ($hex-width * 0.866) + $gap; // This gives equal visual spacing
+  $v-spacing: ($hex-height * 0.75) + $gap; // Vertical spacing with gap
+  
+  left: calc(var(--col) * #{$h-spacing} + var(--offset, 0px));
+  top: calc(var(--row) * #{$v-spacing});
+
+  @media (max-width: 768px) {
+    width: 75px;
+    height: 75px;
+    $hex-width-mobile: 75px;
+    $hex-height-mobile: 75px;
+    $gap-mobile: 6px;
+    $h-spacing-mobile: ($hex-width-mobile * 0.866) + $gap-mobile;
+    $v-spacing-mobile: ($hex-height-mobile * 0.75) + $gap-mobile;
+    $offset-scale: 0.75; // Scale down the offset proportionally
+    left: calc(var(--col) * #{$h-spacing-mobile} + calc(var(--offset, 0px) * #{$offset-scale}));
+    top: calc(var(--row) * #{$v-spacing-mobile});
+  }
+
+  &:hover {
+    z-index: 100;
+    transform: scale(1.3) translateY(-15px) rotateZ(5deg);
+    filter: drop-shadow(0 20px 40px rgba(0, 212, 255, 0.4)) drop-shadow(0 10px 20px var(--hex-color));
+
+    .hexagonShape polygon {
+      fill: rgba(26, 26, 26, 0.98);
+      stroke: var(--hex-color);
+      stroke-width: 3;
+    }
+
+    .hexagonContent {
+      transform: scale(1.1);
+    }
+
+    .techIcon {
+      filter: brightness(0) invert(1) drop-shadow(0 0 15px var(--hex-color));
+    }
+
+    .techName {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  }
+
+  &.hovered {
+    z-index: 100;
+  }
+}
+
+// Hexagon Shape SVG
+.hexagonShape {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+
+  polygon {
+    fill: rgba(26, 26, 26, 0.95);
+    stroke: rgba(255, 255, 255, 0.1);
+    stroke-width: 1;
+    transition: all 0.3s ease;
+  }
+}
+
+// Hexagon Inner Container
+.hexagonInner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 90%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Hexagon Content
+.hexagonContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.techIcon {
+  width: 40px;
+  height: 40px;
+  filter: brightness(0) invert(1);
+  transition: all 0.3s ease;
+
+  @media (max-width: 768px) {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.techName {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  white-space: nowrap;
+  background: var(--hex-color);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+
+  @media (max-width: 768px) {
+    font-size: 0.7rem;
+    top: -25px;
+  }
+
+  .hexagon:hover & {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+// Background Pattern
+.backgroundPattern {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.floatingHex {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  opacity: 0.02;
+  left: var(--float-x);
+  top: var(--float-y);
+  animation: floatHex 20s ease-in-out infinite;
+  animation-delay: var(--float-delay);
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--hex-color, #00D4FF);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  }
+}
+
+// Animations
+@keyframes hexAppear {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes floatHex {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(50px, -30px) rotate(120deg);
+  }
+  66% {
+    transform: translate(-30px, 50px) rotate(240deg);
+  }
+}
+
+// Responsive adjustments for very small screens
+@media (max-width: 480px) {
+  .honeycombContainer {
+    padding: 1rem;
+  }
+
+  .honeycombGrid {
+    width: 260px;
+    height: 300px; // 6 rows with smallest spacing
+    padding: 8px;
+  }
+
+  .hexagon {
+    width: 50px;
+    height: 50px;
+    $hex-width-small: 50px;
+    $hex-height-small: 50px;
+    $gap-small: 4px;
+    $h-spacing-small: ($hex-width-small * 0.866) + $gap-small;
+    $v-spacing-small: ($hex-height-small * 0.75) + $gap-small;
+    $offset-scale-small: 0.5; // Half offset for small screens
+    left: calc(var(--col) * #{$h-spacing-small} + calc(var(--offset, 0px) * #{$offset-scale-small}));
+    top: calc(var(--row) * #{$v-spacing-small});
+    
+    &:hover {
+      transform: scale(1.15) translateY(-8px) rotateZ(3deg);
+    }
+  }
+
+  .techIcon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .techName {
+    font-size: 0.55rem;
+    padding: 0.15rem 0.4rem;
+    top: -18px;
+  }
+
+}
