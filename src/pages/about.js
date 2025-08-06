@@ -3,7 +3,7 @@ import Layout from "../components/Layout/Layout";
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../styles/About.module.scss';
-import TechStackToggle from '../components/TechStack/TechStackToggle';
+import TechStackHoneycomb from '../components/TechStack/TechStackHoneycomb';
 
 const About = () => {
 
@@ -141,6 +141,19 @@ const About = () => {
 
         {/* Current Focus */}
         <div className={styles['focus-section']}>
+          {/* Background Video */}
+          <div className={styles['focus-video-bg']}>
+            <video 
+              className={styles['focus-video-element']}
+              autoPlay 
+              muted 
+              loop
+              playsInline
+            >
+              <source src="/video/circuits.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
           <div className={styles['container']}>
             <div className={styles['focus-content']}>
               <div className={styles['focus-text']}>
@@ -160,7 +173,7 @@ const About = () => {
                 </p>
               </div>
               <div className={styles['focus-image']}>
-                <TechStackToggle />
+                <TechStackHoneycomb />
               </div>
             </div>
           </div>
