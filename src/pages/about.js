@@ -185,7 +185,7 @@ const About = () => {
             <div className={styles['location-content']}>
               <div className={styles['location-image']}>
                 <Image 
-                  src="/images/about/costa-rica-tech.svg" 
+                  src="/images/about/costarica-tech-hub.jpg" 
                   alt="Costa Rica tech hub" 
                   width={600} 
                   height={400} 

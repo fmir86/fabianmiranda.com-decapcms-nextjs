@@ -88,10 +88,40 @@
 // Journey Section
 .journey-section {
     @apply py-10 sm:py-20 px-6;
-    background: linear-gradient(173deg, rgba(5, 30, 36, 0.7) 0%, rgb(0, 0, 0) 20%, rgba(5, 30, 36, 0.7) 100%);
+    @apply relative overflow-hidden;
+    background: rgb(0, 0, 0);
+
+    // Circuit Board Background
+    &::before {
+        content: '';
+        @apply absolute inset-0;
+        background-image: 
+            linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+        background-size: 50px 50px;
+        animation: circuit-grid-move 30s linear infinite;
+        z-index: 1;
+    }
+
+    // Gradient Overlay
+    &::after {
+        content: '';
+        @apply absolute inset-0;
+        background: radial-gradient(circle at 30% 50%, rgba(0, 212, 255, 0.15) 0%, transparent 50%),
+                    radial-gradient(circle at 70% 50%, rgba(153, 69, 255, 0.1) 0%, transparent 50%);
+        z-index: 2;
+    }
+
+    // Circuit Animation
+    @keyframes circuit-grid-move {
+        0% { transform: translate(0, 0); }
+        100% { transform: translate(50px, 50px); }
+    }
 
     .container {
         @apply max-w-7xl mx-auto;
+        @apply relative;
+        z-index: 10;
 
         h2 {
             @apply text-center;
@@ -258,7 +288,7 @@
         overflow: visible; // Ensure glow effects can show
 
         .focus-content {
-            @apply flex flex-col lg:flex-row gap-12 items-center;
+            @apply flex flex-col md:flex-row gap-12 items-center;
 
             .focus-text {
                 @apply w-full lg:w-1/2;
