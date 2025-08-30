@@ -98,8 +98,8 @@ const About = () => {
                     <polyline points="8 6 2 12 8 18"></polyline>
                   </svg>
                 </div>
-                <h3>Full-Stack Development</h3>
-                <p>Building scalable applications with modern frameworks like Next.js, React, Vue, and Angular. Expertise in Node.js backend development and microservices architecture.</p>
+                <h3>Cross-platform Software Development</h3>
+                <p>Building scalable applications for all kinds of platforms and industries. Always leveraging modern programming languages and frameworks to deploy to multiple environments. Solid expertise in Node.js backend development.</p>
               </div>
               
               <div className={styles['expertise-card']}>
@@ -110,8 +110,8 @@ const About = () => {
                     <line x1="12" y1="22.08" x2="12" y2="12"></line>
                   </svg>
                 </div>
-                <h3>AI Integration</h3>
-                <p>Pioneering artificial intelligence integration into business workflows, reducing development time and costs while enhancing overall campaign execution and efficiency.</p>
+                <h3>Automation & Artificial Intelligence</h3>
+                <p>Pioneering artificial intelligence integration to automate business workflows, reducing development time and costs while enhancing overall campaign execution and efficiency.</p>
               </div>
               
               <div className={styles['expertise-card']}>
@@ -123,19 +123,8 @@ const About = () => {
                     <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                   </svg>
                 </div>
-                <h3>Team Leadership</h3>
-                <p>Leading and mentoring development teams, establishing best practices, and creating environments where talent thrives and delivers exceptional results.</p>
-              </div>
-              
-              <div className={styles['expertise-card']}>
-                <div className={styles['card-icon']}>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                    <circle cx="12" cy="10" r="3"></circle>
-                  </svg>
-                </div>
-                <h3>Nearshore Excellence</h3>
-                <p>Leveraging Costa Rica's strategic timezone (GMT-6) and talented workforce to deliver premium development services with real-time collaboration for US clients.</p>
+                <h3>Leadership & Expert Consultancy</h3>
+                <p>Applying acquired knowledge and experience to guide organizations in their digital transformation journeys, fostering innovation and driving business success. Helping teams navigate challenges and implement effective solutions.</p>
               </div>
             </div>
           </div>
