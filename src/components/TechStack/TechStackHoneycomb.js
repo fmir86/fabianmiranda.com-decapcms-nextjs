@@ -23,61 +23,58 @@ const TechStackHoneycomb = () => {
   };
 
   const allTechs = [
-    // Row 0 - 4 items (programming languages)
-    { id: 'python', name: 'Python', icon: 'python', category: 'Languages', color: '#FFD700', ...getHexPosition(0, 0) },
-    { id: 'javascript', name: 'JavaScript', icon: 'javascript', category: 'Languages', color: '#FFD700', ...getHexPosition(0, 1) },
-    { id: 'typescript', name: 'TypeScript', icon: 'typescript', category: 'Languages', color: '#FFD700', ...getHexPosition(0, 2) },
-    { id: 'nodejs', name: 'Node.js', icon: 'nodedotjs', category: 'Languages', color: '#FFD700', ...getHexPosition(0, 3) },
-    { id: 'php', name: 'PHP', icon: 'php', category: 'Languages', color: '#FFD700', ...getHexPosition(0, 4) },
-
-    // Row 1 - 5 items (offset)
+    // Row 0 - 5 items (programming languages)
+    { id: 'python', name: 'Python', icon: 'python', category: 'Languages', color: '#FFD700', ...getHexPosition(0, 1) },
+    { id: 'javascript', name: 'JavaScript', icon: 'javascript', category: 'Languages', color: '#FFD700', ...getHexPosition(0, 2) },
+    { id: 'typescript', name: 'TypeScript', icon: 'typescript', category: 'Languages', color: '#FFD700', ...getHexPosition(0, 3) },
+    { id: 'nodejs', name: 'Node.js', icon: 'nodedotjs', category: 'Languages', color: '#FFD700', ...getHexPosition(0, 4) },
+    { id: 'php', name: 'PHP', icon: 'php', category: 'Languages', color: '#FFD700', ...getHexPosition(0, 5) },
+    // Row 1 - 6 items (offset)
     { id: 'react', name: 'React', icon: 'react', category: 'Frontend', color: '#00D4FF', ...getHexPosition(1, 0) },
     { id: 'vue', name: 'Vue', icon: 'vuedotjs', category: 'Frontend', color: '#00D4FF', ...getHexPosition(1, 1) },
     { id: 'angular', name: 'Angular', icon: 'angular', category: 'Frontend', color: '#00D4FF', ...getHexPosition(1, 2) },
     { id: 'svelte', name: 'Svelte', icon: 'svelte', category: 'Frontend', color: '#00D4FF', ...getHexPosition(1, 3) },
-    
-    // Row 2 - 4 items
-    { id: 'jekyll', name: 'Jekyll', icon: 'jekyll', category: 'Frameworks', color: '#9945FF', ...getHexPosition(2, 0) },
-    { id: 'nextjs', name: 'Next.js', icon: 'nextdotjs', category: 'Frameworks', color: '#9945FF', ...getHexPosition(2, 1) },
-    { id: 'gatsby', name: 'Gatsby', icon: 'gatsby', category: 'Frameworks', color: '#9945FF', ...getHexPosition(2, 2) },
-    { id: 'nuxt', name: 'Nuxt', icon: 'nuxtdotjs', category: 'Frameworks', color: '#9945FF', ...getHexPosition(2, 3) },
-    { id: 'astro', name: 'Astro', icon: 'astro', category: 'Frameworks', color: '#9945FF', ...getHexPosition(2, 4) },
-    { id: 'hugo', name: 'Hugo', icon: 'hugo', category: 'Frontend', color: '#00D4FF', ...getHexPosition(2, 5) },
-    
-    // Row 3 - 5 items (offset)
-    { id: 'wordpress', name: 'WordPress', icon: 'wordpress', category: 'CMS', color: '#00FFA3', ...getHexPosition(3, 0) },
-    { id: 'strapi', name: 'Strapi', icon: 'strapi', category: 'CMS', color: '#00FFA3', ...getHexPosition(3, 1) },
-    { id: 'tina', name: 'TinaCMS', icon: 'tina', category: 'CMS', color: '#00FFA3', ...getHexPosition(3, 2) },
-    { id: 'decapcms', name: 'DecapCMS', icon: 'decapcms', category: 'CMS', color: '#00FFA3', ...getHexPosition(3, 3) },
-    { id: 'contentful', name: 'Contentful', icon: 'contentful', category: 'CMS', color: '#00FFA3', ...getHexPosition(3, 4) },
+    { id: 'jekyll', name: 'Jekyll', icon: 'jekyll', category: 'Frameworks', color: '#9945FF', ...getHexPosition(1, 4) },
+    { id: 'nextjs', name: 'Next.js', icon: 'nextdotjs', category: 'Frameworks', color: '#9945FF', ...getHexPosition(1, 5) },
 
-    // Row 4 - 4 items
-    { id: 'netlify', name: 'Netlify', icon: 'netlify', category: 'Hosting', color: '#FF6B35', ...getHexPosition(4, 0) },
-    { id: 'vercel', name: 'Vercel', icon: 'vercel', category: 'Hosting', color: '#FF6B35', ...getHexPosition(4, 1) },
-    { id: 'render', name: 'Render', icon: 'render', category: 'Hosting', color: '#FF6B35', ...getHexPosition(4, 2) },
-    { id: 'wpengine', name: 'WP Engine', icon: 'wpengine', category: 'Hosting', color: '#FF6B35', ...getHexPosition(4, 3) },
-    { id: 'railway', name: 'Railway', icon: 'railway', category: 'Hosting', color: '#FF6B35', ...getHexPosition(4, 4) },
-    { id: 'pantheon', name: 'Pantheon', icon: 'pantheon', category: 'Hosting', color: '#FF6B35', ...getHexPosition(4, 5) },
+    // Row 2 - 5 items
+    { id: 'gatsby', name: 'Gatsby', icon: 'gatsby', category: 'Frameworks', color: '#9945FF', ...getHexPosition(2, 1) },
+    { id: 'nuxt', name: 'Nuxt', icon: 'nuxtdotjs', category: 'Frameworks', color: '#9945FF', ...getHexPosition(2, 2) },
+    { id: 'astro', name: 'Astro', icon: 'astro', category: 'Frameworks', color: '#9945FF', ...getHexPosition(2, 3) },
+    { id: 'hugo', name: 'Hugo', icon: 'hugo', category: 'Frontend', color: '#00D4FF', ...getHexPosition(2, 4) },
+    { id: 'wordpress', name: 'WordPress', icon: 'wordpress', category: 'CMS', color: '#00FFA3', ...getHexPosition(2, 5) },
+    
+    // Row 3 - 6 items (offset)
+    { id: 'strapi', name: 'Strapi', icon: 'strapi', category: 'CMS', color: '#00FFA3', ...getHexPosition(3, 0) },
+    { id: 'tina', name: 'TinaCMS', icon: 'tina', category: 'CMS', color: '#00FFA3', ...getHexPosition(3, 1) },
+    { id: 'decapcms', name: 'DecapCMS', icon: 'decapcms', category: 'CMS', color: '#00FFA3', ...getHexPosition(3, 2) },
+    { id: 'contentful', name: 'Contentful', icon: 'contentful', category: 'CMS', color: '#00FFA3', ...getHexPosition(3, 3) },
+    { id: 'netlify', name: 'Netlify', icon: 'netlify', category: 'Hosting', color: '#FF6B35', ...getHexPosition(3, 4) },
+    { id: 'vercel', name: 'Vercel', icon: 'vercel', category: 'Hosting', color: '#FF6B35', ...getHexPosition(3, 5) },
 
-    // Row 5 - 5 items (offset)
-    { id: 'googlecloud', name: 'Google Cloud', icon: 'googlecloud', category: 'Hosting', color: '#FF6B35', ...getHexPosition(5, 0) },
-    { id: 'cloudflare', name: 'Cloudflare', icon: 'cloudflare', category: 'Hosting', color: '#FF6B35', ...getHexPosition(5, 1) },
-    { id: 'aws', name: 'AWS', icon: 'amazonaws', category: 'Cloud', color: '#FF6B35', ...getHexPosition(5, 2) },
-    { id: 'azure', name: 'Azure', icon: 'microsoftazure', category: 'Cloud', color: '#FF6B35', ...getHexPosition(5, 3) },
-    
-    // Row 6 - 4 items
-    { id: 'git', name: 'Git', icon: 'git', category: 'Tools', color: '#E5E5E5', ...getHexPosition(6, 1) },
-    { id: 'github', name: 'GitHub', icon: 'github', category: 'Tools', color: '#E5E5E5', ...getHexPosition(6, 2) },
-    { id: 'bitbucket', name: 'Bitbucket', icon: 'bitbucket', category: 'Tools', color: '#E5E5E5', ...getHexPosition(6, 3) },
-    { id: 'gitlab', name: 'GitLab', icon: 'gitlab', category: 'Tools', color: '#E5E5E5', ...getHexPosition(6, 4) },
-    
-    // Row 7 - 5 items (offset, databases)
-    { id: 'mariadb', name: 'MariaDB', icon: 'mariadb', category: 'Database', color: '#00CED1', ...getHexPosition(7, -1) },
-    { id: 'mysql', name: 'MySQL', icon: 'mysql', category: 'Database', color: '#00CED1', ...getHexPosition(7, 0) },
-    { id: 'postgresql', name: 'PostgreSQL', icon: 'postgresql', category: 'Database', color: '#00CED1', ...getHexPosition(7, 1) },
-    { id: 'mongodb', name: 'MongoDB', icon: 'mongodb', category: 'Database', color: '#00CED1', ...getHexPosition(7, 2) },
-    { id: 'fauna', name: 'Fauna', icon: 'fauna', category: 'Database', color: '#00CED1', ...getHexPosition(7, 3) },
-    { id: 'sqlite', name: 'SQLite', icon: 'sqlite', category: 'Database', color: '#00CED1', ...getHexPosition(7, 4) }
+    // Row 4 - 5 items
+    { id: 'render', name: 'Render', icon: 'render', category: 'Hosting', color: '#FF6B35', ...getHexPosition(4, 1) },
+    { id: 'wpengine', name: 'WP Engine', icon: 'wpengine', category: 'Hosting', color: '#FF6B35', ...getHexPosition(4, 2) },
+    { id: 'railway', name: 'Railway', icon: 'railway', category: 'Hosting', color: '#FF6B35', ...getHexPosition(4, 3) },
+    { id: 'pantheon', name: 'Pantheon', icon: 'pantheon', category: 'Hosting', color: '#FF6B35', ...getHexPosition(4, 4) },
+    { id: 'googlecloud', name: 'Google Cloud', icon: 'googlecloud', category: 'Hosting', color: '#FF6B35', ...getHexPosition(4, 5) },
+
+    // Row 5 - 6 items (offset)
+    { id: 'cloudflare', name: 'Cloudflare', icon: 'cloudflare', category: 'Hosting', color: '#FF6B35', ...getHexPosition(5, 0) },
+    { id: 'aws', name: 'AWS', icon: 'amazonaws', category: 'Cloud', color: '#FF6B35', ...getHexPosition(5, 1) },
+    { id: 'azure', name: 'Azure', icon: 'microsoftazure', category: 'Cloud', color: '#FF6B35', ...getHexPosition(5, 2) },
+    { id: 'git', name: 'Git', icon: 'git', category: 'Tools', color: '#E5E5E5', ...getHexPosition(5, 3) },
+    { id: 'github', name: 'GitHub', icon: 'github', category: 'Tools', color: '#E5E5E5', ...getHexPosition(5, 4) },
+    { id: 'bitbucket', name: 'Bitbucket', icon: 'bitbucket', category: 'Tools', color: '#E5E5E5', ...getHexPosition(5, 5) },
+
+    // Row 6 - 7 items
+    { id: 'gitlab', name: 'GitLab', icon: 'gitlab', category: 'Tools', color: '#E5E5E5', ...getHexPosition(6, 0) },    
+    { id: 'mariadb', name: 'MariaDB', icon: 'mariadb', category: 'Database', color: '#00CED1', ...getHexPosition(6, 1) },
+    { id: 'mysql', name: 'MySQL', icon: 'mysql', category: 'Database', color: '#00CED1', ...getHexPosition(6, 2) },
+    { id: 'postgresql', name: 'PostgreSQL', icon: 'postgresql', category: 'Database', color: '#00CED1', ...getHexPosition(6, 3) },
+    { id: 'mongodb', name: 'MongoDB', icon: 'mongodb', category: 'Database', color: '#00CED1', ...getHexPosition(6, 4) },
+    { id: 'fauna', name: 'Fauna', icon: 'fauna', category: 'Database', color: '#00CED1', ...getHexPosition(6, 5) },
+    { id: 'sqlite', name: 'SQLite', icon: 'sqlite', category: 'Database', color: '#00CED1', ...getHexPosition(6, 6) }
   ];
 
   // Function to find adjacent hexagons
