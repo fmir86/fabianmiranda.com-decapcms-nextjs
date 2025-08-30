@@ -4,6 +4,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../styles/About.module.scss';
 import TechStackHoneycomb from '../components/TechStack/TechStackHoneycomb';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEarthAmericas, faBrain, faProjectDiagram } from '@fortawesome/free-solid-svg-icons';
 
 const About = () => {
 
@@ -195,22 +197,31 @@ const About = () => {
               <div className={styles['location-text']}>
                 <h2>The Costa Rica Advantage</h2>
                 <p className="text-lg mb-6">
-                  Based in San José, Costa Rica, I offer the perfect nearshore solution for North American companies. Our GMT-6 timezone ensures real-time collaboration, while Costa Rica's stable democracy, excellent education system, and growing tech ecosystem provide the ideal environment for innovation.
+                  Costa Rica is a hub for innovation and technology in Central America. Thanks to its stable political climate, strong educational system, and commitment to sustainability, the country has become a prime destination for tech companies and startups, and its workforce is known for being highly skilled and adaptable.
+                </p>
+                <p className="text-lg mb-6">
+                  This allows me to be part of a thriving tech ecosystem that values collaboration, creativity, and fosters innovation.
                 </p>
                 <div className={styles['location-benefits']}>
                   <div className={styles['benefit']}>
-                    <div className={styles['benefit-icon']}>🌎</div>
-                    <h4>Strategic Location</h4>
+                    <div className={styles['benefit-icon']}>
+                      <FontAwesomeIcon icon={faEarthAmericas} size="1x" />
+                    </div>
+                    <h4>Strategic <br/>Location</h4>
                     <p>Same timezone as CST, perfect for US collaboration</p>
                   </div>
                   <div className={styles['benefit']}>
-                    <div className={styles['benefit-icon']}>🎓</div>
-                    <h4>Educated Workforce</h4>
+                    <div className={styles['benefit-icon']}>
+                      <FontAwesomeIcon icon={faBrain} size="1x" />
+                    </div>
+                    <h4>Educational advantage</h4>
                     <p>High English proficiency and technical expertise</p>
                   </div>
                   <div className={styles['benefit']}>
-                    <div className={styles['benefit-icon']}>💡</div>
-                    <h4>Innovation Hub</h4>
+                    <div className={styles['benefit-icon']}>
+                      <FontAwesomeIcon icon={faProjectDiagram} size="1x" />
+                    </div>
+                    <h4>Innovation <br/>Hub</h4>
                     <p>Growing tech ecosystem with Fortune 500 presence</p>
                   </div>
                 </div>
@@ -229,7 +240,7 @@ const About = () => {
               </p>
               <div className={styles['cta-buttons']}>
                 <Link className='lightblue-cta' href="/contact">START A CONVERSATION</Link>
-                <Link className={styles['secondary-cta']} href="/portfolio">VIEW MY WORK</Link>
+                <Link className={styles['secondary-cta']} href="/#work-samples">VIEW MY WORK</Link>
               </div>
             </div>
           </div>

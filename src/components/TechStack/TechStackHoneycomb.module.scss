@@ -1,11 +1,14 @@
-// Honeycomb Grid Styles
+// Honeycomb Grid Styles - DYNAMIC SIZING WITH JS
 .honeycombContainer {
   position: relative;
-  padding: 2rem; // Uniform padding
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
   opacity: 0;
   transition: opacity 0.8s ease-out;
-  overflow: visible; // Important - allow glow to show
-  z-index: 1; // Ensure it's above other elements
+  overflow: visible;
+  z-index: 1;
+  @apply p-0 lg:p-8;
 
   &.loaded {
     opacity: 1;
@@ -14,65 +17,34 @@
 
 .honeycombGrid {
   position: relative;
-  width: 520px; // Adjusted for 5 hexagons with proper spacing
-  height: 750px; // 8 rows with vertical spacing
-  margin: 0; // No auto margin - not centered
-  padding: 20px; // Small padding for glow space
-  overflow: visible; // Allow glow to extend outside
+  margin: 0 auto;
+  padding: 20px;
+  overflow: visible;
   
-  @media (max-width: 768px) {
-    width: 390px; // Adjusted for smaller hexagons
-    height: 575px; // 8 rows with smaller spacing
-    padding: 15px;
-  }
-  
-  @media (max-width: 600px) {
-    width: 100%;
-    height: auto;
-    padding: 10px;
-  }
+  // Default CSS custom properties (will be overridden by JS)
+  --hex-width: 80px;
+  --hex-height: 80px;
+  --h-spacing: 75px;
+  --v-spacing: 66px;
+  --offset-amount: 37px;
+  --icon-size: 32px;
 }
 
-// Individual Hexagon
+// Individual Hexagon - Uses dynamic CSS custom properties
 .hexagon {
   position: absolute;
-  width: 100px;
-  height: 100px;
+  width: var(--hex-width);
+  height: var(--hex-height);
   opacity: 0;
   transform: scale(0);
   animation: hexAppear 0.5s ease-out forwards;
   animation-delay: var(--delay);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
-
-  // Position calculation for proper interlocking honeycomb pattern
-  // For hexagons with equal visual spacing:
-  // We need to account for the hexagon geometry
-  // Horizontal spacing needs to be adjusted for the angled sides
-  $hex-width: 100px;
-  $hex-height: 100px;
-  $gap: 8px; // Uniform gap between all hexagons
-  // For equal visual spacing, horizontal needs to account for hexagon geometry
-  $h-spacing: ($hex-width * 0.866) + $gap; // This gives equal visual spacing
-  $v-spacing: ($hex-height * 0.75) + $gap; // Vertical spacing with gap
   
-  left: calc(var(--col) * #{$h-spacing} + var(--offset, 0px));
-  top: calc(var(--row) * #{$v-spacing});
-
-  @media (max-width: 768px) {
-    width: 75px;
-    height: 75px;
-    $hex-width-mobile: 75px;
-    $hex-height-mobile: 75px;
-    $gap-mobile: 6px;
-    $h-spacing-mobile: ($hex-width-mobile * 0.866) + $gap-mobile;
-    $v-spacing-mobile: ($hex-height-mobile * 0.75) + $gap-mobile;
-    $offset-scale: 0.75; // Scale down the offset proportionally
-    left: calc(var(--col) * #{$h-spacing-mobile} + calc(var(--offset, 0px) * #{$offset-scale}));
-    top: calc(var(--row) * #{$v-spacing-mobile});
-  }
-
-
+  // Use CSS custom properties for positioning
+  left: calc(var(--col) * var(--h-spacing) + var(--offset, 0px));
+  top: calc(var(--row) * var(--v-spacing));
 
   &:hover,
   &.hovered {
@@ -142,20 +114,17 @@
   transition: transform 0.3s ease;
 }
 
+// Dynamic icon sizing
 .techIcon {
-  width: 40px;
-  height: 40px;
+  width: var(--icon-size);
+  height: var(--icon-size);
   filter: brightness(0) invert(1);
   transition: all 0.3s ease;
-
-  @media (max-width: 768px) {
-    width: 32px;
-    height: 32px;
-  }
 }
 
+// Dynamic tech name sizing and positioning
 .techName {
-  font-size: 0.8rem;
+  font-size: calc(var(--icon-size) * 0.4);
   font-weight: 600;
   color: #FFFFFF;
   text-align: center;
@@ -163,22 +132,19 @@
   transform: translateY(10px);
   transition: all 0.3s ease;
   position: absolute;
-  top: -30px;
+  top: calc(var(--hex-height) * -0.35);
   left: 50%;
   transform: translateX(-50%) translateY(10px);
   white-space: nowrap;
-  background: rgba(26, 26, 26, 0.95); // Same as hexagon background
+  background: rgba(26, 26, 26, 0.95);
   border: 1px solid var(--hex-color);
-  padding: 0.25rem 0.75rem;
-  border-radius: 20px;
+  padding: calc(var(--icon-size) * 0.1) calc(var(--icon-size) * 0.25);
+  border-radius: calc(var(--icon-size) * 0.5);
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   z-index: 10;
-
-  @media (max-width: 768px) {
-    font-size: 0.7rem;
-    top: -25px;
-  }
+  min-font-size: 10px;
+  max-font-size: 14px;
 
   .hexagon:hover &,
   .hexagon.hovered & {
@@ -187,7 +153,7 @@
   }
 }
 
-// Background Pattern
+// Background Pattern - Responsive
 .backgroundPattern {
   position: absolute;
   inset: 0;
@@ -198,8 +164,8 @@
 
 .floatingHex {
   position: absolute;
-  width: 150px;
-  height: 150px;
+  width: calc(var(--hex-width) * 1.5);
+  height: calc(var(--hex-width) * 1.5);
   opacity: 0.02;
   left: var(--float-x);
   top: var(--float-y);
@@ -236,45 +202,27 @@
   }
 }
 
-// Responsive adjustments for very small screens
-@media (max-width: 480px) {
+// Mobile optimizations for very small screens
+@media (max-width: 400px) {
   .honeycombContainer {
-    padding: 1rem;
+    padding: 10px;
+    max-width: 100%;
   }
-
+  
   .honeycombGrid {
-    width: 260px;
-    height: 425px; // 8 rows with smallest spacing
-    padding: 8px;
+    padding: 10px;
   }
-
+  
   .hexagon {
-    width: 50px;
-    height: 50px;
-    $hex-width-small: 50px;
-    $hex-height-small: 50px;
-    $gap-small: 4px;
-    $h-spacing-small: ($hex-width-small * 0.866) + $gap-small;
-    $v-spacing-small: ($hex-height-small * 0.75) + $gap-small;
-    $offset-scale-small: 0.5; // Half offset for small screens
-    left: calc(var(--col) * #{$h-spacing-small} + calc(var(--offset, 0px) * #{$offset-scale-small}));
-    top: calc(var(--row) * #{$v-spacing-small});
-    
     &:hover,
     &.hovered {
-      transform: scale(1.15) translateY(-8px) rotateZ(3deg);
+      // Gentler hover effects on very small screens
+      transform: scale(1.2) translateY(-10px) rotateZ(3deg);
+      filter: drop-shadow(0 12px 24px rgba(0, 212, 255, 0.3)) drop-shadow(0 6px 12px var(--hex-color));
     }
   }
-
-  .techIcon {
-    width: 22px;
-    height: 22px;
-  }
-
+  
   .techName {
-    font-size: 0.55rem;
-    padding: 0.15rem 0.4rem;
-    top: -18px;
+    font-size: max(10px, calc(var(--icon-size) * 0.35));
   }
-
 }

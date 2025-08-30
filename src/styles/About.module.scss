@@ -288,7 +288,7 @@
         overflow: visible; // Ensure glow effects can show
 
         .focus-content {
-            @apply flex flex-col md:flex-row gap-12 items-center;
+            @apply flex flex-col lg:flex-row gap-6 lg:gap-12 items-center;
 
             .focus-text {
                 @apply w-full lg:w-1/2;
@@ -341,7 +341,7 @@
         @apply max-w-7xl mx-auto;
 
         .location-content {
-            @apply flex flex-col lg:flex-row gap-12 items-center;
+            @apply flex flex-col lg:flex-row gap-12 items-start justify-start;
 
             .location-image {
                 @apply w-full lg:w-1/2 order-2 lg:order-1;

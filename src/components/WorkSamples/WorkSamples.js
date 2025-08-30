@@ -70,7 +70,7 @@ export default function WorkSamples() {
   const filteredSamples = filter === "featured" ? workSamples.filter((sample) => sample.featured) : workSamples
 
   return (
-    <section className={styles.workSamplesSection}>
+    <section className={styles.workSamplesSection} id="work-samples">
       <div className={styles.container}>
         <div className="text-center mb-12">
           <h2 className={styles.sectionTitle}>Work That Drives Results</h2>

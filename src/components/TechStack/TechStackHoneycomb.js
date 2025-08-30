@@ -7,18 +7,72 @@ const TechStackHoneycomb = () => {
   const [autoAnimatedTech, setAutoAnimatedTech] = useState(null);
   const animationTimeoutRef = useRef(null);
   const isUserHovering = useRef(false);
+  const containerRef = useRef(null);
+  const gridRef = useRef(null);
+
+  // Calculate dynamic hexagon sizing
+  const calculateHexagonSize = useCallback(() => {
+    if (!containerRef.current) return;
+    
+    const containerWidth = containerRef.current.offsetWidth - 40; // Account for padding
+    const maxHexagonsInRow = 7; // Row 6 has the most hexagons
+    const hexagonGap = 6;
+    
+    // Calculate optimal hexagon width
+    // For hexagons: horizontal spacing = width * 0.866 + gap
+    // Available width = (maxHexagons * (width * 0.866)) + ((maxHexagons - 1) * gap)
+    // Solve for width: width = (availableWidth - gaps) / (maxHexagons * 0.866)
+    const totalGaps = (maxHexagonsInRow - 1) * hexagonGap;
+    const hexagonWidth = Math.max(32, Math.min(100, (containerWidth - totalGaps) / (maxHexagonsInRow * 0.866)));
+    const hexagonHeight = hexagonWidth; // Keep square aspect ratio
+    
+    // Calculate spacing
+    const hSpacing = (hexagonWidth * 0.866) + hexagonGap;
+    const vSpacing = (hexagonHeight * 0.75) + hexagonGap;
+    const offsetAmount = hSpacing / 2;
+    
+    // Calculate icon size (proportional to hexagon size)
+    const iconSize = Math.max(14, Math.min(40, hexagonWidth * 0.4));
+    
+    // Apply CSS custom properties
+    if (gridRef.current) {
+      gridRef.current.style.setProperty('--hex-width', `${hexagonWidth}px`);
+      gridRef.current.style.setProperty('--hex-height', `${hexagonHeight}px`);
+      gridRef.current.style.setProperty('--h-spacing', `${hSpacing}px`);
+      gridRef.current.style.setProperty('--v-spacing', `${vSpacing}px`);
+      gridRef.current.style.setProperty('--offset-amount', `${offsetAmount}px`);
+      gridRef.current.style.setProperty('--icon-size', `${iconSize}px`);
+      
+      // Calculate and set grid dimensions
+      const gridWidth = (6 * hSpacing) + hexagonWidth; // 6 spaces + 1 hex for row 6
+      const gridHeight = (6 * vSpacing) + hexagonHeight; // 7 rows (0-6)
+      gridRef.current.style.width = `${gridWidth}px`;
+      gridRef.current.style.height = `${gridHeight}px`;
+    }
+  }, []);
 
   useEffect(() => {
     setIsLoaded(true);
-  }, []);
+    calculateHexagonSize();
+  }, [calculateHexagonSize]);
+  
+  // Recalculate on window resize
+  useEffect(() => {
+    const handleResize = () => {
+      calculateHexagonSize();
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [calculateHexagonSize]);
 
   // Creating a proper interlocking honeycomb layout
   // Calculate offset for each hexagon
   const getHexPosition = (row, col) => {
     // Odd rows are offset by half the horizontal spacing
     const isOddRow = row % 2 === 1;
-    // Horizontal spacing is (100px * 0.866) + 8px = 94.6px, so half is 47.3px
-    const offset = isOddRow ? '47.3px' : '0px';
+    // Use CSS custom property for offset
+    const offset = isOddRow ? 'var(--offset-amount)' : '0px';
     return { row, col, offset };
   };
 
@@ -199,8 +253,8 @@ const TechStackHoneycomb = () => {
   };
 
   return (
-    <div className={`${styles.honeycombContainer} ${isLoaded ? styles.loaded : ''}`}>
-      <div className={styles.honeycombGrid}>
+    <div ref={containerRef} className={`${styles.honeycombContainer} ${isLoaded ? styles.loaded : ''}`}>
+      <div ref={gridRef} className={styles.honeycombGrid}>
         {allTechs.map((tech, index) => (
           <div
             key={tech.id}
