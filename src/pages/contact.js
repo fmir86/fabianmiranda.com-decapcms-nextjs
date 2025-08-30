@@ -83,7 +83,7 @@ const Contact = () => {
 
               <input type="email" id="email" name="email" placeholder="Email" required/>
 
-              <div class={styles['custom-select']}>
+              <div className={styles['custom-select']}>
                 <select id="subject" name="subject" required>
                   <option value="" disabled selected>I want to talk about...</option>
                   <option value="Web Development">Web Development</option>

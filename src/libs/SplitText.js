@@ -16,7 +16,6 @@ class SplitText {
   split() {
     const elements = this.container.querySelectorAll(this.options.selector);
 
-    console.log('elements', elements)
 
     elements.forEach((element) => {
       const text = element.textContent;
