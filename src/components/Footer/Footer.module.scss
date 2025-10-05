@@ -28,12 +28,17 @@
             @apply font-[200] text-white text-xs relative mx-auto;
         }
 
+        .social-icons-row{
+            @apply my-6 flex items-center justify-center gap-4;
+        }
+
         ul{
             @apply text-center;
         }
 
         :global(.social-icon){
             transition: color 1s ease;
+            @apply w-6 h-6;
             @apply mx-[10px] my-0 align-middle;
             @apply text-white hover:text-lightblue transition-colors;                
         }

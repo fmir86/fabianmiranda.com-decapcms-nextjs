@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How I Work - Diseño Zigzag Correcto</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'lightblue': '#00D4FF',
+                        'magenta': '#9945FF',
+                        'darkgray': '#151515',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background: #000000;
+        }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen flex flex-col items-center justify-center p-4 lg:p-8 overflow-hidden bg-black">
+        <!-- Header -->
+        <div class="w-full max-w-7xl mx-auto text-center">
+            <h1 class="text-4xl lg:text-6xl font-bold text-white mb-6">
+                HOW I <span class="text-lightblue" style="text-shadow: 0 0 20px rgba(0, 212, 255, 0.5)">WORK</span>
+            </h1>
+            <p class="text-lg text-gray-400 mb-16 max-w-3xl mx-auto">
+                A streamlined process to transform your ideas into reality, ensuring transparency and excellence at every stage.
+            </p>
+        </div>
+
+        <!-- Steps Container -->
+        <div class="w-full max-w-4xl mx-auto space-y-12 relative">
+            <!-- Vertical Line -->
+            <div class="absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-slate-700 h-full -z-0 lg:left-1/4"></div>
+            
+            <div class="flex flex-col space-y-12">
+                <!-- Step 1 (Left) -->
+                <div class="flex flex-col lg:flex-row items-start lg:items-center w-full relative">
+                    <!-- Number Circle -->
+                    <div class="lg:w-1/4 flex justify-center lg:justify-end lg:pr-16 relative">
+                        <div 
+                            class="w-20 h-20 rounded-full flex items-center justify-center text-3xl font-bold shrink-0 z-10 text-white"
+                            style="background: linear-gradient(135deg, #00D4FF 0%, #9945FF 100%); box-shadow: 0 0 30px rgba(0, 212, 255, 0.4)"
+                        >
+                            1
+                        </div>
+                    </div>
+
+                    <!-- Content Card -->
+                    <div class="relative w-full lg:w-3/4 flex-shrink-0 mt-8 lg:mt-0">
+                        <div class="relative z-10 flex flex-col p-8 bg-darkgray/80 backdrop-blur-sm rounded-lg h-full border border-white/10 transition-all duration-300 text-center lg:text-left hover:border-lightblue hover:-translate-y-1">
+                            <h3 class="text-xl font-bold text-lightblue mb-3">DISCOVERY</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                Understanding your business needs, challenges, and goals to create the right solution.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 (Right) -->
+                <div class="flex flex-col lg:flex-row-reverse items-start lg:items-center w-full relative">
+                    <!-- Number Circle -->
+                    <div class="lg:w-1/4 flex justify-center lg:justify-start lg:pl-16 relative">
+                        <div 
+                            class="w-20 h-20 rounded-full flex items-center justify-center text-3xl font-bold shrink-0 z-10 text-white"
+                            style="background: linear-gradient(135deg, #00D4FF 0%, #9945FF 100%); box-shadow: 0 0 30px rgba(0, 212, 255, 0.4)"
+                        >
+                            2
+                        </div>
+                    </div>
+
+                    <!-- Content Card -->
+                    <div class="relative w-full lg:w-3/4 flex-shrink-0 mt-8 lg:mt-0">
+                        <div class="relative z-10 flex flex-col p-8 bg-darkgray/80 backdrop-blur-sm rounded-lg h-full border border-white/10 transition-all duration-300 text-center lg:text-left hover:border-lightblue hover:-translate-y-1">
+                            <h3 class="text-xl font-bold text-lightblue mb-3">STRATEGY</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                Designing the technical architecture and project roadmap with clear milestones.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 (Left) -->
+                <div class="flex flex-col lg:flex-row items-start lg:items-center w-full relative">
+                    <!-- Number Circle -->
+                    <div class="lg:w-1/4 flex justify-center lg:justify-end lg:pr-16 relative">
+                        <div 
+                            class="w-20 h-20 rounded-full flex items-center justify-center text-3xl font-bold shrink-0 z-10 text-white"
+                            style="background: linear-gradient(135deg, #00D4FF 0%, #9945FF 100%); box-shadow: 0 0 30px rgba(0, 212, 255, 0.4)"
+                        >
+                            3
+                        </div>
+                    </div>
+
+                    <!-- Content Card -->
+                    <div class="relative w-full lg:w-3/4 flex-shrink-0 mt-8 lg:mt-0">
+                        <div class="relative z-10 flex flex-col p-8 bg-darkgray/80 backdrop-blur-sm rounded-lg h-full border border-white/10 transition-all duration-300 text-center lg:text-left hover:border-lightblue hover:-translate-y-1">
+                            <h3 class="text-xl font-bold text-lightblue mb-3">DEVELOPMENT</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                Building with modern tools and best practices, keeping you informed every step of the way.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4 (Right) -->
+                <div class="flex flex-col lg:flex-row-reverse items-start lg:items-center w-full relative">
+                    <!-- Number Circle -->
+                    <div class="lg:w-1/4 flex justify-center lg:justify-start lg:pl-16 relative">
+                        <div 
+                            class="w-20 h-20 rounded-full flex items-center justify-center text-3xl font-bold shrink-0 z-10 text-white"
+                            style="background: linear-gradient(135deg, #00D4FF 0%, #9945FF 100%); box-shadow: 0 0 30px rgba(0, 212, 255, 0.4)"
+                        >
+                            4
+                        </div>
+                    </div>
+
+                    <!-- Content Card -->
+                    <div class="relative w-full lg:w-3/4 flex-shrink-0 mt-8 lg:mt-0">
+                        <div class="relative z-10 flex flex-col p-8 bg-darkgray/80 backdrop-blur-sm rounded-lg h-full border border-white/10 transition-all duration-300 text-center lg:text-left hover:border-lightblue hover:-translate-y-1">
+                            <h3 class="text-xl font-bold text-lightblue mb-3">LAUNCH & SUPPORT</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                Deploying your solution and providing ongoing support to ensure continued success.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

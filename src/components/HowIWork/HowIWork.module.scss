@@ -1,0 +1,27 @@
+// Timeline vertical line with gradient passing through circle centers
+.timeline-wrapper {
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 1.25rem; // 40px - center of the 80px circle container
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        opacity: 0.6;
+        background-image: linear-gradient(
+            to bottom, 
+            transparent 0%, 
+            rgba(15, 160, 193, 1) 5%, 
+            rgb(175, 53, 175) 90%, 
+            transparent 100%
+        );
+        transform: translateX(-50%);
+        z-index: 0;
+
+        @screen md {
+            left: 2.5rem; // 80px - center of the 160px circle container
+        }
+    }
+}

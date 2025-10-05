@@ -6,20 +6,20 @@ body{
     @apply min-h-screen bg-black text-white;
 
     h1{
-        @apply text-4xl font-thin sm:text-5xl xl:text-6xl mb-6;
+        @apply text-4xl font-bold sm:text-5xl xl:text-6xl mb-6;
     }
 
     h2{
-        @apply text-3xl font-[200] uppercase sm:text-4xl xl:text-5xl mb-6 mx-auto;
+        @apply text-3xl font-[300] uppercase sm:text-4xl xl:text-5xl mb-6 mx-auto;
         @apply text-lightblue mb-12;
     }
 
     h3{
-        @apply text-2xl font-thin uppercase sm:text-3xl xl:text-4xl mb-6;
+        @apply text-2xl font-[300] uppercase sm:text-3xl xl:text-4xl mb-6;
     }
 
     p{
-        @apply text-base font-thin mb-4 sm:mb-8;
+        @apply text-base font-[200] mb-4 sm:mb-8;
     }
 
     li{

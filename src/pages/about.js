@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../styles/About.module.scss';
 import TechStackHoneycomb from '../components/TechStack/TechStackHoneycomb';
+import BannerCTA from '../components/BannerCTA';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEarthAmericas, faBrain, faProjectDiagram } from '@fortawesome/free-solid-svg-icons';
 
@@ -92,14 +93,16 @@ const About = () => {
             <h2>Areas of Expertise</h2>
             <div className={styles['expertise-grid']}>
               <div className={styles['expertise-card']}>
-                <div className={styles['card-icon']}>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <polyline points="16 18 22 12 16 6"></polyline>
-                    <polyline points="8 6 2 12 8 18"></polyline>
-                  </svg>
+                <div className={styles['card-content']}>
+                  <div className={styles['card-icon']}>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <polyline points="16 18 22 12 16 6"></polyline>
+                      <polyline points="8 6 2 12 8 18"></polyline>
+                    </svg>
+                  </div>
+                  <h3>Cross-platform Software Development</h3>
+                  <p>Building scalable applications for all kinds of platforms and industries. Always leveraging modern programming languages and frameworks to deploy to multiple environments. Solid expertise in Node.js backend development.</p>
                 </div>
-                <h3>Cross-platform Software Development</h3>
-                <p>Building scalable applications for all kinds of platforms and industries. Always leveraging modern programming languages and frameworks to deploy to multiple environments. Solid expertise in Node.js backend development.</p>
               </div>
               
               <div className={styles['expertise-card']}>
@@ -149,7 +152,7 @@ const About = () => {
             <div className={styles['focus-content']}>
               <div className={styles['focus-text']}>
                 <h2>Current Focus</h2>
-                <p className="text-lg mb-6">
+                <p className="text-lg mb-6 text-white font-normal">
                   For the past four years, my primary focus has been creating multichannel applications and experiences that amplify advertising and communication initiatives. I place a strong emphasis on:
                 </p>
                 <ul className={styles['focus-list']}>
@@ -159,7 +162,7 @@ const About = () => {
                   <li>Technical SEO implementation from the ground up</li>
                   <li>AI-powered workflow automation</li>
                 </ul>
-                <p className="text-lg mt-6">
+                <p className="text-lg mt-6 text-white font-normal">
                   My technical toolkit often revolves around Node.js, supported by modern frameworks such as Next.js, Gatsby, and Astro. I implement architectural patterns like JAMstack, SSR, and SSG, deploying to leading platforms including Vercel, Netlify, AWS, and Azure.
                 </p>
               </div>
@@ -185,16 +188,16 @@ const About = () => {
               </div>
               <div className={styles['location-text']}>
                 <h2>The Costa Rica Advantage</h2>
-                <p className="text-lg mb-6">
+                <p className="text-lg mb-6 text-white font-normal">
                   Costa Rica is a hub for innovation and technology in Central America. Thanks to its stable political climate, strong educational system, and commitment to sustainability, the country has become a prime destination for tech companies and startups, and its workforce is known for being highly skilled and adaptable.
                 </p>
-                <p className="text-lg mb-6">
+                <p className="text-lg mb-6 text-white font-normal">
                   This allows me to be part of a thriving tech ecosystem that values collaboration, creativity, and fosters innovation.
                 </p>
                 <div className={styles['location-benefits']}>
                   <div className={styles['benefit']}>
                     <div className={styles['benefit-icon']}>
-                      <FontAwesomeIcon icon={faEarthAmericas} size="1x" />
+                      <FontAwesomeIcon icon={faEarthAmericas} size="1x"  />
                     </div>
                     <h4>Strategic <br/>Location</h4>
                     <p>Same timezone as CST, perfect for US collaboration</p>
@@ -220,20 +223,7 @@ const About = () => {
         </div>
 
         {/* CTA Section */}
-        <div className={styles['cta-section']}>
-          <div className={styles['container']}>
-            <div className={styles['cta-content']}>
-              <h2>Ready to Transform Your Business?</h2>
-              <p className="text-xl mb-8">
-                Let's discuss how my expertise in AI, full-stack development, and nearshore team leadership can accelerate your next project.
-              </p>
-              <div className={styles['cta-buttons']}>
-                <Link className='lightblue-cta' href="/contact">START A CONVERSATION</Link>
-                <Link className={styles['secondary-cta']} href="/#work-samples">VIEW MY WORK</Link>
-              </div>
-            </div>
-          </div>
-        </div>
+        <BannerCTA />
       </div>
     </Layout>
   )

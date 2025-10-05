@@ -28,7 +28,7 @@ const Header = () => {
             </ul>
         </nav>
             
-        <p className="my-6">
+        <div className={styles['social-icons-row']}>
           <Link href="https://github.com/fmir86" target="_blank" rel="noopener noreferrer" className="social-icon" title="Github">
             <FontAwesomeIcon icon={faSquareGithub} size="2x"/>
           </Link>
@@ -38,7 +38,7 @@ const Header = () => {
           <a href="mailto:me@fabianmiranda.com" target="_blank" rel="noopener noreferrer" className="social-icon" title="Email">
             <FontAwesomeIcon icon={faEnvelopeSquare} size="2x"/>
           </a>
-        </p>
+        </div>
             
         <p>© 2024 | FABIANMIRANDA.COM | ALL RIGHTS RESERVED</p>
 
