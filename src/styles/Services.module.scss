@@ -1,0 +1,95 @@
+// Services Page Styles
+
+.service-list-item {
+    @apply relative pl-6;
+    
+    &::before {
+        content: '■';
+        @apply absolute left-0 top-0;
+        @apply text-lightblue text-base;
+    }
+}
+
+// Hero Section (same as About page)
+.hero-section {
+    @apply w-full relative overflow-hidden min-h-[none] sm:min-h-[300px] lg:min-h-[500px];
+    background: rgb(0, 0, 0);
+
+    .hero-wrapper {
+        @apply w-full relative;
+        @apply flex flex-col lg:flex-row items-center;
+        @apply sm:pl-6;
+
+        .hero-content {
+            @apply relative w-full text-left;
+            @apply mb-0;
+            @apply relative;
+            @apply sm:py-8 lg:py-16;
+            @apply max-w-7xl mx-auto;
+
+            .hero-title {
+                @apply text-3xl sm:text-4xl lg:text-5xl xl:text-6xl relative;
+                @apply font-bold leading-tight mb-6 mx-6 sm:mx-0 mt-6 sm:mt-0;
+                @apply text-white;
+
+                span {
+                    @apply block mt-2;
+
+                    em {
+                        @apply not-italic;
+                        
+                        &.magenta {
+                            @apply text-magenta;
+                            text-shadow: 0 0 20px rgba(214, 72, 208, 0.5);
+                        }
+
+                        &.lightblue {
+                            @apply text-lightblue;
+                            text-shadow: 0 0 20px rgba(38, 214, 252, 0.5);
+                        }
+                    }
+                }
+            }
+
+            .hero-subtitle {
+                @apply relative text-lg lg:text-xl text-white;
+                @apply max-w-xl mb-6 mx-6 sm:mx-0 mt-6 sm:mt-0;
+                @apply font-normal leading-relaxed;
+            }
+        }
+
+        .hero-video {
+            @apply sm:absolute right-0 top-0;
+            @apply max-h-[220px] sm:max-h-[300px] md:max-h-[500px];
+            @apply overflow-hidden;
+            pointer-events: none;
+
+            @media (max-width: 1680px) and (min-width: 1280px) {
+                margin-right: calc( 0px - (100vw - 1280px) / 2 );
+            }
+
+            @media (min-width: 1681px) {
+                margin-right: -10rem;
+            }
+
+            .video-gradient-overlay {
+                @apply hidden sm:block absolute right-0;
+                top: 0;
+                bottom: 0;
+                width: 100%;
+                background: linear-gradient(to right, 
+                    rgba(0, 0, 0, 1) 0%,
+                    rgba(0, 0, 0, 0.9) 10%,
+                    rgba(0, 0, 0, 0.0) 50%,
+                    rgba(0, 0, 0, 0.5) 90%,
+                    rgba(0, 0, 0, 1) 100%);
+            }
+
+            .hero-video-element {
+                @apply h-full w-auto sm:w-full  sm:w-auto;
+                @apply max-h-[none] md:max-h-[300px] lg:max-h-[500px];
+                @apply object-contain;
+            }
+        }
+    }
+}
