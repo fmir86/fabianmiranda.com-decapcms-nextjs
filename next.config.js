@@ -8,5 +8,13 @@ module.exports = {
             }
         )
         return cfg
+    },
+    async rewrites() {
+        return [
+            {
+                source: '/admin',
+                destination: '/admin/index.html'
+            }
+        ]
     }
 }

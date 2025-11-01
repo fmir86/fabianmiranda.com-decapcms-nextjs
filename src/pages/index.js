@@ -5,13 +5,15 @@ import Hero from "../components/Hero/Hero";
 import ThreeColumns from "../components/ThreeColumns/ThreeColumns";
 import AboutMe from "../components/AboutMe/AboutMe";
 import WorkSamples from "../components/WorkSamples/WorkSamples";
+import { loadCaseStudies } from "../libs/loadCaseStudies";
+import { loadHeaderData, loadFooterData } from "../libs/loadGlobalData";
 
-const Home = () => {
+const Home = ({ caseStudies, headerData, footerData }) => {
 
   let { title, description, cats } = attributes;
 
   return (
-    <Layout>
+    <Layout headerData={headerData} footerData={footerData}>
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
@@ -25,11 +27,25 @@ const Home = () => {
 
         <AboutMe />
 
-        <WorkSamples />
+        <WorkSamples caseStudies={caseStudies} />
 
       </div>
     </Layout>
   )
+}
+
+export async function getStaticProps() {
+  const caseStudies = loadCaseStudies();
+  const headerData = loadHeaderData();
+  const footerData = loadFooterData();
+
+  return {
+    props: {
+      caseStudies,
+      headerData,
+      footerData
+    }
+  };
 }
 
 export default Home;

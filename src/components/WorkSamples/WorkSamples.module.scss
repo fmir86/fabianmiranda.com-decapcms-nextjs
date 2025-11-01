@@ -7,6 +7,72 @@
   @apply w-full max-w-7xl mx-auto;
 }
 
+.filtersSection {
+  @apply mb-12 pb-8 border-b border-white/10;
+}
+
+.filterHeader {
+  @apply flex items-center justify-between mb-6;
+}
+
+.filterTitle {
+  @apply text-lg font-[300] text-white uppercase tracking-wider;
+}
+
+.clearButton {
+  @apply px-4 py-2 text-sm font-[300] uppercase tracking-wider;
+  @apply bg-magenta/20 text-magenta rounded-md;
+  @apply border border-magenta/30;
+  @apply transition-all duration-300 cursor-pointer;
+
+  &:hover {
+    @apply bg-magenta/30 border-magenta;
+  }
+}
+
+.filterGroup {
+  @apply mb-6;
+
+  &:last-of-type {
+    @apply mb-0;
+  }
+}
+
+.filterLabel {
+  @apply block text-sm font-[300] text-lightblue uppercase tracking-wider mb-3;
+}
+
+.filterOptions {
+  @apply flex flex-wrap gap-2;
+}
+
+.filterButton {
+  @apply px-4 py-2 text-sm font-[300] rounded-full;
+  @apply bg-black/40 backdrop-blur-sm text-gray-300;
+  @apply border border-white/20;
+  @apply transition-all duration-300 cursor-pointer;
+
+  &:hover {
+    @apply bg-lightblue/10 text-lightblue border-lightblue/30;
+  }
+
+  &.active {
+    @apply bg-lightblue/20 text-lightblue border-lightblue;
+  }
+
+  &:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+}
+
+.resultsCount {
+  @apply mt-6 text-sm font-[300] text-gray-400;
+}
+
+.activeFilters {
+  @apply text-lightblue;
+}
+
 .sectionTitle {
   @apply text-3xl font-[200] uppercase sm:text-4xl xl:text-5xl mb-6 mx-auto;
   @apply text-lightblue mb-12 text-center;
@@ -116,10 +182,15 @@
 .projectTitle {
   @apply text-2xl font-thin uppercase sm:text-3xl mb-6;
   @apply text-lightblue;
+  @apply cursor-pointer transition-colors duration-300;
 }
 
 .projectCard:hover .projectTitle {
-  @apply text-white;
+  @apply text-magenta;
+}
+
+.cardContent a {
+  text-decoration: none;
 }
 
 .projectDescription {
@@ -154,6 +225,60 @@
 
 .impactStatement strong {
   @apply text-gray-400 font-[300];
+}
+
+.viewCaseStudyBtn {
+  @apply mt-6 inline-block px-6 py-3 w-full text-center;
+  @apply bg-trans-white text-white rounded-sm;
+  @apply font-light text-sm uppercase tracking-wider;
+  @apply transition-all duration-300;
+  @apply border-2 border-transparent;
+  text-decoration: none;
+
+  &:hover {
+    @apply bg-lightblue text-black;
+    @apply border-lightblue;
+  }
+}
+
+/* Pagination */
+.pagination {
+  @apply flex items-center justify-center gap-4 mt-16;
+}
+
+.paginationButton {
+  @apply px-6 py-3 text-sm font-[300] uppercase tracking-wider;
+  @apply bg-black/40 backdrop-blur-sm text-gray-300;
+  @apply border border-white/20 rounded-md;
+  @apply transition-all duration-300 cursor-pointer;
+
+  &:hover:not(:disabled) {
+    @apply bg-lightblue/10 text-lightblue border-lightblue/30;
+  }
+
+  &:disabled {
+    @apply opacity-30 cursor-not-allowed;
+  }
+}
+
+.paginationPages {
+  @apply flex items-center gap-2;
+}
+
+.paginationPage {
+  @apply w-10 h-10 flex items-center justify-center text-sm font-[300];
+  @apply bg-black/40 backdrop-blur-sm text-gray-300;
+  @apply border border-white/20 rounded-md;
+  @apply transition-all duration-300 cursor-pointer;
+
+  &:hover:not(.active) {
+    @apply bg-lightblue/10 text-lightblue border-lightblue/30;
+  }
+
+  &.active {
+    @apply bg-lightblue text-black border-lightblue;
+    @apply font-[400];
+  }
 }
 
 /* CTA Section */

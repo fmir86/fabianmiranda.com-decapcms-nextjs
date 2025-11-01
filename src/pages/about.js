@@ -7,11 +7,12 @@ import TechStackHoneycomb from '../components/TechStack/TechStackHoneycomb';
 import BannerCTA from '../components/BannerCTA';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEarthAmericas, faBrain, faProjectDiagram } from '@fortawesome/free-solid-svg-icons';
+import { loadHeaderData, loadFooterData } from "../libs/loadGlobalData";
 
-const About = () => {
+const About = ({ headerData, footerData }) => {
 
   return (
-    <Layout>
+    <Layout headerData={headerData} footerData={footerData}>
       <Head>
         <title>About | Fabian Miranda - Nearshore AI & Tech Expert</title>
         <meta name="description" content={'Learn about Fabian Miranda - A seasoned Full-Stack Developer, AI Consultant, and Tech Leader with 15+ years of experience delivering innovative solutions from Costa Rica to global clients.'} />
@@ -227,6 +228,18 @@ const About = () => {
       </div>
     </Layout>
   )
+}
+
+export async function getStaticProps() {
+  const headerData = loadHeaderData();
+  const footerData = loadFooterData();
+
+  return {
+    props: {
+      headerData,
+      footerData
+    }
+  };
 }
 
 export default About;
