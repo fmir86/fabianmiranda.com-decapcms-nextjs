@@ -3,6 +3,7 @@ import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
 import Layout from "../../components/Layout/Layout"
 import SEO from "../../components/SEO/SEO"
+import ShareButtons from "../../components/ShareButtons/ShareButtons"
 import { loadBlogPosts } from "../../libs/loadBlogPosts"
 import { loadHeaderData, loadFooterData } from "../../libs/loadGlobalData"
 import ReactMarkdown from 'react-markdown'
@@ -86,6 +87,13 @@ const BlogPost = ({ post, headerData, footerData }) => {
             />
           </div>
         )}
+
+        {/* Share Buttons */}
+        <ShareButtons
+          url={`/blog/${post.slug}`}
+          title={post.title}
+          description={post.excerpt}
+        />
 
         {/* Blog Content */}
         <section className={styles.content}>

@@ -3,6 +3,7 @@ import Link from "next/link"
 import { ExternalLink, Github, ArrowLeft } from "lucide-react"
 import Layout from "../../components/Layout/Layout"
 import SEO from "../../components/SEO/SEO"
+import ShareButtons from "../../components/ShareButtons/ShareButtons"
 import { loadCaseStudies } from "../../libs/loadCaseStudies"
 import { loadHeaderData, loadFooterData } from "../../libs/loadGlobalData"
 import ReactMarkdown from 'react-markdown'
@@ -126,6 +127,13 @@ const CaseStudy = ({ caseStudy, headerData, footerData }) => {
             )}
           </div>
         </section>
+
+        {/* Share Buttons */}
+        <ShareButtons
+          url={`/work/${caseStudy.slug}`}
+          title={caseStudy.title}
+          description={caseStudy.description}
+        />
 
         {/* Full Case Study Content */}
         {caseStudy.content && (
