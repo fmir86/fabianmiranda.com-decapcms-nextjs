@@ -17,6 +17,7 @@ const Home = ({ caseStudies, headerData, footerData }) => {
       <SEO
         title={`${title} | Fabian Miranda - Creative Technologist`}
         description={description}
+        image="/images/og-default.jpg"
         type="website"
       />
 
