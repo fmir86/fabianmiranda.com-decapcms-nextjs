@@ -6,6 +6,7 @@ import BannerCTA from '../components/BannerCTA';
 import HowIWork from '../components/HowIWork';
 import { Code, Palette, Lightbulb } from "lucide-react";
 import styles from '../styles/Services.module.scss';
+import { loadHeaderData, loadFooterData } from "../libs/loadGlobalData";
 
 const servicesData = [
   {
@@ -133,9 +134,9 @@ const servicesData = [
   }
 ];
 
-const Services = () => {
+const Services = ({ headerData, footerData }) => {
   return (
-    <Layout>
+    <Layout headerData={headerData} footerData={footerData}>
       <Head>
         <title>Services | Fabian Miranda - Creative Technologist</title>
         <meta name="description" content="Expert technology services including full-stack development, digital production, and tech consultancy. Specializing in AI implementation, pharmaceutical solutions, and eLearning systems." />
@@ -203,13 +204,25 @@ const Services = () => {
             link: "/contact"
           }}
           secondaryCta={{
-            text: "VIEW PORTFOLIO",
-            link: "/portfolio"
+            text: "VIEW WORK",
+            link: "/work"
           }}
         />
       </div>
     </Layout>
   )
+}
+
+export async function getStaticProps() {
+  const headerData = loadHeaderData();
+  const footerData = loadFooterData();
+
+  return {
+    props: {
+      headerData,
+      footerData
+    }
+  };
 }
 
 export default Services;

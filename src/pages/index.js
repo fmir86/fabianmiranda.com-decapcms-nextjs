@@ -6,13 +6,14 @@ import ThreeColumns from "../components/ThreeColumns/ThreeColumns";
 import AboutMe from "../components/AboutMe/AboutMe";
 import WorkSamples from "../components/WorkSamples/WorkSamples";
 import { loadCaseStudies } from "../libs/loadCaseStudies";
+import { loadHeaderData, loadFooterData } from "../libs/loadGlobalData";
 
-const Home = ({ caseStudies }) => {
+const Home = ({ caseStudies, headerData, footerData }) => {
 
   let { title, description, cats } = attributes;
 
   return (
-    <Layout>
+    <Layout headerData={headerData} footerData={footerData}>
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
@@ -35,10 +36,14 @@ const Home = ({ caseStudies }) => {
 
 export async function getStaticProps() {
   const caseStudies = loadCaseStudies();
+  const headerData = loadHeaderData();
+  const footerData = loadFooterData();
 
   return {
     props: {
-      caseStudies
+      caseStudies,
+      headerData,
+      footerData
     }
   };
 }

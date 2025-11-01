@@ -7,7 +7,7 @@ import { useEffect } from "react";
 
 const inter = Inter({ subsets: ['latin'] })
 
-const Layout = ({ children }) => {
+const Layout = ({ children, headerData, footerData }) => {
 
   useEffect(() => {
     document.body.classList.remove('no-scroll');
@@ -115,14 +115,21 @@ const Layout = ({ children }) => {
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      
-      <Header />
+
+      <Header
+        logo={headerData?.logo}
+        navigation={headerData?.navigation}
+      />
 
       <main className={`${inter.className}`}>
         {children}
       </main>
 
-      <Footer/>
+      <Footer
+        navigation={footerData?.navigation}
+        socialLinks={footerData?.socialLinks}
+        copyright={footerData?.copyright}
+      />
     </div>
   );
 };

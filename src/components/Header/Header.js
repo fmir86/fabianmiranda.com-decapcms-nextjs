@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import gsap from "gsap";
 
-const Header = () => {
+const Header = ({ logo, navigation }) => {
 
   const router = useRouter();
   const headerWrapper = useRef(null);
@@ -72,18 +72,23 @@ const Header = () => {
     <header className={`${styles['main-header']}`} ref={headerWrapper}>
       <div className={styles["container"]}>
         <Link href="/" className={styles['fm-logo']}>
-          <Image src="/images/logo-fm.svg" alt="Fabian Miranda | Creative Technologist" width={160} height={52} />
+          <Image
+            src={logo?.image || "/images/logo-fm.svg"}
+            alt={logo?.alt || "Fabian Miranda | Creative Technologist"}
+            width={logo?.width || 160}
+            height={logo?.height || 52}
+          />
         </Link>
         <nav>
             <div className={`${styles['nav-panel']} navPanel`}>
               <ul>
-                <li>
-                  <Link href="/about" className={isActive('/about') ? styles.active : ''}>About</Link>
-                </li>
-                <li><Link href="/services" className={isActive('/services') ? styles.active : ''}>Services</Link></li>
-                <li><Link href="/portfolio" className={isActive('/portfolio') ? styles.active : ''}>Portfolio</Link></li>
-                <li><Link href="/blog" className={isActive('/blog') ? styles.active : ''}>Blog</Link></li>
-                <li><Link href="/contact" className={isActive('/contact') ? styles.active : ''}>Contact</Link></li>
+                {navigation && navigation.map((item, index) => (
+                  <li key={index}>
+                    <Link href={item.url} className={isActive(item.url) ? styles.active : ''}>
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
 

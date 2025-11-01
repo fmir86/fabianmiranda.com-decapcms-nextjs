@@ -22,6 +22,7 @@ export function loadCaseStudies() {
       const caseStudy = {
         slug: filename.replace(/\.md$/, ''),
         title: data.title,
+        date: data.date ? (typeof data.date === 'string' ? data.date : data.date.toISOString().split('T')[0]) : null,
         description: data.description,
         image: data.image,
         tags: data.tags || [],
@@ -31,7 +32,10 @@ export function loadCaseStudies() {
         order: data.order || 999
       };
 
-      // Only include URLs if they exist (avoid undefined)
+      // Only include optional fields if they exist (avoid undefined)
+      if (data.content) {
+        caseStudy.content = data.content;
+      }
       if (data.live_url) {
         caseStudy.liveUrl = data.live_url;
       }

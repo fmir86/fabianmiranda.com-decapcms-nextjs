@@ -1,0 +1,247 @@
+.blogSection {
+  @apply py-16 px-6 w-full;
+  background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgb(15, 15, 15) 100%);
+}
+
+.container {
+  @apply w-full max-w-7xl mx-auto;
+}
+
+.filtersSection {
+  @apply mb-12 pb-8 border-b border-white/10;
+}
+
+.filterHeader {
+  @apply flex items-center justify-between mb-6;
+}
+
+.filterTitle {
+  @apply text-lg font-[300] text-white uppercase tracking-wider;
+}
+
+.clearButton {
+  @apply px-4 py-2 text-sm font-[300] uppercase tracking-wider;
+  @apply bg-magenta/20 text-magenta rounded-md;
+  @apply border border-magenta/30;
+  @apply transition-all duration-300 cursor-pointer;
+
+  &:hover {
+    @apply bg-magenta/30 border-magenta;
+  }
+}
+
+.filterGroup {
+  @apply mb-6;
+
+  &:last-of-type {
+    @apply mb-0;
+  }
+}
+
+.filterLabel {
+  @apply block text-sm font-[300] text-lightblue uppercase tracking-wider mb-3;
+}
+
+.filterOptions {
+  @apply flex flex-wrap gap-2;
+}
+
+.filterButton {
+  @apply px-4 py-2 text-sm font-[300] rounded-full;
+  @apply bg-black/40 backdrop-blur-sm text-gray-300;
+  @apply border border-white/20;
+  @apply transition-all duration-300 cursor-pointer;
+
+  &:hover {
+    @apply bg-lightblue/10 text-lightblue border-lightblue/30;
+  }
+
+  &.active {
+    @apply bg-lightblue/20 text-lightblue border-lightblue;
+  }
+
+  &:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+}
+
+.resultsCount {
+  @apply mt-6 text-sm font-[300] text-gray-400;
+}
+
+.activeFilters {
+  @apply text-lightblue;
+}
+
+.postsGrid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+}
+
+.postCard {
+  @apply relative flex flex-col overflow-hidden transition-all duration-500;
+  @apply border border-trans-white;
+  background: linear-gradient(200deg, rgba(255, 255, 255, 0.05) 0%, transparent 80%);
+
+  &::before {
+    content: "";
+    @apply absolute top-0 left-0 w-full h-full;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 30px 30px;
+    background-position: center;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  &:hover {
+    @apply transform -translate-y-1;
+    @apply border-lightblue/30;
+    background: linear-gradient(200deg, rgba(38, 214, 252, 0.1) 0%, transparent 80%);
+  }
+}
+
+.imageContainer {
+  @apply relative overflow-hidden bg-black/20;
+  z-index: 2;
+  aspect-ratio: 4 / 3;
+}
+
+.postImage {
+  @apply w-full h-full block;
+  @apply transition-all duration-500;
+  object-fit: cover;
+}
+
+.postCard:hover .postImage {
+  @apply scale-105 brightness-110;
+}
+
+/* Categories overlay at bottom left of image */
+.categoriesOverlay {
+  @apply absolute bottom-4 left-4 z-20 flex flex-wrap gap-2;
+  @apply max-w-[90%];
+}
+
+.categoryBadgeOverlay {
+  @apply inline-block px-3 py-1 text-xs font-[200];
+  @apply bg-black/80 backdrop-blur-sm text-white rounded-full;
+  @apply border border-white/50 transition-colors duration-200;
+}
+
+.postContent {
+  @apply p-6 lg:p-8;
+  z-index: 2;
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.postTitle {
+  @apply text-2xl font-thin uppercase sm:text-3xl mb-4;
+  @apply text-lightblue;
+  @apply cursor-pointer transition-colors duration-300;
+  text-decoration: none;
+
+  &:hover {
+    @apply text-magenta;
+  }
+}
+
+.postMeta {
+  @apply flex items-center gap-2 mb-4 text-sm;
+  @apply text-gray-400 font-[300];
+}
+
+.author {
+  @apply text-white;
+}
+
+.separator {
+  @apply text-gray-600;
+}
+
+.date {
+  @apply text-gray-400;
+}
+
+.excerpt {
+  @apply text-base font-[300] mb-4 flex-grow;
+  @apply text-gray-300;
+}
+
+.tagsSection {
+  @apply mb-4;
+}
+
+.tagsLabel {
+  @apply block text-xs font-[300] text-lightblue uppercase tracking-wider mb-2;
+}
+
+.tags {
+  @apply flex flex-wrap gap-2;
+}
+
+.tag {
+  @apply inline-block px-3 py-1 text-xs font-[200];
+  @apply bg-black/40 backdrop-blur-sm text-gray-300 rounded-full;
+  @apply border border-white/20;
+}
+
+.readMore {
+  @apply inline-flex items-center text-sm font-light uppercase tracking-wider;
+  @apply text-lightblue transition-colors duration-300;
+  text-decoration: none;
+
+  &:hover {
+    @apply text-magenta;
+  }
+}
+
+.noPosts {
+  @apply text-center py-20;
+
+  p {
+    @apply text-xl text-gray-400 font-light;
+  }
+}
+
+.pagination {
+  @apply flex items-center justify-center gap-4 mt-16;
+}
+
+.paginationButton {
+  @apply px-6 py-3 text-sm font-[300] uppercase tracking-wider;
+  @apply bg-black/40 backdrop-blur-sm text-gray-300;
+  @apply border border-white/20 rounded-md;
+  @apply transition-all duration-300 cursor-pointer;
+
+  &:hover:not(:disabled) {
+    @apply bg-lightblue/10 text-lightblue border-lightblue/30;
+  }
+
+  &:disabled {
+    @apply opacity-30 cursor-not-allowed;
+  }
+}
+
+.paginationPages {
+  @apply flex items-center gap-2;
+}
+
+.paginationPage {
+  @apply w-10 h-10 flex items-center justify-center text-sm font-[300];
+  @apply bg-black/40 backdrop-blur-sm text-gray-300;
+  @apply border border-white/20 rounded-md;
+  @apply transition-all duration-300 cursor-pointer;
+
+  &:hover:not(.active) {
+    @apply bg-lightblue/10 text-lightblue border-lightblue/30;
+  }
+
+  &.active {
+    @apply bg-lightblue text-black border-lightblue;
+    @apply font-[400];
+  }
+}

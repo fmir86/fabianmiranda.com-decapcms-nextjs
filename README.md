@@ -98,7 +98,7 @@ npm run export
 
 ### Adding Case Studies
 
-Case studies appear on both the homepage ("Work That Drives Results") and the `/portfolio` page.
+Case studies appear on both the homepage ("Work That Drives Results") and the `/work` page.
 
 **Via CMS (Recommended):**
 1. Start local CMS development (see above)
@@ -136,7 +136,7 @@ All page content is managed through markdown files in `content/`:
 - Homepage: `content/home.md`
 - About: `content/about.md`
 - Services: `content/services.md`
-- Portfolio: `content/portfolio.md`
+- Work: `content/work.md`
 - Contact: `content/contact.md`
 - Blog: `content/blog.md`
 

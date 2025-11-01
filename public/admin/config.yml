@@ -3,7 +3,7 @@ backend:
   name: git-gateway
   branch: main
 media_folder: public/images
-public_folder: public
+public_folder: /images
 
 collections:
 
@@ -20,7 +20,7 @@ collections:
             name: "logo"
             widget: "object"
             fields:
-              - { label: "Image", name: "image", widget: "string" }
+              - { label: "Image", name: "image", widget: "image" }
               - { label: "Alt Text", name: "alt", widget: "string" }
               - { label: "Width", name: "width", widget: "number" }
               - { label: "Height", name: "height", widget: "number" }
@@ -35,7 +35,7 @@ collections:
         name: "footer"
         file: "content/global/footer.md"
         fields:
-          - { label: "Logo SVG", name: "logo_svg", widget: "text" }
+          - { label: "Logo SVG", name: "logo_svg", widget: "image" }
           - label: "Navigation"
             name: "navigation"
             widget: "list"
@@ -148,14 +148,12 @@ collections:
                   - { label: "Text", name: "text", widget: "string" }
                   - { label: "Link", name: "link", widget: "string" }
 
-      - label: "Portfolio"
-        name: "portfolio"
-        file: "content/portfolio.md"
+      - label: "Work Page"
+        name: "work"
+        file: "content/work.md"
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Description", name: "description", widget: "text" }
-          - { label: "Coming Soon", name: "coming_soon", widget: "boolean", default: true }
-          - { label: "Coming Soon Text", name: "coming_soon_text", widget: "string" }
 
       - label: "Blog Page"
         name: "blog_page"
@@ -209,19 +207,6 @@ collections:
                   - { label: "Title", name: "title", widget: "string" }
                   - { label: "Text", name: "text", widget: "text" }
 
-  # Blog Posts
-  - name: "blog_posts"
-    label: "Blog Posts"
-    folder: "content/blog"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Description", name: "description", widget: "text", required: false }
-      - { label: "Featured Image", name: "featured_image", widget: "string", required: false }
-      - { label: "Body", name: "body", widget: "markdown" }
-
   # Service Items (for individual service pages if needed)
   - name: "service_items"
     label: "Service Items"
@@ -242,7 +227,9 @@ collections:
     slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, hint: "Project completion date or publish date" }
       - { label: "Description", name: "description", widget: "text" }
+      - { label: "Content", name: "content", widget: "markdown", required: false, hint: "Full case study content with detailed information" }
       - { label: "Image", name: "image", widget: "image" }
       - label: "Tags"
         name: "tags"
@@ -257,3 +244,27 @@ collections:
       - { label: "Impact", name: "impact", widget: "text" }
       - { label: "Featured", name: "featured", widget: "boolean", default: false, required: false }
       - { label: "Order", name: "order", widget: "number", default: 0, value_type: "int", hint: "Used to control display order (lower numbers appear first)" }
+
+  # Blog Posts
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: "HH:mm" }
+      - { label: "Author", name: "author", widget: "string", default: "Fabian Miranda" }
+      - { label: "Excerpt", name: "excerpt", widget: "text", hint: "Short summary for blog listing page" }
+      - { label: "Featured Image", name: "featured_image", widget: "image", required: false }
+      - { label: "Content", name: "body", widget: "markdown" }
+      - label: "Categories"
+        name: "categories"
+        widget: "list"
+        field: { label: "Category", name: "category", widget: "string" }
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        field: { label: "Tag", name: "tag", widget: "string" }
+      - { label: "Published", name: "published", widget: "boolean", default: true }
+      - { label: "Featured", name: "featured", widget: "boolean", default: false, required: false }

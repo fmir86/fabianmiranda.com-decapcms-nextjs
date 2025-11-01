@@ -8,7 +8,14 @@ import { faEnvelopeSquare } from "@fortawesome/free-solid-svg-icons";
 
 
 
-const Header = () => {
+const Footer = ({ navigation, socialLinks, copyright }) => {
+  // Map icon names to FontAwesome icons
+  const iconMap = {
+    faSquareGithub,
+    faLinkedin,
+    faEnvelopeSquare
+  };
+
   return (
     <footer className={`${styles['main-footer']}`}>
       <div className={styles["container"]}>
@@ -21,30 +28,54 @@ const Header = () => {
 
         <nav className={styles['subnav']}>
             <ul>
-              <li><Link href="/about">About</Link></li>
-              <li><Link href="/about">Services</Link></li>
-              <li><Link href="/about">Portfolio</Link></li>
-              <li><Link href="/blog">Blog</Link></li>
+              {navigation && navigation.map((item, index) => (
+                <li key={index}>
+                  <Link href={item.url}>{item.label}</Link>
+                </li>
+              ))}
             </ul>
         </nav>
-            
+
         <div className={styles['social-icons-row']}>
-          <Link href="https://github.com/fmir86" target="_blank" rel="noopener noreferrer" className="social-icon" title="Github">
-            <FontAwesomeIcon icon={faSquareGithub} size="2x"/>
-          </Link>
-          <Link href="https://www.linkedin.com/in/fmir86/" target="_blank" rel="noopener noreferrer" className="social-icon" title="LinkedIn">
-            <FontAwesomeIcon icon={faLinkedin} size="2x"/>
-          </Link>
-          <a href="mailto:me@fabianmiranda.com" target="_blank" rel="noopener noreferrer" className="social-icon" title="Email">
-            <FontAwesomeIcon icon={faEnvelopeSquare} size="2x"/>
-          </a>
+          {socialLinks && socialLinks.map((link, index) => {
+            const icon = iconMap[link.icon];
+            const isEmail = link.url.startsWith('mailto:');
+
+            if (isEmail) {
+              return (
+                <a
+                  key={index}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-icon"
+                  title={link.platform}
+                >
+                  {icon && <FontAwesomeIcon icon={icon} size="2x"/>}
+                </a>
+              );
+            }
+
+            return (
+              <Link
+                key={index}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-icon"
+                title={link.platform}
+              >
+                {icon && <FontAwesomeIcon icon={icon} size="2x"/>}
+              </Link>
+            );
+          })}
         </div>
-            
-        <p>© 2024 | FABIANMIRANDA.COM | ALL RIGHTS RESERVED</p>
+
+        <p>{copyright || "© 2024 | FABIANMIRANDA.COM | ALL RIGHTS RESERVED"}</p>
 
       </div>
     </footer>
   );
 };
 
-export default Header;
+export default Footer;

@@ -6,10 +6,11 @@ import styles from '../styles/contact.module.scss'
 import Image from "next/image";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { loadHeaderData, loadFooterData } from "../libs/loadGlobalData";
 
 
 
-const Contact = () => {
+const Contact = ({ headerData, footerData }) => {
 
   const [popupContent, setPopupContent] = useState(null);
 
@@ -48,7 +49,7 @@ const Contact = () => {
   }  
 
   return (
-    <Layout>
+    <Layout headerData={headerData} footerData={footerData}>
       <Head>
         <title>Contact | Fabian Miranda - Creative Technologist</title>
         <meta name="description" content={'About | Fabian Miranda - Creative Technologist'} />
@@ -111,6 +112,18 @@ const Contact = () => {
       {popupContent && <Popup content={popupContent} onClose={() => setPopupContent(null) }/>}
     </Layout>
   )
+}
+
+export async function getStaticProps() {
+  const headerData = loadHeaderData();
+  const footerData = loadFooterData();
+
+  return {
+    props: {
+      headerData,
+      footerData
+    }
+  };
 }
 
 export default Contact;

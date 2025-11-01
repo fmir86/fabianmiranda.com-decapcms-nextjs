@@ -86,6 +86,6 @@ cta_banner:
     text: "GET IN TOUCH"
     link: "/contact"
   secondary_cta:
-    text: "VIEW PORTFOLIO"
-    link: "/portfolio"
+    text: "VIEW WORK"
+    link: "/work"
 ---

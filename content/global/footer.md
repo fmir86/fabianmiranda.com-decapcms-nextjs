@@ -1,26 +1,23 @@
 ---
-logo_svg: |
-  <svg width="50" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 50.3 49.2" fill="currentColor">
-    <path strokeWidth="0" fill="currentColor" d="M45.4,0H4C1.9,0,0,1.9,0,4v29.5l6.2-15h0l3.8-9.2c.5-1.3,2.2-2.4,3.9-2.4h35.3l-4.3,9.2c-.5,1.3-2.2,2.4-3.9,2.4h-19.7l-3.1,7.7h16.2l-4.3,9.2c-.5,1.3-2.2,2.3-3.9,2.3h-12.7l-3.9,9.9c-.2.5-.5.8-.9,1.6h37c2.1,0,3.9-1.8,3.9-3.9V4c0-2.1-1.8-4-3.9-4h-.3Z"/>
-  </svg>
+logo_svg: /images/logo-fm-white.svg
 navigation:
-  - label: "About"
-    url: "/about"
-  - label: "Services"
-    url: "/services"
-  - label: "Portfolio"
-    url: "/portfolio"
-  - label: "Blog"
-    url: "/blog"
+  - label: About
+    url: /about
+  - label: Services
+    url: /services
+  - label: Work
+    url: /work
+  - label: Blog
+    url: /blog
 social_links:
-  - platform: "Github"
-    url: "https://github.com/fmir86"
-    icon: "faSquareGithub"
-  - platform: "LinkedIn"
-    url: "https://www.linkedin.com/in/fmir86/"
-    icon: "faLinkedin"
-  - platform: "Email"
-    url: "mailto:me@fabianmiranda.com"
-    icon: "faEnvelopeSquare"
-copyright: "© 2024 | FABIANMIRANDA.COM | ALL RIGHTS RESERVED"
+  - platform: Github
+    url: https://github.com/fmir86
+    icon: faSquareGithub
+  - platform: LinkedIn
+    url: https://www.linkedin.com/in/fmir86/
+    icon: faLinkedin
+  - platform: Email
+    url: mailto:me@fabianmiranda.com
+    icon: faEnvelopeSquare
+copyright: © 2025 | FABIANMIRANDA.COM | ALL RIGHTS RESERVED
 ---
