@@ -1,6 +1,7 @@
 local_backend: true
 backend:
-  name: git-gateway
+  name: github
+  repo: fmir86/fabianmiranda.com-decapcms-nextjs
   branch: main
 media_folder: public/images
 public_folder: /images
