@@ -5,8 +5,9 @@ import Hero from "../components/Hero/Hero";
 import ThreeColumns from "../components/ThreeColumns/ThreeColumns";
 import AboutMe from "../components/AboutMe/AboutMe";
 import WorkSamples from "../components/WorkSamples/WorkSamples";
+import { loadCaseStudies } from "../libs/loadCaseStudies";
 
-const Home = () => {
+const Home = ({ caseStudies }) => {
 
   let { title, description, cats } = attributes;
 
@@ -25,11 +26,21 @@ const Home = () => {
 
         <AboutMe />
 
-        <WorkSamples />
+        <WorkSamples caseStudies={caseStudies} />
 
       </div>
     </Layout>
   )
+}
+
+export async function getStaticProps() {
+  const caseStudies = loadCaseStudies();
+
+  return {
+    props: {
+      caseStudies
+    }
+  };
 }
 
 export default Home;

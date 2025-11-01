@@ -22,6 +22,22 @@ npm start
 npm run export
 ```
 
+### Local CMS Development
+
+To edit content locally through the CMS interface without authentication:
+
+**Terminal 1:**
+```bash
+npm run dev
+```
+
+**Terminal 2:**
+```bash
+npx decap-server
+```
+
+Then navigate to `http://localhost:3000/admin` and click "Work with Local Git Repository". This bypasses Netlify Identity authentication and allows direct editing of local markdown files in the `content/` directory.
+
 ## Architecture
 
 ### Content Management Architecture

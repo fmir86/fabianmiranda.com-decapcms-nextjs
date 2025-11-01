@@ -1,6 +1,6 @@
 ---
 title: "Portfolio | Fabian Miranda - Creative Technologist"
-description: "Portfolio | Fabian Miranda - Creative Technologist"
-coming_soon: true
-coming_soon_text: "PORTFOLIO"
+description: "Explore high-impact web development projects by Fabian Miranda. From e-commerce to wellness platforms, see how modern technology drives real business results."
+coming_soon: false
+coming_soon_text: ""
 ---

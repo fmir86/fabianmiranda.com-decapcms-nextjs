@@ -2,8 +2,8 @@ local_backend: true
 backend:
   name: git-gateway
   branch: main
-media_folder: public/img
-public_folder: img
+media_folder: public/images
+public_folder: public
 
 collections:
 
@@ -233,3 +233,27 @@ collections:
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Featured Image", name: "featured_image", widget: "string", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
+
+  # Case Studies (Portfolio)
+  - name: "case_studies"
+    label: "Case Studies"
+    folder: "content/case-studies"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Image", name: "image", widget: "image" }
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        field: { label: "Tag", name: "tag", widget: "string" }
+      - { label: "Live URL", name: "live_url", widget: "string", required: false }
+      - { label: "GitHub URL", name: "github_url", widget: "string", required: false }
+      - label: "Highlights"
+        name: "highlights"
+        widget: "list"
+        field: { label: "Highlight", name: "highlight", widget: "string" }
+      - { label: "Impact", name: "impact", widget: "text" }
+      - { label: "Featured", name: "featured", widget: "boolean", default: false, required: false }
+      - { label: "Order", name: "order", widget: "number", default: 0, value_type: "int", hint: "Used to control display order (lower numbers appear first)" }
