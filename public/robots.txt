@@ -1,0 +1,18 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /admin
+
+# Googlebot,Googlebot-Image,Googlebot-News,Googlebot-Video,Bingbot,Slurp,DuckDuckBot,Baiduspider,YandexBot,Sogou,Exabot,facebot,ia_archiver
+User-agent: Googlebot,Googlebot-Image,Googlebot-News,Googlebot-Video,Bingbot,Slurp,DuckDuckBot,Baiduspider,YandexBot,Sogou,Exabot,facebot,ia_archiver
+Allow: /
+
+# GPTBot,ChatGPT-User,Google-Extended,GoogleOther,anthropic-ai,ClaudeBot,Claude-Web,PerplexityBot,Applebot,Applebot-Extended,cohere-ai,YouBot,Diffbot,ImagesiftBot,Omgilibot,FacebookBot,PetalBot
+User-agent: GPTBot,ChatGPT-User,Google-Extended,GoogleOther,anthropic-ai,ClaudeBot,Claude-Web,PerplexityBot,Applebot,Applebot-Extended,cohere-ai,YouBot,Diffbot,ImagesiftBot,Omgilibot,FacebookBot,PetalBot
+Allow: /
+
+# Host
+Host: https://fabianmiranda.com
+
+# Sitemaps
+Sitemap: https://fabianmiranda.com/sitemap.xml
