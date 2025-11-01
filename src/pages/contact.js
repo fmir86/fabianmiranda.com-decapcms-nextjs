@@ -85,14 +85,14 @@ const Contact = ({ headerData, footerData }) => {
               <input type="email" id="email" name="email" placeholder="Email" required/>
 
               <div className={styles['custom-select']}>
-                <select id="subject" name="subject" required>
-                  <option value="" disabled selected>I want to talk about...</option>
+                <select id="subject" name="subject" required defaultValue="">
+                  <option value="" disabled>I want to talk about...</option>
                   <option value="Web Development">Web Development</option>
                   <option value="Consulting">Consulting</option>
                   <option value="Digital Production">Digital Production</option>
                   <option value="Other">Other</option>
                 </select>
-                <FontAwesomeIcon icon={faChevronDown} className={styles['custom-arrow']} />
+                <FontAwesomeIcon icon={faChevronDown} className={styles['custom-arrow']} size="sm" />
               </div>
 
               <textarea id="message" name="message" placeholder="Message" required></textarea>
