@@ -64,6 +64,7 @@ const Work = ({ caseStudies, headerData, footerData }) => {
       <SEO
         title={`${title} | Fabian Miranda - Creative Technologist`}
         description={description}
+        image="/images/laptop-bg.jpg"
         type="website"
       />
 

@@ -19,7 +19,7 @@ const CaseStudy = ({ caseStudy, headerData, footerData }) => {
       <SEO
         title={`${caseStudy.title} | Fabian Miranda`}
         description={caseStudy.description}
-        image={caseStudy.image || '/images/og-default.jpg'}
+        image={caseStudy.image || '/images/og-default-v2.jpg'}
         type="article"
         keywords={caseStudy.tags?.join(', ')}
       />

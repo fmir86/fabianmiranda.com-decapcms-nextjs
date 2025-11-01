@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 const SEO = ({
   title = 'Fabian Miranda - Creative Technologist',
   description = 'Full-stack developer and creative technologist specializing in web development, digital production, and tech consulting.',
-  image = '/images/og-default.jpg',
+  image = '/images/og-default-v2.jpg',
   type = 'website',
   author = 'Fabian Miranda',
   keywords = ''

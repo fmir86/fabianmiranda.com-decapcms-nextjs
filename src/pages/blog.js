@@ -87,6 +87,7 @@ const Blog = ({ posts, headerData, footerData }) => {
         title="Blog | Fabian Miranda - Creative Technologist"
         description="Insights on AI, web development, AI-assisted coding, blockchain, and the future of software engineering from 15+ years in tech."
         keywords="AI development, web development, AI-assisted coding, blockchain, software engineering"
+        image="/images/codebot.jpg"
       />
 
       <div className="w-full">

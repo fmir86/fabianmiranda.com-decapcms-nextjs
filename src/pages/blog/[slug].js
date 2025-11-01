@@ -20,7 +20,7 @@ const BlogPost = ({ post, headerData, footerData }) => {
       <SEO
         title={`${post.title} | Fabian Miranda`}
         description={post.excerpt}
-        image={post.featuredImage || '/images/og-default.jpg'}
+        image={post.featuredImage || '/images/og-default-v2.jpg'}
         type="article"
         author={post.author}
         keywords={post.tags?.join(', ')}
