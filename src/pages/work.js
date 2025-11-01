@@ -1,11 +1,11 @@
 "use client"
 
 import { useState, useMemo } from "react"
-import Head from "next/head"
 import Link from "next/link"
 import Image from "next/image"
 import { ExternalLink, Github } from "lucide-react"
 import Layout from "../components/Layout/Layout"
+import SEO from "../components/SEO/SEO"
 import { loadCaseStudies } from "../libs/loadCaseStudies"
 import { loadHeaderData, loadFooterData } from "../libs/loadGlobalData"
 import { attributes } from '../../content/work.md'
@@ -61,10 +61,11 @@ const Work = ({ caseStudies, headerData, footerData }) => {
 
   return (
     <Layout headerData={headerData} footerData={footerData}>
-      <Head>
-        <title>{title}</title>
-        <meta name="description" content={description} />
-      </Head>
+      <SEO
+        title={`${title} | Fabian Miranda - Creative Technologist`}
+        description={description}
+        type="website"
+      />
 
       <div className="w-full">
         {/* Hero Section */}

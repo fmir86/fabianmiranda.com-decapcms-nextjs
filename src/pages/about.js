@@ -1,5 +1,5 @@
-import Head from "next/head"
 import Layout from "../components/Layout/Layout";
+import SEO from "../components/SEO/SEO";
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../styles/About.module.scss';
@@ -13,10 +13,12 @@ const About = ({ headerData, footerData }) => {
 
   return (
     <Layout headerData={headerData} footerData={footerData}>
-      <Head>
-        <title>About | Fabian Miranda - Nearshore AI & Tech Expert</title>
-        <meta name="description" content={'Learn about Fabian Miranda - A seasoned Full-Stack Developer, AI Consultant, and Tech Leader with 15+ years of experience delivering innovative solutions from Costa Rica to global clients.'} />
-      </Head>
+      <SEO
+        title="About | Fabian Miranda - Nearshore AI & Tech Expert"
+        description="Learn about Fabian Miranda - A seasoned Full-Stack Developer, AI Consultant, and Tech Leader with 15+ years of experience delivering innovative solutions from Costa Rica to global clients."
+        image="/images/about/costarica-tech-hub.jpg"
+        keywords="full-stack developer, AI consultant, Costa Rica, nearshore development, tech leader"
+      />
 
       <div className="w-full">
         {/* Hero Section */}

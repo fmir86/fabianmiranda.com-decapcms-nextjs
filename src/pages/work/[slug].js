@@ -1,8 +1,8 @@
-import Head from "next/head"
 import Image from "next/image"
 import Link from "next/link"
 import { ExternalLink, Github, ArrowLeft } from "lucide-react"
 import Layout from "../../components/Layout/Layout"
+import SEO from "../../components/SEO/SEO"
 import { loadCaseStudies } from "../../libs/loadCaseStudies"
 import { loadHeaderData, loadFooterData } from "../../libs/loadGlobalData"
 import ReactMarkdown from 'react-markdown'
@@ -15,10 +15,13 @@ const CaseStudy = ({ caseStudy, headerData, footerData }) => {
 
   return (
     <Layout headerData={headerData} footerData={footerData}>
-      <Head>
-        <title>{caseStudy.title} | Fabian Miranda - Creative Technologist</title>
-        <meta name="description" content={caseStudy.description} />
-      </Head>
+      <SEO
+        title={`${caseStudy.title} | Fabian Miranda`}
+        description={caseStudy.description}
+        image={caseStudy.image || '/images/og-default.jpg'}
+        type="article"
+        keywords={caseStudy.tags?.join(', ')}
+      />
 
       <article className={styles.caseStudyContainer}>
         {/* Back Button */}

@@ -1,8 +1,8 @@
-import Head from "next/head"
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
 import Layout from "../../components/Layout/Layout"
+import SEO from "../../components/SEO/SEO"
 import { loadBlogPosts } from "../../libs/loadBlogPosts"
 import { loadHeaderData, loadFooterData } from "../../libs/loadGlobalData"
 import ReactMarkdown from 'react-markdown'
@@ -16,19 +16,14 @@ const BlogPost = ({ post, headerData, footerData }) => {
 
   return (
     <Layout headerData={headerData} footerData={footerData}>
-      <Head>
-        <title>{post.title} | Fabian Miranda - Creative Technologist</title>
-        <meta name="description" content={post.excerpt} />
-        {post.featuredImage && (
-          <>
-            <meta property="og:image" content={post.featuredImage} />
-            <meta name="twitter:image" content={post.featuredImage} />
-          </>
-        )}
-        <meta property="og:title" content={post.title} />
-        <meta property="og:description" content={post.excerpt} />
-        <meta name="twitter:card" content="summary_large_image" />
-      </Head>
+      <SEO
+        title={`${post.title} | Fabian Miranda`}
+        description={post.excerpt}
+        image={post.featuredImage || '/images/og-default.jpg'}
+        type="article"
+        author={post.author}
+        keywords={post.tags?.join(', ')}
+      />
 
       <article className={styles.blogPostContainer}>
         {/* Back Button */}

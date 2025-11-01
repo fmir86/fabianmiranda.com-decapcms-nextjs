@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Head from "next/head"
 import Layout from "../components/Layout/Layout";
+import SEO from "../components/SEO/SEO";
 import Popup from '../components/Popup/Popup';
 import styles from '../styles/contact.module.scss'
 import Image from "next/image";
@@ -50,10 +50,11 @@ const Contact = ({ headerData, footerData }) => {
 
   return (
     <Layout headerData={headerData} footerData={footerData}>
-      <Head>
-        <title>Contact | Fabian Miranda - Creative Technologist</title>
-        <meta name="description" content={'About | Fabian Miranda - Creative Technologist'} />
-      </Head>
+      <SEO
+        title="Contact | Fabian Miranda - Creative Technologist"
+        description="Get in touch for your digital production projects, web development needs, or tech challenges. Expert solutions from an experienced full-stack developer and consultant."
+        image="/images/encounter.png"
+      />
 
       <div className={styles['page-wrapper']}>
         <div className="w-full text-white max-w-7xl mx-auto py-10 md:py-20 z-[1]">

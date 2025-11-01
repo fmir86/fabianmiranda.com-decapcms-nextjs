@@ -1,5 +1,5 @@
-import Head from "next/head"
 import Layout from "../components/Layout/Layout";
+import SEO from "../components/SEO/SEO";
 import Link from 'next/link';
 import ServiceBlock from '../components/ServiceBlock';
 import BannerCTA from '../components/BannerCTA';
@@ -137,15 +137,12 @@ const servicesData = [
 const Services = ({ headerData, footerData }) => {
   return (
     <Layout headerData={headerData} footerData={footerData}>
-      <Head>
-        <title>Services | Fabian Miranda - Creative Technologist</title>
-        <meta name="description" content="Expert technology services including full-stack development, digital production, and tech consultancy. Specializing in AI implementation, pharmaceutical solutions, and eLearning systems." />
-        <meta name="keywords" content="full stack developer, ai specialist, tech consultant, clm edetailing, elearning scorm, digital production" />
-        <meta property="og:title" content="Services | Fabian Miranda - Creative Technologist" />
-        <meta property="og:description" content="Expert technology services from development to AI consultancy" />
-        <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://fabianmiranda.com/services" />
-      </Head>
+      <SEO
+        title="Services | Fabian Miranda - Creative Technologist"
+        description="Expert technology services including full-stack development, digital production, and tech consultancy. Specializing in AI implementation, pharmaceutical solutions, and eLearning systems."
+        keywords="full stack developer, ai specialist, tech consultant, clm edetailing, elearning scorm, digital production"
+        image="/images/services/development-1.jpg"
+      />
 
       <div className="w-full">
         {/* Hero Section */}

@@ -1,5 +1,5 @@
-import Head from "next/head"
 import Layout from "../components/Layout/Layout";
+import SEO from "../components/SEO/SEO";
 import { attributes, react as HomeContent } from '../../content/home.md'
 import Hero from "../components/Hero/Hero";
 import ThreeColumns from "../components/ThreeColumns/ThreeColumns";
@@ -14,11 +14,11 @@ const Home = ({ caseStudies, headerData, footerData }) => {
 
   return (
     <Layout headerData={headerData} footerData={footerData}>
-      <Head>
-        <title>{title}</title>
-        <meta name="description" content={description} />
-        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-      </Head>
+      <SEO
+        title={`${title} | Fabian Miranda - Creative Technologist`}
+        description={description}
+        type="website"
+      />
 
       <div>
         <Hero />

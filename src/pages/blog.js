@@ -1,8 +1,8 @@
-import Head from "next/head"
 import Link from "next/link"
 import Image from "next/image"
 import { useState, useMemo } from "react"
 import Layout from "../components/Layout/Layout";
+import SEO from "../components/SEO/SEO";
 import { loadHeaderData, loadFooterData } from "../libs/loadGlobalData";
 import { loadBlogPosts } from "../libs/loadBlogPosts";
 import heroStyles from "../styles/About.module.scss"
@@ -83,10 +83,11 @@ const Blog = ({ posts, headerData, footerData }) => {
 
   return (
     <Layout headerData={headerData} footerData={footerData}>
-      <Head>
-        <title>Blog | Fabian Miranda - Creative Technologist</title>
-        <meta name="description" content="Insights on AI, web development, AI-assisted coding, blockchain, and the future of software engineering from 15+ years in tech." />
-      </Head>
+      <SEO
+        title="Blog | Fabian Miranda - Creative Technologist"
+        description="Insights on AI, web development, AI-assisted coding, blockchain, and the future of software engineering from 15+ years in tech."
+        keywords="AI development, web development, AI-assisted coding, blockchain, software engineering"
+      />
 
       <div className="w-full">
         {/* Hero Section */}
