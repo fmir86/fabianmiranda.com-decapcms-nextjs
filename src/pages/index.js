@@ -1,6 +1,5 @@
 import Layout from "../components/Layout/Layout";
 import SEO from "../components/SEO/SEO";
-import { attributes, react as HomeContent } from '../../content/home.md'
 import Hero from "../components/Hero/Hero";
 import ThreeColumns from "../components/ThreeColumns/ThreeColumns";
 import AboutMe from "../components/AboutMe/AboutMe";
@@ -9,14 +8,11 @@ import { loadCaseStudies } from "../libs/loadCaseStudies";
 import { loadHeaderData, loadFooterData } from "../libs/loadGlobalData";
 
 const Home = ({ caseStudies, headerData, footerData }) => {
-
-  let { title, description, cats } = attributes;
-
   return (
     <Layout headerData={headerData} footerData={footerData}>
       <SEO
-        title={`${title} | Fabian Miranda - Creative Technologist`}
-        description={description}
+        title="Fabian Miranda - Creative Technologist | Web Development | Digital Production"
+        description="Full-stack developer and creative technologist specializing in web development, digital production, and tech consulting. 15+ years delivering innovative solutions from Costa Rica to global clients."
         image="/images/og-default-v2.jpg"
         type="website"
       />

@@ -8,14 +8,12 @@ import Layout from "../components/Layout/Layout"
 import SEO from "../components/SEO/SEO"
 import { loadCaseStudies } from "../libs/loadCaseStudies"
 import { loadHeaderData, loadFooterData } from "../libs/loadGlobalData"
-import { attributes } from '../../content/work.md'
 import styles from "../components/WorkSamples/WorkSamples.module.scss"
 import heroStyles from "../styles/About.module.scss"
 
 const PROJECTS_PER_PAGE = 6;
 
 const Work = ({ caseStudies, headerData, footerData }) => {
-  const { title, description } = attributes;
   const [selectedTags, setSelectedTags] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -62,8 +60,8 @@ const Work = ({ caseStudies, headerData, footerData }) => {
   return (
     <Layout headerData={headerData} footerData={footerData}>
       <SEO
-        title={`${title} | Fabian Miranda - Creative Technologist`}
-        description={description}
+        title="Work | Fabian Miranda - Creative Technologist"
+        description="Explore my portfolio of successful projects, from startups to established businesses. Technology solutions that scale, perform, and deliver measurable business impact."
         image="/images/laptop-bg.jpg"
         type="website"
       />
