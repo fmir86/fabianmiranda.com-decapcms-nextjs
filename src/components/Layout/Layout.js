@@ -1,11 +1,8 @@
 import Head from "next/head";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-import { Inter } from 'next/font/google';
 import styles from "./Layout.module.scss";
 import { useEffect } from "react";
-
-const inter = Inter({ subsets: ['latin'] })
 
 const Layout = ({ children, headerData, footerData }) => {
 
@@ -121,7 +118,7 @@ const Layout = ({ children, headerData, footerData }) => {
         navigation={headerData?.navigation}
       />
 
-      <main className={`${inter.className}`}>
+      <main>
         {children}
       </main>
 

@@ -3,5 +3,6 @@ node_modules/
 /npm-debug.log
 .DS_Store
 out/
+sitemap.xml
 # Local Netlify folder
 .netlify
