@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -7,18 +8,60 @@ import {
   LinkedinIcon,
   WhatsappIcon,
 } from 'react-share';
+import { Share2 } from 'lucide-react';
 import styles from './ShareButtons.module.scss';
 
 const ShareButtons = ({ url, title, description }) => {
   const shareUrl = `https://fabianmiranda.com${url}`;
+  const [supportsNativeShare, setSupportsNativeShare] = useState(false);
 
-  // Custom WhatsApp handler that works with native app on desktop
+  useEffect(() => {
+    // Check if Web Share API is available (mobile devices)
+    setSupportsNativeShare(typeof navigator !== 'undefined' && !!navigator.share);
+  }, []);
+
+  // Native share handler (mobile)
+  const handleNativeShare = async () => {
+    try {
+      await navigator.share({
+        title: title,
+        text: description || title,
+        url: shareUrl,
+      });
+    } catch (err) {
+      // User cancelled or share failed, silently ignore
+      if (err.name !== 'AbortError') {
+        console.error('Error sharing:', err);
+      }
+    }
+  };
+
+  // Custom WhatsApp handler that works with native app
   const handleWhatsAppShare = () => {
     const text = encodeURIComponent(`${title} - ${shareUrl}`);
-    // Use whatsapp:// protocol which works with native app
     window.location.href = `whatsapp://send?text=${text}`;
   };
 
+  // Mobile: Show native share button
+  if (supportsNativeShare) {
+    return (
+      <div className={styles.shareContainer}>
+        <h3 className={styles.shareTitle}>Share</h3>
+        <div className={styles.shareButtons}>
+          <button
+            onClick={handleNativeShare}
+            className={styles.nativeShareButton}
+            aria-label="Share this page"
+          >
+            <Share2 size={24} />
+            <span>Share</span>
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  // Desktop: Show individual platform buttons
   return (
     <div className={styles.shareContainer}>
       <h3 className={styles.shareTitle}>Share</h3>
