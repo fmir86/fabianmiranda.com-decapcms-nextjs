@@ -200,7 +200,7 @@ const Blog = ({ posts, headerData, footerData }) => {
                       <Link href={`/blog/${post.slug}`} className={styles.imageContainer}>
                         <Image
                           src={post.featuredImage}
-                          alt={post.title}
+                          alt={`Featured image for: ${post.title}`}
                           fill
                           className={styles.postImage}
                         />

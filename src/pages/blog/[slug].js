@@ -100,7 +100,7 @@ const BlogPost = ({ post, headerData, footerData }) => {
           <div className={styles.featuredImage}>
             <Image
               src={post.featuredImage}
-              alt={post.title}
+              alt={`Featured image for article: ${post.title}`}
               fill
               className={styles.image}
             />

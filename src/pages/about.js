@@ -191,7 +191,7 @@ const About = ({ headerData, footerData }) => {
               <div className={styles['location-image']}>
                 <Image 
                   src="/images/about/costarica-tech-hub.jpg" 
-                  alt="Costa Rica tech hub" 
+                  alt="San José, Costa Rica skyline - nearshore software development hub for US companies" 
                   width={600} 
                   height={400} 
                   className={styles['location-photo']}

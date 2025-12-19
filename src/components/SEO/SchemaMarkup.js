@@ -149,7 +149,7 @@ export const generateArticleSchema = (article) => ({
     ? (article.featured_image.startsWith('http') ? article.featured_image : `${SITE_URL}${article.featured_image}`)
     : `${SITE_URL}/images/og-default-v2.jpg`,
   datePublished: article.date,
-  dateModified: article.date,
+  dateModified: article.dateModified || article.date,
   author: {
     '@type': 'Person',
     '@id': `${SITE_URL}/#person`,

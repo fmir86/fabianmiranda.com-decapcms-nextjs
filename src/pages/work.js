@@ -155,7 +155,7 @@ const Work = ({ caseStudies, headerData, footerData }) => {
                   <div className={styles.imageContainer}>
                     <Image
                       src={caseStudy.image}
-                      alt={caseStudy.title}
+                      alt={`Project screenshot: ${caseStudy.title}`}
                       width={600}
                       height={400}
                       className={styles.projectImage}

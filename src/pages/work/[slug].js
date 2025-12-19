@@ -104,7 +104,7 @@ const CaseStudy = ({ caseStudy, headerData, footerData }) => {
           <div className={styles.featuredImage}>
             <Image
               src={caseStudy.image}
-              alt={caseStudy.title}
+              alt={`Project screenshot: ${caseStudy.title}`}
               width={1200}
               height={600}
               className={styles.image}
