@@ -3,6 +3,7 @@ import Link from "next/link"
 import { ExternalLink, Github, ArrowLeft } from "lucide-react"
 import Layout from "../../components/Layout/Layout"
 import SEO from "../../components/SEO/SEO"
+import SchemaMarkup from "../../components/SEO/SchemaMarkup"
 import ShareButtons from "../../components/ShareButtons/ShareButtons"
 import { loadCaseStudies } from "../../libs/loadCaseStudies"
 import { loadHeaderData, loadFooterData } from "../../libs/loadGlobalData"
@@ -22,6 +23,23 @@ const CaseStudy = ({ caseStudy, headerData, footerData }) => {
         image={caseStudy.image || '/images/og-default-v2.jpg'}
         type="article"
         keywords={caseStudy.tags?.join(', ')}
+      />
+      <SchemaMarkup
+        type="caseStudy"
+        caseStudy={{
+          title: caseStudy.title,
+          description: caseStudy.description,
+          slug: caseStudy.slug,
+          date: caseStudy.date,
+          image: caseStudy.image,
+          tags: caseStudy.tags,
+          liveUrl: caseStudy.liveUrl
+        }}
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Work', url: '/work' },
+          { name: caseStudy.title }
+        ]}
       />
 
       <article className={styles.caseStudyContainer}>

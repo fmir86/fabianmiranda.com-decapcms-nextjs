@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Layout from "../components/Layout/Layout";
 import SEO from "../components/SEO/SEO";
+import SchemaMarkup from "../components/SEO/SchemaMarkup";
 import Popup from '../components/Popup/Popup';
 import styles from '../styles/contact.module.scss'
 import Image from "next/image";
@@ -55,6 +56,13 @@ const Contact = ({ headerData, footerData }) => {
         description="Get in touch for your digital production projects, web development needs, or tech challenges. Expert solutions from an experienced full-stack developer and consultant."
         image="/images/encounter.png"
       />
+      <SchemaMarkup
+        type="website"
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Contact' }
+        ]}
+      />
 
       <div className={styles['page-wrapper']}>
         <div className="w-full text-white max-w-7xl mx-auto py-10 md:py-20 z-[1]">
@@ -103,7 +111,7 @@ const Contact = ({ headerData, footerData }) => {
           </div>        
 
           <div className="col-span-6 flex justify-center items-center order-1 md:order-2">
-            <Image className={styles['main-img']} src={'/images/encounter.png'} width={435} height={513} alt="" />
+            <Image className={styles['main-img']} src={'/images/encounter.png'} width={435} height={513} alt="Contact Fabian Miranda for AI consulting and web development services" />
           </div>
 
           </div>

@@ -1,5 +1,6 @@
 import Layout from "../components/Layout/Layout";
 import SEO from "../components/SEO/SEO";
+import SchemaMarkup from "../components/SEO/SchemaMarkup";
 import Hero from "../components/Hero/Hero";
 import ThreeColumns from "../components/ThreeColumns/ThreeColumns";
 import AboutMe from "../components/AboutMe/AboutMe";
@@ -16,6 +17,7 @@ const Home = ({ caseStudies, headerData, footerData }) => {
         image="/images/og-default-v2.jpg"
         type="website"
       />
+      <SchemaMarkup type="homepage" />
 
       <div>
         <Hero />

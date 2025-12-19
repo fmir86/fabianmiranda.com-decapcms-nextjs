@@ -41,6 +41,7 @@
     "react-dom": "^18",
     "react-markdown": "^10.1.0",
     "react-share": "^5.2.2",
+    "rehype-raw": "^7.0.0",
     "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
