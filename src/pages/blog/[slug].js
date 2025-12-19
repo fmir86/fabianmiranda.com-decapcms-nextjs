@@ -9,6 +9,7 @@ import { loadBlogPosts } from "../../libs/loadBlogPosts"
 import { loadHeaderData, loadFooterData } from "../../libs/loadGlobalData"
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
+import rehypeRaw from 'rehype-raw'
 import styles from "./BlogPost.module.scss"
 
 const BlogPost = ({ post, headerData, footerData }) => {
@@ -115,7 +116,7 @@ const BlogPost = ({ post, headerData, footerData }) => {
 
         {/* Blog Content */}
         <section className={styles.content}>
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.body}</ReactMarkdown>
+          <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>{post.body}</ReactMarkdown>
         </section>
 
         {/* Footer CTA */}
