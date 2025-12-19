@@ -139,9 +139,8 @@ const Services = ({ headerData, footerData }) => {
   return (
     <Layout headerData={headerData} footerData={footerData}>
       <SEO
-        title="Services | Fabian Miranda - Creative Technologist"
-        description="Expert technology services including full-stack development, digital production, and tech consultancy. Specializing in AI implementation, pharmaceutical solutions, and eLearning systems."
-        keywords="full stack developer, ai specialist, tech consultant, clm edetailing, elearning scorm, digital production"
+        title="Nearshore Development & AI Consulting Services | Costa Rica"
+        description="Nearshore software development and AI consulting from Costa Rica. Full-stack web development, digital production, and AI-powered automation for US and global clients. Same timezone, expert delivery."
         image="/images/services/development-1.jpg"
       />
       <SchemaMarkup
@@ -181,7 +180,7 @@ const Services = ({ headerData, footerData }) => {
                 </span>
               </h1>
               <p className={styles['hero-subtitle']}>
-                From AI-powered development to digital production excellence, delivering comprehensive solutions that transform businesses and accelerate growth.
+                Nearshore development excellence from Costa Rica. AI-powered solutions, digital production, and strategic consulting that transform businesses and accelerate growth.
               </p>
             </div>
             

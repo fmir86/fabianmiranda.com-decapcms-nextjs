@@ -9,8 +9,8 @@ const AboutMe = () => {
 
                 <div className={styles['left-block']}>
                     <h2>About Me</h2>
-                    <p>Throughout my career as a Full-Stack Developer, I have witnessed the rise and fall of numerous technologies, this has helped me to develop a tech-agnostic mindset that allows me to focus on implementing creative strategies that align with my clients’ business objectives rather than constraining solutions to a single technology stack. This approach enables me to deliver engaging and future-proof digital products.</p>
-                    <p>Over the years, I have developed software for a diverse array of organizations, including game developers, major pharmaceutical companies, small businesses, startups, Fortune 500 corporations, and expansive advertising networks. In addition, I have led development teams by establishing coding standards, optimizing workflows to reduce errors and turnaround times, and automating tasks—all while nurturing individual growth and career advancement.</p>
+                    <p>As a <strong>nearshore software developer based in Costa Rica</strong>, I bring 15+ years of experience delivering solutions to US and global clients. My tech-agnostic mindset allows me to focus on implementing creative strategies that align with business objectives rather than constraining solutions to a single technology stack.</p>
+                    <p>I have developed software for game studios, major pharmaceutical companies, startups, Fortune 500 corporations, and global advertising networks. Beyond coding, I've led development teams, established coding standards, optimized workflows to reduce turnaround times by up to 40%, and pioneered <strong>AI-powered automation</strong> to enhance team productivity.</p>
                     
                     <Link className='lightblue-cta' href="/contact">KNOW ME BETTER</Link>
                 </div>

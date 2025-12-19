@@ -213,25 +213,25 @@ export const servicesSchema = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
   '@id': `${SITE_URL}/services#services`,
-  name: 'Technology Services by Fabian Miranda',
-  description: 'Expert technology services including AI consulting, full-stack development, and digital production.',
+  name: 'Nearshore Development & AI Consulting Services',
+  description: 'Nearshore software development and AI consulting from Costa Rica. Full-stack web development, digital production, and AI-powered automation for US and global clients.',
   itemListElement: [
     {
       '@type': 'Service',
       position: 1,
-      name: 'Full-Stack Web Development',
-      description: 'Custom web applications using React, Next.js, Node.js, and modern frameworks. From responsive websites to complex enterprise solutions.',
+      name: 'AI-Powered Software Development',
+      description: 'Nearshore full-stack web development from Costa Rica. Custom web applications using React, Next.js, Node.js with AI-powered development workflows for faster delivery.',
       provider: {
         '@id': `${SITE_URL}/#organization`
       },
       areaServed: 'Worldwide',
-      serviceType: 'Web Development'
+      serviceType: 'Nearshore Software Development'
     },
     {
       '@type': 'Service',
       position: 2,
       name: 'Digital Production',
-      description: 'Display ads, dynamic banner campaigns, rich media experiences, HTML email templates, and social media video ads for pharmaceutical and enterprise clients.',
+      description: 'Nearshore digital production services. Display ads, dynamic banner campaigns, rich media experiences, HTML email templates, and social media video ads for enterprise clients.',
       provider: {
         '@id': `${SITE_URL}/#organization`
       },
@@ -241,13 +241,13 @@ export const servicesSchema = {
     {
       '@type': 'Service',
       position: 3,
-      name: 'AI & Tech Consulting',
-      description: 'Strategic AI implementation, technology architecture, team augmentation, and nearshore development consulting from Costa Rica.',
+      name: 'AI Consulting & Implementation',
+      description: 'Strategic AI consulting from Costa Rica. AI strategy, implementation with Claude/ChatGPT/Gemini, workflow automation, RAG systems, and AI agent development for enterprise clients.',
       provider: {
         '@id': `${SITE_URL}/#organization`
       },
       areaServed: 'Worldwide',
-      serviceType: 'Technology Consulting'
+      serviceType: 'AI Consulting'
     }
   ]
 };

@@ -15,42 +15,42 @@ const ThreeColumns = () => {
 
                     <div className={styles['box']}>
                         <Code className={styles['icon']} />
-                        <h3>Development</h3>
+                        <h3>AI-Powered Development</h3>
                         <ul>
-                            <li>FullStack Web Development</li>
-                            <li>CLM & eDetailing</li>
-                            <li>Mobile Apps for iOS & Andriod</li>
-                            <li>Desktop Apps for Windows & MacOS</li>
-                            <li>eLearning systems (SCORM/LMS)</li>
-                            <li>Game development</li>
+                            <li>Full-Stack Web Applications</li>
+                            <li>CLM & eDetailing Solutions</li>
+                            <li>Mobile Apps (iOS & Android)</li>
+                            <li>Desktop Apps (Windows & macOS)</li>
+                            <li>eLearning Systems (SCORM/LMS)</li>
+                            <li>Custom Software Development</li>
                         </ul>
-                        <Link className="lightblue-cta" href='/contact'>LEARN MORE</Link>
+                        <Link className="lightblue-cta" href='/services#development'>LEARN MORE</Link>
                     </div>
                 
                     <div className={styles['box']}>
                         <Palette className={styles['icon']}/>
                         <h3>Digital Production</h3>
                         <ul>
-                            <li>Display Banner ads</li>
-                            <li>Rich Media</li>
-                            <li>HTML Emails</li>
+                            <li>Display & Banner Ads</li>
+                            <li>Rich Media Experiences</li>
+                            <li>HTML Email Templates</li>
                             <li>Social Media Video Ads</li>
-                            <li>Automated transcreation</li>
+                            <li>Automated Transcreation</li>
                         </ul>
-                        <Link className="lightblue-cta" href='/contact'>LEARN MORE</Link>
+                        <Link className="lightblue-cta" href='/services#digital-production'>LEARN MORE</Link>
                     </div>
 
                     <div className={styles['box']}>
                         <Lightbulb className={styles['icon']}/>
-                        <h3>Tech Consultancy</h3>
+                        <h3>AI Consulting</h3>
                         <ul>
-                            <li>Artificial Intelligence</li>
-                            <li>Workflow Design</li>
-                            <li>Process audit & optimization</li>
-                            <li>DevOps</li>
-                            <li>Cloud Services</li>
+                            <li>AI Strategy & Implementation</li>
+                            <li>Workflow Automation</li>
+                            <li>Process Audit & Optimization</li>
+                            <li>DevOps & Cloud Architecture</li>
+                            <li>Team Training & Enablement</li>
                         </ul>
-                        <Link className="lightblue-cta" href='/contact'>LEARN MORE</Link>
+                        <Link className="lightblue-cta" href='/services#tech-consultancy'>LEARN MORE</Link>
                     </div>
             </div>
           </div>

@@ -73,7 +73,7 @@ const Hero = () => {
                             </div>
                         </div>
                     </h1>
-                    <p>Discover how I can develop scalable & performant applications, conceptualize efficient solutions, and establish smart workflows. With expertise in training and shaping tech teams, I can help your organization operate smarter and faster. <br/><b>Allow me to help you succeed</b>.</p>
+                    <p>Based in <b>Costa Rica</b>, I provide <b>nearshore software development</b> and <b>AI-powered solutions</b> to US and global clients. From scalable web applications to intelligent workflow automation, I help organizations operate smarter and faster. <br/><b>Let's build something great together</b>.</p>
                
                     <div className={styles['cta-social-row']}>
 
