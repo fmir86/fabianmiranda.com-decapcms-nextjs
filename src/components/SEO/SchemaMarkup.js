@@ -101,7 +101,7 @@ export const organizationSchema = {
       name: 'Worldwide'
     }
   ],
-  serviceType: [
+  knowsAbout: [
     'AI Consulting',
     'Web Development',
     'Full-Stack Development',
