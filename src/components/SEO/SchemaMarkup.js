@@ -131,7 +131,9 @@ export const websiteSchema = {
   description: 'Portfolio and blog of Fabian Miranda, a creative technologist and AI consultant based in Costa Rica.',
   url: SITE_URL,
   publisher: {
-    '@id': `${SITE_URL}/#person`
+    '@type': 'Person',
+    '@id': `${SITE_URL}/#person`,
+    name: 'Fabian Miranda'
   },
   inLanguage: 'en-US'
 };
@@ -149,10 +151,19 @@ export const generateArticleSchema = (article) => ({
   datePublished: article.date,
   dateModified: article.date,
   author: {
-    '@id': `${SITE_URL}/#person`
+    '@type': 'Person',
+    '@id': `${SITE_URL}/#person`,
+    name: 'Fabian Miranda',
+    url: SITE_URL
   },
   publisher: {
-    '@id': `${SITE_URL}/#organization`
+    '@type': 'Organization',
+    '@id': `${SITE_URL}/#organization`,
+    name: 'Fabian Miranda Consulting',
+    logo: {
+      '@type': 'ImageObject',
+      url: `${SITE_URL}/images/og-default-v2.jpg`
+    }
   },
   mainEntityOfPage: {
     '@type': 'WebPage',
@@ -175,7 +186,10 @@ export const generateCaseStudySchema = (caseStudy) => ({
     : `${SITE_URL}/images/og-default-v2.jpg`,
   dateCreated: caseStudy.date,
   creator: {
-    '@id': `${SITE_URL}/#person`
+    '@type': 'Person',
+    '@id': `${SITE_URL}/#person`,
+    name: 'Fabian Miranda',
+    url: SITE_URL
   },
   url: caseStudy.liveUrl || `${SITE_URL}/work/${caseStudy.slug}`,
   keywords: caseStudy.tags ? caseStudy.tags.join(', ') : '',
@@ -291,7 +305,9 @@ const SchemaMarkup = ({
         '@id': `${SITE_URL}/#website`
       },
       author: {
-        '@id': `${SITE_URL}/#person`
+        '@type': 'Person',
+        '@id': `${SITE_URL}/#person`,
+        name: 'Fabian Miranda'
       }
     });
   }
