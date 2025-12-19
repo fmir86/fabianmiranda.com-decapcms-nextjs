@@ -18,7 +18,7 @@ const servicesData = [
     image: '/images/services/development-1.jpg',
     categoryTag: 'AI-POWERED SOLUTIONS',
     description: [
-      'Using AI-powered development tools and modern workflows, I provide businesses with high-quality development services at a fraction of the traditional cost—without compromising on speed or quality.',
+      'Using AI-powered development tools and modern workflows, I provide businesses with high-quality development services at a fraction of the traditional cost—without compromising on speed or quality. See how I helped <a href="/work/contabilidad-costa-rica" class="text-lightblue hover:text-magenta">Contabilidad Costa Rica</a> achieve excellent Lighthouse scores with Next.js SSG.',
     ],
     features: [
       [
@@ -62,7 +62,7 @@ const servicesData = [
     categoryTag: 'AI-ENHANCED CREATIVE',
     description: [
       'Innovative digital experiences efficiently produced. My production workflow integrates AI tools powered by <strong class="text-white">Claude, ChatGPT, and Gemini Pro</strong> for enhanced efficiency without sacrificing creative quality.',
-      'From dynamic banner campaigns with personalization capabilities to automated transcreation across multiple languages, I deliver campaigns that adapt in real-time.'
+      'From dynamic banner campaigns with personalization capabilities to automated transcreation across multiple languages, I deliver campaigns that adapt in real-time. Check out <a href="/work/mario-miranda-tours" class="text-lightblue hover:text-magenta">Mario Miranda Tours</a> for an example of modern digital production with Astro.'
     ],
     features: [
       [
@@ -102,7 +102,7 @@ const servicesData = [
     categoryTag: 'STRATEGIC AI GUIDANCE',
     description: [
       'Transform your business with intelligent automation powered by <strong class="text-white">Anthropic\'s Claude</strong>, <strong class="text-white">OpenAI\'s ChatGPT</strong>, and <strong class="text-white">Google\'s Gemini Pro</strong>. As an AI specialist, I deliver solutions that combine full-stack development expertise with advanced AI implementation.',
-      'From implementing <strong class="text-white">Retrieval Augmented Generation (RAG)</strong>, to orchestrating AI Agents through advanced MCP (Model Context Protocol) integrations, I build intelligent systems that will boost your organization efficiency, by connecting your data to powerful AI models, and providing the required context they need to execute automated actions.'
+      'From implementing <strong class="text-white">Retrieval Augmented Generation (RAG)</strong>, to orchestrating AI Agents through advanced MCP (Model Context Protocol) integrations, I build intelligent systems that will boost your organization efficiency. Read my deep dive on <a href="/blog/2025-10-31-beyond-vibe-coding" class="text-lightblue hover:text-magenta">the AI-assisted programming revolution</a>.'
     ],
     features: [
       [

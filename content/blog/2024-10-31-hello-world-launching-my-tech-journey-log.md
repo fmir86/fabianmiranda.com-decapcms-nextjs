@@ -48,7 +48,7 @@ We're living through the most significant shift in software development since th
 I'll be focusing heavily on:
 
 **AI-Assisted Coding vs. "Vibe Coding"**
-The days of pure "vibe coding" – where developers rely solely on intuition, muscle memory, and Stack Overflow – are numbered. AI-assisted development isn't replacing developers; it's **amplifying** our capabilities. I'll share practical insights on:
+The days of pure "vibe coding" – where developers rely solely on intuition, muscle memory, and Stack Overflow – are numbered. AI-assisted development isn't replacing developers; it's **amplifying** our capabilities. I've already written about this evolution in my article [Beyond Vibe Coding: The AI-Assisted Programming Revolution](/blog/2025-10-31-beyond-vibe-coding), where I explore how tools like Cursor and Claude Code are reshaping our workflows. I'll continue sharing practical insights on:
 
 * How AI tools like GitHub Copilot, Claude, and GPT-4 are transforming workflows
 * The new skills developers need in an AI-augmented world
@@ -129,7 +129,7 @@ I apply my accumulated knowledge and experience to guide organizations through d
 
 ### The Costa Rica Advantage
 
-I'm based in Costa Rica, which has become a hub for innovation and technology in Central America. The stable political climate, strong educational system, and commitment to sustainability have made it a prime destination for tech companies and startups. This strategic location (same timezone as CST, perfect for US collaboration) combined with high English proficiency and technical expertise creates unique opportunities for nearshore partnerships.
+I'm based in Costa Rica, which has become a hub for innovation and technology in Central America. The stable political climate, strong educational system, and commitment to sustainability have made it a prime destination for tech companies and startups. This strategic location (same timezone as CST, perfect for US collaboration) combined with high English proficiency and technical expertise creates unique opportunities for nearshore partnerships. I've written extensively about this in [The Nearshore Advantage: Why Costa Rica is Your Next Tech Hub](/blog/nearshore-advantage-costa-rica-tech-hub).
 
 ## What to Expect
 
@@ -184,6 +184,8 @@ In upcoming posts, I'll dive deep into:
 * Building production-ready Next.js applications with perfect Lighthouse scores
 * AI agents that actually deliver business value
 * The future of nearshore development in the AI era
+
+Check out my [portfolio](/work) to see these principles in action, or [get in touch](/contact) if you'd like to discuss how we can work together.
 
 Stay tuned. Subscribe if you can. And most importantly, **let's build the future together.**
 

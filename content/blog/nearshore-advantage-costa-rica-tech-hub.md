@@ -376,3 +376,7 @@ The future of technology development is distributed, collaborative, and borderle
 ---
 
 *Fabián Miranda is a seasoned Full-Stack Developer and Nearshore Consultant with 15+ years of experience helping US companies leverage Costa Rican talent for technology excellence. Based in San José, Costa Rica, he specializes in building high-performance distributed teams and implementing AI-driven development strategies.*
+
+---
+
+**Ready to explore nearshore development?** [Learn more about me](/about) and the Costa Rica advantage, check out [real projects I've delivered](/work) for clients in Costa Rica and beyond, or [let's start a conversation](/contact) about how I can help your organization.

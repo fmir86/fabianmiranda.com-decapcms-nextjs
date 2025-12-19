@@ -141,3 +141,7 @@ Not the vibe. Not the AI. **You.**
 ---
 
 *The age of vibe coding taught us an important lesson: democratizing creation is powerful, but there's no shortcut to expertise. The future belongs to developers who leverage AI as a force multiplier for their knowledge—not as a replacement for it.*
+
+---
+
+**Looking for AI-powered development expertise?** I help organizations implement AI-assisted workflows that deliver real results. Check out my [AI Consulting services](/services#tech-consultancy) or explore [real-world examples](/work) of how I've helped clients leverage modern development practices.

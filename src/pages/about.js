@@ -112,7 +112,7 @@ const About = ({ headerData, footerData }) => {
                     </svg>
                   </div>
                   <h3>Cross-platform Software Development</h3>
-                  <p>Building scalable applications for all kinds of platforms and industries. Always leveraging modern programming languages and frameworks to deploy to multiple environments. Solid expertise in Node.js backend development.</p>
+                  <p>Building scalable applications for all kinds of platforms and industries. Always leveraging modern programming languages and frameworks to deploy to multiple environments. Solid expertise in Node.js backend development. See examples in my <Link href="/work" className="text-lightblue hover:text-magenta transition-colors">portfolio</Link>.</p>
                 </div>
               </div>
               
@@ -125,7 +125,7 @@ const About = ({ headerData, footerData }) => {
                   </svg>
                 </div>
                 <h3>Automation & Artificial Intelligence</h3>
-                <p>Pioneering artificial intelligence integration to automate business workflows, reducing development time and costs while enhancing overall campaign execution and efficiency.</p>
+                <p>Pioneering artificial intelligence integration to automate business workflows, reducing development time and costs while enhancing overall campaign execution and efficiency. Learn more about my <Link href="/services#tech-consultancy" className="text-lightblue hover:text-magenta transition-colors">AI consulting services</Link> or read my insights on <Link href="/blog/2025-10-31-beyond-vibe-coding" className="text-lightblue hover:text-magenta transition-colors">the AI-assisted programming revolution</Link>.</p>
               </div>
               
               <div className={styles['expertise-card']}>
@@ -138,7 +138,7 @@ const About = ({ headerData, footerData }) => {
                   </svg>
                 </div>
                 <h3>Leadership & Expert Consultancy</h3>
-                <p>Applying acquired knowledge and experience to guide organizations in their digital transformation journeys, fostering innovation and driving business success. Helping teams navigate challenges and implement effective solutions.</p>
+                <p>Applying acquired knowledge and experience to guide organizations in their digital transformation journeys, fostering innovation and driving business success. <Link href="/contact" className="text-lightblue hover:text-magenta transition-colors">Let's discuss</Link> how I can help your team navigate challenges and implement effective solutions.</p>
               </div>
             </div>
           </div>
@@ -203,7 +203,7 @@ const About = ({ headerData, footerData }) => {
                   Costa Rica is a hub for innovation and technology in Central America. Thanks to its stable political climate, strong educational system, and commitment to sustainability, the country has become a prime destination for tech companies and startups, and its workforce is known for being highly skilled and adaptable.
                 </p>
                 <p className="text-lg mb-6 text-white font-normal">
-                  This allows me to be part of a thriving tech ecosystem that values collaboration, creativity, and fosters innovation.
+                  This allows me to be part of a thriving tech ecosystem that values collaboration, creativity, and fosters innovation. I've written extensively about this in my article <Link href="/blog/nearshore-advantage-costa-rica-tech-hub" className="text-lightblue hover:text-magenta transition-colors">The Nearshore Advantage: Why Costa Rica is Your Next Tech Hub</Link>.
                 </p>
                 <div className={styles['location-benefits']}>
                   <div className={styles['benefit']}>

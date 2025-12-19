@@ -83,4 +83,4 @@ Migrating your entire stack every time a security flaw is found is neither pract
 If you take the proper measures, you can continue to build with React with full confidence. The siege will eventually lift, and React will emerge even stronger, more secure, and better documented than it was before. Stay informed, keep your dependencies updated, and remember: the community has your back.
 
 
-**PD: And if you need some help finding out if your site might be exposed, don't hesitate to reach out to get some help ;)**
+**Need help securing your React/Next.js application?** Don't wait until it's too late. [Contact me](/contact) for a security audit, or explore my [development services](/services#development) to learn how I can help you build secure, production-ready applications from the ground up.
