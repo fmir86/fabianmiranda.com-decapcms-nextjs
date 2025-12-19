@@ -3,6 +3,7 @@ import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
 import Layout from "../../components/Layout/Layout"
 import SEO from "../../components/SEO/SEO"
+import SchemaMarkup from "../../components/SEO/SchemaMarkup"
 import ShareButtons from "../../components/ShareButtons/ShareButtons"
 import { loadBlogPosts } from "../../libs/loadBlogPosts"
 import { loadHeaderData, loadFooterData } from "../../libs/loadGlobalData"
@@ -24,6 +25,23 @@ const BlogPost = ({ post, headerData, footerData }) => {
         type="article"
         author={post.author}
         keywords={post.tags?.join(', ')}
+      />
+      <SchemaMarkup
+        type="article"
+        article={{
+          title: post.title,
+          excerpt: post.excerpt,
+          slug: post.slug,
+          date: post.date,
+          featured_image: post.featuredImage,
+          tags: post.tags,
+          categories: post.categories
+        }}
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Blog', url: '/blog' },
+          { name: post.title }
+        ]}
       />
 
       <article className={styles.blogPostContainer}>

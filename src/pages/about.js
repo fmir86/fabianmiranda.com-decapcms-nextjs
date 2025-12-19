@@ -1,5 +1,6 @@
 import Layout from "../components/Layout/Layout";
 import SEO from "../components/SEO/SEO";
+import SchemaMarkup from "../components/SEO/SchemaMarkup";
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../styles/About.module.scss';
@@ -18,6 +19,13 @@ const About = ({ headerData, footerData }) => {
         description="Learn about Fabian Miranda - A seasoned Full-Stack Developer, AI Consultant, and Tech Leader with 15+ years of experience delivering innovative solutions from Costa Rica to global clients."
         image="/images/about/costarica-tech-hub.jpg"
         keywords="full-stack developer, AI consultant, Costa Rica, nearshore development, tech leader"
+      />
+      <SchemaMarkup
+        type="about"
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'About' }
+        ]}
       />
 
       <div className="w-full">

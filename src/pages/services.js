@@ -1,5 +1,6 @@
 import Layout from "../components/Layout/Layout";
 import SEO from "../components/SEO/SEO";
+import SchemaMarkup from "../components/SEO/SchemaMarkup";
 import Link from 'next/link';
 import ServiceBlock from '../components/ServiceBlock';
 import BannerCTA from '../components/BannerCTA';
@@ -142,6 +143,13 @@ const Services = ({ headerData, footerData }) => {
         description="Expert technology services including full-stack development, digital production, and tech consultancy. Specializing in AI implementation, pharmaceutical solutions, and eLearning systems."
         keywords="full stack developer, ai specialist, tech consultant, clm edetailing, elearning scorm, digital production"
         image="/images/services/development-1.jpg"
+      />
+      <SchemaMarkup
+        type="services"
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Services' }
+        ]}
       />
 
       <div className="w-full">

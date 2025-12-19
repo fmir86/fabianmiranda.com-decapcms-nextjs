@@ -6,6 +6,7 @@ import Image from "next/image"
 import { ExternalLink, Github } from "lucide-react"
 import Layout from "../components/Layout/Layout"
 import SEO from "../components/SEO/SEO"
+import SchemaMarkup from "../components/SEO/SchemaMarkup"
 import { loadCaseStudies } from "../libs/loadCaseStudies"
 import { loadHeaderData, loadFooterData } from "../libs/loadGlobalData"
 import styles from "../components/WorkSamples/WorkSamples.module.scss"
@@ -64,6 +65,13 @@ const Work = ({ caseStudies, headerData, footerData }) => {
         description="Explore my portfolio of successful projects, from startups to established businesses. Technology solutions that scale, perform, and deliver measurable business impact."
         image="/images/laptop-bg.jpg"
         type="website"
+      />
+      <SchemaMarkup
+        type="website"
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Work' }
+        ]}
       />
 
       <div className="w-full">

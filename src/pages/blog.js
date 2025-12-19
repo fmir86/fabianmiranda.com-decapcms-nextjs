@@ -3,6 +3,7 @@ import Image from "next/image"
 import { useState, useMemo } from "react"
 import Layout from "../components/Layout/Layout";
 import SEO from "../components/SEO/SEO";
+import SchemaMarkup from "../components/SEO/SchemaMarkup";
 import { loadHeaderData, loadFooterData } from "../libs/loadGlobalData";
 import { loadBlogPosts } from "../libs/loadBlogPosts";
 import heroStyles from "../styles/About.module.scss"
@@ -88,6 +89,13 @@ const Blog = ({ posts, headerData, footerData }) => {
         description="Insights on AI, web development, AI-assisted coding, blockchain, and the future of software engineering from 15+ years in tech."
         keywords="AI development, web development, AI-assisted coding, blockchain, software engineering"
         image="/images/codebot.jpg"
+      />
+      <SchemaMarkup
+        type="website"
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Blog' }
+        ]}
       />
 
       <div className="w-full">
