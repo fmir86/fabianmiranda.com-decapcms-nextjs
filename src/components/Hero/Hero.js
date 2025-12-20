@@ -4,10 +4,11 @@ import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import SplitText from '../../libs/SplitText';
+import useIsMobile from '../../hooks/useIsMobile';
 
 
 const Hero = () => {
-
+    const isMobile = useIsMobile();
     const tagsContainer = useRef(null);
     const q = gsap.utils.selector(tagsContainer);
     const tl = gsap.timeline({repeat: -1});
@@ -117,6 +118,7 @@ const Hero = () => {
                     priority
                     fetchPriority="high"
                     sizes="(max-width: 768px) 100vw, 50vw"
+                    quality={isMobile ? 50 : 100}
                 />
                 </div>
             </div>

@@ -1,8 +1,10 @@
 import styles from './AboutMe.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
+import useIsMobile from '../../hooks/useIsMobile';
 
 const AboutMe = () => {
+    const isMobile = useIsMobile();
     return (
         <div className={styles['wrapper']}>
             <div className={styles['container']}>
@@ -24,6 +26,7 @@ const AboutMe = () => {
                             height={500}
                             className={styles['glow-and-textures']}
                             sizes="300px"
+                            quality={isMobile ? 50 : 100}
                         />
                         <Image
                             src="/images/aboutme/portrait.png"
@@ -32,6 +35,7 @@ const AboutMe = () => {
                             height={615}
                             className={`${styles['picture']} relative`}
                             sizes="(max-width: 768px) 100vw, 400px"
+                            quality={isMobile ? 50 : 100}
                         />
                     </div>
                 </div>

@@ -9,8 +9,11 @@ import { loadCaseStudies } from "../../libs/loadCaseStudies"
 import { loadHeaderData, loadFooterData } from "../../libs/loadGlobalData"
 import ReactMarkdown from 'react-markdown'
 import styles from "./CaseStudy.module.scss"
+import useIsMobile from "../../hooks/useIsMobile"
 
 const CaseStudy = ({ caseStudy, headerData, footerData }) => {
+  const isMobile = useIsMobile();
+
   if (!caseStudy) {
     return <div>Case study not found</div>;
   }
@@ -111,6 +114,7 @@ const CaseStudy = ({ caseStudy, headerData, footerData }) => {
               style={{ width: '100%', height: 'auto' }}
               sizes="(max-width: 768px) 100vw, 800px"
               priority
+              quality={isMobile ? 50 : 100}
             />
           </div>
         )}

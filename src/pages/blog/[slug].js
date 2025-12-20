@@ -11,8 +11,11 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import rehypeRaw from 'rehype-raw'
 import styles from "./BlogPost.module.scss"
+import useIsMobile from "../../hooks/useIsMobile"
 
 const BlogPost = ({ post, headerData, footerData }) => {
+  const isMobile = useIsMobile();
+
   if (!post) {
     return <div>Blog post not found</div>;
   }
@@ -105,6 +108,7 @@ const BlogPost = ({ post, headerData, footerData }) => {
               className={styles.image}
               sizes="(max-width: 768px) 100vw, 800px"
               priority
+              quality={isMobile ? 50 : 100}
             />
           </div>
         )}

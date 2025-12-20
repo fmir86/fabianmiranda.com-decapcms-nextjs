@@ -8,11 +8,12 @@ import Image from "next/image";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { loadHeaderData, loadFooterData } from "../libs/loadGlobalData";
+import useIsMobile from "../hooks/useIsMobile";
 
 
 
 const Contact = ({ headerData, footerData }) => {
-
+  const isMobile = useIsMobile();
   const [popupContent, setPopupContent] = useState(null);
 
   const successMsg = (
@@ -118,6 +119,7 @@ const Contact = ({ headerData, footerData }) => {
               height={413}
               alt="Contact Fabian Miranda for AI consulting and web development services"
               sizes="(max-width: 768px) 100vw, 350px"
+              quality={isMobile ? 50 : 100}
             />
           </div>
 

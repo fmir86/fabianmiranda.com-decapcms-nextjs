@@ -4,9 +4,11 @@ import { useState } from "react"
 import Image from "next/image"
 import { ExternalLink, Github } from "lucide-react"
 import styles from "./WorkSamples.module.scss"
+import useIsMobile from "../../hooks/useIsMobile"
 
 export default function WorkSamples({ caseStudies = [] }) {
   const [filter, setFilter] = useState("all")
+  const isMobile = useIsMobile()
 
   const filteredSamples = filter === "featured" ? caseStudies.filter((sample) => sample.featured) : caseStudies
 
@@ -35,6 +37,7 @@ export default function WorkSamples({ caseStudies = [] }) {
                   className={styles.projectImage}
                   style={{ width: '100%', height: 'auto' }}
                   sizes="(max-width: 768px) 100vw, 50vw"
+                  quality={isMobile ? 50 : 100}
                 />
 
                 {sample.featured && <span className={styles.featuredBadge}>Featured</span>}
