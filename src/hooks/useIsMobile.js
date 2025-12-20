@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
  * Returns true if viewport width <= breakpoint (default 768px)
  */
 export default function useIsMobile(breakpoint = 768) {
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(true); // Default true for SSR (mobile-first)
 
   useEffect(() => {
     const checkMobile = () => {
