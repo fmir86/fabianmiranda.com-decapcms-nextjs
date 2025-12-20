@@ -6,3 +6,12 @@ out/
 sitemap.xml
 # Local Netlify folder
 .netlify
+.unlighthouse
+
+# Sensitive files
+.env
+.env.*
+credentials/
+
+# Generated reports
+pagespeed-report.html
