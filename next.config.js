@@ -9,6 +9,22 @@ const securityHeaders = [
 ];
 
 module.exports = {
+    experimental: {
+        optimizePackageImports: [
+            'lucide-react',
+            '@fortawesome/free-solid-svg-icons',
+            '@fortawesome/free-brands-svg-icons',
+            '@fortawesome/react-fontawesome'
+        ],
+    },
+    turbopack: {
+        rules: {
+            '*.md': {
+                loaders: ['frontmatter-markdown-loader'],
+                as: '*.js',
+            },
+        },
+    },
     images: {
         formats: ['image/avif', 'image/webp'],
         deviceSizes: [640, 750, 828, 1080, 1200, 1920],
