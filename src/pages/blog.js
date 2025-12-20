@@ -8,6 +8,7 @@ import { loadHeaderData, loadFooterData } from "../libs/loadGlobalData";
 import { loadBlogPosts } from "../libs/loadBlogPosts";
 import heroStyles from "../styles/About.module.scss"
 import styles from "../styles/Blog.module.scss"
+import useIsMobile from "../hooks/useIsMobile"
 
 const POSTS_PER_PAGE = 6;
 
@@ -15,6 +16,7 @@ const Blog = ({ posts, headerData, footerData }) => {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedTags, setSelectedTags] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const isMobile = useIsMobile();
 
   // Extract unique categories and tags
   const allCategories = useMemo(() => {
@@ -112,8 +114,9 @@ const Blog = ({ posts, headerData, footerData }) => {
                   muted
                   loop
                   playsInline
+                  key={isMobile ? 'mobile' : 'desktop'}
                 >
-                  <source src="/video/building-blocks.mp4" type="video/mp4" />
+                  <source src={isMobile ? "/video/building-blocks-mobile.mp4" : "/video/building-blocks.mp4"} type="video/mp4" />
                 </video>
               </div>
 

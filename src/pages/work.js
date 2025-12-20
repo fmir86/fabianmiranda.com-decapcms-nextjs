@@ -11,12 +11,14 @@ import { loadCaseStudies } from "../libs/loadCaseStudies"
 import { loadHeaderData, loadFooterData } from "../libs/loadGlobalData"
 import styles from "../components/WorkSamples/WorkSamples.module.scss"
 import heroStyles from "../styles/About.module.scss"
+import useIsMobile from "../hooks/useIsMobile"
 
 const PROJECTS_PER_PAGE = 6;
 
 const Work = ({ caseStudies, headerData, footerData }) => {
   const [selectedTags, setSelectedTags] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const isMobile = useIsMobile();
 
   // Extract all unique tags from case studies
   const allTags = useMemo(() => {
@@ -89,8 +91,9 @@ const Work = ({ caseStudies, headerData, footerData }) => {
                   muted
                   loop
                   playsInline
+                  key={isMobile ? 'mobile' : 'desktop'}
                 >
-                  <source src="/video/work.mp4" type="video/mp4" />
+                  <source src={isMobile ? "/video/work-mobile.mp4" : "/video/work.mp4"} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               </div>

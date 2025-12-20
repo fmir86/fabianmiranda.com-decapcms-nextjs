@@ -9,8 +9,10 @@ import BannerCTA from '../components/BannerCTA';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEarthAmericas, faBrain, faProjectDiagram } from '@fortawesome/free-solid-svg-icons';
 import { loadHeaderData, loadFooterData } from "../libs/loadGlobalData";
+import useIsMobile from "../hooks/useIsMobile";
 
 const About = ({ headerData, footerData }) => {
+  const isMobile = useIsMobile();
 
   return (
     <Layout headerData={headerData} footerData={footerData}>
@@ -39,11 +41,12 @@ const About = ({ headerData, footerData }) => {
                 <div className={styles['video-gradient-overlay']}></div>
                 <video 
                   className={styles['hero-video-element']}
-                  autoPlay 
-                  muted 
+                  autoPlay
+                  muted
                   playsInline
+                  key={isMobile ? 'mobile-banner' : 'desktop-banner'}
                 >
-                  <source src="/video/about-banner.mp4" type="video/mp4" />
+                  <source src={isMobile ? "/video/about-banner-mobile.mp4" : "/video/about-banner.mp4"} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               </div>
@@ -150,12 +153,13 @@ const About = ({ headerData, footerData }) => {
           <div className={styles['focus-video-bg']}>
             <video 
               className={styles['focus-video-element']}
-              autoPlay 
-              muted 
+              autoPlay
+              muted
               loop
               playsInline
+              key={isMobile ? 'mobile-circuits' : 'desktop-circuits'}
             >
-              <source src="/video/circuits.mp4" type="video/mp4" />
+              <source src={isMobile ? "/video/circuits-mobile.mp4" : "/video/circuits.mp4"} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>

@@ -8,6 +8,7 @@ import HowIWork from '../components/HowIWork';
 import { Code, Palette, Lightbulb } from "lucide-react";
 import styles from '../styles/Services.module.scss';
 import { loadHeaderData, loadFooterData } from "../libs/loadGlobalData";
+import useIsMobile from '../hooks/useIsMobile';
 
 const servicesData = [
   {
@@ -136,6 +137,8 @@ const servicesData = [
 ];
 
 const Services = ({ headerData, footerData }) => {
+  const isMobile = useIsMobile();
+
   return (
     <Layout headerData={headerData} footerData={footerData}>
       <SEO
@@ -160,14 +163,15 @@ const Services = ({ headerData, footerData }) => {
 
               <div className={styles['hero-video']}>
                 <div className={styles['video-gradient-overlay']}></div>
-                <video 
+                <video
                   className={styles['hero-video-element']}
-                  autoPlay 
-                  muted 
+                  autoPlay
+                  muted
                   loop
                   playsInline
+                  key={isMobile ? 'mobile' : 'desktop'}
                 >
-                  <source src="/video/services.mp4" type="video/mp4" />
+                  <source src={isMobile ? "/video/services-mobile.mp4" : "/video/services.mp4"} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               </div>
