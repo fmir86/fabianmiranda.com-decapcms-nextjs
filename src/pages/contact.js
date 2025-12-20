@@ -111,7 +111,14 @@ const Contact = ({ headerData, footerData }) => {
           </div>        
 
           <div className="col-span-6 flex justify-center items-center order-1 md:order-2">
-            <Image className={styles['main-img']} src={'/images/encounter.png'} width={435} height={513} alt="Contact Fabian Miranda for AI consulting and web development services" />
+            <Image
+              className={styles['main-img']}
+              src={'/images/encounter.png'}
+              width={350}
+              height={413}
+              alt="Contact Fabian Miranda for AI consulting and web development services"
+              sizes="(max-width: 768px) 100vw, 350px"
+            />
           </div>
 
           </div>

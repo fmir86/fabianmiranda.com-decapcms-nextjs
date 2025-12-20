@@ -30,10 +30,11 @@ export default function WorkSamples({ caseStudies = [] }) {
                 <Image
                   src={sample.image}
                   alt={sample.title}
-                  width={600}
-                  height={400}
+                  width={400}
+                  height={267}
                   className={styles.projectImage}
                   style={{ width: '100%', height: 'auto' }}
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
 
                 {sample.featured && <span className={styles.featuredBadge}>Featured</span>}

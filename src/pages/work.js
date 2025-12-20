@@ -156,10 +156,11 @@ const Work = ({ caseStudies, headerData, footerData }) => {
                     <Image
                       src={caseStudy.image}
                       alt={`Project screenshot: ${caseStudy.title}`}
-                      width={600}
-                      height={400}
+                      width={400}
+                      height={267}
                       className={styles.projectImage}
                       style={{ width: '100%', height: 'auto' }}
+                      sizes="(max-width: 768px) 100vw, 50vw"
                     />
 
                     {caseStudy.featured && <span className={styles.featuredBadge}>Featured</span>}

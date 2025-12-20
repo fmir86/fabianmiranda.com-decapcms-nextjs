@@ -105,10 +105,12 @@ const CaseStudy = ({ caseStudy, headerData, footerData }) => {
             <Image
               src={caseStudy.image}
               alt={`Project screenshot: ${caseStudy.title}`}
-              width={1200}
-              height={600}
+              width={800}
+              height={400}
               className={styles.image}
               style={{ width: '100%', height: 'auto' }}
+              sizes="(max-width: 768px) 100vw, 800px"
+              priority
             />
           </div>
         )}

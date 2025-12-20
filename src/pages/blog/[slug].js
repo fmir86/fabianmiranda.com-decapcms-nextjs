@@ -103,6 +103,8 @@ const BlogPost = ({ post, headerData, footerData }) => {
               alt={`Featured image for article: ${post.title}`}
               fill
               className={styles.image}
+              sizes="(max-width: 768px) 100vw, 800px"
+              priority
             />
           </div>
         )}

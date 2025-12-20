@@ -45,14 +45,14 @@ const ServiceBlock = ({ service }) => {
           <div className="relative rounded-lg overflow-hidden h-full min-h-[200px] md:min-h-[400px]">
             <div className="absolute inset-0 flex items-center justify-center">
               {image ? (
-                <Image 
-                  src={image} 
-                  alt={title} 
-                  width={800} 
-                  height={1200}
-                  quality={100}
+                <Image
+                  src={image}
+                  alt={title}
+                  width={400}
+                  height={600}
                   className="object-cover object-center w-full h-full"
                   style={{ objectFit: 'cover', height: '100%' }}
+                  sizes="(max-width: 1024px) 100vw, 33vw"
                 />
               ) : (
                 <div className="bg-gray-800 rounded-lg h-full w-full flex items-center justify-center">

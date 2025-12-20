@@ -203,6 +203,7 @@ const Blog = ({ posts, headerData, footerData }) => {
                           alt={`Featured image for: ${post.title}`}
                           fill
                           className={styles.postImage}
+                          sizes="(max-width: 768px) 100vw, 50vw"
                         />
                         {post.categories && post.categories.length > 0 && (
                           <div className={styles.categoriesOverlay}>
