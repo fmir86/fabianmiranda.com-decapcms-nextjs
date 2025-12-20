@@ -24,9 +24,9 @@ const ThreeColumns = () => {
                             <li>eLearning Systems (SCORM/LMS)</li>
                             <li>Custom Software Development</li>
                         </ul>
-                        <Link className="lightblue-cta" href='/services#development'>LEARN MORE</Link>
+                        <Link className="lightblue-cta" href='/services#development'>VIEW DEVELOPMENT SERVICES</Link>
                     </div>
-                
+
                     <div className={styles['box']}>
                         <Palette className={styles['icon']}/>
                         <h3>Digital Production</h3>
@@ -37,7 +37,7 @@ const ThreeColumns = () => {
                             <li>Social Media Video Ads</li>
                             <li>Automated Transcreation</li>
                         </ul>
-                        <Link className="lightblue-cta" href='/services#digital-production'>LEARN MORE</Link>
+                        <Link className="lightblue-cta" href='/services#digital-production'>VIEW PRODUCTION SERVICES</Link>
                     </div>
 
                     <div className={styles['box']}>
@@ -50,7 +50,7 @@ const ThreeColumns = () => {
                             <li>DevOps & Cloud Architecture</li>
                             <li>Team Training & Enablement</li>
                         </ul>
-                        <Link className="lightblue-cta" href='/services#tech-consultancy'>LEARN MORE</Link>
+                        <Link className="lightblue-cta" href='/services#tech-consultancy'>VIEW CONSULTING SERVICES</Link>
                     </div>
             </div>
           </div>

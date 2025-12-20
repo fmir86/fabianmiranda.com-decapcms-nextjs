@@ -108,11 +108,15 @@ const Hero = () => {
                 </div>
 
                 <div className={styles['right-block']}>
-                <Image 
-                    src="/images/home-hero/cyber-david.png" alt="Portrait of Fabián Miranda" 
-                    width={796} 
-                    height={615} 
+                <Image
+                    src="/images/home-hero/cyber-david.png"
+                    alt="Portrait of Fabián Miranda"
+                    width={796}
+                    height={615}
                     className={styles["david"]}
+                    priority
+                    fetchPriority="high"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 </div>
             </div>

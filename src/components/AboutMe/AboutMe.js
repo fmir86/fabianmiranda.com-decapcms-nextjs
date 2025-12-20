@@ -17,19 +17,21 @@ const AboutMe = () => {
 
                 <div className={styles['right-block']}>
                     <div className={styles['portrait']}>
-                        <Image 
-                            src="/images/aboutme/background-glow.png" 
-                            alt="" 
-                            width={500} 
-                            height={500} 
+                        <Image
+                            src="/images/aboutme/background-glow.png"
+                            alt=""
+                            width={500}
+                            height={500}
                             className={styles['glow-and-textures']}
+                            sizes="300px"
                         />
-                        <Image 
-                            src="/images/aboutme/portrait.png" 
-                            alt="Portrait of Fabián Miranda" 
-                            width={796} 
-                            height={615} 
+                        <Image
+                            src="/images/aboutme/portrait.png"
+                            alt="Portrait of Fabián Miranda"
+                            width={796}
+                            height={615}
                             className={`${styles['picture']} relative`}
+                            sizes="(max-width: 768px) 100vw, 400px"
                         />
                     </div>
                 </div>

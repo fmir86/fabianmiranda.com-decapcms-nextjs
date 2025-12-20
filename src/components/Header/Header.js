@@ -92,7 +92,7 @@ const Header = ({ logo, navigation }) => {
               </ul>
             </div>
 
-            <button className={styles['close-btn']} onClick={toggleMobileNav}>
+            <button className={styles['close-btn']} onClick={toggleMobileNav} aria-label="Toggle navigation menu">
               <span></span>
               <span></span>
               <span></span>
