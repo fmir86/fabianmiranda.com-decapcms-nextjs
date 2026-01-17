@@ -66,7 +66,7 @@
 }
 
 .resultsCount {
-  @apply mt-6 text-sm font-[300] text-gray-400;
+  @apply mb-6 text-sm font-[300] text-gray-400;
 }
 
 .activeFilters {
@@ -101,9 +101,13 @@
   }
 }
 
-.imageContainer {
-  @apply relative overflow-hidden bg-black/20;
+.imageWrapper {
+  @apply relative;
   z-index: 2;
+}
+
+.imageContainer {
+  @apply relative block overflow-hidden bg-black/20;
   aspect-ratio: 4 / 3;
 }
 
@@ -126,7 +130,15 @@
 .categoryBadgeOverlay {
   @apply inline-block px-3 py-1 text-xs font-[200];
   @apply bg-black/80 backdrop-blur-sm text-white rounded-full;
-  @apply border border-white/50 transition-colors duration-200;
+  @apply border border-white/50 transition-all duration-200 cursor-pointer;
+
+  &:hover {
+    @apply bg-lightblue/30 text-lightblue border-lightblue/50;
+  }
+
+  &.active {
+    @apply bg-lightblue/40 text-lightblue border-lightblue;
+  }
 }
 
 .postContent {
@@ -187,6 +199,15 @@
   @apply inline-block px-3 py-1 text-xs font-[200];
   @apply bg-black/40 backdrop-blur-sm text-gray-300 rounded-full;
   @apply border border-white/20;
+  @apply transition-all duration-200 cursor-pointer;
+
+  &:hover {
+    @apply bg-lightblue/10 text-lightblue border-lightblue/30;
+  }
+
+  &.active {
+    @apply bg-lightblue/20 text-lightblue border-lightblue;
+  }
 }
 
 .readMore {

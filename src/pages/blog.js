@@ -1,22 +1,46 @@
 import Link from "next/link"
 import Image from "next/image"
-import { useState, useMemo } from "react"
+import { useState, useMemo, useEffect } from "react"
+import Fuse from "fuse.js"
 import Layout from "../components/Layout/Layout";
 import SEO from "../components/SEO/SEO";
 import SchemaMarkup from "../components/SEO/SchemaMarkup";
+import BlogSearch from "../components/BlogSearch/BlogSearch";
 import { loadHeaderData, loadFooterData } from "../libs/loadGlobalData";
 import { loadBlogPosts } from "../libs/loadBlogPosts";
 import heroStyles from "../styles/About.module.scss"
 import styles from "../styles/Blog.module.scss"
 import useIsMobile from "../hooks/useIsMobile"
+import useDebounce from "../hooks/useDebounce"
+
+// Fuse.js configuration for search
+const FUSE_OPTIONS = {
+  keys: [
+    { name: 'title', weight: 0.3 },
+    { name: 'excerpt', weight: 0.2 },
+    { name: 'body', weight: 0.2 },
+    { name: 'tags', weight: 0.15 },
+    { name: 'categories', weight: 0.15 }
+  ],
+  threshold: 0.3, // 0 = exact match, 1 = match anything
+  ignoreLocation: true, // search entire content, not just beginning
+  includeScore: true
+};
 
 const POSTS_PER_PAGE = 6;
 
 const Blog = ({ posts, headerData, footerData }) => {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedTags, setSelectedTags] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const isMobile = useIsMobile();
+  const debouncedSearchQuery = useDebounce(searchQuery, 300);
+
+  // Reset pagination when search query changes
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [debouncedSearchQuery]);
 
   // Extract unique categories and tags
   const allCategories = useMemo(() => {
@@ -63,19 +87,34 @@ const Blog = ({ posts, headerData, footerData }) => {
   const clearFilters = () => {
     setSelectedCategories([]);
     setSelectedTags([]);
+    setSearchQuery('');
     setCurrentPage(1);
   };
 
+  // Create Fuse index once when posts change
+  const fuse = useMemo(() => new Fuse(posts, FUSE_OPTIONS), [posts]);
+
   // Filter posts
   const filteredPosts = useMemo(() => {
-    return posts.filter(post => {
+    const query = debouncedSearchQuery.trim();
+
+    // First, get search results (or all posts if no query)
+    let searchResults = posts;
+    if (query) {
+      const fuseResults = fuse.search(query);
+      searchResults = fuseResults.map(result => result.item);
+    }
+
+    // Then apply category and tag filters
+    return searchResults.filter(post => {
       const categoryMatch = selectedCategories.length === 0 ||
         (post.categories && post.categories.some(cat => selectedCategories.includes(cat)));
       const tagMatch = selectedTags.length === 0 ||
         (post.tags && post.tags.some(tag => selectedTags.includes(tag)));
+
       return categoryMatch && tagMatch;
     });
-  }, [posts, selectedCategories, selectedTags]);
+  }, [posts, fuse, selectedCategories, selectedTags, debouncedSearchQuery]);
 
   // Paginate posts
   const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE);
@@ -138,60 +177,22 @@ const Blog = ({ posts, headerData, footerData }) => {
         <section className={styles.blogSection}>
           <div className={styles.container}>
 
-            {/* Filters */}
-            <div className={styles.filtersSection}>
-              <div className={styles.filterHeader}>
-                <h3 className={styles.filterTitle}>Filter Posts</h3>
-                {(selectedCategories.length > 0 || selectedTags.length > 0) && (
-                  <button onClick={clearFilters} className={styles.clearButton}>
-                    Clear All Filters
-                  </button>
-                )}
-              </div>
+            {/* Search and Filters */}
+            <BlogSearch
+              searchQuery={searchQuery}
+              setSearchQuery={setSearchQuery}
+              selectedCategories={selectedCategories}
+              selectedTags={selectedTags}
+              allCategories={allCategories}
+              allTags={allTags}
+              toggleCategory={toggleCategory}
+              toggleTag={toggleTag}
+              clearFilters={clearFilters}
+            />
 
-              <div className={styles.filterGroup}>
-                <label className={styles.filterLabel}>Categories:</label>
-                <div className={styles.filterOptions}>
-                  {allCategories.map(category => (
-                    <button
-                      key={category}
-                      onClick={() => toggleCategory(category)}
-                      className={`${styles.filterButton} ${selectedCategories.includes(category) ? styles.active : ''}`}
-                    >
-                      {category}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <div className={styles.filterGroup}>
-                <label className={styles.filterLabel}>Tags:</label>
-                <div className={styles.filterOptions}>
-                  {allTags.map(tag => (
-                    <button
-                      key={tag}
-                      onClick={() => toggleTag(tag)}
-                      className={`${styles.filterButton} ${selectedTags.includes(tag) ? styles.active : ''}`}
-                    >
-                      {tag}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <div className={styles.resultsCount}>
-                Showing {paginatedPosts.length} of {filteredPosts.length} post{filteredPosts.length !== 1 ? 's' : ''}
-                {selectedCategories.length > 0 && (
-                  <span className={styles.activeFilters}>
-                    {' '}• Categories: {selectedCategories.join(', ')}
-                  </span>
-                )}
-                {selectedTags.length > 0 && (
-                  <span className={styles.activeFilters}>
-                    {' '}• Tags: {selectedTags.join(', ')}
-                  </span>
-                )}
-              </div>
+            {/* Results Count */}
+            <div className={styles.resultsCount}>
+              Showing {paginatedPosts.length} of {filteredPosts.length} post{filteredPosts.length !== 1 ? 's' : ''}
             </div>
 
             {paginatedPosts && paginatedPosts.length > 0 ? (
@@ -200,24 +201,30 @@ const Blog = ({ posts, headerData, footerData }) => {
                   {paginatedPosts.map((post) => (
                   <article key={post.slug} className={styles.postCard}>
                     {post.featuredImage && (
-                      <Link href={`/blog/${post.slug}`} className={styles.imageContainer}>
-                        <Image
-                          src={post.featuredImage}
-                          alt={`Featured image for: ${post.title}`}
-                          fill
-                          className={styles.postImage}
-                          sizes="(max-width: 768px) 100vw, 50vw"
-                        />
+                      <div className={styles.imageWrapper}>
+                        <Link href={`/blog/${post.slug}`} className={styles.imageContainer}>
+                          <Image
+                            src={post.featuredImage}
+                            alt={`Featured image for: ${post.title}`}
+                            fill
+                            className={styles.postImage}
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                          />
+                        </Link>
                         {post.categories && post.categories.length > 0 && (
                           <div className={styles.categoriesOverlay}>
                             {post.categories.map((category, index) => (
-                              <span key={index} className={styles.categoryBadgeOverlay}>
+                              <button
+                                key={index}
+                                className={`${styles.categoryBadgeOverlay} ${selectedCategories.includes(category) ? styles.active : ''}`}
+                                onClick={() => toggleCategory(category)}
+                              >
                                 {category}
-                              </span>
+                              </button>
                             ))}
                           </div>
                         )}
-                      </Link>
+                      </div>
                     )}
 
                     <div className={styles.postContent}>
@@ -247,9 +254,13 @@ const Blog = ({ posts, headerData, footerData }) => {
                           <span className={styles.tagsLabel}>Tags:</span>
                           <div className={styles.tags}>
                             {post.tags.map((tag, index) => (
-                              <span key={index} className={styles.tag}>
+                              <button
+                                key={index}
+                                className={`${styles.tag} ${selectedTags.includes(tag) ? styles.active : ''}`}
+                                onClick={() => toggleTag(tag)}
+                              >
                                 {tag}
-                              </span>
+                              </button>
                             ))}
                           </div>
                         </div>
