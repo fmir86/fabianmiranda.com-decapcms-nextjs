@@ -48,7 +48,7 @@ const NotFound = ({ headerData, footerData }) => {
               </Link>
               <span className="text-gray-600">|</span>
               <Link href="/work" className="text-lightblue hover:text-magenta transition-colors">
-                Portfolio
+                Work
               </Link>
               <span className="text-gray-600">|</span>
               <Link href="/blog" className="text-lightblue hover:text-magenta transition-colors">

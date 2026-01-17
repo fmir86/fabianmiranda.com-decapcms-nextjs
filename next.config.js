@@ -56,5 +56,19 @@ module.exports = {
                 headers: securityHeaders
             }
         ]
+    },
+    async redirects() {
+        return [
+            {
+                source: '/portfolio',
+                destination: '/work',
+                permanent: true
+            },
+            {
+                source: '/portfolio/:path*',
+                destination: '/work/:path*',
+                permanent: true
+            }
+        ]
     }
 }
