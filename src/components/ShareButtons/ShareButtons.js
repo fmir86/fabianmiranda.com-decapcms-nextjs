@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -9,16 +8,15 @@ import {
   WhatsappIcon,
 } from 'react-share';
 import { Share2 } from 'lucide-react';
+import useIsMobile from '../../hooks/useIsMobile';
 import styles from './ShareButtons.module.scss';
 
 const ShareButtons = ({ url, title, description }) => {
   const shareUrl = `https://fabianmiranda.com${url}`;
-  const [supportsNativeShare, setSupportsNativeShare] = useState(false);
+  const isMobile = useIsMobile();
 
-  useEffect(() => {
-    // Check if Web Share API is available (mobile devices)
-    setSupportsNativeShare(typeof navigator !== 'undefined' && !!navigator.share);
-  }, []);
+  // Use native share only on mobile devices that support it
+  const supportsNativeShare = isMobile && typeof navigator !== 'undefined' && !!navigator.share;
 
   // Native share handler (mobile)
   const handleNativeShare = async () => {
