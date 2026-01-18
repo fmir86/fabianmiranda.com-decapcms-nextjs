@@ -20,8 +20,6 @@ published: true
 featured: true
 ---
 
-# The Tailwind Paradox: When Your Product's Success Kills Your Business
-
 Last week, something happened that made me stop scrolling and actually think. Adam Wathan, the creator of Tailwind CSS, dropped a bombshell in a GitHub comment: 75% of their engineering team was gone. Laid off. Not because Tailwind was failing — quite the opposite. The framework is more popular than ever, hitting 75 million downloads a month. The 2025 State of CSS survey shows 51% of developers use it.
 
 So what the hell happened?

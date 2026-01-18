@@ -24,8 +24,6 @@ published: true
 featured: true
 ---
 
-# Beyond Vibe Coding
-
 The bubble grew fast. Almost overnight, a new term emerged that promised to democratize software development: **vibe coding**. By early 2025, when Andrej Karpathy coined the phrase in February, the tech world was already in a frenzy. People everywhere were firing their technical personnel, convinced that thanks to AI, they could build anything themselves. No programmers needed—just vibes and a dream.
 
 Then reality hit.
