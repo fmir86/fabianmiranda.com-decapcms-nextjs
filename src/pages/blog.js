@@ -155,7 +155,7 @@ const Blog = ({ posts, headerData, footerData }) => {
                   playsInline
                   key={isMobile ? 'mobile' : 'desktop'}
                 >
-                  <source src={isMobile ? "/video/building-blocks-mobile.mp4" : "/video/building-blocks.mp4"} type="video/mp4" />
+                  <source src={isMobile ? "/video/network-nodes-mobile.mp4" : "/video/network-nodes.mp4"} type="video/mp4" />
                 </video>
               </div>
 
