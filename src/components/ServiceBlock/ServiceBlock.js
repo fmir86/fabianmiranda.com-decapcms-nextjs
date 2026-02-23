@@ -17,7 +17,7 @@ const ServiceBlock = ({ service }) => {
   } = service;
 
   return (
-    <div className={styles.block}>
+    <div className={styles.serviceBlock}>
       {/* Grid Pattern Overlay */}
       <div className={styles.gridOverlay}></div>
       
