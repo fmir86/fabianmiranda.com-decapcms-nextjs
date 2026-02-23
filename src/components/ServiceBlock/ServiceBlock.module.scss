@@ -89,7 +89,15 @@
 }
 
 .featureTitle {
-    @apply text-white text-lg block;
+    display: block;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    color: #fff;
+    background: none;
+    border: none;
+    padding: 0;
+    overflow: visible;
+    position: static;
 }
 
 .featureDesc {
