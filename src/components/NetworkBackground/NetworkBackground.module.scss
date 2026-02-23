@@ -1,0 +1,27 @@
+.canvasContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+    opacity: 0.8; /* Slightly more opaque now */
+
+    /* Only blue on the far left edge, quickly fading to black */
+    background: linear-gradient(90deg, #050b13 0%, #000000 20%); /* #050b13 is darker/deeper blue */
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        /* Fade from Dark Blue directly to Transparent */
+        background: linear-gradient(90deg, #050b13 0%, rgba(0,0,0,0) 70%);
+        pointer-events: none;
+        z-index: 2; /* On top of the canvas */
+    }
+}

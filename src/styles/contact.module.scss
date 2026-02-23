@@ -32,8 +32,9 @@
 
 .page-wrapper{
     
-    @apply relative w-full px-6 flex flex-col grow bg-no-repeat bg-left pb-6;
-    background-image: url('/images/bg-network.jpg');
+    @apply relative w-full px-6 flex flex-col grow bg-no-repeat bg-left pb-6 min-h-[100dvh];
+    background-color: #000;
+    // background-image: url('/images/bg-network.jpg');
     background-size: auto 100%;
 
     p{
@@ -47,12 +48,11 @@
     &::before{
         content: "";
         @apply absolute inset-0;
-        background: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 30%, rgba(0, 0, 0, 1) 60%);
+        background: linear-gradient(0deg, rgba(10, 21, 37, 0.6) 30%, rgba(10, 21, 37, 1) 60%);
 
         @media screen and (min-width: 768px){
-            background: linear-gradient(90deg, rgba(0, 0, 0, 0.6) 30%, rgba(0, 0, 0, 1) 60%);
+            background: linear-gradient(90deg, rgba(10, 21, 37, 0.6) 30%, rgba(10, 21, 37, 1) 60%);
         }
-
     }
 
     .form{
@@ -89,6 +89,10 @@
                 &:focus{
                     @apply border-double border-2 border-lightblue;
                 }
+
+                option {
+                    @apply bg-darkgray text-white;
+                }
     
             }
 
@@ -99,7 +103,7 @@
         }
 
         button{
-            @apply bg-lightblue text-black p-4 transition-all duration-300 mt-4;
+            @apply bg-lightblue text-black p-4 transition-colors duration-300 mt-4;
             @apply hover:bg-magenta hover:text-white;
             @apply focus:bg-magenta focus:text-white;
             @apply outline-none;
@@ -107,3 +111,4 @@
         }
     }
 }
+

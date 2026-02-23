@@ -147,7 +147,7 @@ const Layout = ({ children, headerData, footerData }) => {
         copyright={footerData?.copyright}
       />
 
-      <BackToTop />
+      {/* <BackToTop /> */}
     </div>
   );
 };
