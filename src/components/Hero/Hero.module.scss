@@ -39,7 +39,7 @@
             }
 
             p{
-                @apply text-[1rem] text-white font-[200] text-left;
+                @apply text-[1rem] text-white font-[300] text-left;
                 @apply mb-6 sm:mb-12;
             }
 
@@ -56,8 +56,13 @@
                         @apply mb-4 sm:mb-0 md:mb-4;
                     }
 
+                    .social-links {
+                        @apply flex;
+                    }
+
                     a{
-                        @apply inline-block mx-4 sm:ml-6 sm:mr-0;
+                        @apply inline-block mx-2 sm:ml-4 sm:mr-0;
+                        @apply min-w-[44px] min-h-[44px] flex items-center justify-center;
 
                         img{
                             @apply w-14 sm:w-8;

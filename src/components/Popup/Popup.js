@@ -33,7 +33,7 @@ const Popup = ({content, onClose}) => {
                 <button className={styles['close']} onClick={closePopup}>
                     <FontAwesomeIcon icon={faXmark} /> 
                 </button>
-                <div className="flex flex-col text-center">
+                <div className={styles['content']}>
                     {content}
                 </div>
             </div>

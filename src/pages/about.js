@@ -30,7 +30,7 @@ const About = ({ headerData, footerData }) => {
         ]}
       />
 
-      <div className="w-full">
+      <div className={styles['page-wrapper']}>
         {/* Hero Section */}
         <div className={styles['hero-section']}>
           <div className={styles['hero-wrapper']}>
@@ -55,7 +55,7 @@ const About = ({ headerData, footerData }) => {
 
               <h1 className={styles['hero-title']}>
                 Bridging Innovation
-                <span className="block">
+                <span>
                   <em className='magenta'>From Costa Rica</em><br/>
                   <em className='lightblue'>To The World</em>
                 </span>
@@ -115,7 +115,7 @@ const About = ({ headerData, footerData }) => {
                     </svg>
                   </div>
                   <h3>Cross-platform Software Development</h3>
-                  <p>Building scalable applications for all kinds of platforms and industries. Always leveraging modern programming languages and frameworks to deploy to multiple environments. Solid expertise in Node.js backend development. See examples in my <Link href="/work" className="text-lightblue hover:text-magenta transition-colors">portfolio</Link>.</p>
+                  <p>Building scalable applications for all kinds of platforms and industries. Always leveraging modern programming languages and frameworks to deploy to multiple environments. Solid expertise in Node.js backend development. See examples in my <Link href="/work" className={styles['inline-link']}>portfolio</Link>.</p>
                 </div>
               </div>
               
@@ -128,7 +128,7 @@ const About = ({ headerData, footerData }) => {
                   </svg>
                 </div>
                 <h3>Automation & Artificial Intelligence</h3>
-                <p>Pioneering artificial intelligence integration to automate business workflows, reducing development time and costs while enhancing overall campaign execution and efficiency. Learn more about my <Link href="/services#tech-consultancy" className="text-lightblue hover:text-magenta transition-colors">AI consulting services</Link> or read my insights on <Link href="/blog/2025-10-31-beyond-vibe-coding" className="text-lightblue hover:text-magenta transition-colors">the AI-assisted programming revolution</Link>.</p>
+                <p>Pioneering artificial intelligence integration to automate business workflows, reducing development time and costs while enhancing overall campaign execution and efficiency. Learn more about my <Link href="/services#tech-consultancy" className={styles['inline-link']}>AI consulting services</Link> or read my insights on <Link href="/blog/2025-10-31-beyond-vibe-coding" className={styles['inline-link']}>the AI-assisted programming revolution</Link>.</p>
               </div>
               
               <div className={styles['expertise-card']}>
@@ -141,7 +141,7 @@ const About = ({ headerData, footerData }) => {
                   </svg>
                 </div>
                 <h3>Leadership & Expert Consultancy</h3>
-                <p>Applying acquired knowledge and experience to guide organizations in their digital transformation journeys, fostering innovation and driving business success. <Link href="/contact" className="text-lightblue hover:text-magenta transition-colors">Let's discuss</Link> how I can help your team navigate challenges and implement effective solutions.</p>
+                <p>Applying acquired knowledge and experience to guide organizations in their digital transformation journeys, fostering innovation and driving business success. <Link href="/contact" className={styles['inline-link']}>Let's discuss</Link> how I can help your team navigate challenges and implement effective solutions.</p>
               </div>
             </div>
           </div>
@@ -167,7 +167,7 @@ const About = ({ headerData, footerData }) => {
             <div className={styles['focus-content']}>
               <div className={styles['focus-text']}>
                 <h2>Current Focus</h2>
-                <p className="text-lg mb-6 text-white font-normal">
+                <p className={styles['focus-intro']}>
                   For the past four years, my primary focus has been creating multichannel applications and experiences that amplify advertising and communication initiatives. I place a strong emphasis on:
                 </p>
                 <ul className={styles['focus-list']}>
@@ -177,7 +177,7 @@ const About = ({ headerData, footerData }) => {
                   <li>Technical SEO implementation from the ground up</li>
                   <li>AI-powered workflow automation</li>
                 </ul>
-                <p className="text-lg mt-6 text-white font-normal">
+                <p className={styles['focus-intro']}>
                   My technical toolkit often revolves around Node.js, supported by modern frameworks such as Next.js, Gatsby, and Astro. I implement architectural patterns like JAMstack, SSR, and SSG, deploying to leading platforms including Vercel, Netlify, AWS, and Azure.
                 </p>
               </div>
@@ -203,11 +203,11 @@ const About = ({ headerData, footerData }) => {
               </div>
               <div className={styles['location-text']}>
                 <h2>The Costa Rica Advantage</h2>
-                <p className="text-lg mb-6 text-white font-normal">
+                <p className={styles['location-intro']}>
                   Costa Rica is a hub for innovation and technology in Central America. Thanks to its stable political climate, strong educational system, and commitment to sustainability, the country has become a prime destination for tech companies and startups, and its workforce is known for being highly skilled and adaptable.
                 </p>
-                <p className="text-lg mb-6 text-white font-normal">
-                  This allows me to be part of a thriving tech ecosystem that values collaboration, creativity, and fosters innovation. I've written extensively about this in my article <Link href="/blog/nearshore-advantage-costa-rica-tech-hub" className="text-lightblue hover:text-magenta transition-colors">The Nearshore Advantage: Why Costa Rica is Your Next Tech Hub</Link>.
+                <p className={styles['location-intro']}>
+                  This allows me to be part of a thriving tech ecosystem that values collaboration, creativity, and fosters innovation. I've written extensively about this in my article <Link href="/blog/nearshore-advantage-costa-rica-tech-hub" className={styles['inline-link']}>The Nearshore Advantage: Why Costa Rica is Your Next Tech Hub</Link>.
                 </p>
                 <div className={styles['location-benefits']}>
                   <div className={styles['benefit']}>

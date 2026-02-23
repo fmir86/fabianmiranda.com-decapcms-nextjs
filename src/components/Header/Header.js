@@ -54,18 +54,26 @@ const Header = ({ logo, navigation }) => {
     mediaQuery.addEventListener('change', handleMediaChange);
 
     // Close mobile nav when user clicks the same page
-    headerWrapper.current.querySelectorAll('a').forEach(item => {
-      item.addEventListener('click', (e) => {
-        console.log(e.currentTarget.getAttribute('href'), router.pathname);
-        if( 
-          e.currentTarget.getAttribute('href') === router.pathname && 
-          headerWrapper.current.getAttribute('aria-expanded')==='true'
-        ){
-            toggleMobileNav();
-        }
-      });
+    const handleLinkClick = (e) => {
+      if( 
+        e.currentTarget.getAttribute('href') === router.pathname && 
+        headerWrapper.current.getAttribute('aria-expanded')==='true'
+      ){
+          toggleMobileNav();
+      }
+    };
+
+    const links = headerWrapper.current.querySelectorAll('a');
+    links.forEach(item => {
+      item.addEventListener('click', handleLinkClick);
     });
-    
+
+    return () => {
+      mediaQuery.removeEventListener('change', handleMediaChange);
+      links.forEach(item => {
+        item.removeEventListener('click', handleLinkClick);
+      });
+    };
   }, []);
 
   return (

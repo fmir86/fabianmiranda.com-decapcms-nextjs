@@ -63,7 +63,7 @@ const servicesData = [
     categoryTag: 'AI-ENHANCED CREATIVE',
     description: [
       'Innovative digital experiences efficiently produced. My production workflow integrates AI tools powered by <strong class="text-white">Claude, ChatGPT, and Gemini Pro</strong> for enhanced efficiency without sacrificing creative quality.',
-      'From dynamic banner campaigns with personalization capabilities to automated transcreation across multiple languages, I deliver campaigns that adapt in real-time. Check out <a href="/work/mario-miranda-tours" class="text-lightblue hover:text-magenta">Mario Miranda Tours</a> for an example of modern digital production with Astro.'
+      'From dynamic banner campaigns with personalization capabilities to automated transcreation across multiple languages, I deliver campaigns that adapt in real-time.'
     ],
     features: [
       [
@@ -154,7 +154,7 @@ const Services = ({ headerData, footerData }) => {
         ]}
       />
 
-      <div className="w-full">
+      <div className={styles['page-wrapper']}>
         {/* Hero Section */}
         <div className={styles['hero-section']}>
           <div className={styles['hero-wrapper']}>
@@ -178,7 +178,7 @@ const Services = ({ headerData, footerData }) => {
 
               <h1 className={styles['hero-title']}>
                 Technology Solutions
-                <span className="block">
+                <span>
                   <em className='magenta'>That Drive</em><br/>
                   <em className='lightblue'>Real Results</em>
                 </span>
@@ -192,8 +192,8 @@ const Services = ({ headerData, footerData }) => {
         </div>
 
         {/* Main Services Section - Dynamic Service Blocks */}
-        <section className="px-6 py-20 w-full">
-          <div className="flex flex-col max-w-7xl mx-auto space-y-12">
+        <section className={styles['services-section']}>
+          <div className={styles['services-container']}>
             {servicesData.map((service) => (
               <ServiceBlock key={service.id} service={service} />
             ))}

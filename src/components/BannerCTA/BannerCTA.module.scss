@@ -40,6 +40,10 @@
                 @apply mb-6;
             }
 
+            .cta-description {
+                @apply text-xl mb-8 text-white font-normal;
+            }
+
             .cta-buttons {
                 @apply flex flex-col sm:flex-row gap-4 justify-center items-center;
                 @apply mt-12;

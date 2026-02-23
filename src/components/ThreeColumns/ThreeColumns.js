@@ -9,7 +9,7 @@ const ThreeColumns = () => {
         <div className={styles['main-wrapper']}>
 
             <div className={styles['block']}>
-                <h2 className='dashed'>Services</h2>
+                <h2 className={styles['title']}>Services</h2>
 
                 <div className={styles['boxes-container']}>
 

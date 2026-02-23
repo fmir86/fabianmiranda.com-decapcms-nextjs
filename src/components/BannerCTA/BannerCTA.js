@@ -19,7 +19,7 @@ const BannerCTA = ({
       <div className={styles['container']}>
         <div className={styles['cta-content']}>
           <h2>{title}</h2>
-          <p className="text-xl mb-8 text-white font-normal">
+          <p className={styles['cta-description']}>
             {description}
           </p>
           <div className={styles['cta-buttons']}>

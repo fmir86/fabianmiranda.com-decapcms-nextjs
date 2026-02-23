@@ -1,0 +1,22 @@
+.button {
+    @apply fixed bottom-6 right-6 z-50;
+    @apply w-12 h-12 rounded-full;
+    @apply flex items-center justify-center;
+    @apply text-black bg-lightblue;
+    @apply border-2 border-lightblue;
+    @apply cursor-pointer;
+    @apply transition-all duration-300;
+    @apply opacity-0 pointer-events-none;
+    transform: translateY(20px);
+    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
+
+    &:hover {
+        @apply bg-magenta border-magenta text-white;
+        box-shadow: 0 4px 20px rgba(214, 72, 208, 0.4);
+    }
+
+    &.visible {
+        @apply opacity-100 pointer-events-auto;
+        transform: translateY(0);
+    }
+}

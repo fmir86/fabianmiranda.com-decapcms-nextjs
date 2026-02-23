@@ -1,5 +1,3 @@
-"use client"
-
 import { useState } from "react"
 import Image from "next/image"
 import { ExternalLink, Github } from "lucide-react"
@@ -15,7 +13,7 @@ export default function WorkSamples({ caseStudies = [] }) {
   return (
     <section className={styles.workSamplesSection} id="work-samples">
       <div className={styles.container}>
-        <div className="text-center mb-12">
+        <div className={styles.sectionHeader}>
           <h2 className={styles.sectionTitle}>Work That Drives Results</h2>
           
           <p className={styles.sectionDescription}>
@@ -27,7 +25,7 @@ export default function WorkSamples({ caseStudies = [] }) {
         {/* Updated grid to be 2 columns on desktop */}
         <div className={styles.projectGridTwoColumn}>
           {filteredSamples.map((sample) => (
-            <div key={sample.slug} className={`${styles.projectCard} group`}>
+            <div key={sample.slug} className={styles.projectCard}>
               <div className={styles.imageContainer}>
                 <Image
                   src={sample.image}
@@ -60,7 +58,7 @@ export default function WorkSamples({ caseStudies = [] }) {
                       className={styles.actionButton}
                       aria-label={`View ${sample.title} live site`}
                     >
-                      <ExternalLink className="h-4 w-4" />
+                      <ExternalLink className={styles.iconSm} />
                     </a>
                   )}
                   {sample.githubUrl && (
@@ -71,7 +69,7 @@ export default function WorkSamples({ caseStudies = [] }) {
                       className={styles.actionButton}
                       aria-label={`View ${sample.title} source code`}
                     >
-                      <Github className="h-4 w-4" />
+                      <Github className={styles.iconSm} />
                     </a>
                   )}
                 </div>
@@ -108,7 +106,7 @@ export default function WorkSamples({ caseStudies = [] }) {
           <p className={styles.ctaText}>
             Ready to transform your business with cutting-edge technology?
           </p>
-          <a href="/contact" className="lightblue-cta mx-auto">
+          <a href="/contact" className={styles.ctaButton}>
             Let's Discuss Your Project
           </a>
         </div>

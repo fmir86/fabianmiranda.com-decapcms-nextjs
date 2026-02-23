@@ -139,7 +139,7 @@ const Blog = ({ posts, headerData, footerData }) => {
         ]}
       />
 
-      <div className="w-full">
+      <div className={styles.pageWrapper}>
         {/* Hero Section */}
         <div className={heroStyles['hero-section']}>
           <div className={heroStyles['hero-wrapper']}>
@@ -160,7 +160,7 @@ const Blog = ({ posts, headerData, footerData }) => {
               </div>
 
               <h1 className={heroStyles['hero-title']}>
-                <span className="block">
+                <span>
                   Tech<em className='magenta'>Blog</em>
                 </span>
               </h1>

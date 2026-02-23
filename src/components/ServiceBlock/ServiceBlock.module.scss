@@ -1,0 +1,114 @@
+.serviceBlock {
+    @apply relative border border-trans-white p-8 overflow-hidden;
+    background: linear-gradient(200deg, rgba(255, 255, 255, 0.1) 0%, transparent 80%);
+}
+
+.gridOverlay {
+    @apply absolute top-0 left-0 w-full h-full pointer-events-none;
+    background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 30px 30px;
+    background-position: center;
+}
+
+.titleRow {
+    @apply flex flex-col sm:flex-row items-center mb-8;
+}
+
+.iconBg {
+    @apply p-4 rounded-2xl w-16 h-16 flex items-center justify-center mr-0 sm:mr-4 mb-4 sm:mb-0;
+}
+
+.iconInner {
+    @apply w-8 h-8 text-black;
+}
+
+.blockTitle {
+    @apply text-3xl font-[300] text-lightblue m-0;
+}
+
+.contentGrid {
+    @apply grid lg:grid-cols-3 gap-8 items-start;
+}
+
+.imageColumn {
+    @apply lg:col-span-1 relative h-full;
+}
+
+.imageWrapper {
+    @apply relative rounded-lg overflow-hidden h-full min-h-[200px] md:min-h-[400px];
+}
+
+.imageInner {
+    @apply absolute inset-0 flex items-center justify-center;
+}
+
+.serviceImage {
+    @apply object-cover object-center w-full h-full;
+}
+
+.placeholder {
+    @apply bg-gray-800 rounded-lg h-full w-full flex items-center justify-center;
+}
+
+.placeholderText {
+    @apply text-gray-500 text-sm;
+}
+
+.textColumn {
+    @apply lg:col-span-2;
+}
+
+.categoryTag {
+    @apply text-sm text-lightblue font-semibold mb-6;
+}
+
+.descriptionBlock {
+    @apply mb-6;
+}
+
+.descriptionText {
+    @apply text-gray-300 mb-4 text-lg leading-relaxed;
+}
+
+.featuresGrid {
+    @apply grid lg:grid-cols-2 gap-6 mb-6;
+}
+
+.featureList {
+    @apply list-none space-y-4;
+}
+
+.featureItem {
+    @apply relative pl-6;
+    
+    &::before {
+        content: '■';
+        @apply absolute left-0 top-0;
+        @apply text-lightblue text-base;
+    }
+}
+
+.featureTitle {
+    display: block;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    color: #fff;
+    background: none;
+    border: none;
+    padding: 0;
+    overflow: visible;
+    position: static;
+}
+
+.featureDesc {
+    @apply text-base text-gray-400 mt-2;
+}
+
+.ctaRow {
+    @apply flex justify-end;
+}
+
+.ctaButton {
+    @apply text-black bg-lightblue px-8 py-3 inline-block text-center;
+    @apply hover:bg-magenta hover:text-white transition-all duration-300;
+}

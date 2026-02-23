@@ -1,7 +1,40 @@
+.popup-title-success {
+    @apply text-2xl font-thin uppercase text-lightblue mb-4;
+}
+
+.popup-title-error {
+    @apply text-2xl font-thin uppercase text-magenta mb-4;
+}
+
+.popup-text {
+    @apply text-base font-thin;
+}
+
+.content-wrapper {
+    @apply w-full text-white max-w-7xl mx-auto py-10 md:py-20 z-[1];
+}
+
+.grid-layout {
+    @apply grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12;
+}
+
+.form-column {
+    @apply col-span-6 order-2 md:order-1;
+}
+
+.image-column {
+    @apply col-span-6 flex justify-center items-center order-1 md:order-2;
+}
+
+.name-row {
+    @apply flex flex-col md:flex-row gap-4;
+}
+
 .page-wrapper{
     
-    @apply relative w-full px-6 flex flex-col grow bg-no-repeat bg-left pb-6;
-    background-image: url('/images/bg-network.jpg');
+    @apply relative w-full px-6 flex flex-col grow bg-no-repeat bg-left pb-6 min-h-[100dvh];
+    background-color: #000;
+    // background-image: url('/images/bg-network.jpg');
     background-size: auto 100%;
 
     p{
@@ -15,12 +48,11 @@
     &::before{
         content: "";
         @apply absolute inset-0;
-        background: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 30%, rgba(0, 0, 0, 1) 60%);
+        background: linear-gradient(0deg, rgba(10, 21, 37, 0.6) 30%, rgba(10, 21, 37, 1) 60%);
 
         @media screen and (min-width: 768px){
-            background: linear-gradient(90deg, rgba(0, 0, 0, 0.6) 30%, rgba(0, 0, 0, 1) 60%);
+            background: linear-gradient(90deg, rgba(10, 21, 37, 0.6) 30%, rgba(10, 21, 37, 1) 60%);
         }
-
     }
 
     .form{
@@ -57,6 +89,10 @@
                 &:focus{
                     @apply border-double border-2 border-lightblue;
                 }
+
+                option {
+                    @apply bg-darkgray text-white;
+                }
     
             }
 
@@ -67,7 +103,7 @@
         }
 
         button{
-            @apply bg-lightblue text-black p-4 transition-all duration-300 mt-4;
+            @apply bg-lightblue text-black p-4 transition-colors duration-300 mt-4;
             @apply hover:bg-magenta hover:text-white;
             @apply focus:bg-magenta focus:text-white;
             @apply outline-none;
@@ -75,3 +111,4 @@
         }
     }
 }
+

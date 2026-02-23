@@ -19,11 +19,11 @@ body{
     }
 
     p{
-        @apply text-base font-[200] mb-4 sm:mb-8;
+        @apply text-base font-[300] mb-4 sm:mb-8;
     }
 
     li{
-        @apply text-base font-[200];
+        @apply text-base font-[300];
     }
 
     &.no-scroll{

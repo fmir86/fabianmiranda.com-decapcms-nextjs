@@ -1,5 +1,17 @@
 // Services Page Styles
 
+.page-wrapper {
+    @apply w-full;
+}
+
+.services-section {
+    @apply px-6 py-20 w-full;
+}
+
+.services-container {
+    @apply flex flex-col max-w-7xl mx-auto space-y-12;
+}
+
 .service-list-item {
     @apply relative pl-6;
     
