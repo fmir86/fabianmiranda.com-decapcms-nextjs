@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import BackToTop from "../BackToTop/BackToTop";
 import styles from "./Layout.module.scss";
 import { useEffect } from "react";
 
@@ -145,6 +146,8 @@ const Layout = ({ children, headerData, footerData }) => {
         socialLinks={footerData?.socialLinks}
         copyright={footerData?.copyright}
       />
+
+      <BackToTop />
     </div>
   );
 };
