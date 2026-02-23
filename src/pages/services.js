@@ -63,7 +63,7 @@ const servicesData = [
     categoryTag: 'AI-ENHANCED CREATIVE',
     description: [
       'Innovative digital experiences efficiently produced. My production workflow integrates AI tools powered by <strong class="text-white">Claude, ChatGPT, and Gemini Pro</strong> for enhanced efficiency without sacrificing creative quality.',
-      'From dynamic banner campaigns with personalization capabilities to automated transcreation across multiple languages, I deliver campaigns that adapt in real-time. Check out <a href="/work/mario-miranda-tours" class="text-lightblue hover:text-magenta">Mario Miranda Tours</a> for an example of modern digital production with Astro.'
+      'From dynamic banner campaigns with personalization capabilities to automated transcreation across multiple languages, I deliver campaigns that adapt in real-time.'
     ],
     features: [
       [
