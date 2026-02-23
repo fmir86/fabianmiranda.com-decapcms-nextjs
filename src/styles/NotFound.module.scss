@@ -1,0 +1,59 @@
+.section {
+    @apply min-h-[80vh] flex items-center justify-center px-6;
+    background: linear-gradient(168deg, #430842 0%, #000 50%, #052e39 100%);
+}
+
+.container {
+    @apply text-center max-w-2xl mx-auto;
+}
+
+.errorLabel {
+    @apply text-lightblue text-lg uppercase tracking-widest mb-4;
+}
+
+.heading {
+    @apply text-5xl sm:text-6xl lg:text-7xl font-bold mb-6;
+}
+
+.message {
+    @apply text-xl sm:text-2xl font-light text-gray-300 mb-12;
+}
+
+.actions {
+    @apply flex flex-col sm:flex-row gap-4 justify-center items-center;
+}
+
+.primaryCta {
+    @apply text-black bg-lightblue px-6 py-4 block w-full sm:w-fit h-fit text-center;
+    @apply mb-6 sm:mb-0;
+    @apply hover:bg-magenta hover:text-white transition-all duration-300;
+}
+
+.secondaryCta {
+    @apply text-lightblue border border-lightblue px-6 py-4 block w-full sm:w-fit text-center;
+    @apply hover:bg-lightblue hover:text-black transition-all duration-300;
+}
+
+.explore {
+    @apply mt-16 pt-8 border-t border-gray-800;
+}
+
+.exploreLabel {
+    @apply text-gray-400 mb-6;
+}
+
+.exploreLinks {
+    @apply flex flex-wrap gap-4 justify-center;
+}
+
+.exploreLink {
+    @apply text-lightblue transition-colors;
+
+    &:hover {
+        @apply text-magenta;
+    }
+}
+
+.separator {
+    @apply text-gray-600;
+}

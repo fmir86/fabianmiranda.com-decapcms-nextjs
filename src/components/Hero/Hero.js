@@ -84,7 +84,7 @@ const Hero = () => {
                             
                             <p>ALSO, FIND ME ON:</p>
 
-                            <div className='flex'>
+                            <div className={styles['social-links']}>
                                 <Link href="https://www.linkedin.com/in/fmir86/" target='_blank'>
                                     <Image 
                                         src="/images/social-media/icon-li.svg" 

@@ -392,5 +392,25 @@
     }
 }
 
+.page-wrapper {
+    @apply w-full;
+}
+
+.focus-intro {
+    @apply text-lg mb-6 text-white font-normal;
+}
+
+.location-intro {
+    @apply text-lg mb-6 text-white font-normal;
+}
+
+.inline-link {
+    @apply text-lightblue transition-colors;
+
+    &:hover {
+        @apply text-magenta;
+    }
+}
+
 // CTA Section styles moved to BannerCTA component
 

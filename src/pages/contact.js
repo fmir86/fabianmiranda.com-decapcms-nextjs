@@ -18,15 +18,15 @@ const Contact = ({ headerData, footerData }) => {
 
   const successMsg = (
     <>
-      <h3 className="text-2xl fon-thin uppercase text-lightblue mb-4">Thank you for your message.</h3>
-      <p className="text-base fon-thin">I will get back to you as soon as possible.</p>
+      <h3 className={styles['popup-title-success']}>Thank you for your message.</h3>
+      <p className={styles['popup-text']}>I will get back to you as soon as possible.</p>
     </>
   );
 
   const errorMsg = (
     <>
-      <h3 className="text-2xl fon-thin uppercase text-magenta mb-4">An Error Happened.</h3>
-      <p className="text-base fon-thin">There was an error sending your message. Please try again later.</p>
+      <h3 className={styles['popup-title-error']}>An Error Happened.</h3>
+      <p className={styles['popup-text']}>There was an error sending your message. Please try again later.</p>
     </>
   );
 
@@ -66,11 +66,11 @@ const Contact = ({ headerData, footerData }) => {
       />
 
       <div className={styles['page-wrapper']}>
-        <div className="w-full text-white max-w-7xl mx-auto py-10 md:py-20 z-[1]">
+        <div className={styles['content-wrapper']}>
 
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12">
+          <div className={styles['grid-layout']}>
 
-          <div className="col-span-6 order-2 md:order-1">
+          <div className={styles['form-column']}>
             <h1>Contact Me</h1>
 
             <p>Contact me to tackle your digital production projects, web development needs, or any tech challenges. As an experienced full-stack developer and consultant I provide expert solutions to help bring your ideas to life. Let's connect and make your vision a reality.</p>
@@ -87,16 +87,16 @@ const Contact = ({ headerData, footerData }) => {
               {/* You still need to add the hidden input with the form name to your JSX form */}
               <input type="hidden" name="form-name" value="contact" />
 
-              <div className="flex flex-col md:flex-row gap-4">
-                <input type="text" id="firstname" name="firstname" placeholder="Firstame" required/>
-                <input type="text" id="lastname" name="lastname" placeholder="Lastname" required/>
+              <div className={styles['name-row']}>
+                <input type="text" id="firstname" name="firstname" placeholder="First Name *" required aria-required="true"/>
+                <input type="text" id="lastname" name="lastname" placeholder="Last Name *" required aria-required="true"/>
               </div>
 
-              <input type="email" id="email" name="email" placeholder="Email" required/>
+              <input type="email" id="email" name="email" placeholder="Email *" required aria-required="true"/>
 
               <div className={styles['custom-select']}>
                 <select id="subject" name="subject" required defaultValue="">
-                  <option value="" disabled>I want to talk about...</option>
+                  <option value="" disabled>I want to talk about... *</option>
                   <option value="Web Development">Web Development</option>
                   <option value="Consulting">Consulting</option>
                   <option value="Digital Production">Digital Production</option>
@@ -105,13 +105,13 @@ const Contact = ({ headerData, footerData }) => {
                 <FontAwesomeIcon icon={faChevronDown} className={styles['custom-arrow']} size="sm" />
               </div>
 
-              <textarea id="message" name="message" placeholder="Message" required></textarea>
+              <textarea id="message" name="message" placeholder="Message *" required aria-required="true"></textarea>
 
               <button type="submit">Submit</button>
             </form>   
           </div>        
 
-          <div className="col-span-6 flex justify-center items-center order-1 md:order-2">
+          <div className={styles['image-column']}>
             <Image
               className={styles['main-img']}
               src={'/images/encounter.png'}

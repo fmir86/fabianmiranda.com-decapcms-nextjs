@@ -1,3 +1,35 @@
+.popup-title-success {
+    @apply text-2xl font-thin uppercase text-lightblue mb-4;
+}
+
+.popup-title-error {
+    @apply text-2xl font-thin uppercase text-magenta mb-4;
+}
+
+.popup-text {
+    @apply text-base font-thin;
+}
+
+.content-wrapper {
+    @apply w-full text-white max-w-7xl mx-auto py-10 md:py-20 z-[1];
+}
+
+.grid-layout {
+    @apply grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12;
+}
+
+.form-column {
+    @apply col-span-6 order-2 md:order-1;
+}
+
+.image-column {
+    @apply col-span-6 flex justify-center items-center order-1 md:order-2;
+}
+
+.name-row {
+    @apply flex flex-col md:flex-row gap-4;
+}
+
 .page-wrapper{
     
     @apply relative w-full px-6 flex flex-col grow bg-no-repeat bg-left pb-6;

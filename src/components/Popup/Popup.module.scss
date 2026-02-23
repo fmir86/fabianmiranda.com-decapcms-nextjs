@@ -10,6 +10,10 @@
         border: 1px solid #484848;
         text-shadow: 1px 1px 20px BLACK;
 
+        .content {
+            @apply flex flex-col text-center;
+        }
+
         .close{ 
             @apply absolute top-4 right-4 text-lightblue;
             @apply cursor-pointer;

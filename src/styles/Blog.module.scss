@@ -1,3 +1,7 @@
+.pageWrapper {
+  @apply w-full;
+}
+
 .blogSection {
   @apply py-16 px-6 w-full;
   background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgb(15, 15, 15) 100%);
