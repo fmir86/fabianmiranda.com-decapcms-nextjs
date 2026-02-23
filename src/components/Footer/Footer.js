@@ -71,7 +71,7 @@ const Footer = ({ navigation, socialLinks, copyright }) => {
           })}
         </div>
 
-        <p>{copyright || "© 2024 | FABIANMIRANDA.COM | ALL RIGHTS RESERVED"}</p>
+        <p>{copyright || `© ${new Date().getFullYear()} | FABIANMIRANDA.COM | ALL RIGHTS RESERVED`}</p>
 
       </div>
     </footer>
