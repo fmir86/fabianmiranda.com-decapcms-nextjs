@@ -15,3 +15,6 @@ credentials/
 
 # Generated reports
 pagespeed-report.html
+
+# Nanobanana generated images
+nanobanana-output/
