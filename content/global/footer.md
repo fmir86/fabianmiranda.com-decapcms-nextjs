@@ -19,5 +19,5 @@ social_links:
   - platform: Email
     url: mailto:me@fabianmiranda.com
     icon: faEnvelopeSquare
-copyright: © 2025 | FABIANMIRANDA.COM | ALL RIGHTS RESERVED
+copyright: © 2026 | FABIANMIRANDA.COM | ALL RIGHTS RESERVED
 ---
