@@ -70,11 +70,11 @@ const Hero = () => {
                                 <em className='magenta'>Full-Stack</em> <em className='lightblue'>Developer.</em>
                             </div>
                             <div className={`${styles['tag']} tag tag-3`}>
-                                <em className='magenta'>Tech/AI</em> <em className='lightblue'>Consultant.</em>
+                                <em className='magenta'>AI Solutions</em> <em className='lightblue'>Architect.</em>
                             </div>
                         </div>
                     </h1>
-                    <p>Based in <b>Costa Rica</b>, I provide <b>nearshore software development</b> and <b>AI-powered solutions</b> to US and global clients. From scalable web applications to intelligent workflow automation, I help organizations operate smarter and faster. <br/><b>Let's build something great together</b>.</p>
+                    <p>Based in <b>Costa Rica</b>, I work as an <b>AI Solutions Architect</b> and <b>nearshore software developer</b> for US and global clients. From scalable web applications to <b>AI implementation consulting</b> and intelligent workflow automation, I help organizations operate smarter and faster. <br/><b>Let's build something great together</b>.</p>
                
                     <div className={styles['cta-social-row']}>
 

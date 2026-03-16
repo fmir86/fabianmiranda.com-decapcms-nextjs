@@ -26,6 +26,14 @@
     @apply col-span-6 flex justify-center items-center order-1 md:order-2;
 }
 
+.info-row {
+    @apply space-y-3 mt-8 pt-8 border-t border-gray-800;
+
+    p {
+        @apply text-sm text-gray-300;
+    }
+}
+
 .name-row {
     @apply flex flex-col md:flex-row gap-4;
 }

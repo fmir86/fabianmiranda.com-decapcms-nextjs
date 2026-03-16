@@ -96,7 +96,7 @@ const servicesData = [
   },
   {
     id: 'tech-consultancy',
-    title: 'Tech Consultancy',
+    title: 'AI Implementation Consulting',
     icon: Lightbulb,
     iconBgColor: 'linear-gradient(135deg, #10B981 0%, #3B82F6 100%)', // green-400 to blue-500
     image: '/images/services/tech-consultancy-1.jpg',
@@ -142,8 +142,8 @@ const Services = ({ headerData, footerData }) => {
   return (
     <Layout headerData={headerData} footerData={footerData}>
       <SEO
-        title="Nearshore Development & AI Consulting Services | Costa Rica"
-        description="Nearshore software development and AI consulting from Costa Rica. Full-stack web development, digital production, and AI-powered automation for US and global clients. Same timezone, expert delivery."
+        title="AI Implementation Consulting & Nearshore Development Services | Costa Rica"
+        description="AI Solutions Architect and nearshore developer offering AI implementation consulting, full-stack web development, digital production, and workflow automation from Costa Rica. Same timezone, expert delivery."
         image="/images/services/development-1.jpg"
       />
       <SchemaMarkup
@@ -184,7 +184,7 @@ const Services = ({ headerData, footerData }) => {
                 </span>
               </h1>
               <p className={styles['hero-subtitle']}>
-                Nearshore development excellence from Costa Rica. AI-powered solutions, digital production, and strategic consulting that transform businesses and accelerate growth.
+                AI implementation consulting and nearshore development from Costa Rica. From AI-powered solutions and digital production to strategic consulting, I help businesses transform and accelerate growth.
               </p>
             </div>
             

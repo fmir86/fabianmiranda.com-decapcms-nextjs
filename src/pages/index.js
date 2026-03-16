@@ -12,8 +12,8 @@ const Home = ({ caseStudies, headerData, footerData }) => {
   return (
     <Layout headerData={headerData} footerData={footerData}>
       <SEO
-        title="Fabian Miranda - Nearshore Developer & AI Consultant | Costa Rica"
-        description="Nearshore software development and AI consulting from Costa Rica. Full-stack developer specializing in AI-powered web applications, digital production, and tech consulting for US and global clients."
+        title="Fabian Miranda - AI Solutions Architect & Nearshore Developer | Costa Rica"
+        description="AI Solutions Architect and nearshore software developer based in Costa Rica. Specializing in AI implementation consulting, full-stack web development, and digital production for US and global clients."
         image="/images/og-default-v2.jpg"
         type="website"
       />

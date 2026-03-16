@@ -11,8 +11,8 @@ export const personSchema = {
   givenName: 'Fabian',
   familyName: 'Miranda',
   alternateName: 'Fabián Miranda',
-  jobTitle: 'Creative Technologist & AI Consultant',
-  description: 'Full-stack developer and creative technologist specializing in AI consulting, web development, digital production, and nearshore tech solutions from Costa Rica.',
+  jobTitle: 'AI Solutions Architect & Implementation Consultant',
+  description: 'AI Solutions Architect and full-stack developer specializing in AI implementation consulting, web development, digital production, and nearshore tech solutions from Costa Rica.',
   url: SITE_URL,
   image: {
     '@type': 'ImageObject',
@@ -26,6 +26,8 @@ export const personSchema = {
   ],
   knowsAbout: [
     'Artificial Intelligence',
+    'AI Solutions Architecture',
+    'AI Implementation Consulting',
     'AI Consulting',
     'Web Development',
     'Full-Stack Development',
@@ -34,7 +36,9 @@ export const personSchema = {
     'React',
     'Next.js',
     'Node.js',
-    'Tech Consulting'
+    'Tech Consulting',
+    'RAG Systems',
+    'AI Agent Development'
   ],
   worksFor: {
     '@type': 'Organization',
@@ -252,6 +256,47 @@ export const servicesSchema = {
   ]
 };
 
+// FAQ Schema for Services Page
+export const servicesFaqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  '@id': `${SITE_URL}/services#faq`,
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is nearshore software development?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Nearshore software development means partnering with developers in a nearby country with similar timezones. Working with a developer in Costa Rica (GMT-6) gives US companies real-time collaboration during business hours, cultural alignment, and 40-50% cost savings compared to US rates.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What AI implementation services do you offer?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'I offer AI strategy and implementation consulting including RAG (Retrieval Augmented Generation) systems, AI agent development with MCP integrations, workflow automation using Claude, ChatGPT, and Gemini Pro, and AI-powered development workflows. Services include discovery, pilot development, and scaled deployment with clear ROI measurement within 30-60 days.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What technologies do you work with?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'My core stack includes React, Next.js, and Node.js for full-stack web development. I also work with React Native and Flutter for mobile apps, and deploy across AWS, Azure, Vercel, and Netlify. For AI integration, I specialize in Anthropic Claude, OpenAI, and Google Gemini APIs.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'How does your consulting engagement typically work?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Engagements start with a free 30-minute discovery call. From there, I define project scope, provide a detailed proposal, and begin with a pilot phase. I follow Agile methodologies with daily standups, weekly retrospectives, and transparent progress tracking. Most clients see measurable results within the first 30-60 days.'
+      }
+    }
+  ]
+};
+
 // SchemaMarkup Component
 const SchemaMarkup = ({
   type = 'website',
@@ -278,6 +323,7 @@ const SchemaMarkup = ({
   if (type === 'services' || includeServices) {
     schemas.push(servicesSchema);
     schemas.push(organizationSchema);
+    schemas.push(servicesFaqSchema);
   }
 
   // Include Article schema for blog posts

@@ -133,8 +133,8 @@ const Contact = ({ headerData, footerData }) => {
   return (
     <Layout headerData={headerData} footerData={footerData}>
       <SEO
-        title="Contact | Fabian Miranda - Creative Technologist"
-        description="Get in touch for your digital production projects, web development needs, or tech challenges. Expert solutions from an experienced full-stack developer and consultant."
+        title="Contact | Fabian Miranda - AI Solutions Architect & Developer"
+        description="Get in touch with Fabian Miranda for AI consulting, nearshore software development, and digital production projects. Based in Costa Rica, serving US and global clients in the same timezone."
         image="/images/encounter.png"
       />
       <SchemaMarkup
@@ -150,8 +150,8 @@ const Contact = ({ headerData, footerData }) => {
         <div className={styles['content-wrapper']}>
           <div className={styles['grid-layout']}>
           <div className={styles['form-column']} ref={formColumnRef} style={{visibility: 'hidden'}}>
-            <h1 ref={titleRef}>Contact Me</h1>
-            <p ref={textRef}>Contact me to tackle your digital production projects, web development needs, or any tech challenges. As an experienced full-stack developer and consultant I provide expert solutions to help bring your ideas to life. Let's connect and make your vision a reality.</p>
+            <h1 ref={titleRef}>Let's Build Something Together</h1>
+            <p ref={textRef}>Whether you need an AI implementation consultant to integrate intelligent automation into your workflows, a nearshore development partner for your next web application, or a creative technologist for digital production, I'm here to help turn your vision into reality.</p>
 
             <form 
               className={styles['form']} 
@@ -172,17 +172,24 @@ const Contact = ({ headerData, footerData }) => {
               <div className={styles['custom-select']} data-animate="true">
                 <select id="subject" name="subject" required defaultValue="">
                   <option value="" disabled>I want to talk about... *</option>
+                  <option value="AI Consulting">AI Consulting & Implementation</option>
                   <option value="Web Development">Web Development</option>
-                  <option value="Consulting">Consulting</option>
                   <option value="Digital Production">Digital Production</option>
+                  <option value="Nearshore Development">Nearshore Development</option>
                   <option value="Other">Other</option>
                 </select>
                 <FontAwesomeIcon icon={faChevronDown} className={styles['custom-arrow']} size="sm" />
               </div>
               <textarea data-animate="true" id="message" name="message" placeholder="Message *" required aria-required="true"></textarea>
               <button data-animate="true" type="submit">Submit</button>
-            </form>   
-          </div>        
+            </form>
+
+            <div className={styles['info-row']}>
+              <p><strong className="text-lightblue">Based in Costa Rica (CST/GMT-6)</strong> — I work in the same timezone as US Central, making real-time collaboration seamless for teams across the United States.</p>
+              <p><strong className="text-lightblue">Typical response time:</strong> Within 24 hours on business days. For urgent projects, I'm often available for a same-day introductory call.</p>
+              <p><strong className="text-lightblue">What to expect:</strong> After your initial message, I'll schedule a free 30-minute discovery call to understand your goals, discuss technical approach, and outline next steps.</p>
+            </div>
+          </div>
           </div>
         </div>
       </div>

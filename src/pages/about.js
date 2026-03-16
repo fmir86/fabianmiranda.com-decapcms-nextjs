@@ -17,10 +17,10 @@ const About = ({ headerData, footerData }) => {
   return (
     <Layout headerData={headerData} footerData={footerData}>
       <SEO
-        title="About | Fabian Miranda - Nearshore AI & Tech Expert"
-        description="Learn about Fabian Miranda - A seasoned Full-Stack Developer, AI Consultant, and Tech Leader with 15+ years of experience delivering innovative solutions from Costa Rica to global clients."
+        title="About | Fabian Miranda - AI Solutions Architect & Implementation Consultant"
+        description="Fabian Miranda is an AI Solutions Architect and Implementation Consultant with 15+ years of experience. Based in Costa Rica, he delivers nearshore AI consulting, full-stack development, and digital production to US and global clients."
         image="/images/about/costarica-tech-hub.jpg"
-        keywords="full-stack developer, AI consultant, Costa Rica, nearshore development, tech leader"
+        keywords="AI Solutions Architect, AI Implementation Consultant, full-stack developer, Costa Rica, nearshore development"
       />
       <SchemaMarkup
         type="about"
@@ -61,7 +61,7 @@ const About = ({ headerData, footerData }) => {
                 </span>
               </h1>
               <p className={styles['hero-subtitle']}>
-                15+ years transforming ideas into scalable digital solutions, leading teams, and pioneering AI integration in enterprise environments.
+                AI Solutions Architect and Implementation Consultant with 15+ years transforming ideas into scalable digital solutions, leading teams, and pioneering AI integration in enterprise environments.
               </p>
             </div>
             
@@ -127,7 +127,7 @@ const About = ({ headerData, footerData }) => {
                     <line x1="12" y1="22.08" x2="12" y2="12"></line>
                   </svg>
                 </div>
-                <h3>Automation & Artificial Intelligence</h3>
+                <h3>AI Solutions Architecture & Implementation</h3>
                 <p>Pioneering artificial intelligence integration to automate business workflows, reducing development time and costs while enhancing overall campaign execution and efficiency. Learn more about my <Link href="/services#tech-consultancy" className={styles['inline-link']}>AI consulting services</Link> or read my insights on <Link href="/blog/2025-10-31-beyond-vibe-coding" className={styles['inline-link']}>the AI-assisted programming revolution</Link>.</p>
               </div>
               

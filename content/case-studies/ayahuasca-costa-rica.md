@@ -40,7 +40,7 @@ content: >-
   ## Solution & Approach
 
 
-  We developed a comprehensive WordPress-based platform focused on three core pillars:
+  We developed a modern Next.js platform focused on three core pillars:
 
 
   ### 1. SEO-First Architecture
@@ -58,9 +58,9 @@ content: >-
   ### 2. User-Centric Content Management
 
 
-  * Deployed Nirvana theme builder to enable visual page editing without code
+  * Deployed Sanity CMS with an integrated Studio at /studio for visual content editing
 
-  * Created custom post types for retreats, facilitators, and testimonials
+  * Created structured content schemas for retreats, facilitators, and testimonials
 
   * Built intuitive workflows for publishing multilingual content across 5 languages
 
@@ -85,11 +85,11 @@ content: >-
   **Week 1: Foundation & Content**
 
 
-  * WordPress installation and hosting optimization on Siteground
+  * Next.js project setup with TypeScript and Tailwind CSS on Vercel
 
-  * Nirvana theme configuration with custom modules
+  * Sanity CMS configuration with custom content schemas
 
-  * Database structure for retreats, bookings, and multilingual content
+  * Data modeling for retreats, bookings, and multilingual content
 
   * Content migration and initial optimization
 
@@ -131,9 +131,9 @@ content: >-
 
   * Payment gateway live transaction verification
 
-  * Nirvana theme builder training sessions
+  * Sanity Studio training sessions for the content team
 
-  * Performance optimization and caching configuration
+  * Performance optimization and Vercel edge caching configuration
 
   * Analytics setup and production launch
 
@@ -188,19 +188,21 @@ content: >-
   ## Technical Highlights
 
 
-  * **Platform**: WordPress with optimized hosting on Siteground
+  * **Framework**: Next.js 16 with React 19 and TypeScript
 
-  * **CMS**: Nirvana theme builder for visual editing
+  * **CMS**: Sanity CMS (headless) with Sanity Studio at /studio
 
-  * **Database**: MySQL
+  * **Styling**: Tailwind CSS 3.4 with SCSS modules and Styled Components
 
-  * **Languages**: PHP for custom functionality and booking logic
+  * **Animations**: GSAP with Split Type for advanced text animations
 
-  * **Integrations**: Payment gateway, email marketing platform, Google Analytics, Search Console
+  * **Email**: Resend for contact form and notification handling
 
-  * **Performance**: Sub-2-second page loads, 90+ Google PageSpeed scores
+  * **Deployment**: Vercel with image optimization (AVIF/WebP)
 
-  * **Security**: SSL encryption, regular security audits, automated backups
+  * **SEO**: Structured data schemas (Organization, LocalBusiness, WebSite), OpenGraph metadata
+
+  * **Performance**: Optimized image pipeline via Sanity CDN, static generation with ISR
 
 
   ## Key Takeaways
@@ -212,20 +214,21 @@ content: >-
   The 100% increase in bookings validates the importance of digital-first strategy in the wellness tourism sector. When spiritual seekers search for transformative experiences, being present, credible, and accessible in those critical moments drives measurable business results.
 
 
-  Most importantly, the Nirvana theme builder implementation proved that sophisticated websites don't require technical expertise to maintain. Empowering the client team to independently manage their digital presence created long-term value far beyond the initial development investment.
+  Most importantly, the Sanity CMS implementation proved that sophisticated websites don't require technical expertise to maintain. Empowering the client team to independently manage their digital presence through Sanity Studio created long-term value far beyond the initial development investment.
 image: /images/ayahuasca-costa-rica-cover.jpg
 tags:
-  - WordPress
-  - PHP
-  - MySQL
-  - Siteground
+  - Next.js
+  - React
+  - TypeScript
+  - Sanity CMS
+  - Tailwind CSS
+  - Vercel
 live_url: https://ayahuascacostarica.org
 highlights:
   - Custom booking system handling 500+ monthly inquiries
   - Multi-language architecture serving 5 languages
   - Integrated payment gateway with international support
-impact: Established the definitive online presence for ayahuasca tourism in
-  Costa Rica, facilitating over $2M in annual retreat bookings.
+impact: Built the top-ranking digital platform for ayahuasca tourism in Costa Rica, doubling retreat bookings through SEO-first architecture and automated inquiry management.
 featured: false
 order: 2
 ---
