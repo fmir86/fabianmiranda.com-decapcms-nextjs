@@ -45,7 +45,7 @@ const SEO = ({
   } else {
     // Static pages: use route map
     enUrl = `${siteUrl}${locale === 'es' ? enPath(currentPath) : currentPath}`;
-    const esTranslated = locale === 'en' ? localePath(currentPath, 'es') : currentPath;
+    const esTranslated = localePath(locale === 'es' ? enPath(currentPath) : currentPath, 'es');
     esUrl = `${siteUrl}/es${esTranslated === '/' ? '' : esTranslated}`;
   }
 

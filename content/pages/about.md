@@ -179,16 +179,16 @@ es:
           e industrias. Siempre aprovechando lenguajes de programación y
           frameworks modernos para desplegar en múltiples entornos. Sólida
           experiencia en desarrollo backend con Node.js. Ver ejemplos en mi <a
-          href="/work" class="inline-link">portafolio</a>.
+          href="/es/portafolio" class="inline-link">portafolio</a>.
         svg: <polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8
           18"></polyline>
       - title: Arquitectura e Implementación de Soluciones IA
         description: Siendo pionero en la integración de inteligencia artificial para
           automatizar flujos de trabajo empresariales, reduciendo tiempos de
           desarrollo y costos mientras se mejora la ejecución y eficiencia
-          general de las campañas. Conoce más sobre mis <a href="/servicios"
+          general de las campañas. Conoce más sobre mis <a href="/es/servicios"
           class="inline-link">servicios de consultoría IA</a> o lee mis
-          perspectivas sobre <a href="/blog/mas-alla-del-vibe-coding"
+          perspectivas sobre <a href="/es/blog/mas-alla-del-vibe-coding"
           class="inline-link">la revolución de la programación asistida por
           IA</a>.
         svg: <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3
@@ -198,7 +198,7 @@ es:
       - title: Liderazgo y Consultoría Experta
         description: Aplicando conocimiento y experiencia adquiridos para guiar a
           organizaciones en sus transformaciones digitales, fomentando la
-          innovación e impulsando el éxito empresarial. <a href="/contact"
+          innovación e impulsando el éxito empresarial. <a href="/es/contacto"
           class="inline-link">Hablemos</a> sobre cómo puedo ayudar a su equipo a
           navegar desafíos e implementar soluciones efectivas.
         svg: <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9"
@@ -232,7 +232,7 @@ es:
       - 'Esto me permite ser parte de un ecosistema tecnológico próspero que
         valora la colaboración, la creatividad y fomenta la innovación. He
         escrito extensamente sobre esto en mi artículo <a
-        href="/blog/ventaja-nearshore-costa-rica-centro-tech"
+        href="/es/blog/ventaja-nearshore-costa-rica-centro-tech"
         class="inline-link">La Ventaja Nearshore: Por Qué Costa Rica es su
         Próximo Centro Tecnológico</a>.'
     image:

@@ -220,7 +220,7 @@ es:
           trabajo modernos, proporciono a las empresas servicios de desarrollo
           de alta calidad a una fracción del costo tradicional, sin comprometer
           velocidad ni calidad. Vea cómo ayudé a <a
-          href="/work/contabilidad-costa-rica" class="text-lightblue
+          href="/es/portafolio/contabilidad-costa-rica" class="text-lightblue
           hover:text-magenta">Contabilidad Costa Rica</a> a lograr excelentes
           puntuaciones en Lighthouse con Next.js SSG.
     - cta_link: /contact
@@ -300,7 +300,7 @@ es:
           integraciones avanzadas MCP (Model Context Protocol), construyo
           sistemas inteligentes que impulsarán la eficiencia de su organización.
           Lea mi análisis profundo sobre <a
-          href="/blog/2025-10-31-beyond-vibe-coding" class="text-lightblue
+          href="/es/blog/mas-alla-del-vibe-coding" class="text-lightblue
           hover:text-magenta">la revolución de la programación asistida por
           IA</a>.
   how_i_work:

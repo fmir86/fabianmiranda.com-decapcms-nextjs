@@ -98,7 +98,9 @@ en:
       glow_src: /images/aboutme/background-glow.png
   work_samples:
     title: Work That Drives Results
-    description: From startups to established businesses, I partner with visionary leaders to build technology that scales, performs, and delivers measurable business impact.
+    description: From startups to established businesses, I partner with visionary
+      leaders to build technology that scales, performs, and delivers measurable
+      business impact.
     cta_text: Ready to transform your business with cutting-edge technology?
     cta_button: Let's Discuss Your Project
 es:
@@ -116,11 +118,11 @@ es:
         color1: magenta
         color2: lightblue
       - line1: Arquitecto de
-        line2: Soluciones  de IA.
+        line2: Soluciones
         color1: magenta
         color2: lightblue
-      - line1: Tecnólogo
-        line2: Creativo.
+      - line1: Experto en
+        line2: IA Aplicada
         color1: magenta
         color2: lightblue
     description: Con base en <b>Costa Rica</b>, trabajo como <b>Arquitecto de
@@ -204,7 +206,9 @@ es:
       glow_src: /images/aboutme/background-glow.png
   work_samples:
     title: Trabajo Que Genera Resultados
-    description: Desde startups hasta empresas establecidas, me asocio con líderes visionarios para construir tecnología que escala, rinde y genera impacto comercial medible.
+    description: Desde startups hasta empresas establecidas, me asocio con líderes
+      visionarios para construir tecnología que escala, rinde y genera impacto
+      comercial medible.
     cta_text: ¿Listo para transformar su negocio con tecnología de vanguardia?
     cta_button: Hablemos de Su Proyecto
 ---

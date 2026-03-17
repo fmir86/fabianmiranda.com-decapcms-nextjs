@@ -173,7 +173,7 @@ const About = ({ headerData, footerData, pageData, locale }) => {
                         <div className={styles['benefit-icon']}>
                           {faIcon && <FontAwesomeIcon icon={faIcon} size="1x" />}
                         </div>
-                        <h4 dangerouslySetInnerHTML={{ __html: benefit.title }} />
+                        <h3 dangerouslySetInnerHTML={{ __html: benefit.title }} />
                         <p>{benefit.description}</p>
                       </div>
                     );

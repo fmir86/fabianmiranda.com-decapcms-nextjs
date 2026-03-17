@@ -123,7 +123,7 @@ const Work = ({ caseStudies, headerData, footerData, pageData, locale }) => {
             {/* Filters */}
             <div className={styles.filtersSection}>
               <div className={styles.filterHeader}>
-                <h3 className={styles.filterTitle}>{t(locale, 'work.filterProjects')}</h3>
+                <h2 className={styles.filterTitle}>{t(locale, 'work.filterProjects')}</h2>
                 {selectedTags.length > 0 && (
                   <button onClick={clearFilters} className={styles.clearButton}>
                     {t(locale, 'work.clearAllFilters')}

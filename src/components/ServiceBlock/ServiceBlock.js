@@ -30,7 +30,7 @@ const ServiceBlock = ({ service }) => {
         >
           <IconComponent className={styles.iconInner} />
         </div>
-        <h3 className={styles.blockTitle}>{title}</h3>
+        <h2 className={styles.blockTitle}>{title}</h2>
       </div>
       
       {/* Content Grid */}

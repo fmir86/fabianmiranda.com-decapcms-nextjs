@@ -6,10 +6,10 @@ const HowIWork = ({ data }) => {
     <div className={styles.section}>
       {/* Header */}
       <div className={styles.header}>
-        <h1 className={styles.title}>
+        <h2 className={styles.title}>
           {data.title.replace(data.title_accent, '').trim()}{' '}
           <span className={styles.titleAccent}>{data.title_accent}</span>
-        </h1>
+        </h2>
         <p className={styles.subtitle}>
           {data.subtitle}
         </p>

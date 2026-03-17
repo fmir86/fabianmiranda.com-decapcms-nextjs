@@ -44,7 +44,7 @@ const ShareButtons = ({ url, title, description }) => {
   if (supportsNativeShare) {
     return (
       <div className={styles.shareContainer}>
-        <h3 className={styles.shareTitle}>Share</h3>
+        <p className={styles.shareTitle}>Share</p>
         <div className={styles.shareButtons}>
           <button
             onClick={handleNativeShare}
@@ -62,7 +62,7 @@ const ShareButtons = ({ url, title, description }) => {
   // Desktop: Show individual platform buttons
   return (
     <div className={styles.shareContainer}>
-      <h3 className={styles.shareTitle}>Share</h3>
+      <p className={styles.shareTitle}>Share</p>
       <div className={styles.shareButtons}>
         <TwitterShareButton url={shareUrl} title={title}>
           <TwitterIcon size={40} round />
