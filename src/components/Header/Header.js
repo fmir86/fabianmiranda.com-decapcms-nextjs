@@ -3,14 +3,46 @@ import styles from "./Header.module.scss";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { useRouter } from "next/router";
+import { Globe } from "lucide-react";
 import gsap from "gsap";
+import { localePath, enPath } from "../../libs/routeMap";
 
-const Header = ({ logo, navigation }) => {
+const Header = ({ logo, navigation, alternateSlug }) => {
 
   const router = useRouter();
   const headerWrapper = useRef(null);
   const q = gsap.utils.selector(headerWrapper);
-  const isActive = (path) => router.pathname === path;
+  const isActive = (path) => router.asPath === path || router.pathname === path;
+  const currentLocale = router.locale || 'en';
+  const altLocale = currentLocale === 'en' ? 'es' : 'en';
+
+  // Compute the language switch URL
+  const getLanguageSwitchHref = () => {
+    const { pathname, asPath } = router;
+
+    // Dynamic pages: use alternateSlug if provided
+    if (pathname.includes('[slug]') && alternateSlug) {
+      if (pathname === '/blog/[slug]') {
+        return `/blog/${alternateSlug}`;
+      }
+      if (pathname === '/work/[slug]') {
+        if (altLocale === 'es') {
+          return `/portafolio/${alternateSlug}`;
+        }
+        return `/work/${alternateSlug}`;
+      }
+    }
+
+    // Static pages
+    if (altLocale === 'es') {
+      // EN → ES: translate the current pathname
+      return localePath(pathname, 'es');
+    } else {
+      // ES → EN: reverse-translate from the visible path
+      // With rewrites, asPath shows the translated URL (e.g. /acerca-de-mi)
+      return enPath(asPath);
+    }
+  };
 
   const toggleMobileNav = () => {
     if(!(headerWrapper.current.getAttribute('aria-expanded') === 'true')){
@@ -55,8 +87,8 @@ const Header = ({ logo, navigation }) => {
 
     // Close mobile nav when user clicks the same page
     const handleLinkClick = (e) => {
-      if( 
-        e.currentTarget.getAttribute('href') === router.pathname && 
+      if(
+        e.currentTarget.getAttribute('href') === router.pathname &&
         headerWrapper.current.getAttribute('aria-expanded')==='true'
       ){
           toggleMobileNav();
@@ -97,6 +129,12 @@ const Header = ({ logo, navigation }) => {
                     </Link>
                   </li>
                 ))}
+                <li className={styles['lang-switcher']}>
+                  <Link href={getLanguageSwitchHref()} locale={altLocale} className={styles['lang-toggle']} aria-label={altLocale === 'es' ? 'Cambiar a Español' : 'Switch to English'}>
+                    <Globe className={styles['lang-icon']} />
+                    <span lang={altLocale}>{altLocale === 'es' ? 'Español' : 'English'}</span>
+                  </Link>
+                </li>
               </ul>
             </div>
 

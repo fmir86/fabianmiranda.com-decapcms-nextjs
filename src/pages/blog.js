@@ -8,6 +8,9 @@ import SchemaMarkup from "../components/SEO/SchemaMarkup";
 import BlogSearch from "../components/BlogSearch/BlogSearch";
 import { loadHeaderData, loadFooterData } from "../libs/loadGlobalData";
 import { loadBlogPosts } from "../libs/loadBlogPosts";
+import { loadPageData } from "../libs/loadPageData";
+import { t } from "../libs/translations";
+import { localePath } from "../libs/routeMap";
 import heroStyles from "../styles/About.module.scss"
 import styles from "../styles/Blog.module.scss"
 import useIsMobile from "../hooks/useIsMobile"
@@ -29,7 +32,8 @@ const FUSE_OPTIONS = {
 
 const POSTS_PER_PAGE = 6;
 
-const Blog = ({ posts, headerData, footerData }) => {
+const Blog = ({ posts, headerData, footerData, pageData, locale }) => {
+  const { seo, hero, no_posts_message } = pageData;
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedTags, setSelectedTags] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
@@ -126,13 +130,15 @@ const Blog = ({ posts, headerData, footerData }) => {
   return (
     <Layout headerData={headerData} footerData={footerData}>
       <SEO
-        title="Blog | Fabian Miranda - Creative Technologist"
-        description="Insights on AI, web development, AI-assisted coding, blockchain, and the future of software engineering from 15+ years in tech."
-        keywords="AI development, web development, AI-assisted coding, blockchain, software engineering"
-        image="/images/codebot.jpg"
+        title={seo.title}
+        description={seo.description}
+        keywords={seo.keywords}
+        image={seo.image}
+        locale={locale}
       />
       <SchemaMarkup
         type="website"
+        locale={locale}
         breadcrumbs={[
           { name: 'Home', url: '/' },
           { name: 'Blog' }
@@ -155,18 +161,17 @@ const Blog = ({ posts, headerData, footerData }) => {
                   playsInline
                   key={isMobile ? 'mobile' : 'desktop'}
                 >
-                  <source src={isMobile ? "/video/network-nodes-mobile.mp4" : "/video/network-nodes.mp4"} type="video/mp4" />
+                  <source src={isMobile ? hero.video_mobile : hero.video_desktop} type="video/mp4" />
                 </video>
               </div>
 
               <h1 className={heroStyles['hero-title']}>
                 <span>
-                  Tech<em className='magenta'>Blog</em>
+                  {hero.title_line1}<em className='magenta'>{hero.title_line2_accent}</em>
                 </span>
               </h1>
               <p className={heroStyles['hero-subtitle']}>
-                Insights, discoveries, conclusions, and even predictions from the World of Technology, through the lens of a Technologist with over 15 years of experience.
-                Exploring AI, Software Development, AI-assisted Coding, and the future of software engineering.
+                {hero.subtitle}
               </p>
             </div>
 
@@ -188,11 +193,12 @@ const Blog = ({ posts, headerData, footerData }) => {
               toggleCategory={toggleCategory}
               toggleTag={toggleTag}
               clearFilters={clearFilters}
+              locale={locale}
             />
 
             {/* Results Count */}
             <div className={styles.resultsCount}>
-              Showing {paginatedPosts.length} of {filteredPosts.length} post{filteredPosts.length !== 1 ? 's' : ''}
+              {t(locale, 'blog.showing')} {paginatedPosts.length} {t(locale, 'blog.of')} {filteredPosts.length} {filteredPosts.length !== 1 ? t(locale, 'blog.posts') : t(locale, 'blog.post')}
             </div>
 
             {paginatedPosts && paginatedPosts.length > 0 ? (
@@ -202,7 +208,7 @@ const Blog = ({ posts, headerData, footerData }) => {
                   <article key={post.slug} className={styles.postCard}>
                     {post.featuredImage && (
                       <div className={styles.imageWrapper}>
-                        <Link href={`/blog/${post.slug}`} className={styles.imageContainer}>
+                        <Link href={localePath(`/blog/${post.slug}`, locale)} className={styles.imageContainer}>
                           <Image
                             src={post.featuredImage}
                             alt={`Featured image for: ${post.title}`}
@@ -229,7 +235,7 @@ const Blog = ({ posts, headerData, footerData }) => {
 
                     <div className={styles.postContent}>
 
-                      <Link href={`/blog/${post.slug}`}>
+                      <Link href={localePath(`/blog/${post.slug}`, locale)}>
                         <h2 className={styles.postTitle}>{post.title}</h2>
                       </Link>
 
@@ -238,7 +244,7 @@ const Blog = ({ posts, headerData, footerData }) => {
                           <span className={styles.author}>{post.author}</span>
                           <span className={styles.separator}>•</span>
                           <span className={styles.date}>
-                            {new Date(post.date).toLocaleDateString('en-US', {
+                            {new Date(post.date).toLocaleDateString(t(locale, 'dateLocale'), {
                               year: 'numeric',
                               month: 'long',
                               day: 'numeric'
@@ -251,7 +257,7 @@ const Blog = ({ posts, headerData, footerData }) => {
 
                       {post.tags && post.tags.length > 0 && (
                         <div className={styles.tagsSection}>
-                          <span className={styles.tagsLabel}>Tags:</span>
+                          <span className={styles.tagsLabel}>{t(locale, 'blog.tags')}</span>
                           <div className={styles.tags}>
                             {post.tags.map((tag, index) => (
                               <button
@@ -266,8 +272,8 @@ const Blog = ({ posts, headerData, footerData }) => {
                         </div>
                       )}
 
-                      <Link href={`/blog/${post.slug}`} className={styles.readMore}>
-                        Read More →
+                      <Link href={localePath(`/blog/${post.slug}`, locale)} className={styles.readMore}>
+                        {t(locale, 'blog.readMore')}
                       </Link>
                     </div>
                   </article>
@@ -282,7 +288,7 @@ const Blog = ({ posts, headerData, footerData }) => {
                     disabled={currentPage === 1}
                     className={styles.paginationButton}
                   >
-                    Previous
+                    {t(locale, 'blog.previous')}
                   </button>
 
                   <div className={styles.paginationPages}>
@@ -302,14 +308,14 @@ const Blog = ({ posts, headerData, footerData }) => {
                     disabled={currentPage === totalPages}
                     className={styles.paginationButton}
                   >
-                    Next
+                    {t(locale, 'blog.next')}
                   </button>
                 </div>
               )}
             </>
             ) : (
               <div className={styles.noPosts}>
-                <p>No posts match your filters. Try selecting different options.</p>
+                <p>{no_posts_message}</p>
               </div>
             )}
           </div>
@@ -319,16 +325,19 @@ const Blog = ({ posts, headerData, footerData }) => {
   )
 }
 
-export async function getStaticProps() {
-  const posts = loadBlogPosts();
-  const headerData = loadHeaderData();
-  const footerData = loadFooterData();
+export async function getStaticProps({ locale }) {
+  const posts = loadBlogPosts(locale);
+  const headerData = loadHeaderData(locale);
+  const footerData = loadFooterData(locale);
+  const pageData = loadPageData('blog', locale);
 
   return {
     props: {
       posts,
       headerData,
-      footerData
+      footerData,
+      pageData,
+      locale
     }
   };
 }

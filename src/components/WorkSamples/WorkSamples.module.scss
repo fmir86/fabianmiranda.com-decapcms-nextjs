@@ -119,9 +119,11 @@
 }
 
 .projectCard {
-  @apply relative flex flex-col;
+  @apply relative flex flex-col cursor-pointer;
   @apply border border-trans-white overflow-hidden transition-all duration-500;
   background: linear-gradient(200deg, rgba(255, 255, 255, 0.1) 0%, transparent 80%);
+  text-decoration: none;
+  color: inherit;
   
   &::before{
     content:"";
@@ -188,7 +190,7 @@
 }
 
 .cardContent {
-  @apply p-6 lg:p-8;
+  @apply p-6 lg:p-8 flex flex-col flex-grow;
   z-index: 2;
   position: relative;
 }
@@ -235,6 +237,7 @@
 .impactStatement {
   @apply text-sm font-[200] text-lightblue;
   @apply border-t border-trans-white pt-4 mt-4;
+  min-height: 7rem;
 }
 
 .impactStatement strong {
@@ -242,7 +245,8 @@
 }
 
 .viewCaseStudyBtn {
-  @apply mt-6 inline-block px-6 py-3 w-full text-center;
+  @apply inline-block px-6 py-3 w-full text-center;
+  margin-top: auto;
   @apply bg-trans-white text-white rounded-sm;
   @apply font-light text-sm uppercase tracking-wider;
   @apply transition-all duration-300;

@@ -1,43 +1,17 @@
-import { Search, Map, Terminal, Rocket } from 'lucide-react';
 import styles from './HowIWork.module.scss';
+import { resolveLucideIcon } from '../../libs/iconMap';
 
-const steps = [
-  {
-    number: 1,
-    title: 'DISCOVERY',
-    description: 'Understanding your business needs, challenges, and goals to create the right solution.',
-    icon: Search
-  },
-  {
-    number: 2,
-    title: 'STRATEGY',
-    description: 'Designing the technical architecture and project roadmap with clear milestones.',
-    icon: Map
-  },
-  {
-    number: 3,
-    title: 'DEVELOPMENT',
-    description: 'Building with modern tools and best practices, keeping you informed every step of the way.',
-    icon: Terminal
-  },
-  {
-    number: 4,
-    title: 'LAUNCH & SUPPORT',
-    description: 'Deploying your solution and providing ongoing support to ensure continued success.',
-    icon: Rocket
-  }
-];
-
-const HowIWork = () => {
+const HowIWork = ({ data }) => {
   return (
     <div className={styles.section}>
       {/* Header */}
       <div className={styles.header}>
         <h1 className={styles.title}>
-          HOW I <span className={styles.titleAccent}>WORK</span>
+          {data.title.replace(data.title_accent, '').trim()}{' '}
+          <span className={styles.titleAccent}>{data.title_accent}</span>
         </h1>
         <p className={styles.subtitle}>
-          A streamlined process to transform your ideas into reality, ensuring transparency and excellence at every stage.
+          {data.subtitle}
         </p>
       </div>
 
@@ -45,11 +19,11 @@ const HowIWork = () => {
       <div className={styles.stepsContainer}>
         {/* Timeline wrapper with pseudo-element gradient line */}
         <div className={`${styles.stepsInner} ${styles['timeline-wrapper']}`}>
-          {steps.map((step) => {
-            const IconComponent = step.icon;
-            
+          {data.steps.map((step) => {
+            const IconComponent = resolveLucideIcon(step.icon);
+
             return (
-              <div 
+              <div
                 key={step.number}
                 className={styles.stepRow}
               >
@@ -66,7 +40,7 @@ const HowIWork = () => {
                     {/* Icon Column - Left */}
                     <div className={styles.iconWrapper}>
                       <div className={styles.iconBox}>
-                        <IconComponent className={styles.icon} />
+                        {IconComponent && <IconComponent className={styles.icon} />}
                       </div>
                     </div>
 

@@ -1,47 +1,35 @@
 import Link from 'next/link';
 import styles from './Hero.module.scss';
 import Image from 'next/image';
+import HtmlContent from '../HtmlContent/HtmlContent';
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import SplitText from '../../libs/SplitText';
 import useIsMobile from '../../hooks/useIsMobile';
 
 
-const Hero = () => {
+const Hero = ({ data }) => {
     const isMobile = useIsMobile();
     const tagsContainer = useRef(null);
-    const q = gsap.utils.selector(tagsContainer);
-    const tl = gsap.timeline({repeat: -1});
+    const tlRef = useRef(null);
     const staggerProps = {each: 0.025, amount: 1.5, from: "random"}
 
-
     useEffect(() => {
-        handleTagAnimation();
-    }, []);
+        // Kill previous timeline if it exists
+        if (tlRef.current) {
+            tlRef.current.kill();
+            tlRef.current = null;
+        }
 
-    const animatePhrase = (elem, offset) => {
+        // Reset inline styles on all tags and letters
+        if (tagsContainer.current) {
+            tagsContainer.current.querySelectorAll('.tag, .letter').forEach(el => {
+                gsap.set(el, { clearProps: 'all' });
+            });
+        }
 
-        tl.set(elem, {display:'block'}, `-=${offset}`);
-        tl.set( elem.querySelectorAll(`.letter`), { opacity:0, filter: 'blur(10px)', y:() => gsap.utils.random([-15, 15]) },`-=${offset}` )
-        tl.to( elem.querySelectorAll(`.letter`), {
-            duration:1, 
-            ease:'expo.out', 
-            opacity:1, 
-            y: 0, 
-            filter: 'blur(0px)',  
-            stagger:staggerProps,
-        }, `-=${offset}`)
-        tl.to( elem.querySelectorAll(`.letter`), {
-            duration:.7, 
-            ease:'expo.in', 
-            opacity:0,
-            y:() => gsap.utils.random([-15, 15]), 
-            filter: 'blur(10px)',  
-            stagger:staggerProps, 
-        }, `+=4`)
-    }
-
-    const handleTagAnimation = () => {
+        const tl = gsap.timeline({ repeat: -1 });
+        tlRef.current = tl;
 
         const splitter = new SplitText(tagsContainer.current, {
             selector: '.tag em',
@@ -51,9 +39,31 @@ const Hero = () => {
         splitter.split();
 
         tagsContainer.current.querySelectorAll('.tag').forEach((tag, index) => {
-            animatePhrase(tag, (index > 0) ? 0.7 : 0);
-        })
-    }
+            const offset = index > 0 ? 0.7 : 0;
+            tl.set(tag, {display:'block'}, `-=${offset}`);
+            tl.set(tag.querySelectorAll('.letter'), { opacity:0, filter: 'blur(10px)', y:() => gsap.utils.random([-15, 15]) }, `-=${offset}`);
+            tl.to(tag.querySelectorAll('.letter'), {
+                duration: 1,
+                ease: 'expo.out',
+                opacity: 1,
+                y: 0,
+                filter: 'blur(0px)',
+                stagger: staggerProps,
+            }, `-=${offset}`);
+            tl.to(tag.querySelectorAll('.letter'), {
+                duration: 0.7,
+                ease: 'expo.in',
+                opacity: 0,
+                y: () => gsap.utils.random([-15, 15]),
+                filter: 'blur(10px)',
+                stagger: staggerProps,
+            }, '+=4');
+        });
+
+        return () => {
+            tl.kill();
+        };
+    }, [data.tags]);
 
     return (
         <div className={styles['hero']}>
@@ -61,48 +71,37 @@ const Hero = () => {
 
                 <div className={styles['left-block']}>
                     <h1 className={styles.title}>
-                        I am Fabián Miranda, <br/>
+                        {data.intro} <br/>
                         <div className={styles['tags-container']} ref={tagsContainer}>
-                            <div className={`${styles['tag']} tag tag-1`}>
-                                <em className='magenta'>Creative</em> <em className='lightblue'>Technologist.</em>
-                            </div>
-                            <div className={`${styles['tag']} tag tag-2`}>
-                                <em className='magenta'>Full-Stack</em> <em className='lightblue'>Developer.</em>
-                            </div>
-                            <div className={`${styles['tag']} tag tag-3`}>
-                                <em className='magenta'>AI Solutions</em> <em className='lightblue'>Architect.</em>
-                            </div>
+                            {data.tags.map((tag, index) => (
+                                <div key={index} className={`${styles['tag']} tag tag-${index + 1}`}>
+                                    <em className={tag.color1}>{tag.line1}</em> <em className={tag.color2}>{tag.line2}</em>
+                                </div>
+                            ))}
                         </div>
                     </h1>
-                    <p>Based in <b>Costa Rica</b>, I work as an <b>AI Solutions Architect</b> and <b>nearshore software developer</b> for US and global clients. From scalable web applications to <b>AI implementation consulting</b> and intelligent workflow automation, I help organizations operate smarter and faster. <br/><b>Let's build something great together</b>.</p>
-               
+                    <HtmlContent html={data.description} />
+
                     <div className={styles['cta-social-row']}>
 
-                        <Link className='lightblue-cta' href="/contact">GET IN TOUCH</Link>
+                        <Link className='lightblue-cta' href={data.cta_link}>{data.cta_text}</Link>
 
                         <div className={styles['social-block']}>
-                            
-                            <p>ALSO, FIND ME ON:</p>
+
+                            <p>{data.social_label}</p>
 
                             <div className={styles['social-links']}>
-                                <Link href="https://www.linkedin.com/in/fmir86/" target='_blank'>
-                                    <Image 
-                                        src="/images/social-media/icon-li.svg" 
-                                        alt="My LinkedIn Profile" 
-                                        width={36} 
-                                        height={36}
-                                        className={styles['social-icons']}
-                                    />
-                                </Link>
-                                <Link href="https://github.com/fmir86" target='_blank'>
-                                    <Image 
-                                        src="/images/social-media/icon-github.svg" 
-                                        alt="My Github Profile" 
-                                        width={36} 
-                                        height={36} 
-                                        className={styles['social-icons']}
-                                    />
-                                </Link>
+                                {data.social_links.map((link, index) => (
+                                    <Link key={index} href={link.url} target='_blank'>
+                                        <Image
+                                            src={link.icon}
+                                            alt={link.alt}
+                                            width={36}
+                                            height={36}
+                                            className={styles['social-icons']}
+                                        />
+                                    </Link>
+                                ))}
                             </div>
                         </div>
                     </div>
@@ -110,10 +109,10 @@ const Hero = () => {
 
                 <div className={styles['right-block']}>
                 <Image
-                    src="/images/home-hero/cyber-david.png"
-                    alt="Portrait of Fabián Miranda"
-                    width={796}
-                    height={615}
+                    src={data.image.src}
+                    alt={data.image.alt}
+                    width={data.image.width}
+                    height={data.image.height}
                     className={styles["david"]}
                     priority
                     fetchPriority="high"

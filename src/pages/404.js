@@ -2,62 +2,64 @@ import Layout from "../components/Layout/Layout";
 import SEO from "../components/SEO/SEO";
 import Link from "next/link";
 import { loadHeaderData, loadFooterData } from "../libs/loadGlobalData";
+import { t } from "../libs/translations";
+import { localePath } from "../libs/routeMap";
 import styles from "../styles/NotFound.module.scss";
 
-const NotFound = ({ headerData, footerData }) => {
+const NotFound = ({ headerData, footerData, locale }) => {
   return (
     <Layout headerData={headerData} footerData={footerData}>
       <SEO
-        title="Page Not Found - Fabian Miranda"
-        description="The page you're looking for doesn't exist or has been moved. Let's get you back on track."
+        title={t(locale, '404.seoTitle')}
+        description={t(locale, '404.seoDescription')}
         type="website"
+        locale={locale}
       />
 
       <section className={styles.section}>
         <div className={styles.container}>
           <p className={styles.errorLabel}>
-            Error 404
+            {t(locale, '404.errorLabel')}
           </p>
 
           <h1 className={styles.heading}>
-            Page Not Found
+            {t(locale, '404.heading')}
           </h1>
 
           <p className={styles.message}>
-            The page you're looking for doesn't exist or has been moved.
-            Let's get you back on track.
+            {t(locale, '404.message')}
           </p>
 
           <div className={styles.actions}>
             <Link href="/" className={styles.primaryCta}>
-              Back to Home
+              {t(locale, '404.backHome')}
             </Link>
 
             <Link
-              href="/contact"
+              href={localePath('/contact', locale)}
               className={styles.secondaryCta}
             >
-              Contact Me
+              {t(locale, '404.contactMe')}
             </Link>
           </div>
 
           <div className={styles.explore}>
-            <p className={styles.exploreLabel}>Or explore these pages:</p>
+            <p className={styles.exploreLabel}>{t(locale, '404.exploreLabel')}</p>
             <div className={styles.exploreLinks}>
-              <Link href="/services" className={styles.exploreLink}>
-                Services
+              <Link href={localePath('/services', locale)} className={styles.exploreLink}>
+                {t(locale, '404.services')}
               </Link>
               <span className={styles.separator}>|</span>
-              <Link href="/work" className={styles.exploreLink}>
-                Work
+              <Link href={localePath('/work', locale)} className={styles.exploreLink}>
+                {t(locale, '404.work')}
               </Link>
               <span className={styles.separator}>|</span>
-              <Link href="/blog" className={styles.exploreLink}>
-                Blog
+              <Link href={localePath('/blog', locale)} className={styles.exploreLink}>
+                {t(locale, '404.blog')}
               </Link>
               <span className={styles.separator}>|</span>
-              <Link href="/about" className={styles.exploreLink}>
-                About
+              <Link href={localePath('/about', locale)} className={styles.exploreLink}>
+                {t(locale, '404.about')}
               </Link>
             </div>
           </div>
@@ -67,14 +69,15 @@ const NotFound = ({ headerData, footerData }) => {
   );
 };
 
-export async function getStaticProps() {
-  const headerData = loadHeaderData();
-  const footerData = loadFooterData();
+export async function getStaticProps({ locale }) {
+  const headerData = loadHeaderData(locale);
+  const footerData = loadFooterData(locale);
 
   return {
     props: {
       headerData,
-      footerData
+      footerData,
+      locale
     }
   };
 }

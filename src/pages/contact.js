@@ -9,17 +9,20 @@ import Image from "next/image";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { loadHeaderData, loadFooterData } from "../libs/loadGlobalData";
+import { loadPageData } from "../libs/loadPageData";
 import useIsMobile from "../hooks/useIsMobile";
 import gsap from "gsap";
 
-const Contact = ({ headerData, footerData }) => {
+const Contact = ({ headerData, footerData, pageData, locale }) => {
   const isMobile = useIsMobile();
   const [popupContent, setPopupContent] = useState(null);
-  
+
   const formColumnRef = useRef(null);
   const titleRef = useRef(null);
   const textRef = useRef(null);
   const formRef = useRef(null);
+
+  const { seo, hero, form, info_items, messages } = pageData;
 
   useEffect(() => {
     if (!formRef.current || !titleRef.current) return;
@@ -101,15 +104,15 @@ const Contact = ({ headerData, footerData }) => {
 
   const successMsg = (
     <>
-      <h3 className={styles['popup-title-success']}>Thank you for your message.</h3>
-      <p className={styles['popup-text']}>I will get back to you as soon as possible.</p>
+      <h3 className={styles['popup-title-success']}>{messages.success_title}</h3>
+      <p className={styles['popup-text']}>{messages.success_text}</p>
     </>
   );
 
   const errorMsg = (
     <>
-      <h3 className={styles['popup-title-error']}>An Error Happened.</h3>
-      <p className={styles['popup-text']}>There was an error sending your message. Please try again later.</p>
+      <h3 className={styles['popup-title-error']}>{messages.error_title}</h3>
+      <p className={styles['popup-text']}>{messages.error_text}</p>
     </>
   );
 
@@ -128,17 +131,19 @@ const Contact = ({ headerData, footerData }) => {
     }).catch((error) => {
       setPopupContent(errorMsg)
     })
-  }  
+  }
 
   return (
     <Layout headerData={headerData} footerData={footerData}>
       <SEO
-        title="Contact | Fabian Miranda - AI Solutions Architect & Developer"
-        description="Get in touch with Fabian Miranda for AI consulting, nearshore software development, and digital production projects. Based in Costa Rica, serving US and global clients in the same timezone."
-        image="/images/encounter.png"
+        title={seo.title}
+        description={seo.description}
+        image={seo.image}
+        locale={locale}
       />
       <SchemaMarkup
         type="website"
+        locale={locale}
         breadcrumbs={[
           { name: 'Home', url: '/' },
           { name: 'Contact' }
@@ -150,11 +155,11 @@ const Contact = ({ headerData, footerData }) => {
         <div className={styles['content-wrapper']}>
           <div className={styles['grid-layout']}>
           <div className={styles['form-column']} ref={formColumnRef} style={{visibility: 'hidden'}}>
-            <h1 ref={titleRef}>Let's Build Something Together</h1>
-            <p ref={textRef}>Whether you need an AI implementation consultant to integrate intelligent automation into your workflows, a nearshore development partner for your next web application, or a creative technologist for digital production, I'm here to help turn your vision into reality.</p>
+            <h1 ref={titleRef}>{hero.title}</h1>
+            <p ref={textRef}>{hero.description}</p>
 
-            <form 
-              className={styles['form']} 
+            <form
+              className={styles['form']}
               data-netlify="true"
               data-netlify-honeypot="bot-field"
               name="contact"
@@ -162,7 +167,7 @@ const Contact = ({ headerData, footerData }) => {
               action="#"
               onSubmit={submitForm}
               ref={formRef}
-          >                
+          >
               <input type="hidden" name="form-name" value="contact" />
               <div className={styles['name-row']}>
                 <input data-animate="true" type="text" id="firstname" name="firstname" placeholder="First Name *" required aria-required="true"/>
@@ -172,11 +177,9 @@ const Contact = ({ headerData, footerData }) => {
               <div className={styles['custom-select']} data-animate="true">
                 <select id="subject" name="subject" required defaultValue="">
                   <option value="" disabled>I want to talk about... *</option>
-                  <option value="AI Consulting">AI Consulting & Implementation</option>
-                  <option value="Web Development">Web Development</option>
-                  <option value="Digital Production">Digital Production</option>
-                  <option value="Nearshore Development">Nearshore Development</option>
-                  <option value="Other">Other</option>
+                  {form.subject_options.map((option) => (
+                    <option key={option.value} value={option.value}>{option.label}</option>
+                  ))}
                 </select>
                 <FontAwesomeIcon icon={faChevronDown} className={styles['custom-arrow']} size="sm" />
               </div>
@@ -185,9 +188,9 @@ const Contact = ({ headerData, footerData }) => {
             </form>
 
             <div className={styles['info-row']}>
-              <p><strong className="text-lightblue">Based in Costa Rica (CST/GMT-6)</strong> — I work in the same timezone as US Central, making real-time collaboration seamless for teams across the United States.</p>
-              <p><strong className="text-lightblue">Typical response time:</strong> Within 24 hours on business days. For urgent projects, I'm often available for a same-day introductory call.</p>
-              <p><strong className="text-lightblue">What to expect:</strong> After your initial message, I'll schedule a free 30-minute discovery call to understand your goals, discuss technical approach, and outline next steps.</p>
+              {info_items.map((item, index) => (
+                <p key={index}><strong className="text-lightblue">{item.label}</strong> — {item.text}</p>
+              ))}
             </div>
           </div>
           </div>
@@ -198,13 +201,16 @@ const Contact = ({ headerData, footerData }) => {
   )
 }
 
-export async function getStaticProps() {
-  const headerData = loadHeaderData();
-  const footerData = loadFooterData();
+export async function getStaticProps({ locale }) {
+  const headerData = loadHeaderData(locale);
+  const footerData = loadFooterData(locale);
+  const pageData = loadPageData('contact', locale);
   return {
     props: {
       headerData,
-      footerData
+      footerData,
+      pageData,
+      locale
     }
   };
 }

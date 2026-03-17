@@ -1,18 +1,13 @@
 import Fuse from 'fuse.js';
 import { loadBlogPosts } from '../../libs/loadBlogPosts';
 
-// Cache the posts and Fuse indices to avoid reloading on every request
-let cachedPosts = null;
-let postsFuse = null;
-let categoriesFuse = null;
-let tagsFuse = null;
-let allCategories = [];
-let allTags = [];
+// Cache the posts and Fuse indices per locale
+const cache = {};
 
-function initializeSearch() {
-  if (cachedPosts) return;
+function initializeSearch(locale = 'en') {
+  if (cache[locale]) return cache[locale];
 
-  cachedPosts = loadBlogPosts();
+  const cachedPosts = loadBlogPosts(locale);
 
   // Extract unique categories and tags
   const categoriesSet = new Set();
@@ -27,11 +22,11 @@ function initializeSearch() {
     }
   });
 
-  allCategories = Array.from(categoriesSet).sort();
-  allTags = Array.from(tagsSet).sort();
+  const allCategories = Array.from(categoriesSet).sort();
+  const allTags = Array.from(tagsSet).sort();
 
   // Create Fuse index for posts
-  postsFuse = new Fuse(cachedPosts, {
+  const postsFuse = new Fuse(cachedPosts, {
     keys: [
       { name: 'title', weight: 0.35 },
       { name: 'excerpt', weight: 0.25 },
@@ -45,16 +40,19 @@ function initializeSearch() {
   });
 
   // Create Fuse index for categories
-  categoriesFuse = new Fuse(
+  const categoriesFuse = new Fuse(
     allCategories.map(cat => ({ name: cat })),
     { keys: ['name'], threshold: 0.3, includeScore: true }
   );
 
   // Create Fuse index for tags
-  tagsFuse = new Fuse(
+  const tagsFuse = new Fuse(
     allTags.map(tag => ({ name: tag })),
     { keys: ['name'], threshold: 0.3, includeScore: true }
   );
+
+  cache[locale] = { cachedPosts, postsFuse, categoriesFuse, tagsFuse, allCategories, allTags };
+  return cache[locale];
 }
 
 export default function handler(req, res) {
@@ -62,10 +60,10 @@ export default function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { q } = req.query;
+  const { q, locale = 'en' } = req.query;
 
   // Initialize search indices if not already done
-  initializeSearch();
+  const { postsFuse, categoriesFuse, tagsFuse, allCategories, allTags } = initializeSearch(locale);
 
   // If no query, return empty results with all categories/tags for the dropdown
   if (!q || q.trim() === '') {

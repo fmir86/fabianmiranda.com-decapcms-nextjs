@@ -2,8 +2,9 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
-export function loadCaseStudies() {
-  const caseStudiesDirectory = path.join(process.cwd(), 'content/case-studies');
+export function loadCaseStudies(locale = 'en') {
+  const basePath = `content/case-studies/${locale}`;
+  const caseStudiesDirectory = path.join(process.cwd(), basePath);
 
   // Check if directory exists
   if (!fs.existsSync(caseStudiesDirectory)) {
@@ -19,8 +20,10 @@ export function loadCaseStudies() {
       const fileContents = fs.readFileSync(filePath, 'utf8');
       const { data } = matter(fileContents);
 
+      const filenameSlug = filename.replace(/\.md$/, '');
       const caseStudy = {
-        slug: filename.replace(/\.md$/, ''),
+        slug: data.slug || filenameSlug,
+        filename: filenameSlug,
         title: data.title,
         date: data.date ? (typeof data.date === 'string' ? data.date : data.date.toISOString().split('T')[0]) : null,
         description: data.description,

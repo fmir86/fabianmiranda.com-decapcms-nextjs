@@ -7,7 +7,52 @@
   <link href="/admin/config.yml" type="text/yaml" rel="cms-config-url" />
 </head>
 <body>
-  <!-- Include the script that builds the page and powers Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+    var CountedStringControl = createClass({
+      handleChange: function(e) {
+        this.props.onChange(e.target.value);
+      },
+
+      isValid: function() {
+        var value = this.props.value || '';
+        var max = this.props.field.get('max') || 999;
+        if (value.length > max) {
+          return { error: { message: 'Must be ' + max + ' characters or less (currently ' + value.length + ')' } };
+        }
+        return true;
+      },
+
+      render: function() {
+        var value = this.props.value || '';
+        var max = this.props.field.get('max') || 999;
+        var count = value.length;
+        var isOver = count > max;
+        var isNear = count > max * 0.85;
+
+        return h('div', {},
+          h('input', {
+            id: this.props.forID,
+            className: this.props.classNameWrapper,
+            type: 'text',
+            value: value,
+            onChange: this.handleChange,
+            style: { borderColor: isOver ? '#e53e3e' : isNear ? '#dd6b20' : undefined }
+          }),
+          h('span', {
+            style: {
+              display: 'block',
+              fontSize: '12px',
+              marginTop: '4px',
+              color: isOver ? '#e53e3e' : isNear ? '#dd6b20' : '#718096',
+              fontWeight: isOver ? 'bold' : 'normal'
+            }
+          }, count + ' / ' + max + ' characters')
+        );
+      }
+    });
+
+    CMS.registerWidget('counted-string', CountedStringControl);
+  </script>
 </body>
 </html>

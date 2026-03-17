@@ -7,13 +7,15 @@ import SchemaMarkup from "../../components/SEO/SchemaMarkup"
 import ShareButtons from "../../components/ShareButtons/ShareButtons"
 import { loadBlogPosts } from "../../libs/loadBlogPosts"
 import { loadHeaderData, loadFooterData } from "../../libs/loadGlobalData"
+import { t } from "../../libs/translations"
+import { localePath } from "../../libs/routeMap"
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import rehypeRaw from 'rehype-raw'
 import styles from "./BlogPost.module.scss"
 import useIsMobile from "../../hooks/useIsMobile"
 
-const BlogPost = ({ post, headerData, footerData }) => {
+const BlogPost = ({ post, headerData, footerData, locale, alternateSlug }) => {
   const isMobile = useIsMobile();
 
   if (!post) {
@@ -21,7 +23,7 @@ const BlogPost = ({ post, headerData, footerData }) => {
   }
 
   return (
-    <Layout headerData={headerData} footerData={footerData}>
+    <Layout headerData={headerData} footerData={footerData} alternateSlug={alternateSlug}>
       <SEO
         title={`${post.title} | Fabian Miranda`}
         description={post.excerpt}
@@ -29,9 +31,12 @@ const BlogPost = ({ post, headerData, footerData }) => {
         type="article"
         author={post.author}
         keywords={post.tags?.join(', ')}
+        locale={locale}
+        alternateSlug={alternateSlug}
       />
       <SchemaMarkup
         type="article"
+        locale={locale}
         article={{
           title: post.title,
           excerpt: post.excerpt,
@@ -51,9 +56,9 @@ const BlogPost = ({ post, headerData, footerData }) => {
       <article className={styles.blogPostContainer}>
         {/* Back Button */}
         <div className={styles.backButton}>
-          <Link href="/blog" className="flex items-center gap-2 text-lightblue hover:text-magenta transition-colors">
+          <Link href={localePath('/blog', locale)} className="flex items-center gap-2 text-lightblue hover:text-magenta transition-colors">
             <ArrowLeft className="h-4 w-4" />
-            Back to Blog
+            {t(locale, 'blogPost.backToBlog')}
           </Link>
         </div>
 
@@ -74,10 +79,10 @@ const BlogPost = ({ post, headerData, footerData }) => {
 
             {post.date && (
               <div className={styles.meta}>
-                <span className={styles.author}>By {post.author}</span>
+                <span className={styles.author}>{t(locale, 'blogPost.by')} {post.author}</span>
                 <span className={styles.separator}>•</span>
                 <span className={styles.date}>
-                  {new Date(post.date).toLocaleDateString('en-US', {
+                  {new Date(post.date).toLocaleDateString(t(locale, 'dateLocale'), {
                     year: 'numeric',
                     month: 'long',
                     day: 'numeric'
@@ -115,7 +120,7 @@ const BlogPost = ({ post, headerData, footerData }) => {
 
         {/* Share Buttons */}
         <ShareButtons
-          url={`/blog/${post.slug}`}
+          url={localePath(`/blog/${post.slug}`, locale)}
           title={post.title}
           description={post.excerpt}
         />
@@ -127,14 +132,14 @@ const BlogPost = ({ post, headerData, footerData }) => {
 
         {/* Footer CTA */}
         <section className={styles.cta}>
-          <h2>Let's Connect</h2>
-          <p>Have thoughts on this post? Want to discuss technology, AI, or potential collaborations?</p>
+          <h2>{t(locale, 'blogPost.letsConnect')}</h2>
+          <p>{t(locale, 'blogPost.haveThoughts')}</p>
           <div className={styles.ctaButtons}>
-            <Link href="/contact" className="lightblue-cta">
-              Get In Touch
+            <Link href={localePath('/contact', locale)} className="lightblue-cta">
+              {t(locale, 'blogPost.getInTouch')}
             </Link>
-            <Link href="/blog" className={styles.secondaryButton}>
-              Read More Posts
+            <Link href={localePath('/blog', locale)} className={styles.secondaryButton}>
+              {t(locale, 'blogPost.readMorePosts')}
             </Link>
           </div>
         </section>
@@ -143,12 +148,14 @@ const BlogPost = ({ post, headerData, footerData }) => {
   )
 }
 
-export async function getStaticPaths() {
-  const posts = loadBlogPosts();
-
-  const paths = posts.map((post) => ({
-    params: { slug: post.slug }
-  }));
+export async function getStaticPaths({ locales }) {
+  const paths = [];
+  for (const locale of locales) {
+    const posts = loadBlogPosts(locale);
+    posts.forEach(post => {
+      paths.push({ params: { slug: post.slug }, locale });
+    });
+  }
 
   return {
     paths,
@@ -156,11 +163,11 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }) {
-  const posts = loadBlogPosts();
+export async function getStaticProps({ params, locale }) {
+  const posts = loadBlogPosts(locale);
   const post = posts.find(p => p.slug === params.slug);
-  const headerData = loadHeaderData();
-  const footerData = loadFooterData();
+  const headerData = loadHeaderData(locale);
+  const footerData = loadFooterData(locale);
 
   if (!post) {
     return {
@@ -168,11 +175,19 @@ export async function getStaticProps({ params }) {
     };
   }
 
+  // Find the alternate locale slug for language switcher + hreflang
+  const altLocale = locale === 'en' ? 'es' : 'en';
+  const altPosts = loadBlogPosts(altLocale);
+  const altPost = altPosts.find(p => p.filename === post.filename);
+  const alternateSlug = altPost?.slug || post.slug;
+
   return {
     props: {
       post,
       headerData,
-      footerData
+      footerData,
+      locale,
+      alternateSlug
     }
   };
 }

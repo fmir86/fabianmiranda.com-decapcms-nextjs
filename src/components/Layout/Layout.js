@@ -5,7 +5,7 @@ import BackToTop from "../BackToTop/BackToTop";
 import styles from "./Layout.module.scss";
 import { useEffect } from "react";
 
-const Layout = ({ children, headerData, footerData }) => {
+const Layout = ({ children, headerData, footerData, alternateSlug }) => {
 
   useEffect(() => {
     document.body.classList.remove('no-scroll');
@@ -135,6 +135,7 @@ const Layout = ({ children, headerData, footerData }) => {
       <Header
         logo={headerData?.logo}
         navigation={headerData?.navigation}
+        alternateSlug={alternateSlug}
       />
 
       <main>

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import HtmlContent from '../HtmlContent/HtmlContent';
 import styles from './ServiceBlock.module.scss';
 
 const ServiceBlock = ({ service }) => {
@@ -65,10 +66,10 @@ const ServiceBlock = ({ service }) => {
           {description && (
             <div className={styles.descriptionBlock}>
               {description.map((paragraph, idx) => (
-                <p 
-                  key={idx} 
+                <HtmlContent
+                  key={idx}
+                  html={paragraph}
                   className={styles.descriptionText}
-                  dangerouslySetInnerHTML={{ __html: paragraph }}
                 />
               ))}
             </div>

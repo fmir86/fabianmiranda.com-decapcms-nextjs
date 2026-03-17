@@ -1,4 +1,5 @@
 local_backend: true
+
 backend:
   name: github
   repo: fmir86/fabianmiranda.com-decapcms-nextjs
@@ -6,28 +7,470 @@ backend:
 media_folder: public/images
 public_folder: /images
 
+i18n:
+  structure: multiple_folders
+  locales: [en, es]
+  default_locale: en
+
 collections:
 
-  # Global Components
+  # Pages (i18n: single_file — EN/ES in one file)
+  - name: "pages"
+    label: "Pages"
+    i18n:
+      structure: single_file
+      locales: [en, es]
+    files:
+
+      - label: "Home"
+        name: "home"
+        file: "content/pages/home.md"
+        i18n: true
+        fields:
+          - label: "SEO"
+            name: "seo"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Title", name: "title", widget: "counted-string", i18n: true, max: 60 }
+              - { label: "Description", name: "description", widget: "counted-string", i18n: true, max: 160 }
+              - { label: "Image", name: "image", widget: "image", i18n: duplicate }
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Intro Text", name: "intro", widget: "string", hint: "e.g. 'I am Fabián Miranda,'", i18n: true }
+              - label: "Rotating Tags"
+                name: "tags"
+                widget: "list"
+                i18n: true
+                fields:
+                  - { label: "Line 1", name: "line1", widget: "string" }
+                  - { label: "Line 2", name: "line2", widget: "string" }
+                  - { label: "Color 1", name: "color1", widget: "string", default: "magenta" }
+                  - { label: "Color 2", name: "color2", widget: "string", default: "lightblue" }
+              - { label: "Description (HTML)", name: "description", widget: "text", hint: "Supports HTML tags like <b>, <br/>", i18n: true }
+              - { label: "CTA Text", name: "cta_text", widget: "string", i18n: true }
+              - { label: "CTA Link", name: "cta_link", widget: "string", i18n: true }
+              - { label: "Social Label", name: "social_label", widget: "string", i18n: true }
+              - label: "Social Links"
+                name: "social_links"
+                widget: "list"
+                i18n: true
+                fields:
+                  - { label: "URL", name: "url", widget: "string" }
+                  - { label: "Icon", name: "icon", widget: "image" }
+                  - { label: "Alt Text", name: "alt", widget: "string" }
+              - label: "Hero Image"
+                name: "image"
+                widget: "object"
+                i18n: true
+                fields:
+                  - { label: "Image", name: "src", widget: "image", i18n: duplicate }
+                  - { label: "Alt Text", name: "alt", widget: "string", i18n: true }
+                  - { label: "Width", name: "width", widget: "number", i18n: duplicate }
+                  - { label: "Height", name: "height", widget: "number", i18n: duplicate }
+          - label: "Services Summary"
+            name: "services_summary"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Title", name: "title", widget: "string", i18n: true }
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                i18n: true
+                collapsed: true
+                fields:
+                  - { label: "Icon", name: "icon", widget: "string", hint: "Lucide icon name: Code, Palette, Lightbulb" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - label: "Features"
+                    name: "features"
+                    widget: "list"
+                    field: { label: "Feature", name: "feature", widget: "string" }
+                  - { label: "CTA Text", name: "cta_text", widget: "string" }
+                  - { label: "CTA Link", name: "cta_link", widget: "string" }
+          - label: "About Me"
+            name: "about_me"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Title", name: "title", widget: "string", i18n: true }
+              - label: "Paragraphs"
+                name: "paragraphs"
+                widget: "list"
+                i18n: true
+                field: { label: "Paragraph", name: "paragraph", widget: "text" }
+                hint: "Supports HTML tags like <strong>"
+              - { label: "CTA Text", name: "cta_text", widget: "string", i18n: true }
+              - { label: "CTA Link", name: "cta_link", widget: "string", i18n: true }
+              - label: "Portrait"
+                name: "portrait"
+                widget: "object"
+                i18n: true
+                fields:
+                  - { label: "Image", name: "src", widget: "image", i18n: duplicate }
+                  - { label: "Alt Text", name: "alt", widget: "string", i18n: true }
+                  - { label: "Glow Image", name: "glow_src", widget: "image", i18n: duplicate }
+          - label: "Work Samples"
+            name: "work_samples"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Title", name: "title", widget: "string", i18n: true }
+              - { label: "Description", name: "description", widget: "text", i18n: true }
+              - { label: "CTA Text", name: "cta_text", widget: "string", i18n: true }
+              - { label: "CTA Button", name: "cta_button", widget: "string", i18n: true }
+
+      - label: "About"
+        name: "about"
+        file: "content/pages/about.md"
+        i18n: true
+        fields:
+          - label: "SEO"
+            name: "seo"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Title", name: "title", widget: "counted-string", i18n: true, max: 60 }
+              - { label: "Description", name: "description", widget: "counted-string", i18n: true, max: 160 }
+              - { label: "Image", name: "image", widget: "image", i18n: duplicate }
+              - { label: "Keywords", name: "keywords", widget: "string", required: false, i18n: true }
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Title Line 1", name: "title_line1", widget: "string", i18n: true }
+              - { label: "Title Line 2 (Magenta)", name: "title_line2_magenta", widget: "string", i18n: true }
+              - { label: "Title Line 2 (Light Blue)", name: "title_line2_lightblue", widget: "string", i18n: true }
+              - { label: "Subtitle", name: "subtitle", widget: "text", i18n: true }
+              - { label: "Video Desktop", name: "video_desktop", widget: "string", i18n: duplicate }
+              - { label: "Video Mobile", name: "video_mobile", widget: "string", i18n: duplicate }
+          - label: "Journey"
+            name: "journey"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Title", name: "title", widget: "string", i18n: true }
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                i18n: true
+                collapsed: true
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+          - label: "Expertise"
+            name: "expertise"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Title", name: "title", widget: "string", i18n: true }
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                i18n: true
+                collapsed: true
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description (HTML)", name: "description", widget: "text", hint: "Supports HTML links" }
+                  - { label: "SVG Inner HTML", name: "svg", widget: "text", hint: "SVG path elements for the icon" }
+          - label: "Current Focus"
+            name: "current_focus"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Title", name: "title", widget: "string", i18n: true }
+              - { label: "Intro", name: "intro", widget: "text", i18n: true }
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                i18n: true
+                field: { label: "Item", name: "item", widget: "string" }
+              - { label: "Outro", name: "outro", widget: "text", i18n: true }
+              - { label: "Video Desktop", name: "video_desktop", widget: "string", i18n: duplicate }
+              - { label: "Video Mobile", name: "video_mobile", widget: "string", i18n: duplicate }
+          - label: "Costa Rica"
+            name: "costa_rica"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Title", name: "title", widget: "string", i18n: true }
+              - label: "Intro Paragraphs"
+                name: "intro"
+                widget: "list"
+                i18n: true
+                field: { label: "Paragraph", name: "paragraph", widget: "text" }
+                hint: "Supports HTML links"
+              - label: "Image"
+                name: "image"
+                widget: "object"
+                i18n: true
+                fields:
+                  - { label: "Image", name: "src", widget: "image", i18n: duplicate }
+                  - { label: "Alt Text", name: "alt", widget: "string", i18n: true }
+              - label: "Benefits"
+                name: "benefits"
+                widget: "list"
+                i18n: true
+                collapsed: true
+                fields:
+                  - { label: "Icon", name: "icon", widget: "string", hint: "FontAwesome icon name: faEarthAmericas, faBrain, faProjectDiagram" }
+                  - { label: "Title (HTML)", name: "title", widget: "string", hint: "Supports <br/> for line breaks" }
+                  - { label: "Description", name: "description", widget: "string" }
+          - label: "Banner CTA"
+            name: "banner_cta"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Title", name: "title", widget: "string", i18n: true }
+              - { label: "Description", name: "description", widget: "text", i18n: true }
+              - label: "Primary CTA"
+                name: "primary_cta"
+                widget: "object"
+                i18n: true
+                fields:
+                  - { label: "Text", name: "text", widget: "string", i18n: true }
+                  - { label: "Link", name: "link", widget: "string", i18n: true }
+              - label: "Secondary CTA"
+                name: "secondary_cta"
+                widget: "object"
+                i18n: true
+                fields:
+                  - { label: "Text", name: "text", widget: "string", i18n: true }
+                  - { label: "Link", name: "link", widget: "string", i18n: true }
+              - { label: "Show Secondary", name: "show_secondary", widget: "boolean", default: true, i18n: duplicate }
+
+      - label: "Services"
+        name: "services"
+        file: "content/pages/services.md"
+        i18n: true
+        fields:
+          - label: "SEO"
+            name: "seo"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Title", name: "title", widget: "counted-string", i18n: true, max: 60 }
+              - { label: "Description", name: "description", widget: "counted-string", i18n: true, max: 160 }
+              - { label: "Image", name: "image", widget: "image", i18n: duplicate }
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Title Line 1", name: "title_line1", widget: "string", i18n: true }
+              - { label: "Title Line 2 (Magenta)", name: "title_line2_magenta", widget: "string", i18n: true }
+              - { label: "Title Line 2 (Light Blue)", name: "title_line2_lightblue", widget: "string", i18n: true }
+              - { label: "Subtitle", name: "subtitle", widget: "text", i18n: true }
+              - { label: "Video Desktop", name: "video_desktop", widget: "string", i18n: duplicate }
+              - { label: "Video Mobile", name: "video_mobile", widget: "string", i18n: duplicate }
+          - label: "Services"
+            name: "services"
+            widget: "list"
+            i18n: true
+            collapsed: true
+            fields:
+              - { label: "ID (anchor)", name: "id", widget: "string", hint: "Used as anchor link, e.g. 'development'" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Icon", name: "icon", widget: "string", hint: "Lucide icon name: Code, Palette, Lightbulb" }
+              - { label: "Icon Background", name: "icon_bg_color", widget: "string", hint: "CSS gradient, e.g. linear-gradient(135deg, #00D4FF 0%, #3B82F6 100%)" }
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Category Tag", name: "category_tag", widget: "string" }
+              - label: "Description"
+                name: "description"
+                widget: "list"
+                field: { label: "Paragraph", name: "paragraph", widget: "text" }
+                hint: "Supports HTML tags"
+              - label: "Feature Columns"
+                name: "feature_columns"
+                widget: "list"
+                collapsed: true
+                hint: "Each column contains a list of features"
+                fields:
+                  - label: "Features"
+                    name: "features"
+                    widget: "list"
+                    fields:
+                      - { label: "Title", name: "title", widget: "string" }
+                      - { label: "Description", name: "description", widget: "text" }
+              - { label: "CTA Text", name: "cta_text", widget: "string" }
+              - { label: "CTA Link", name: "cta_link", widget: "string" }
+          - label: "How I Work"
+            name: "how_i_work"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Title", name: "title", widget: "string", i18n: true }
+              - { label: "Title Accent", name: "title_accent", widget: "string", hint: "The highlighted word in the title", i18n: true }
+              - { label: "Subtitle", name: "subtitle", widget: "text", i18n: true }
+              - label: "Steps"
+                name: "steps"
+                widget: "list"
+                i18n: true
+                collapsed: true
+                fields:
+                  - { label: "Number", name: "number", widget: "number", value_type: "int" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+                  - { label: "Icon", name: "icon", widget: "string", hint: "Lucide icon name: Search, Map, Terminal, Rocket" }
+          - label: "Banner CTA"
+            name: "banner_cta"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Title", name: "title", widget: "string", i18n: true }
+              - { label: "Description", name: "description", widget: "text", i18n: true }
+              - label: "Primary CTA"
+                name: "primary_cta"
+                widget: "object"
+                i18n: true
+                fields:
+                  - { label: "Text", name: "text", widget: "string", i18n: true }
+                  - { label: "Link", name: "link", widget: "string", i18n: true }
+              - label: "Secondary CTA"
+                name: "secondary_cta"
+                widget: "object"
+                i18n: true
+                fields:
+                  - { label: "Text", name: "text", widget: "string", i18n: true }
+                  - { label: "Link", name: "link", widget: "string", i18n: true }
+              - { label: "Show Secondary", name: "show_secondary", widget: "boolean", default: true, i18n: duplicate }
+
+      - label: "Blog"
+        name: "blog_page"
+        file: "content/pages/blog.md"
+        i18n: true
+        fields:
+          - label: "SEO"
+            name: "seo"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Title", name: "title", widget: "counted-string", i18n: true, max: 60 }
+              - { label: "Description", name: "description", widget: "counted-string", i18n: true, max: 160 }
+              - { label: "Image", name: "image", widget: "image", i18n: duplicate }
+              - { label: "Keywords", name: "keywords", widget: "string", required: false, i18n: true }
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Title Line 1", name: "title_line1", widget: "string", i18n: true }
+              - { label: "Title Line 2 (Accent)", name: "title_line2_accent", widget: "string", i18n: true }
+              - { label: "Subtitle", name: "subtitle", widget: "text", i18n: true }
+              - { label: "Video Desktop", name: "video_desktop", widget: "string", i18n: duplicate }
+              - { label: "Video Mobile", name: "video_mobile", widget: "string", i18n: duplicate }
+          - { label: "No Posts Message", name: "no_posts_message", widget: "string", i18n: true }
+
+      - label: "Work"
+        name: "work_page"
+        file: "content/pages/work.md"
+        i18n: true
+        fields:
+          - label: "SEO"
+            name: "seo"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Title", name: "title", widget: "counted-string", i18n: true, max: 60 }
+              - { label: "Description", name: "description", widget: "counted-string", i18n: true, max: 160 }
+              - { label: "Image", name: "image", widget: "image", i18n: duplicate }
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Title Line 1", name: "title_line1", widget: "string", i18n: true }
+              - { label: "Title Line 2 (Accent)", name: "title_line2_accent", widget: "string", i18n: true }
+              - { label: "Subtitle", name: "subtitle", widget: "text", i18n: true }
+              - { label: "Video Desktop", name: "video_desktop", widget: "string", i18n: duplicate }
+              - { label: "Video Mobile", name: "video_mobile", widget: "string", i18n: duplicate }
+          - label: "CTA"
+            name: "cta"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Text", name: "text", widget: "string", i18n: true }
+              - { label: "Button", name: "button", widget: "string", i18n: true }
+
+      - label: "Contact"
+        name: "contact"
+        file: "content/pages/contact.md"
+        i18n: true
+        fields:
+          - label: "SEO"
+            name: "seo"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Title", name: "title", widget: "counted-string", i18n: true, max: 60 }
+              - { label: "Description", name: "description", widget: "counted-string", i18n: true, max: 160 }
+              - { label: "Image", name: "image", widget: "image", i18n: duplicate }
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Title", name: "title", widget: "string", i18n: true }
+              - { label: "Description", name: "description", widget: "text", i18n: true }
+          - label: "Form"
+            name: "form"
+            widget: "object"
+            i18n: true
+            fields:
+              - label: "Subject Options"
+                name: "subject_options"
+                widget: "list"
+                i18n: true
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Value", name: "value", widget: "string" }
+          - label: "Info Items"
+            name: "info_items"
+            widget: "list"
+            i18n: true
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+          - label: "Messages"
+            name: "messages"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Success Title", name: "success_title", widget: "string", i18n: true }
+              - { label: "Success Text", name: "success_text", widget: "string", i18n: true }
+              - { label: "Error Title", name: "error_title", widget: "string", i18n: true }
+              - { label: "Error Text", name: "error_text", widget: "string", i18n: true }
+
+  # Global Components (i18n: single_file)
   - name: "global"
     label: "Global Components"
+    i18n:
+      structure: single_file
+      locales: [en, es]
     files:
 
       - label: "Header"
         name: "header"
         file: "content/global/header.md"
+        i18n: true
         fields:
           - label: "Logo"
             name: "logo"
             widget: "object"
+            i18n: true
             fields:
-              - { label: "Image", name: "image", widget: "image" }
-              - { label: "Alt Text", name: "alt", widget: "string" }
-              - { label: "Width", name: "width", widget: "number" }
-              - { label: "Height", name: "height", widget: "number" }
+              - { label: "Image", name: "image", widget: "image", i18n: duplicate }
+              - { label: "Alt Text", name: "alt", widget: "string", i18n: true }
+              - { label: "Width", name: "width", widget: "number", i18n: duplicate }
+              - { label: "Height", name: "height", widget: "number", i18n: duplicate }
           - label: "Navigation"
             name: "navigation"
             widget: "list"
+            i18n: true
             fields:
               - { label: "Label", name: "label", widget: "string" }
               - { label: "URL", name: "url", widget: "string" }
@@ -35,24 +478,85 @@ collections:
       - label: "Footer"
         name: "footer"
         file: "content/global/footer.md"
+        i18n: true
         fields:
-          - { label: "Logo SVG", name: "logo_svg", widget: "image" }
+          - { label: "Logo SVG", name: "logo_svg", widget: "image", i18n: duplicate }
           - label: "Navigation"
             name: "navigation"
             widget: "list"
+            i18n: true
             fields:
               - { label: "Label", name: "label", widget: "string" }
               - { label: "URL", name: "url", widget: "string" }
           - label: "Social Links"
             name: "social_links"
             widget: "list"
+            i18n: true
             fields:
               - { label: "Platform", name: "platform", widget: "string" }
               - { label: "URL", name: "url", widget: "string" }
               - { label: "Icon", name: "icon", widget: "string" }
-          - { label: "Copyright", name: "copyright", widget: "string" }
+          - { label: "Copyright", name: "copyright", widget: "string", i18n: true }
 
-  # Service Items (for individual service pages if needed)
+  # Blog Posts (i18n: multiple_folders — EN/ES in separate folders)
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    i18n: true
+    fields:
+      - { label: "Title", name: "title", widget: "counted-string", i18n: true, max: 60 }
+      - { label: "URL Slug", name: "slug", widget: "string", required: false, hint: "Custom URL slug per language. Leave empty to use filename.", i18n: true }
+      - { label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: "HH:mm", i18n: duplicate }
+      - { label: "Author", name: "author", widget: "string", default: "Fabian Miranda", i18n: duplicate }
+      - { label: "Excerpt", name: "excerpt", widget: "counted-string", hint: "Short summary for blog listing / meta description", i18n: true, max: 160 }
+      - { label: "Featured Image", name: "featured_image", widget: "image", required: false, i18n: duplicate }
+      - { label: "Content", name: "body", widget: "markdown", i18n: true }
+      - label: "Categories"
+        name: "categories"
+        widget: "list"
+        i18n: true
+        field: { label: "Category", name: "category", widget: "string" }
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        i18n: true
+        field: { label: "Tag", name: "tag", widget: "string" }
+      - { label: "Published", name: "published", widget: "boolean", default: true, i18n: duplicate }
+      - { label: "Featured", name: "featured", widget: "boolean", default: false, required: false, i18n: duplicate }
+
+  # Case Studies (i18n: multiple_folders — EN/ES in separate folders)
+  - name: "case_studies"
+    label: "Case Studies"
+    folder: "content/case-studies"
+    create: true
+    slug: "{{slug}}"
+    i18n: true
+    fields:
+      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - { label: "URL Slug", name: "slug", widget: "string", required: false, hint: "Custom URL slug per language. Leave empty to use filename.", i18n: true }
+      - { label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, hint: "Project completion date or publish date", i18n: duplicate }
+      - { label: "Description", name: "description", widget: "text", i18n: true }
+      - { label: "Content", name: "content", widget: "markdown", required: false, hint: "Full case study content with detailed information", i18n: true }
+      - { label: "Image", name: "image", widget: "image", i18n: duplicate }
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        i18n: true
+        field: { label: "Tag", name: "tag", widget: "string" }
+      - { label: "Live URL", name: "live_url", widget: "string", required: false, i18n: duplicate }
+      - { label: "GitHub URL", name: "github_url", widget: "string", required: false, i18n: duplicate }
+      - label: "Highlights"
+        name: "highlights"
+        widget: "list"
+        i18n: true
+        field: { label: "Highlight", name: "highlight", widget: "string" }
+      - { label: "Impact", name: "impact", widget: "text", i18n: true }
+      - { label: "Featured", name: "featured", widget: "boolean", default: false, required: false, i18n: duplicate }
+      - { label: "Order", name: "order", widget: "number", default: 0, value_type: "int", hint: "Used to control display order (lower numbers appear first)", i18n: duplicate }
+
+  # Service Items
   - name: "service_items"
     label: "Service Items"
     folder: "content/services"
@@ -63,53 +567,3 @@ collections:
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Featured Image", name: "featured_image", widget: "string", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
-
-  # Case Studies (Portfolio)
-  - name: "case_studies"
-    label: "Case Studies"
-    folder: "content/case-studies"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, hint: "Project completion date or publish date" }
-      - { label: "Description", name: "description", widget: "text" }
-      - { label: "Content", name: "content", widget: "markdown", required: false, hint: "Full case study content with detailed information" }
-      - { label: "Image", name: "image", widget: "image" }
-      - label: "Tags"
-        name: "tags"
-        widget: "list"
-        field: { label: "Tag", name: "tag", widget: "string" }
-      - { label: "Live URL", name: "live_url", widget: "string", required: false }
-      - { label: "GitHub URL", name: "github_url", widget: "string", required: false }
-      - label: "Highlights"
-        name: "highlights"
-        widget: "list"
-        field: { label: "Highlight", name: "highlight", widget: "string" }
-      - { label: "Impact", name: "impact", widget: "text" }
-      - { label: "Featured", name: "featured", widget: "boolean", default: false, required: false }
-      - { label: "Order", name: "order", widget: "number", default: 0, value_type: "int", hint: "Used to control display order (lower numbers appear first)" }
-
-  # Blog Posts
-  - name: "blog"
-    label: "Blog Posts"
-    folder: "content/blog"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: "HH:mm" }
-      - { label: "Author", name: "author", widget: "string", default: "Fabian Miranda" }
-      - { label: "Excerpt", name: "excerpt", widget: "text", hint: "Short summary for blog listing page" }
-      - { label: "Featured Image", name: "featured_image", widget: "image", required: false }
-      - { label: "Content", name: "body", widget: "markdown" }
-      - label: "Categories"
-        name: "categories"
-        widget: "list"
-        field: { label: "Category", name: "category", widget: "string" }
-      - label: "Tags"
-        name: "tags"
-        widget: "list"
-        field: { label: "Tag", name: "tag", widget: "string" }
-      - { label: "Published", name: "published", widget: "boolean", default: true }
-      - { label: "Featured", name: "featured", widget: "boolean", default: false, required: false }

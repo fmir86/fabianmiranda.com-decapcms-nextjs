@@ -104,6 +104,32 @@
                 }
             }
 
+            .lang-switcher {
+                @apply inline-block ml-2 md:ml-6;
+                @apply my-4 md:my-0;
+
+                &::after {
+                    @apply hidden !important;
+                }
+
+                .lang-toggle {
+                    @apply flex items-center gap-1.5;
+                    @apply font-[400] text-sm px-3 py-1.5 rounded-full;
+                    @apply border border-white/20 text-white/70;
+                    @apply transition-all duration-300;
+                    @apply hover:border-lightblue hover:text-lightblue;
+                    text-decoration: none;
+
+                    &::after {
+                        @apply hidden !important;
+                    }
+                }
+
+                .lang-icon {
+                    @apply w-4 h-4;
+                }
+            }
+
             .close-btn {
                 @apply block md:hidden;
                 @apply w-[2.6rem] h-[2.1rem] relative mx-auto transform rotate-0 cursor-pointer;

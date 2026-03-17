@@ -7,11 +7,13 @@ import SchemaMarkup from "../../components/SEO/SchemaMarkup"
 import ShareButtons from "../../components/ShareButtons/ShareButtons"
 import { loadCaseStudies } from "../../libs/loadCaseStudies"
 import { loadHeaderData, loadFooterData } from "../../libs/loadGlobalData"
+import { t } from "../../libs/translations"
+import { localePath } from "../../libs/routeMap"
 import ReactMarkdown from 'react-markdown'
 import styles from "./CaseStudy.module.scss"
 import useIsMobile from "../../hooks/useIsMobile"
 
-const CaseStudy = ({ caseStudy, headerData, footerData }) => {
+const CaseStudy = ({ caseStudy, headerData, footerData, locale, alternateSlug }) => {
   const isMobile = useIsMobile();
 
   if (!caseStudy) {
@@ -19,16 +21,19 @@ const CaseStudy = ({ caseStudy, headerData, footerData }) => {
   }
 
   return (
-    <Layout headerData={headerData} footerData={footerData}>
+    <Layout headerData={headerData} footerData={footerData} alternateSlug={alternateSlug}>
       <SEO
         title={`${caseStudy.title} | Fabian Miranda`}
         description={caseStudy.description}
         image={caseStudy.image || '/images/og-default-v2.jpg'}
         type="article"
         keywords={caseStudy.tags?.join(', ')}
+        locale={locale}
+        alternateSlug={alternateSlug}
       />
       <SchemaMarkup
         type="caseStudy"
+        locale={locale}
         caseStudy={{
           title: caseStudy.title,
           description: caseStudy.description,
@@ -48,9 +53,9 @@ const CaseStudy = ({ caseStudy, headerData, footerData }) => {
       <article className={styles.caseStudyContainer}>
         {/* Back Button */}
         <div className={styles.backButton}>
-          <Link href="/work" className="flex items-center gap-2 text-lightblue hover:text-magenta transition-colors">
+          <Link href={localePath('/work', locale)} className="flex items-center gap-2 text-lightblue hover:text-magenta transition-colors">
             <ArrowLeft className="h-4 w-4" />
-            Back to Work
+            {t(locale, 'workDetail.backToWork')}
           </Link>
         </div>
 
@@ -60,7 +65,7 @@ const CaseStudy = ({ caseStudy, headerData, footerData }) => {
             <h1 className={styles.title}>{caseStudy.title}</h1>
 
             {caseStudy.date && (
-              <p className={styles.date}>{new Date(caseStudy.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}</p>
+              <p className={styles.date}>{new Date(caseStudy.date).toLocaleDateString(t(locale, 'dateLocale'), { year: 'numeric', month: 'long' })}</p>
             )}
 
             {/* Tags */}
@@ -84,7 +89,7 @@ const CaseStudy = ({ caseStudy, headerData, footerData }) => {
                   className={styles.actionButton}
                 >
                   <ExternalLink className="h-5 w-5" />
-                  View Live Site
+                  {t(locale, 'workDetail.viewLiveSite')}
                 </a>
               )}
               {caseStudy.githubUrl && (
@@ -95,7 +100,7 @@ const CaseStudy = ({ caseStudy, headerData, footerData }) => {
                   className={styles.actionButton}
                 >
                   <Github className="h-5 w-5" />
-                  View Source
+                  {t(locale, 'workDetail.viewSource')}
                 </a>
               )}
             </div>
@@ -123,14 +128,14 @@ const CaseStudy = ({ caseStudy, headerData, footerData }) => {
         <section className={styles.overview}>
           <div className={styles.metadataGrid}>
             <div className={styles.metadataBox}>
-              <h2>Overview</h2>
+              <h2>{t(locale, 'workDetail.overview')}</h2>
               <p className={styles.description}>{caseStudy.description}</p>
             </div>
 
             {/* Highlights Grid */}
             {caseStudy.highlights && caseStudy.highlights.length > 0 && (
               <div className={styles.metadataBox}>
-                <h3>Key Highlights</h3>
+                <h3>{t(locale, 'workDetail.keyHighlights')}</h3>
                 <ul className={styles.highlightsList}>
                   {caseStudy.highlights.map((highlight, index) => (
                     <li key={index} className={styles.highlightItem}>
@@ -145,7 +150,7 @@ const CaseStudy = ({ caseStudy, headerData, footerData }) => {
             {/* Impact Statement */}
             {caseStudy.impact && (
               <div className={`${styles.metadataBox} ${styles.impactBox}`}>
-                <h3>Impact</h3>
+                <h3>{t(locale, 'workDetail.impact')}</h3>
                 <p>{caseStudy.impact}</p>
               </div>
             )}
@@ -154,7 +159,7 @@ const CaseStudy = ({ caseStudy, headerData, footerData }) => {
 
         {/* Share Buttons */}
         <ShareButtons
-          url={`/work/${caseStudy.slug}`}
+          url={localePath(`/work/${caseStudy.slug}`, locale)}
           title={caseStudy.title}
           description={caseStudy.description}
         />
@@ -168,14 +173,14 @@ const CaseStudy = ({ caseStudy, headerData, footerData }) => {
 
         {/* CTA Section */}
         <section className={styles.cta}>
-          <h2>Ready to start your project?</h2>
-          <p>Let's discuss how I can help bring your vision to life.</p>
+          <h2>{t(locale, 'workDetail.readyToStart')}</h2>
+          <p>{t(locale, 'workDetail.letsDiscuss')}</p>
           <div className={styles.ctaButtons}>
-            <Link href="/contact" className="lightblue-cta">
-              Get In Touch
+            <Link href={localePath('/contact', locale)} className="lightblue-cta">
+              {t(locale, 'workDetail.getInTouch')}
             </Link>
-            <Link href="/work" className={styles.secondaryButton}>
-              View More Work
+            <Link href={localePath('/work', locale)} className={styles.secondaryButton}>
+              {t(locale, 'workDetail.viewMoreWork')}
             </Link>
           </div>
         </section>
@@ -184,12 +189,14 @@ const CaseStudy = ({ caseStudy, headerData, footerData }) => {
   )
 }
 
-export async function getStaticPaths() {
-  const caseStudies = loadCaseStudies();
-
-  const paths = caseStudies.map((study) => ({
-    params: { slug: study.slug }
-  }));
+export async function getStaticPaths({ locales }) {
+  const paths = [];
+  for (const locale of locales) {
+    const caseStudies = loadCaseStudies(locale);
+    caseStudies.forEach(study => {
+      paths.push({ params: { slug: study.slug }, locale });
+    });
+  }
 
   return {
     paths,
@@ -197,11 +204,11 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }) {
-  const caseStudies = loadCaseStudies();
+export async function getStaticProps({ params, locale }) {
+  const caseStudies = loadCaseStudies(locale);
   const caseStudy = caseStudies.find(study => study.slug === params.slug);
-  const headerData = loadHeaderData();
-  const footerData = loadFooterData();
+  const headerData = loadHeaderData(locale);
+  const footerData = loadFooterData(locale);
 
   if (!caseStudy) {
     return {
@@ -209,11 +216,19 @@ export async function getStaticProps({ params }) {
     };
   }
 
+  // Find the alternate locale slug for language switcher + hreflang
+  const altLocale = locale === 'en' ? 'es' : 'en';
+  const altStudies = loadCaseStudies(altLocale);
+  const altStudy = altStudies.find(s => s.filename === caseStudy.filename);
+  const alternateSlug = altStudy?.slug || caseStudy.slug;
+
   return {
     props: {
       caseStudy,
       headerData,
-      footerData
+      footerData,
+      locale,
+      alternateSlug
     }
   };
 }

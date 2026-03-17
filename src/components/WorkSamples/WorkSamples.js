@@ -1,10 +1,13 @@
 import { useState } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { ExternalLink, Github } from "lucide-react"
+import { t } from "../../libs/translations"
+import { localePath } from "../../libs/routeMap"
 import styles from "./WorkSamples.module.scss"
 import useIsMobile from "../../hooks/useIsMobile"
 
-export default function WorkSamples({ caseStudies = [] }) {
+export default function WorkSamples({ caseStudies = [], locale = 'en', content = {} }) {
   const [filter, setFilter] = useState("all")
   const isMobile = useIsMobile()
 
@@ -14,18 +17,17 @@ export default function WorkSamples({ caseStudies = [] }) {
     <section className={styles.workSamplesSection} id="work-samples">
       <div className={styles.container}>
         <div className={styles.sectionHeader}>
-          <h2 className={styles.sectionTitle}>Work That Drives Results</h2>
-          
+          <h2 className={styles.sectionTitle}>{content.title}</h2>
+
           <p className={styles.sectionDescription}>
-            From startups to established businesses, I partner with visionary leaders to build technology 
-            that scales, performs, and delivers measurable business impact.
+            {content.description}
           </p>
         </div>
 
         {/* Updated grid to be 2 columns on desktop */}
         <div className={styles.projectGridTwoColumn}>
           {filteredSamples.map((sample) => (
-            <div key={sample.slug} className={styles.projectCard}>
+            <Link key={sample.slug} href={localePath(`/work/${sample.slug}`, locale)} className={styles.projectCard}>
               <div className={styles.imageContainer}>
                 <Image
                   src={sample.image}
@@ -38,7 +40,7 @@ export default function WorkSamples({ caseStudies = [] }) {
                   quality={isMobile ? 50 : 100}
                 />
 
-                {sample.featured && <span className={styles.featuredBadge}>Featured</span>}
+                {sample.featured && <span className={styles.featuredBadge}>{t(locale, 'common.featured')}</span>}
 
                 {/* Tags overlaying the image at bottom left */}
                 <div className={styles.tagsOverlay}>
@@ -51,26 +53,22 @@ export default function WorkSamples({ caseStudies = [] }) {
 
                 <div className={styles.actionButtons}>
                   {sample.liveUrl && (
-                    <a 
-                      href={sample.liveUrl} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
+                    <span
+                      onClick={(e) => { e.preventDefault(); window.open(sample.liveUrl, '_blank'); }}
                       className={styles.actionButton}
                       aria-label={`View ${sample.title} live site`}
                     >
                       <ExternalLink className={styles.iconSm} />
-                    </a>
+                    </span>
                   )}
                   {sample.githubUrl && (
-                    <a 
-                      href={sample.githubUrl} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
+                    <span
+                      onClick={(e) => { e.preventDefault(); window.open(sample.githubUrl, '_blank'); }}
                       className={styles.actionButton}
                       aria-label={`View ${sample.title} source code`}
                     >
                       <Github className={styles.iconSm} />
-                    </a>
+                    </span>
                   )}
                 </div>
               </div>
@@ -94,20 +92,20 @@ export default function WorkSamples({ caseStudies = [] }) {
                 {/* Impact statement - always visible */}
                 {sample.impact && (
                   <div className={styles.impactStatement}>
-                    <strong>Impact:</strong> {sample.impact}
+                    <strong>{t(locale, 'common.impact')}</strong> {sample.impact}
                   </div>
                 )}
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
         <div className={styles.ctaSection}>
           <p className={styles.ctaText}>
-            Ready to transform your business with cutting-edge technology?
+            {content.cta_text}
           </p>
-          <a href="/contact" className={styles.ctaButton}>
-            Let's Discuss Your Project
+          <a href={localePath('/contact', locale)} className={styles.ctaButton}>
+            {content.cta_button}
           </a>
         </div>
       </div>

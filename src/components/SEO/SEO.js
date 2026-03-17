@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import { localePath, enPath } from '../../libs/routeMap';
 
 const SEO = ({
   title = 'Fabian Miranda - Creative Technologist',
@@ -7,11 +8,50 @@ const SEO = ({
   image = '/images/og-default-v2.jpg',
   type = 'website',
   author = 'Fabian Miranda',
-  keywords = ''
+  keywords = '',
+  locale = 'en',
+  alternateSlug,
 }) => {
   const router = useRouter();
   const siteUrl = 'https://fabianmiranda.com';
-  const canonicalUrl = `${siteUrl}${router.asPath}`;
+  const { pathname, asPath } = router;
+
+  // Compute the current page's visible path (without locale prefix)
+  // For ES with rewrites, asPath shows the translated URL (e.g. /acerca-de-mi)
+  const currentPath = asPath;
+
+  // Build canonical URL
+  const canonicalUrl = locale === 'es'
+    ? `${siteUrl}/es${currentPath === '/' ? '' : currentPath}`
+    : `${siteUrl}${currentPath}`;
+
+  // Compute alternate URLs for hreflang
+  // EN URL: use the Next.js pathname (always EN-style like /about, /blog/[slug])
+  // ES URL: translate to Spanish paths
+  let enUrl, esUrl;
+
+  if (pathname.includes('[slug]') && alternateSlug) {
+    // Dynamic pages: use alternateSlug for the other locale
+    if (locale === 'en') {
+      enUrl = `${siteUrl}${currentPath}`;
+      const esBase = localePath(pathname.replace('/[slug]', ''), 'es');
+      esUrl = `${siteUrl}/es${esBase}/${alternateSlug}`;
+    } else {
+      const enBase = pathname.replace('/[slug]', '');
+      const currentSlug = currentPath.split('/').pop();
+      enUrl = `${siteUrl}${enBase}/${alternateSlug}`;
+      esUrl = `${siteUrl}/es${currentPath}`;
+    }
+  } else {
+    // Static pages: use route map
+    enUrl = `${siteUrl}${locale === 'es' ? enPath(currentPath) : currentPath}`;
+    const esTranslated = locale === 'en' ? localePath(currentPath, 'es') : currentPath;
+    esUrl = `${siteUrl}/es${esTranslated === '/' ? '' : esTranslated}`;
+  }
+
+  // OG locale
+  const ogLocale = locale === 'es' ? 'es_CR' : 'en_US';
+  const ogLocaleAlternate = locale === 'es' ? 'en_US' : 'es_CR';
 
   // Ensure image is absolute URL
   const imageUrl = image.startsWith('http') ? image : `${siteUrl}${image}`;
@@ -35,6 +75,11 @@ const SEO = ({
       <meta name="author" content={author} />
       <link rel="canonical" href={canonicalUrl} />
 
+      {/* Hreflang Tags */}
+      <link rel="alternate" hrefLang="en" href={enUrl} />
+      <link rel="alternate" hrefLang="es" href={esUrl} />
+      <link rel="alternate" hrefLang="x-default" href={enUrl} />
+
       {/* Open Graph Meta Tags */}
       <meta property="og:type" content={type} />
       <meta property="og:title" content={title} />
@@ -47,7 +92,8 @@ const SEO = ({
       <meta property="og:image:alt" content={title} />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:site_name" content="Fabian Miranda" />
-      <meta property="og:locale" content="en_US" />
+      <meta property="og:locale" content={ogLocale} />
+      <meta property="og:locale:alternate" content={ogLocaleAlternate} />
 
       {/* Twitter Card Meta Tags */}
       <meta name="twitter:card" content="summary_large_image" />

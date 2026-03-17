@@ -2,6 +2,8 @@ import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { t } from '../../libs/translations';
+import { localePath } from '../../libs/routeMap';
 import useDebounce from '../../hooks/useDebounce';
 import styles from './BlogSearch.module.scss';
 
@@ -14,7 +16,8 @@ const BlogSearch = ({
   allTags,
   toggleCategory,
   toggleTag,
-  clearFilters
+  clearFilters,
+  locale = 'en'
 }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
@@ -35,7 +38,7 @@ const BlogSearch = ({
 
       setIsLoading(true);
       try {
-        const response = await fetch(`/api/search?q=${encodeURIComponent(debouncedQuery)}`);
+        const response = await fetch(`/api/search?q=${encodeURIComponent(debouncedQuery)}&locale=${locale}`);
         const data = await response.json();
         setSearchResults(data);
       } catch (error) {
@@ -46,7 +49,7 @@ const BlogSearch = ({
     };
 
     fetchResults();
-  }, [debouncedQuery, isDropdownOpen]);
+  }, [debouncedQuery, isDropdownOpen, locale]);
 
   // Handle dropdown open/close with animation
   useEffect(() => {
@@ -109,7 +112,7 @@ const BlogSearch = ({
         <input
           ref={inputRef}
           type="text"
-          placeholder="Search posts by title, content, or tags..."
+          placeholder={t(locale, 'search.placeholder')}
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           onFocus={() => setIsDropdownOpen(true)}
@@ -144,18 +147,18 @@ const BlogSearch = ({
           </button>
 
           {isLoading && (
-            <div className={styles.loadingIndicator}>Searching...</div>
+            <div className={styles.loadingIndicator}>{t(locale, 'search.searching')}</div>
           )}
 
           {/* Matching Posts */}
           {showPosts && (
             <div className={styles.dropdownSection}>
-              <span className={styles.dropdownLabel}>Articles</span>
+              <span className={styles.dropdownLabel}>{t(locale, 'search.articles')}</span>
               <div className={styles.postResults}>
                 {searchResults.posts.map(post => (
                   <Link
                     key={post.slug}
-                    href={`/blog/${post.slug}`}
+                    href={localePath(`/blog/${post.slug}`, locale)}
                     className={styles.postResult}
                     onClick={() => setIsDropdownOpen(false)}
                   >
@@ -175,7 +178,7 @@ const BlogSearch = ({
           {showCategories && (
             <div className={styles.dropdownSection}>
               <span className={styles.dropdownLabel}>
-                {hasSearchQuery ? 'Matching Categories' : 'Categories'}
+                {hasSearchQuery ? t(locale, 'search.matchingCategories') : t(locale, 'search.categories')}
               </span>
               <div className={styles.dropdownOptions}>
                 {categoriesToShow.map(category => (
@@ -195,7 +198,7 @@ const BlogSearch = ({
           {showTags && (
             <div className={styles.dropdownSection}>
               <span className={styles.dropdownLabel}>
-                {hasSearchQuery ? 'Matching Tags' : 'Tags'}
+                {hasSearchQuery ? t(locale, 'search.matchingTags') : t(locale, 'search.tags')}
               </span>
               <div className={styles.dropdownOptions}>
                 {tagsToShow.map(tag => (
@@ -214,7 +217,7 @@ const BlogSearch = ({
           {/* No results message */}
           {hasSearchQuery && !showPosts && !showCategories && !showTags && !isLoading && (
             <div className={styles.noResults}>
-              No results found for "{searchQuery}"
+              {t(locale, 'search.noResults')} &ldquo;{searchQuery}&rdquo;
             </div>
           )}
         </div>
@@ -246,7 +249,7 @@ const BlogSearch = ({
             ))}
           </div>
           <button className={styles.clearAllButton} onClick={handleClearAll}>
-            Clear all
+            {t(locale, 'search.clearAll')}
           </button>
         </div>
       )}

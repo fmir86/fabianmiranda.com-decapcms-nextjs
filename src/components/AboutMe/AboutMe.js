@@ -1,26 +1,28 @@
 import styles from './AboutMe.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
+import HtmlContent from '../HtmlContent/HtmlContent';
 import useIsMobile from '../../hooks/useIsMobile';
 
-const AboutMe = () => {
+const AboutMe = ({ data }) => {
     const isMobile = useIsMobile();
     return (
         <div className={styles['wrapper']}>
             <div className={styles['container']}>
 
                 <div className={styles['left-block']}>
-                    <h2>About Me</h2>
-                    <p>As a <strong>nearshore AI Solutions Architect based in Costa Rica</strong>, I bring 15+ years of experience delivering solutions to US and global clients. My tech-agnostic mindset allows me to focus on implementing creative strategies that align with business objectives rather than constraining solutions to a single technology stack.</p>
-                    <p>I have developed software for game studios, major pharmaceutical companies, startups, Fortune 500 corporations, and global advertising networks. Beyond coding, I've led development teams, established coding standards, optimized workflows to reduce turnaround times by up to 40%, and work as an <strong>AI implementation consultant</strong> helping organizations integrate intelligent automation into their workflows.</p>
-                    
-                    <Link className='lightblue-cta' href="/contact">KNOW ME BETTER</Link>
+                    <h2>{data.title}</h2>
+                    {data.paragraphs.map((paragraph, index) => (
+                        <HtmlContent key={index} html={paragraph} />
+                    ))}
+
+                    <Link className='lightblue-cta' href={data.cta_link}>{data.cta_text}</Link>
                 </div>
 
                 <div className={styles['right-block']}>
                     <div className={styles['portrait']}>
                         <Image
-                            src="/images/aboutme/background-glow.png"
+                            src={data.portrait.glow_src}
                             alt=""
                             width={500}
                             height={500}
@@ -29,8 +31,8 @@ const AboutMe = () => {
                             quality={isMobile ? 50 : 100}
                         />
                         <Image
-                            src="/images/aboutme/portrait.png"
-                            alt="Portrait of Fabián Miranda"
+                            src={data.portrait.src}
+                            alt={data.portrait.alt}
                             width={796}
                             height={615}
                             className={`${styles['picture']} relative`}

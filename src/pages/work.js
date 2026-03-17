@@ -9,13 +9,17 @@ import SEO from "../components/SEO/SEO"
 import SchemaMarkup from "../components/SEO/SchemaMarkup"
 import { loadCaseStudies } from "../libs/loadCaseStudies"
 import { loadHeaderData, loadFooterData } from "../libs/loadGlobalData"
+import { loadPageData } from "../libs/loadPageData"
+import { t } from "../libs/translations"
+import { localePath } from "../libs/routeMap"
 import styles from "../components/WorkSamples/WorkSamples.module.scss"
 import heroStyles from "../styles/About.module.scss"
 import useIsMobile from "../hooks/useIsMobile"
 
 const PROJECTS_PER_PAGE = 6;
 
-const Work = ({ caseStudies, headerData, footerData }) => {
+const Work = ({ caseStudies, headerData, footerData, pageData, locale }) => {
+  const { seo, hero, cta } = pageData;
   const [selectedTags, setSelectedTags] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const isMobile = useIsMobile();
@@ -63,13 +67,15 @@ const Work = ({ caseStudies, headerData, footerData }) => {
   return (
     <Layout headerData={headerData} footerData={footerData}>
       <SEO
-        title="Work | Fabian Miranda - Creative Technologist"
-        description="Explore my portfolio of successful projects, from startups to established businesses. Technology solutions that scale, perform, and deliver measurable business impact."
-        image="/images/laptop-bg.jpg"
+        title={seo.title}
+        description={seo.description}
+        image={seo.image}
         type="website"
+        locale={locale}
       />
       <SchemaMarkup
         type="website"
+        locale={locale}
         breadcrumbs={[
           { name: 'Home', url: '/' },
           { name: 'Work' }
@@ -93,20 +99,18 @@ const Work = ({ caseStudies, headerData, footerData }) => {
                   playsInline
                   key={isMobile ? 'mobile' : 'desktop'}
                 >
-                  <source src={isMobile ? "/video/work-mobile.mp4" : "/video/work.mp4"} type="video/mp4" />
-                  Your browser does not support the video tag.
+                  <source src={isMobile ? hero.video_mobile : hero.video_desktop} type="video/mp4" />
                 </video>
               </div>
 
               <h1 className={heroStyles['hero-title']}>
-                Work That
+                {hero.title_line1}
                 <span className="block">
-                  <em className='magenta'>Drives Results</em>
+                  <em className='magenta'>{hero.title_line2_accent}</em>
                 </span>
               </h1>
               <p className={heroStyles['hero-subtitle']}>
-                A showcase of impactful projects that demonstrate technical excellence,
-                creative problem-solving, and measurable business results.
+                {hero.subtitle}
               </p>
             </div>
 
@@ -119,16 +123,16 @@ const Work = ({ caseStudies, headerData, footerData }) => {
             {/* Filters */}
             <div className={styles.filtersSection}>
               <div className={styles.filterHeader}>
-                <h3 className={styles.filterTitle}>Filter Projects</h3>
+                <h3 className={styles.filterTitle}>{t(locale, 'work.filterProjects')}</h3>
                 {selectedTags.length > 0 && (
                   <button onClick={clearFilters} className={styles.clearButton}>
-                    Clear All Filters
+                    {t(locale, 'work.clearAllFilters')}
                   </button>
                 )}
               </div>
 
               <div className={styles.filterGroup}>
-                <label className={styles.filterLabel}>Technologies & Categories:</label>
+                <label className={styles.filterLabel}>{t(locale, 'work.techCategories')}</label>
                 <div className={styles.filterOptions}>
                   {allTags.map((tag) => (
                     <button
@@ -143,10 +147,10 @@ const Work = ({ caseStudies, headerData, footerData }) => {
               </div>
 
               <div className={styles.resultsCount}>
-                Showing {paginatedCaseStudies.length} of {filteredCaseStudies.length} project{filteredCaseStudies.length !== 1 ? 's' : ''}
+                {t(locale, 'work.showing')} {paginatedCaseStudies.length} {t(locale, 'work.of')} {filteredCaseStudies.length} {filteredCaseStudies.length !== 1 ? t(locale, 'work.projects') : t(locale, 'work.project')}
                 {selectedTags.length > 0 && (
                   <span className={styles.activeFilters}>
-                    {' '}• Filters: {selectedTags.join(', ')}
+                    {' '}• {t(locale, 'work.filters')}: {selectedTags.join(', ')}
                   </span>
                 )}
               </div>
@@ -154,7 +158,7 @@ const Work = ({ caseStudies, headerData, footerData }) => {
 
             <div className={styles.projectGridTwoColumn}>
               {paginatedCaseStudies.map((caseStudy) => (
-                <div key={caseStudy.slug} className={`${styles.projectCard} group`}>
+                <Link key={caseStudy.slug} href={localePath(`/work/${caseStudy.slug}`, locale)} className={`${styles.projectCard} group`}>
                   <div className={styles.imageContainer}>
                     <Image
                       src={caseStudy.image}
@@ -166,7 +170,7 @@ const Work = ({ caseStudies, headerData, footerData }) => {
                       sizes="(max-width: 768px) 100vw, 50vw"
                     />
 
-                    {caseStudy.featured && <span className={styles.featuredBadge}>Featured</span>}
+                    {caseStudy.featured && <span className={styles.featuredBadge}>{t(locale, 'common.featured')}</span>}
 
                     <div className={styles.tagsOverlay}>
                       {caseStudy.tags.map((tag) => (
@@ -178,34 +182,28 @@ const Work = ({ caseStudies, headerData, footerData }) => {
 
                     <div className={styles.actionButtons}>
                       {caseStudy.liveUrl && (
-                        <a
-                          href={caseStudy.liveUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
+                        <span
+                          onClick={(e) => { e.preventDefault(); window.open(caseStudy.liveUrl, '_blank'); }}
                           className={styles.actionButton}
                           aria-label={`View ${caseStudy.title} live site`}
                         >
                           <ExternalLink className="h-4 w-4" />
-                        </a>
+                        </span>
                       )}
                       {caseStudy.githubUrl && (
-                        <a
-                          href={caseStudy.githubUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
+                        <span
+                          onClick={(e) => { e.preventDefault(); window.open(caseStudy.githubUrl, '_blank'); }}
                           className={styles.actionButton}
                           aria-label={`View ${caseStudy.title} source code`}
                         >
                           <Github className="h-4 w-4" />
-                        </a>
+                        </span>
                       )}
                     </div>
                   </div>
 
                   <div className={styles.cardContent}>
-                    <Link href={`/work/${caseStudy.slug}`}>
-                      <h2 className={styles.projectTitle}>{caseStudy.title}</h2>
-                    </Link>
+                    <h2 className={styles.projectTitle}>{caseStudy.title}</h2>
                     <p className={styles.projectDescription}>{caseStudy.description}</p>
 
                     {caseStudy.highlights && caseStudy.highlights.length > 0 && (
@@ -221,15 +219,15 @@ const Work = ({ caseStudies, headerData, footerData }) => {
 
                     {caseStudy.impact && (
                       <div className={styles.impactStatement}>
-                        <strong>Impact:</strong> {caseStudy.impact}
+                        <strong>{t(locale, 'common.impact')}</strong> {caseStudy.impact}
                       </div>
                     )}
 
-                    <Link href={`/work/${caseStudy.slug}`} className={styles.viewCaseStudyBtn}>
-                      View Case Study
-                    </Link>
+                    <span className={styles.viewCaseStudyBtn}>
+                      {t(locale, 'work.viewCaseStudy')}
+                    </span>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
 
@@ -241,7 +239,7 @@ const Work = ({ caseStudies, headerData, footerData }) => {
                   disabled={currentPage === 1}
                   className={styles.paginationButton}
                 >
-                  Previous
+                  {t(locale, 'work.previous')}
                 </button>
 
                 <div className={styles.paginationPages}>
@@ -261,17 +259,17 @@ const Work = ({ caseStudies, headerData, footerData }) => {
                   disabled={currentPage === totalPages}
                   className={styles.paginationButton}
                 >
-                  Next
+                  {t(locale, 'work.next')}
                 </button>
               </div>
             )}
 
             <div className={styles.ctaSection}>
               <p className={styles.ctaText}>
-                Ready to create something exceptional together?
+                {cta.text}
               </p>
-              <a href="/contact" className="lightblue-cta mx-auto">
-                Start Your Project
+              <a href={localePath('/contact', locale)} className="lightblue-cta mx-auto">
+                {cta.button}
               </a>
             </div>
           </div>
@@ -281,16 +279,19 @@ const Work = ({ caseStudies, headerData, footerData }) => {
   )
 }
 
-export async function getStaticProps() {
-  const caseStudies = loadCaseStudies();
-  const headerData = loadHeaderData();
-  const footerData = loadFooterData();
+export async function getStaticProps({ locale }) {
+  const caseStudies = loadCaseStudies(locale);
+  const headerData = loadHeaderData(locale);
+  const footerData = loadFooterData(locale);
+  const pageData = loadPageData('work', locale);
 
   return {
     props: {
       caseStudies,
       headerData,
-      footerData
+      footerData,
+      pageData,
+      locale
     }
   };
 }

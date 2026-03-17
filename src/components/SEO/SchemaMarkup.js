@@ -142,8 +142,11 @@ export const websiteSchema = {
   inLanguage: 'en-US'
 };
 
+// Helper to get language code from locale
+const getLanguageCode = (locale) => locale === 'es' ? 'es-CR' : 'en-US';
+
 // Generate Article/BlogPosting Schema
-export const generateArticleSchema = (article) => ({
+export const generateArticleSchema = (article, locale = 'en') => ({
   '@context': 'https://schema.org',
   '@type': 'BlogPosting',
   '@id': `${SITE_URL}/blog/${article.slug}#article`,
@@ -175,11 +178,11 @@ export const generateArticleSchema = (article) => ({
   },
   keywords: article.tags ? article.tags.join(', ') : '',
   articleSection: article.categories ? article.categories.join(', ') : 'Technology',
-  inLanguage: 'en-US'
+  inLanguage: getLanguageCode(locale)
 });
 
 // Generate Case Study/Project Schema
-export const generateCaseStudySchema = (caseStudy) => ({
+export const generateCaseStudySchema = (caseStudy, locale = 'en') => ({
   '@context': 'https://schema.org',
   '@type': 'CreativeWork',
   '@id': `${SITE_URL}/work/${caseStudy.slug}#project`,
@@ -197,7 +200,7 @@ export const generateCaseStudySchema = (caseStudy) => ({
   },
   url: caseStudy.liveUrl || `${SITE_URL}/work/${caseStudy.slug}`,
   keywords: caseStudy.tags ? caseStudy.tags.join(', ') : '',
-  inLanguage: 'en-US'
+  inLanguage: getLanguageCode(locale)
 });
 
 // Generate Breadcrumb Schema
@@ -303,7 +306,8 @@ const SchemaMarkup = ({
   article = null,
   caseStudy = null,
   breadcrumbs = null,
-  includeServices = false
+  includeServices = false,
+  locale = 'en'
 }) => {
   const schemas = [];
 
@@ -328,12 +332,12 @@ const SchemaMarkup = ({
 
   // Include Article schema for blog posts
   if (type === 'article' && article) {
-    schemas.push(generateArticleSchema(article));
+    schemas.push(generateArticleSchema(article, locale));
   }
 
   // Include Case Study schema
   if (type === 'caseStudy' && caseStudy) {
-    schemas.push(generateCaseStudySchema(caseStudy));
+    schemas.push(generateCaseStudySchema(caseStudy, locale));
   }
 
   // Include Breadcrumbs if provided
