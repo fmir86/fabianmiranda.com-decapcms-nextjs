@@ -3,7 +3,6 @@
     @apply fixed z-20 top-0;
     backdrop-filter: blur(15px);
 
-
     border-bottom: 1px solid;
     border-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0, rgb(255 255 255 / 10%) 50%, rgba(255, 255, 255, 0) 100%) 1;
 
@@ -21,12 +20,45 @@
 
                 ul{
                     @apply flex flex-col justify-center w-full;
+                    @apply pt-24 pb-8;
+
+                    li.lang-switcher-mobile {
+                        @apply flex justify-center;
+                        @apply mt-auto mb-4;
+                    }
+
+                    // Landscape: two-column grid
+                    @media (orientation: landscape) and (max-width: 767px) {
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        align-content: center;
+                        justify-items: center;
+                        @apply pt-20 pb-4 px-8;
+                        gap: 1rem 2rem;
+
+                        li {
+                            @apply my-0;
+
+                            &::after {
+                                @apply hidden;
+                            }
+
+                            a {
+                                @apply text-base;
+                            }
+                        }
+
+                        li.lang-switcher-mobile {
+                            grid-column: 1 / -1;
+                            @apply mt-2;
+                        }
+                    }
                 }
             }
         }
 
         .close-btn{
-            
+
                 @apply z-10;
                 span{
                     &:nth-child(1) {
@@ -45,14 +77,14 @@
                         @apply top-[18px] w-0 left-1/2;
                     }
                 }
-            
+
         }
     }
 
     .container{
         @apply flex items-center justify-between max-w-7xl mx-auto;
         @apply h-full;
-    
+
         nav{
 
             .nav-panel{
@@ -65,6 +97,15 @@
                     li{
                         @apply inline-block mx-4 md:last:mr-0;
                         @apply my-4 md:my-0;
+
+                        &.lang-switcher-mobile {
+                            @apply hidden;
+                            @apply mt-auto mb-12;
+
+                            &::after {
+                                @apply hidden !important;
+                            }
+                        }
 
                         &::after{
                             @apply block md:hidden;
@@ -98,35 +139,9 @@
                                     @apply block absolute w-full h-[1px] bg-magenta bottom-[-1px] left-0;
                                 }
                             }
-                            
+
                         }
                     }
-                }
-            }
-
-            .lang-switcher {
-                @apply inline-block ml-2 md:ml-6;
-                @apply my-4 md:my-0;
-
-                &::after {
-                    @apply hidden !important;
-                }
-
-                .lang-toggle {
-                    @apply flex items-center gap-1.5;
-                    @apply font-[400] text-sm px-3 py-1.5 rounded-full;
-                    @apply border border-white/20 text-white/70;
-                    @apply transition-all duration-300;
-                    @apply hover:border-lightblue hover:text-lightblue;
-                    text-decoration: none;
-
-                    &::after {
-                        @apply hidden !important;
-                    }
-                }
-
-                .lang-icon {
-                    @apply w-4 h-4;
                 }
             }
 
@@ -134,10 +149,10 @@
                 @apply block md:hidden;
                 @apply w-[2.6rem] h-[2.1rem] relative mx-auto transform rotate-0 cursor-pointer;
                 @apply transition ease-in-out duration-500;
-            
+
                 span {
                     @apply block absolute h-[0.10rem] w-full bg-lightblue opacity-100 left-0 transform rotate-0 transition-all duration-200 ease-in-out;
-                
+
                     &:nth-child(1) {
                         top: 0;
                     }
@@ -148,7 +163,29 @@
                         bottom: 0%;
                     }
                 }
-            }     
+            }
         }
+    }
+
+    .lang-toggle {
+        @apply flex items-center gap-1.5;
+        @apply font-[400] text-sm px-3 py-1.5 rounded-full;
+        @apply border border-white/20 text-white/70;
+        @apply transition-all duration-300;
+        @apply hover:border-lightblue hover:text-lightblue;
+        text-decoration: none;
+
+        &::after {
+            @apply hidden !important;
+            pointer-events: none;
+        }
+    }
+
+    .lang-desktop {
+        @apply hidden md:flex ml-8;
+    }
+
+    .lang-icon {
+        @apply w-4 h-4;
     }
 }

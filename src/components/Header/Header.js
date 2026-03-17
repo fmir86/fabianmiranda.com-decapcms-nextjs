@@ -44,6 +44,24 @@ const Header = ({ logo, navigation, alternateSlug }) => {
     }
   };
 
+  const closeMobileNav = (onComplete) => {
+    document.body.classList.remove('no-scroll');
+    const tl = gsap.timeline();
+
+    tl.to(q('.navPanel ul li'), { duration: 0.2, x: '20%', opacity: 0, ease:'expo.in', stagger: 0.05, onComplete:()=>{
+      document.querySelectorAll('.navPanel ul li').forEach(item => item.removeAttribute('style'));
+    }}, '-=0.05');
+
+    tl.to(q('.navPanel'), { duration: 0.2, x: '100%', opacity: 0, ease:'expo.out', onComplete: () => {
+      if(headerWrapper.current){
+        headerWrapper.current.classList.remove(styles['open']);
+        headerWrapper.current.setAttribute('aria-expanded', 'false');
+      }
+      q('.navPanel')[0].removeAttribute('style');
+      if (onComplete) onComplete();
+    }}, '-=0.0');
+  };
+
   const toggleMobileNav = () => {
     if(!(headerWrapper.current.getAttribute('aria-expanded') === 'true')){
       headerWrapper.current.setAttribute('aria-expanded', 'true');
@@ -55,23 +73,30 @@ const Header = ({ logo, navigation, alternateSlug }) => {
       tl.to(q('.navPanel ul li'), { duration: 0.3, x: '0', opacity: 1, ease:'expo.out', stagger: 0.1 }, '-=0.05');
       document.body.classList.add('no-scroll');
     }else{
-
-      document.body.classList.remove('no-scroll');
-      const tl = gsap.timeline();
-
-      tl.to(q('.navPanel ul li'), { duration: 0.2, x: '20%', opacity: 0, ease:'expo.in', stagger: 0.05, onComplete:()=>{
-        document.querySelectorAll('.navPanel ul li').forEach(item => item.removeAttribute('style'));
-      }}, '-=0.05');
-
-      tl.to(q('.navPanel'), { duration: 0.2, x: '100%', opacity: 0, ease:'expo.out', onComplete: () => {
-        if(headerWrapper.current){
-          headerWrapper.current.classList.remove(styles['open']);
-          headerWrapper.current.setAttribute('aria-expanded', 'false');
-        }
-        q('.navPanel')[0].removeAttribute('style')
-      }}, '-=0.0');
+      closeMobileNav();
     }
   }
+
+  const handleMobileLangSwitch = (e) => {
+    e.preventDefault();
+    const href = getLanguageSwitchHref();
+    closeMobileNav(() => {
+      router.push(href, href, { locale: altLocale });
+    });
+  };
+
+  // Clean up mobile nav state on route change (without close animation)
+  useEffect(() => {
+    const handleRouteChange = () => {
+      if (headerWrapper.current) {
+        headerWrapper.current.classList.remove(styles['open']);
+        headerWrapper.current.setAttribute('aria-expanded', 'false');
+      }
+      document.body.classList.remove('no-scroll');
+    };
+    router.events.on('routeChangeComplete', handleRouteChange);
+    return () => router.events.off('routeChangeComplete', handleRouteChange);
+  }, [router]);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(min-width: 768px)');
@@ -85,17 +110,18 @@ const Header = ({ logo, navigation, alternateSlug }) => {
     }
     mediaQuery.addEventListener('change', handleMediaChange);
 
-    // Close mobile nav when user clicks the same page
+    // Close mobile nav when user clicks a nav link (not lang switcher)
     const handleLinkClick = (e) => {
-      if(
-        e.currentTarget.getAttribute('href') === router.pathname &&
-        headerWrapper.current.getAttribute('aria-expanded')==='true'
-      ){
+      // Skip lang switcher clicks - let them navigate without closing animation
+      if (e.currentTarget.closest('[class*="lang-switcher"]') || e.currentTarget.closest('[class*="lang-toggle"]')) {
+        return;
+      }
+      if(headerWrapper.current.getAttribute('aria-expanded')==='true'){
           toggleMobileNav();
       }
     };
 
-    const links = headerWrapper.current.querySelectorAll('a');
+    const links = headerWrapper.current.querySelectorAll('nav a');
     links.forEach(item => {
       item.addEventListener('click', handleLinkClick);
     });
@@ -129,11 +155,11 @@ const Header = ({ logo, navigation, alternateSlug }) => {
                     </Link>
                   </li>
                 ))}
-                <li className={styles['lang-switcher']}>
-                  <Link href={getLanguageSwitchHref()} locale={altLocale} className={styles['lang-toggle']} aria-label={altLocale === 'es' ? 'Cambiar a Español' : 'Switch to English'}>
+                <li className={styles['lang-switcher-mobile']}>
+                  <a href={getLanguageSwitchHref()} onClick={handleMobileLangSwitch} className={styles['lang-toggle']} aria-label={altLocale === 'es' ? 'Cambiar a Español' : 'Switch to English'}>
                     <Globe className={styles['lang-icon']} />
                     <span lang={altLocale}>{altLocale === 'es' ? 'Español' : 'English'}</span>
-                  </Link>
+                  </a>
                 </li>
               </ul>
             </div>
@@ -146,6 +172,10 @@ const Header = ({ logo, navigation, alternateSlug }) => {
             </button>
 
         </nav>
+        <Link href={getLanguageSwitchHref()} locale={altLocale} className={`${styles['lang-toggle']} ${styles['lang-desktop']}`} aria-label={altLocale === 'es' ? 'Cambiar a Español' : 'Switch to English'}>
+          <Globe className={styles['lang-icon']} />
+          <span lang={altLocale}>{altLocale === 'es' ? 'Español' : 'English'}</span>
+        </Link>
       </div>
     </header>
   );
