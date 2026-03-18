@@ -11,8 +11,9 @@ import { Share2 } from 'lucide-react';
 import useIsMobile from '../../hooks/useIsMobile';
 import styles from './ShareButtons.module.scss';
 
-const ShareButtons = ({ url, title, description }) => {
-  const shareUrl = `https://fabianmiranda.com${url}`;
+const ShareButtons = ({ url, title, description, locale = 'en' }) => {
+  const localePrefix = locale && locale !== 'en' ? `/${locale}` : '';
+  const shareUrl = `https://fabianmiranda.com${localePrefix}${url}`;
   const isMobile = useIsMobile();
 
   // Use native share only on mobile devices that support it

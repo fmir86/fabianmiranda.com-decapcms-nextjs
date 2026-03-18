@@ -123,6 +123,7 @@ const BlogPost = ({ post, headerData, footerData, locale, alternateSlug }) => {
           url={localePath(`/blog/${post.slug}`, locale)}
           title={post.title}
           description={post.excerpt}
+          locale={locale}
         />
 
         {/* Blog Content */}

@@ -162,6 +162,7 @@ const CaseStudy = ({ caseStudy, headerData, footerData, locale, alternateSlug })
           url={localePath(`/work/${caseStudy.slug}`, locale)}
           title={caseStudy.title}
           description={caseStudy.description}
+          locale={locale}
         />
 
         {/* Full Case Study Content */}
