@@ -71,7 +71,21 @@ const Footer = ({ navigation, socialLinks, copyright }) => {
           })}
         </div>
 
-        <p>{copyright || `© ${new Date().getFullYear()} | FABIANMIRANDA.COM | ALL RIGHTS RESERVED`}</p>
+        <p className={styles.copyright}>
+          {(() => {
+            const text = copyright || `© ${new Date().getFullYear()} | FABIANMIRANDA.COM | ALL RIGHTS RESERVED`;
+            const lastPipe = text.lastIndexOf('|');
+            if (lastPipe === -1) return text;
+            return (
+              <>
+                {text.slice(0, lastPipe).trim()}
+                <span className={styles.copyrightDivider}> | </span>
+                <br className={styles.copyrightBreak} />
+                {text.slice(lastPipe + 1).trim()}
+              </>
+            );
+          })()}
+        </p>
 
       </div>
     </footer>

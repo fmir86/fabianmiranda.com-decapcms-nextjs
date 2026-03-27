@@ -9,12 +9,14 @@ import styles from './ChatWidget.module.scss';
 const STORAGE_KEY = 'chat-messages';
 const OPEN_KEY = 'chat-open';
 
-const BotSvg = ({ size = 32 }) => (
-  <svg viewBox="0 0 24 24" width={size} height={size} xmlns="http://www.w3.org/2000/svg">
+const BotSvg = ({ size = 32, talking = false }) => (
+  <svg viewBox="0 0 24 24" width={size} height={size} xmlns="http://www.w3.org/2000/svg" className={talking ? styles.botTalking : ''}>
     <path d="m2.75 8.5757v4a.75.75 0 0 1-1.5 0v-4a.75.75 0 0 1 1.5 0zm19.25-.75a.75.75 0 0 0-.75.75v4a.75.75 0 0 0 1.5 0v-4a.75.75 0 0 0-.75-.75z" fill="currentColor" />
-    <path d="m19 7.5757v5.5h-14v-5.5a2 2 0 0 1 2-2h4.25v-2a.75.75 0 1 1 1.5 0v2h4.25a2 2 0 0 1 2 2zm-9 3a1 1 0 1 0-1 1 1 1 0 0 0 1-1zm6 0a1 1 0 1 0-1 1 1 1 0 0 0 1-1z" fill="currentColor" />
+    <g className={styles.head}>
+      <path d="m19 7.5757v5.5h-14v-5.5a2 2 0 0 1 2-2h4.25v-2a.75.75 0 1 1 1.5 0v2h4.25a2 2 0 0 1 2 2zm-9 3a1 1 0 1 0-1 1 1 1 0 0 0 1-1zm6 0a1 1 0 1 0-1 1 1 1 0 0 0 1-1z" fill="currentColor" />
+    </g>
     <g className={styles.jaw}>
-      <path d="m5 13.0757h14v3.5a2 2 0 0 1-2 2h-2.4648a1 1 0 0 0-.8321.4453l-1.2871 1.9307a.5.5 0 0 1-.832 0l-1.2871-1.9307a1 1 0 0 0-.8321-.4453h-2.4648a2 2 0 0 1-2-2z" fill="currentColor" />
+      <path d="m5 16.5757a2 2 0 0 0 2 2h2.4648a1 1 0 0 1 .8321.4453l1.2871 1.9307a.5.5 0 0 0 .832 0l1.2871-1.9307a1 1 0 0 1 .8321-.4453h2.4648a2 2 0 0 0 2-2v-2h-14z" fill="currentColor" />
     </g>
   </svg>
 );
@@ -53,10 +55,22 @@ const ChatWidgetInner = () => {
   });
   const [inputValue, setInputValue] = useState('');
   const [completedMsgIds, setCompletedMsgIds] = useState(new Set());
+  const [fabTalking, setFabTalking] = useState(false);
+  const [aiWriterActive, setAiWriterActive] = useState(false);
   const messagesEndRef = useRef(null);
   const chatMessagesRef = useRef(null);
   const inputRef = useRef(null);
   const router = useRouter();
+
+  // Pulse the FAB bot every 10s to attract attention
+  useEffect(() => {
+    if (isOpen) return;
+    const interval = setInterval(() => {
+      setFabTalking(true);
+      setTimeout(() => setFabTalking(false), 1000);
+    }, 10000);
+    return () => clearInterval(interval);
+  }, [isOpen]);
 
   const { messages, sendMessage, status, setMessages } = useChat({
     api: '/api/chat',
@@ -84,7 +98,15 @@ const ChatWidgetInner = () => {
     }
   }, [messages]);
 
-  // No auto-complete — AIWriter.onEnd handles marking messages as completed
+  // Activate AIWriter speaking when streaming finishes (AIWriter takes over)
+  useEffect(() => {
+    if (status === 'ready' && messages.length > 0) {
+      const lastMsg = messages[messages.length - 1];
+      if (lastMsg.role === 'assistant' && !completedMsgIds.has(lastMsg.id)) {
+        setAiWriterActive(true);
+      }
+    }
+  }, [status, messages, completedMsgIds]);
 
   const toggleOpen = useCallback((open) => {
     setIsOpen(open);
@@ -140,11 +162,11 @@ const ChatWidgetInner = () => {
   return (
     <>
       <button
-        className={`${styles.fab} ${isOpen ? styles.fabHidden : ''}`}
+        className={`${styles.fab} ${isOpen ? styles.fabHidden : ''} ${fabTalking ? styles.fabPulse : ''}`}
         onClick={() => toggleOpen(true)}
         aria-label="Open chat"
       >
-        <BotSvg size={32} />
+        <BotSvg size={42} talking={fabTalking} />
       </button>
 
       <div className={`${styles.chatWindow} ${isOpen ? styles.chatOpen : ''}`}>
@@ -175,21 +197,21 @@ const ChatWidgetInner = () => {
             const speaking = isLastAssistant && status === 'streaming';
             const isCompleted = completedMsgIds.has(msg.id);
 
+            const isAnimating = !speaking && !isCompleted && isLastAssistant;
+
             return msg.role === 'assistant' ? (
               <FadeInMessage key={msg.id}>
                 <div className={styles.messageRow}>
-                  <BotAvatar speaking={speaking} />
+                  <BotAvatar speaking={speaking || (isAnimating && aiWriterActive)} />
                   <div className={`${styles.message} ${styles.assistant}`}>
                     {speaking ? (
-                      // During streaming: show raw markdown text progressively
                       <p className={styles.streamingText}>{text}</p>
                     ) : isCompleted ? (
-                      // Already seen: show formatted markdown instantly
                       <ReactMarkdown>{text}</ReactMarkdown>
                     ) : (
-                      // Just finished streaming: animate word by word with formatted markdown
                       <div className={styles.aiWriterWrap}>
                         <AIWriter delay={60} onEnd={() => {
+                          setAiWriterActive(false);
                           setCompletedMsgIds(prev => new Set([...prev, msg.id]));
                         }}>
                           <ReactMarkdown>{text}</ReactMarkdown>

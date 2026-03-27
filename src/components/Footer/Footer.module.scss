@@ -28,6 +28,18 @@
             @apply font-[200] text-white text-xs relative mx-auto;
         }
 
+        .copyright{
+            @apply text-center leading-6;
+        }
+
+        .copyrightBreak{
+            @apply block md:hidden;
+        }
+
+        .copyrightDivider{
+            @apply hidden md:inline;
+        }
+
         .social-icons-row{
             @apply my-6 flex items-center justify-center gap-4;
         }
