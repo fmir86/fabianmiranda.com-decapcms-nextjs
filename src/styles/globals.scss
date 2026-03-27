@@ -2,6 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+// Shift site content + fixed header when chat panel is open (large desktop only)
+@media (min-width: 1280px) {
+    html body {
+        transition: margin-right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html header[class*="Header-module"] {
+        transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        width: 100%;
+    }
+
+    html.chat-open body {
+        margin-right: 400px;
+    }
+
+    html.chat-open header[class*="Header-module"] {
+        width: calc(100% - 400px);
+    }
+}
+
 body{
     @apply min-h-screen bg-black text-white;
 

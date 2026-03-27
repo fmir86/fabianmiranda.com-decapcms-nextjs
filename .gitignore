@@ -18,3 +18,6 @@ pagespeed-report.html
 
 # Nanobanana generated images
 nanobanana-output/
+flyer.pdf
+qr-fabianmiranda.png
+.gitignore

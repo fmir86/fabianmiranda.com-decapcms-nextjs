@@ -9,7 +9,9 @@
     "postbuild": "next-sitemap",
     "start": "next start",
     "export": "npm run build && next export",
-    "audit:pagespeed": "node scripts/pagespeed-audit.js"
+    "audit:pagespeed": "node scripts/pagespeed-audit.js",
+    "test": "playwright test",
+    "test:ui": "playwright test --ui"
   },
   "repository": {
     "type": "git",
@@ -30,9 +32,12 @@
   },
   "homepage": "https://github.com/fmir86/fabianmiranda.com-decapcms-nextjs#readme",
   "dependencies": {
+    "@ai-sdk/google": "^3.0.53",
+    "@ai-sdk/react": "^3.0.140",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@netlify/plugin-nextjs": "^5.15.3",
     "@next/third-parties": "^16.1.0",
+    "ai": "^6.0.138",
     "fuse.js": "^7.1.0",
     "gray-matter": "^4.0.3",
     "gsap": "^3.12.5",
@@ -41,6 +46,7 @@
     "next": "^16.1.0",
     "next-sitemap": "^4.2.3",
     "react": "^19.2.3",
+    "react-aiwriter": "^1.0.0",
     "react-dom": "^19.2.3",
     "react-markdown": "^10.1.0",
     "react-share": "^5.2.2",
@@ -54,6 +60,7 @@
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
     "@fortawesome/free-brands-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
+    "@playwright/test": "^1.58.2",
     "autoprefixer": "^10.4.20",
     "decap-server": "^3.5.2",
     "frontmatter-markdown-loader": "^3.7.0",

@@ -2,6 +2,7 @@ import Head from "next/head";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import BackToTop from "../BackToTop/BackToTop";
+import ChatWidget from "../ChatWidget/ChatWidget";
 import styles from "./Layout.module.scss";
 import { useEffect } from "react";
 
@@ -149,6 +150,7 @@ const Layout = ({ children, headerData, footerData, alternateSlug }) => {
       />
 
       {/* <BackToTop /> */}
+      <ChatWidget />
     </div>
   );
 };

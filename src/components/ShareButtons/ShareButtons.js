@@ -8,6 +8,7 @@ import {
   WhatsappIcon,
 } from 'react-share';
 import { Share2 } from 'lucide-react';
+import { useState, useEffect } from 'react';
 import useIsMobile from '../../hooks/useIsMobile';
 import styles from './ShareButtons.module.scss';
 
@@ -15,9 +16,12 @@ const ShareButtons = ({ url, title, description, locale = 'en' }) => {
   const localePrefix = locale && locale !== 'en' ? `/${locale}` : '';
   const shareUrl = `https://fabianmiranda.com${localePrefix}${url}`;
   const isMobile = useIsMobile();
+  const [mounted, setMounted] = useState(false);
 
-  // Use native share only on mobile devices that support it
-  const supportsNativeShare = isMobile && typeof navigator !== 'undefined' && !!navigator.share;
+  useEffect(() => { setMounted(true); }, []);
+
+  // Use native share only on mobile devices that support it — only after mount to avoid hydration mismatch
+  const supportsNativeShare = mounted && isMobile && typeof navigator !== 'undefined' && !!navigator.share;
 
   // Native share handler (mobile)
   const handleNativeShare = async () => {
