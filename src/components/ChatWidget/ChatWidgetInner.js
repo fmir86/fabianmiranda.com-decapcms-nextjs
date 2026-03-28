@@ -117,12 +117,27 @@ const ChatWidgetInner = () => {
     }
   }, [messages]);
 
-  // Activate AIWriter speaking when streaming finishes (AIWriter takes over)
+  // When streaming finishes: activate AIWriter + log conversation
   useEffect(() => {
-    if (status === 'ready' && messages.length > 0) {
+    if (status === 'ready' && messages.length >= 2) {
       const lastMsg = messages[messages.length - 1];
       if (lastMsg.role === 'assistant' && !completedMsgIds.has(lastMsg.id)) {
         setAiWriterActive(true);
+
+        // Log to analytics (non-blocking)
+        const userMsg = messages[messages.length - 2];
+        if (userMsg?.role === 'user') {
+          fetch('/api/chat-log', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              sessionId: sessionIdRef.current,
+              locale: router.locale || 'en',
+              userMessage: getMessageText(userMsg),
+              botResponse: getMessageText(lastMsg),
+            }),
+          }).catch(() => {});
+        }
       }
     }
   }, [status, messages, completedMsgIds]);

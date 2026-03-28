@@ -3,7 +3,7 @@ import { google } from '@ai-sdk/google';
 import { loadSiteContent } from '../../libs/loadSiteContent';
 import { getOrCreateCache } from '../../libs/geminiCache';
 import { isSuspiciousInput, REJECTION_RESPONSE } from '../../libs/chatSanitizer';
-import { ensureSession, logConversation } from '../../libs/chatAnalytics';
+// Analytics logging moved to /api/chat-log (called by client after response)
 
 // Rate limiter: max requests per IP per window
 const RATE_LIMIT = 20;
@@ -98,7 +98,6 @@ export default async function handler(req, res) {
 
   const { messages } = req.body;
   const locale = req.headers['x-locale'] || 'en';
-  const sessionId = req.headers['x-session-id'] || null;
 
   // Convert UIMessage format to simple model messages
   const modelMessages = messages.map(msg => ({
@@ -154,24 +153,4 @@ export default async function handler(req, res) {
 
   const result = streamText(streamOptions);
   result.pipeUIMessageStreamToResponse(res);
-
-  // Log conversation to Supabase (non-blocking, after stream completes)
-  if (sessionId && lastUserMsg) {
-    result.text.then(async (botResponse) => {
-      try {
-        const usage = await result.usage;
-        await ensureSession(sessionId, locale);
-        await logConversation({
-          sessionId,
-          locale,
-          userMessage: lastUserMsg.content,
-          botResponse,
-          tokensInput: usage?.promptTokens || null,
-          tokensOutput: usage?.completionTokens || null,
-        });
-      } catch (err) {
-        console.error('[Alfred Analytics] Log error:', err.message);
-      }
-    });
-  }
 }
