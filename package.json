@@ -38,6 +38,7 @@
     "@google/genai": "^1.46.0",
     "@netlify/plugin-nextjs": "^5.15.3",
     "@next/third-parties": "^16.1.0",
+    "@supabase/supabase-js": "^2.100.1",
     "ai": "^6.0.138",
     "fuse.js": "^7.1.0",
     "gray-matter": "^4.0.3",

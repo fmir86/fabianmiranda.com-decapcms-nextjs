@@ -9,6 +9,13 @@ import styles from './ChatWidget.module.scss';
 const STORAGE_KEY = 'chat-messages';
 const OPEN_KEY = 'chat-open';
 
+// GA4 event helper
+function trackEvent(action, params = {}) {
+  if (typeof window !== 'undefined' && window.gtag) {
+    window.gtag('event', action, params);
+  }
+}
+
 const BotSvg = ({ size = 32, talking = false }) => (
   <svg viewBox="0 0 24 24" width={size} height={size} xmlns="http://www.w3.org/2000/svg" className={talking ? styles.botTalking : ''}>
     <path d="m2.75 8.5757v4a.75.75 0 0 1-1.5 0v-4a.75.75 0 0 1 1.5 0zm19.25-.75a.75.75 0 0 0-.75.75v4a.75.75 0 0 0 1.5 0v-4a.75.75 0 0 0-.75-.75z" fill="currentColor" />
@@ -72,9 +79,21 @@ const ChatWidgetInner = () => {
     return () => clearInterval(interval);
   }, [isOpen]);
 
+  // Generate a stable session ID per browser session
+  const sessionIdRef = useRef(null);
+  if (!sessionIdRef.current) {
+    try {
+      sessionIdRef.current = sessionStorage.getItem('chat-session-id') || crypto.randomUUID();
+      sessionStorage.setItem('chat-session-id', sessionIdRef.current);
+    } catch { sessionIdRef.current = crypto.randomUUID(); }
+  }
+
   const { messages, sendMessage, status, setMessages } = useChat({
     api: '/api/chat',
-    headers: { 'x-locale': router.locale || 'en' },
+    headers: {
+      'x-locale': router.locale || 'en',
+      'x-session-id': sessionIdRef.current,
+    },
   });
 
   const isLoading = status === 'streaming' || status === 'submitted';
@@ -111,6 +130,7 @@ const ChatWidgetInner = () => {
   const toggleOpen = useCallback((open) => {
     setIsOpen(open);
     try { sessionStorage.setItem(OPEN_KEY, open ? '1' : '0'); } catch {}
+    trackEvent(open ? 'chat_opened' : 'chat_closed');
     if (open) {
       document.documentElement.classList.add('chat-open');
     } else {
@@ -147,13 +167,14 @@ const ChatWidgetInner = () => {
     e.preventDefault();
     const text = inputValue.trim();
     if (!text || isLoading) return;
+    trackEvent('chat_message_sent', { locale: router.locale || 'en' });
     sendMessage({ text });
     setInputValue('');
   };
 
   const isEnglish = router.locale !== 'es';
   const placeholderText = isEnglish ? 'Ask me anything...' : 'Preguntame lo que quieras...';
-  const botName = isEnglish ? 'Alfred AI' : 'Alfredo AI';
+  const botName = 'Alfred AI';
   const titleText = botName;
   const welcomeText = isEnglish
     ? `Hi! I'm ${botName}. I can answer questions about Fabian's work, services, and blog. How can I help?`
@@ -264,7 +285,11 @@ const ChatWidgetInner = () => {
             </svg>
           </button>
         </form>
-        <div className={styles.chatFooter}>Powered by AI</div>
+        <div className={styles.chatFooter}>
+          {isEnglish
+            ? 'Powered by AI · Conversations may be recorded to improve service'
+            : 'Impulsado por IA · Las conversaciones pueden ser registradas para mejorar el servicio'}
+        </div>
       </div>
     </>
   );

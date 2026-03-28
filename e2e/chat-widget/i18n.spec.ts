@@ -34,12 +34,12 @@ test.describe('Spanish locale', () => {
     await page.click(FAB);
   });
 
-  test('header shows "Alfredo AI"', async ({ page }) => {
-    await expect(page.locator('[class*="chatHeaderTitle"]')).toContainText('Alfredo AI');
+  test('header shows "Alfred AI"', async ({ page }) => {
+    await expect(page.locator('[class*="chatHeaderTitle"]')).toContainText('Alfred AI');
   });
 
   test('welcome message in Spanish', async ({ page }) => {
-    await expect(page.locator('[class*="chatMessages"]')).toContainText('Soy Alfredo AI');
+    await expect(page.locator('[class*="chatMessages"]')).toContainText('Soy Alfred AI');
   });
 
   test('placeholder in Spanish', async ({ page }) => {

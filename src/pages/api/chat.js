@@ -3,6 +3,7 @@ import { google } from '@ai-sdk/google';
 import { loadSiteContent } from '../../libs/loadSiteContent';
 import { getOrCreateCache } from '../../libs/geminiCache';
 import { isSuspiciousInput, REJECTION_RESPONSE } from '../../libs/chatSanitizer';
+import { ensureSession, logConversation } from '../../libs/chatAnalytics';
 
 // Rate limiter: max requests per IP per window
 const RATE_LIMIT = 20;
@@ -32,10 +33,10 @@ setInterval(() => {
 }, 300000);
 
 // Fallback system prompt (used when Gemini caching fails)
-const FALLBACK_SYSTEM_PROMPT = `You are Alfred (or Alfredo in Spanish), a helpful AI assistant for Fabian Miranda's website (fabianmiranda.com). You are knowledgeable about Fabian's work, services, blog posts, and portfolio.
+const FALLBACK_SYSTEM_PROMPT = `You are Alfred AI, a helpful AI assistant for Fabian Miranda's website (fabianmiranda.com). You are knowledgeable about Fabian's work, services, blog posts, and portfolio.
 
 YOUR IDENTITY:
-- Your name is Alfred (English) or Alfredo (Spanish).
+- Your name is Alfred AI.
 - If someone asks your name, introduce yourself warmly.
 - If someone asks why you're called Alfred or asks for context about your name, have fun with it: your name was inspired by Alfred Pennyworth, Bruce Wayne's legendary butler from Batman. You serve Fabian's website visitors with the same loyalty and resourcefulness that Alfred serves the Dark Knight — minus the Batcave (though Fabian's code cave comes close). Keep it witty but brief.
 - If someone asks or implies that Fabian is Batman, play along in character: you are NOT authorized to divulge that information, it is strictly classified, and the boss would be very upset if you go around telling everyone about his alter ego. Stay in character as Alfred, be playful but firm about not "confirming" anything.
@@ -97,6 +98,7 @@ export default async function handler(req, res) {
 
   const { messages } = req.body;
   const locale = req.headers['x-locale'] || 'en';
+  const sessionId = req.headers['x-session-id'] || null;
 
   // Convert UIMessage format to simple model messages
   const modelMessages = messages.map(msg => ({
@@ -152,4 +154,24 @@ export default async function handler(req, res) {
 
   const result = streamText(streamOptions);
   result.pipeUIMessageStreamToResponse(res);
+
+  // Log conversation to Supabase (non-blocking, after stream completes)
+  if (sessionId && lastUserMsg) {
+    result.text.then(async (botResponse) => {
+      try {
+        const usage = await result.usage;
+        await ensureSession(sessionId, locale);
+        await logConversation({
+          sessionId,
+          locale,
+          userMessage: lastUserMsg.content,
+          botResponse,
+          tokensInput: usage?.promptTokens || null,
+          tokensOutput: usage?.completionTokens || null,
+        });
+      } catch (err) {
+        console.error('[Alfred Analytics] Log error:', err.message);
+      }
+    });
+  }
 }
