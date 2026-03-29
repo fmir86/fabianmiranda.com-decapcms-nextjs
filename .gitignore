@@ -16,6 +16,11 @@ credentials/
 # Generated reports
 pagespeed-report.html
 
+# Claude Code / MCP / Skills
+.agents/
+.mcp.json
+skills-lock.json
+
 # Nanobanana generated images
 nanobanana-output/
 flyer.pdf

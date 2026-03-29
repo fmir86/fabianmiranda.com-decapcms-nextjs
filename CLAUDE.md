@@ -115,9 +115,37 @@ The site is configured for Netlify deployment:
 - Netlify Identity widget for CMS authentication
 - Git Gateway backend for CMS
 
+## AI Chat Widget (Alfred AI)
+
+The site includes an AI-powered chat widget powered by Gemini 3 Flash:
+
+- **Widget**: `src/components/ChatWidget/` — floating panel with animated bot avatar, word-by-word markdown reveal
+- **API**: `src/pages/api/chat.js` — streaming endpoint with rate limiting, input sanitization, Gemini context caching
+- **Analytics**: `src/pages/api/chat-log.js` — logs conversations to Supabase
+- **Config**: System prompt lives in `src/libs/geminiCache.js` (cache) and `src/pages/api/chat.js` (fallback)
+- **Tests**: `e2e/` — 32 Playwright E2E tests (`npm test`)
+
+### Environment Variables (required in Netlify + local .env)
+
+- `GOOGLE_GENERATIVE_AI_API_KEY` — Google AI Studio API key
+- `NEXT_PUBLIC_SUPABASE_URL` — Supabase project URL
+- `SUPABASE_SERVICE_KEY` — Supabase secret key (server-side only)
+
+### Claude Code Setup (after cloning on a new machine)
+
+```bash
+# Install Supabase agent skills
+npx skills add supabase/agent-skills
+
+# Connect Supabase MCP (for direct DB access from Claude Code)
+claude mcp add --scope project --transport http supabase "https://mcp.supabase.com/mcp?project_ref=uvbjfkzbbqdmdfnjuvxz"
+claude /mcp  # Select supabase → Authenticate
+```
+
 ## Important Notes
 
-- This project has no test suite configured
 - Media files are stored in `public/img/` and referenced in CMS as `img/...`
 - The site includes NetlifyCMS identity widget script in page heads for authentication
 - Custom smooth scroll implementation handles anchor links with header offset compensation
+- CSS modules: do NOT use nesting (`&`) — Turbopack rejects it. Write flat selectors.
+- The nav header selector is `header[class*="Header-module"]` — do NOT use generic `header` tag selectors in globals
