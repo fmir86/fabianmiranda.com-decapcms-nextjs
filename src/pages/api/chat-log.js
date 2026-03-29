@@ -11,8 +11,10 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Missing required fields' });
   }
 
+  const ip = req.headers['x-forwarded-for']?.split(',')[0]?.trim() || req.socket?.remoteAddress || null;
+
   try {
-    await ensureSession(sessionId, locale || 'en');
+    await ensureSession(sessionId, locale || 'en', ip);
     await logConversation({
       sessionId,
       locale: locale || 'en',

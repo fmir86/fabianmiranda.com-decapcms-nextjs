@@ -4,13 +4,13 @@ import supabase from './supabaseClient';
  * Ensures a chat session exists, creates one if not.
  * Returns the session_id.
  */
-export async function ensureSession(sessionId, locale = 'en') {
+export async function ensureSession(sessionId, locale = 'en', ip = null) {
+  const data = { session_id: sessionId, locale };
+  if (ip) data.ip = ip;
+
   const { error } = await supabase
     .from('chat_sessions')
-    .upsert(
-      { session_id: sessionId, locale },
-      { onConflict: 'session_id', ignoreDuplicates: true }
-    );
+    .upsert(data, { onConflict: 'session_id' });
 
   if (error) console.error('[Alfred Analytics] Session upsert error:', error.message);
   return sessionId;
