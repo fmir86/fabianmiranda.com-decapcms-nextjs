@@ -33,7 +33,7 @@ Esto es lo que nadie te dice sobre trabajar con herramientas de IA para programa
 
 Si sos un arquitecto con experiencia que entiende diseño de sistemas, gestión de dependencias, límites de seguridad y trade-offs de rendimiento, la IA se convierte en óxido nitroso para tu motor. Toma tu output de 200 caballos de fuerza y lo empuja a 800. Vos dibujás la arquitectura, definís las restricciones, elegís el stack, y la IA llena la implementación a una velocidad inconcebible hace tres años.
 
-Pero si no sabés qué estás construyendo, o peor, si creés que seis palabras en un prompt deberían producir un SaaS de un millón de dólares, la IA se convierte en un amplificador de otro tipo. Amplifica tu ignorancia. Sobre-ingeniería soluciones que no pediste. Crea componentes Frankenstein sostenidos con cinta adhesiva y optimismo. Introduce vulnerabilidades de seguridad con la confianza de un ingeniero senior. Y el desastre crece como bola de nieve cuesta abajo, porque no podés debuggear lo que no entendés.
+Pero si no sabés qué estás construyendo, o peor, si creés que seis palabras en un prompt deberían producir un SaaS de un millón de dólares, la IA se convierte en un amplificador de otro tipo. Amplifica tu ignorancia. Sobre-ingeniería en soluciones que no pediste. Crea componentes Frankenstein sostenidos con cinta adhesiva y optimismo. Introduce vulnerabilidades de seguridad con la confianza de un ingeniero senior. Y el desastre crece como bola de nieve cuesta abajo, porque no podés debuggear lo que no entendés.
 
 He visto ambos resultados de primera mano. La diferencia nunca es la IA. Siempre es el humano que la conduce.
 
@@ -65,7 +65,7 @@ Pero mirá lo que estos dos hombres realmente están haciendo, no diciendo.
 
 Amodei no está despidiendo a sus ingenieros. Los está viendo volverse más productivos editando código generado por IA en vez de escribirlo desde cero. La habilidad cambió de tipear código a evaluarlo.
 
-Huang no está reemplazando ingenieros con IA. Le está dando a cada uno un cuarto de millón de dólares en munición de IA por año y diciéndoles que la quemen. Comparó no usar IA con "usar lápiz y papel para diseñar chips." Sus ingenieros están produciendo más que nunca porque dedican su tiempo a diseñar soluciones, no a implementarlas carácter por carácter.
+Huang no está reemplazando ingenieros con IA. Le está dando a cada uno un cuarto de millón de dólares en munición de IA por año y diciéndoles que la quemen. Comparó no usar IA con "usar lápiz y papel para diseñar chips." Sus ingenieros están produciendo más que nunca porque dedican su tiempo a diseñar soluciones, no a implementarlas caracter por caracter.
 
 "El trabajo que antes tomaba meses ahora toma un par de días," dijo Huang. "Y vemos que solo se acelera desde aquí."
 
