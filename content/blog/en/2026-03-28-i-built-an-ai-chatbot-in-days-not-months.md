@@ -1,5 +1,5 @@
 ---
-title: "I Built an AI Chatbot in Days, Not Months. Here's What That Actually Means."
+title: "I Built an AI Chatbot in Days, Not Weeks. Here's What That Actually Means."
 date: 2026-03-28T12:00:00-06:00
 author: Fabian Miranda
 excerpt: I've been integrating AI into enterprise workflows for years. But I'd never built something as "simple" as a chatbot for my own site. When I finally did, the process revealed everything that's right and wrong about AI-assisted development today.

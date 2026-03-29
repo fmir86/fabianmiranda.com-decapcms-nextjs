@@ -1,5 +1,5 @@
 ---
-title: "Construí un Chatbot con IA en Días, No Meses. Esto es lo Que Eso Realmente Significa."
+title: "Construí un Chatbot con IA en Días, No Semanas. Esto es lo Que Eso Realmente Significa."
 date: 2026-03-28T12:00:00-06:00
 author: Fabian Miranda
 excerpt: Llevo años integrando IA en flujos de trabajo empresariales. Pero nunca había construido algo tan "simple" como un chatbot para mi propio sitio. Cuando finalmente lo hice, el proceso reveló todo lo bueno y lo malo del desarrollo asistido por IA hoy.
