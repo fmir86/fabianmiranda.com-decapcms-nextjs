@@ -87,22 +87,8 @@
   pointer-events: auto;
 }
 
-// Streaming text (plain, while chunks arrive)
-.streamingText {
-  margin: 0;
-  font-size: 0.85rem;
-  white-space: pre-wrap;
-}
 
-// AIWriter fade-in effect
-.aiWriterWrap :global(*) {
-  animation: wordFadeIn 0.3s ease-out both;
-}
 
-@keyframes wordFadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
 
 // Header
 .chatHeader {

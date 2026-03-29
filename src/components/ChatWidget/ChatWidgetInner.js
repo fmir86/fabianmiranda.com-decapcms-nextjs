@@ -1,20 +1,45 @@
 import { useChat } from '@ai-sdk/react';
-import { useRef, useState, useEffect, useCallback } from 'react';
+import { useRef, useState, useEffect, useCallback, useMemo } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
-import AIWriter from 'react-aiwriter';
 import gsap from 'gsap';
 import styles from './ChatWidget.module.scss';
 
 const STORAGE_KEY = 'chat-messages';
 const OPEN_KEY = 'chat-open';
 
-// GA4 event helper
 function trackEvent(action, params = {}) {
   if (typeof window !== 'undefined' && window.gtag) {
     window.gtag('event', action, params);
   }
 }
+
+/**
+ * AnimatedText: typewriter that reveals markdown text word by word.
+ * Word-level reveal ensures markdown syntax (** for bold, [] for links)
+ * is always complete when rendered, so styles appear instantly — no raw syntax flash.
+ * Restored messages (from session) render instantly.
+ */
+const AnimatedText = ({ text, isStreaming, components }) => {
+  // Split text into words while preserving whitespace and newlines
+  const tokens = useMemo(() => text.match(/\S+|\s+/g) || [], [text]);
+  const [wordIndex, setWordIndex] = useState(tokens.length);
+
+  useEffect(() => {
+    if (wordIndex >= tokens.length) return;
+    const timer = setTimeout(() => {
+      setWordIndex(i => i + 1);
+    }, 30);
+    return () => clearTimeout(timer);
+  }, [wordIndex, tokens.length]);
+
+  const visibleText = wordIndex >= tokens.length
+    ? text
+    : tokens.slice(0, wordIndex).join('');
+
+  return <ReactMarkdown components={components}>{visibleText}</ReactMarkdown>;
+};
 
 const BotSvg = ({ size = 32, talking = false }) => (
   <svg viewBox="0 0 24 24" width={size} height={size} xmlns="http://www.w3.org/2000/svg" className={talking ? styles.botTalking : ''}>
@@ -45,14 +70,12 @@ const UserAvatar = () => (
 const FadeInMessage = ({ children }) => {
   const ref = useRef(null);
   const animated = useRef(false);
-
   useEffect(() => {
     if (ref.current && !animated.current) {
       animated.current = true;
       gsap.fromTo(ref.current, { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.35, ease: 'power2.out' });
     }
   }, []);
-
   return <div ref={ref} style={{ opacity: 0 }}>{children}</div>;
 };
 
@@ -61,9 +84,7 @@ const ChatWidgetInner = () => {
     try { return sessionStorage.getItem(OPEN_KEY) === '1'; } catch { return false; }
   });
   const [inputValue, setInputValue] = useState('');
-  const [completedMsgIds, setCompletedMsgIds] = useState(new Set());
   const [fabTalking, setFabTalking] = useState(false);
-  const [aiWriterActive, setAiWriterActive] = useState(false);
   const messagesEndRef = useRef(null);
   const chatMessagesRef = useRef(null);
   const inputRef = useRef(null);
@@ -98,33 +119,31 @@ const ChatWidgetInner = () => {
 
   const isLoading = status === 'streaming' || status === 'submitted';
 
+  // Restore messages from sessionStorage
   useEffect(() => {
     try {
       const saved = sessionStorage.getItem(STORAGE_KEY);
       if (saved) {
         const parsed = JSON.parse(saved);
-        if (parsed.length > 0) {
-          setMessages(parsed);
-          setCompletedMsgIds(new Set(parsed.map(m => m.id)));
-        }
+        if (parsed.length > 0) setMessages(parsed);
       }
     } catch {}
   }, [setMessages]);
 
+  // Save messages to sessionStorage
   useEffect(() => {
     if (messages.length > 0) {
       try { sessionStorage.setItem(STORAGE_KEY, JSON.stringify(messages)); } catch {}
     }
   }, [messages]);
 
-  // When streaming finishes: activate AIWriter + log conversation
+  // Log conversation when streaming finishes
+  const loggedMsgIds = useRef(new Set());
   useEffect(() => {
     if (status === 'ready' && messages.length >= 2) {
       const lastMsg = messages[messages.length - 1];
-      if (lastMsg.role === 'assistant' && !completedMsgIds.has(lastMsg.id)) {
-        setAiWriterActive(true);
-
-        // Log to analytics (non-blocking)
+      if (lastMsg.role === 'assistant' && !loggedMsgIds.current.has(lastMsg.id)) {
+        loggedMsgIds.current.add(lastMsg.id);
         const userMsg = messages[messages.length - 2];
         if (userMsg?.role === 'user') {
           fetch('/api/chat-log', {
@@ -140,7 +159,7 @@ const ChatWidgetInner = () => {
         }
       }
     }
-  }, [status, messages, completedMsgIds]);
+  }, [status, messages]);
 
   const toggleOpen = useCallback((open) => {
     setIsOpen(open);
@@ -153,23 +172,37 @@ const ChatWidgetInner = () => {
     }
   }, []);
 
-  // Sync class on mount if chat was already open
   useEffect(() => {
     if (isOpen) document.documentElement.classList.add('chat-open');
     return () => document.documentElement.classList.remove('chat-open');
   }, []);
 
+  // Close chat on mobile when clicking internal links
+  const markdownComponents = useMemo(() => ({
+    a: ({ href, children }) => {
+      const isInternal = href && (href.startsWith('/') || href.startsWith('#'));
+      if (!isInternal) {
+        return <a href={href} target="_blank" rel="noopener noreferrer">{children}</a>;
+      }
+      return (
+        <Link href={href} onClick={() => {
+          if (window.innerWidth < 728) setTimeout(() => toggleOpen(false), 100);
+        }}>
+          {children}
+        </Link>
+      );
+    },
+  }), [toggleOpen]);
+
   const scrollToBottom = useCallback(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, []);
 
-  // Auto-scroll when DOM content changes (streaming chunks + AIWriter animation)
+  // Auto-scroll when DOM changes
   useEffect(() => {
     const container = chatMessagesRef.current;
     if (!container) return;
-    const observer = new MutationObserver(() => {
-      scrollToBottom();
-    });
+    const observer = new MutationObserver(() => scrollToBottom());
     observer.observe(container, { childList: true, subtree: true, characterData: true });
     return () => observer.disconnect();
   }, [scrollToBottom]);
@@ -230,30 +263,14 @@ const ChatWidgetInner = () => {
           {messages.map((msg, idx) => {
             const text = getMessageText(msg);
             const isLastAssistant = msg.role === 'assistant' && idx === messages.length - 1;
-            const speaking = isLastAssistant && status === 'streaming';
-            const isCompleted = completedMsgIds.has(msg.id);
-
-            const isAnimating = !speaking && !isCompleted && isLastAssistant;
+            const isStreaming = isLastAssistant && status === 'streaming';
 
             return msg.role === 'assistant' ? (
               <FadeInMessage key={msg.id}>
                 <div className={styles.messageRow}>
-                  <BotAvatar speaking={speaking || (isAnimating && aiWriterActive)} />
+                  <BotAvatar speaking={isStreaming} />
                   <div className={`${styles.message} ${styles.assistant}`}>
-                    {speaking ? (
-                      <p className={styles.streamingText}>{text}</p>
-                    ) : isCompleted ? (
-                      <ReactMarkdown>{text}</ReactMarkdown>
-                    ) : (
-                      <div className={styles.aiWriterWrap}>
-                        <AIWriter delay={60} onEnd={() => {
-                          setAiWriterActive(false);
-                          setCompletedMsgIds(prev => new Set([...prev, msg.id]));
-                        }}>
-                          <ReactMarkdown>{text}</ReactMarkdown>
-                        </AIWriter>
-                      </div>
-                    )}
+                    <AnimatedText text={text} isStreaming={isStreaming} components={markdownComponents} />
                   </div>
                 </div>
               </FadeInMessage>
