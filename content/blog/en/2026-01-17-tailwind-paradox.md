@@ -41,7 +41,7 @@ Revenue collapsed by 80%. Traffic to their documentation dropped 40% since early
 
 Here's how Tailwind Labs made money: developers would Google something like "tailwind flex center," land on the documentation, see the beautiful component examples, discover Tailwind UI and Tailwind Plus (their premium offerings), and some percentage would buy. Classic content-to-conversion funnel that's powered a million SaaS businesses.
 
-But then Claude Code, Cursor, Copilot, and the rest of the AI coding tools arrived.
+But then Claude Code, Cursor, Copilot, and the rest of the [AI coding tools arrived](/blog/2025-10-31-beyond-vibe-coding).
 
 Now when a developer needs to center a div with Tailwind, they don't Google it. They ask their AI assistant. The assistant answers instantly, generates the code, maybe even implements it directly in the codebase. No website visit. No discovery of premium products. No sale.
 
@@ -74,7 +74,7 @@ Claude Code alone already contributes roughly 10% of Anthropic's revenue. Cursor
 
 ## The Uncomfortable Truth
 
-I've been using Claude Code, Gemini CLI, and GitHub Copilot daily for months now. The productivity gains are real. I can scaffold entire features in minutes that would have taken hours. Complex refactoring that used to require careful, methodical work now happens in a conversation.
+I've been using Claude Code, Gemini CLI, and GitHub Copilot daily for months now. The productivity gains are real. I can scaffold entire features in minutes that would have taken hours. Complex refactoring that used to require careful, methodical work now happens in a conversation. I recently [built an entire AI chatbot in days](/blog/2026-03-28-i-built-an-ai-chatbot-in-days-not-months) using these exact tools.
 
 But the Tailwind situation forces us to confront something uncomfortable: every time an AI assistant answers a question that we would have Googled, some documentation site doesn't get a visit. Every time it generates code that we would have researched, some tutorial doesn't get read. Every time it implements a pattern that we would have looked up, some Stack Overflow answer doesn't get viewed.
 
@@ -108,4 +108,4 @@ The question isn't whether AI is changing software development. That's already a
 
 ---
 
-*If you're interested in how AI is reshaping web development workflows, or if you're figuring out how to integrate these tools into your process, I'd love to hear your experience.*
+*If you're interested in how AI is reshaping web development workflows, or if you're figuring out how to integrate these tools into your process, [let's connect](/contact). I help teams navigate this transition through my [consulting services](/services).*

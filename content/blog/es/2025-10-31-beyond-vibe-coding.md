@@ -56,7 +56,7 @@ El término "vibe coding" ganó tracción—la idea de que podrías simplemente 
 Lo que no funciona sin experiencia:
 
 - **Arquitectura a escala**: La IA genera código que funciona, pero no necesariamente código que escala
-- **Seguridad**: Las sugerencias de IA frecuentemente omiten consideraciones de seguridad
+- **Seguridad**: Las sugerencias de IA frecuentemente omiten [consideraciones de seguridad](/es/blog/react-bajo-asedio)
 - **Mantenibilidad**: El código generado puede ser correcto pero difícil de mantener
 
 ---
@@ -71,4 +71,4 @@ Las mejores prácticas que he desarrollado:
 - **Mantener el contexto**: Proporcionar contexto claro y específico
 - **Iterar**: Usar la IA como compañero de conversación, no como oráculo
 
-El futuro no es programadores reemplazados por IA. Es programadores aumentados por IA, capaces de abordar problemas más complejos con mayor velocidad.
+El futuro no es programadores reemplazados por IA. Es programadores aumentados por IA, capaces de abordar problemas más complejos con mayor velocidad. Lo demostré en la práctica cuando [construí un chatbot con IA en días](/es/blog/construi-un-chatbot-con-ia-en-dias-no-meses), y si querés profundizar en estas herramientas, [Anthropic Academy ofrece cursos gratuitos](/es/blog/anthropic-academy-entrenamiento-ia-gratis) para dominarlas.

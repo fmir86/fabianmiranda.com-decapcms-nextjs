@@ -36,7 +36,7 @@ Las aplicaciones React enfrentan amenazas de seguridad reales: la vulnerabilidad
 
 ## El Panorama de Amenazas
 
-React domina el desarrollo web frontend con buena razón—su modelo de componentes, DOM virtual y ecosistema son extraordinarios. Pero la popularidad trae escrutinio, y en 2025 vimos varias vulnerabilidades significativas que todo desarrollador de React debería entender.
+React domina el desarrollo web frontend con buena razón—su modelo de componentes, DOM virtual y ecosistema son extraordinarios. Pero la popularidad trae escrutinio, y en 2025 vimos varias vulnerabilidades significativas que todo desarrollador de React debería entender. Esto es especialmente relevante cuando [las herramientas de IA generan código sin considerar la seguridad](/es/blog/mas-alla-del-vibe-coding).
 
 ### React2Shell: Ejecución Remota de Código
 
@@ -66,4 +66,4 @@ Los source maps en producción y las configuraciones incorrectas de bundling pue
 
 ## Recomendaciones
 
-La seguridad en React no es un evento único—es una práctica continua. Mantené tus dependencias actualizadas, implementá revisiones de seguridad automatizadas y nunca asumás que un framework popular es inherentemente seguro.
+La seguridad en React no es un evento único—es una práctica continua. Mantené tus dependencias actualizadas, implementá revisiones de seguridad automatizadas y nunca asumás que un framework popular es inherentemente seguro. Si necesitás ayuda asegurando tus aplicaciones, echá un vistazo a [mis servicios de consultoría](/es/servicios) o la [paradoja de cómo la IA está transformando las herramientas para desarrolladores](/es/blog/la-paradoja-de-tailwind).

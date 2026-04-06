@@ -71,6 +71,10 @@ export function loadBlogPosts(locale = 'en') {
         post.faq = data.faq;
       }
 
+      if (data.howto && data.howto.steps && data.howto.steps.length > 0) {
+        post.howto = data.howto;
+      }
+
       return post;
     })
     // Filter out unpublished posts

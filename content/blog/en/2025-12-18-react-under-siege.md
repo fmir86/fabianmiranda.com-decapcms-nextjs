@@ -43,7 +43,7 @@ Attackers discovered they could send a specially crafted "payload" (a malicious 
 ## 2. The Domino Effect: DoS and Source Code Exposure
 Just as developers were patching React2Shell, two new vulnerabilities appeared:
 *   **Denial of Service (DoS):** By sending specific HTTP requests, an attacker can trigger infinite loops within the server, maxing out CPU usage and effectively killing the application.
-*   **Source Code Exposure:** This flaw allows attackers to "leak" the source code of Server Functions. If you have **hardcoded secrets** (like API keys or database strings) instead of using environment variables, an attacker can now see them in plain text.
+*   **Source Code Exposure:** This flaw allows attackers to "leak" the source code of Server Functions. If you have **hardcoded secrets** (like API keys or database strings) instead of using environment variables, an attacker can now see them in plain text. This is exactly the kind of vulnerability that [AI-generated "vibe code" tends to ship with](/blog/2025-10-31-beyond-vibe-coding) when there's no experienced engineer reviewing the output.
 
 ## 3. The Response: Vercel, Netlify, and Cloudflare to the Rescue
 The speed of these attacks forced PaaS (Platform as a Service) providers to act immediately:
@@ -79,13 +79,13 @@ That is a perfect conclusion. Here is the final section to wrap up the article:
 
 While the headlines might sound alarming, it is crucial to maintain perspective. **React is still a robust, world-class framework.** The very fact that these vulnerabilities were identified, communicated, and patched within such a short timeframe is a testament to the strength of its community and the massive engineering power behind it.
 
-In the world of software, popularity is a double-edged sword. When a library is used by millions of developers and powers the world's largest companies, it naturally becomes a primary target for security researchers and malicious actors alike. This is not a sign of React’s failure, but rather a natural consequence of its global dominance. History has shown that every major technology—from Java with *Log4Shell* to PHP and .NET—has faced similar "dark nights of the soul."
+In the world of software, popularity is a double-edged sword — something [Tailwind CSS also discovered](/blog/2026-01-17-tailwind-paradox) when its success became its biggest business liability. When a library is used by millions of developers and powers the world's largest companies, it naturally becomes a primary target for security researchers and malicious actors alike. This is not a sign of React’s failure, but rather a natural consequence of its global dominance. History has shown that every major technology—from Java with *Log4Shell* to PHP and .NET—has faced similar "dark nights of the soul."
 
 **Should you suddenly abandon React? Absolutely not.** 
 
 Migrating your entire stack every time a security flaw is found is neither practical nor safer; you would simply be trading one set of potential bugs for another. Instead, this crisis serves as a valuable lesson in modern infrastructure. It highlights the importance of:
 *   **Proactive maintenance:** Treating updates as a mandatory task, not a "when I have time" luxury.
-*   **Defense in depth:** Not relying solely on your code, but utilizing WAFs and managed hosting providers that offer an extra layer of protection.
+*   **Defense in depth:** Not relying solely on your code, but utilizing WAFs and managed hosting providers that offer an extra layer of protection. (If you're evaluating your hosting setup, [nearshore development teams](/blog/nearshore-advantage-costa-rica-tech-hub) with security expertise can help audit and harden your infrastructure.)
 *   **Best practices:** Moving away from hardcoded secrets and adopting the principle of least privilege.
 
 If you take the proper measures, you can continue to build with React with full confidence. The siege will eventually lift, and React will emerge even stronger, more secure, and better documented than it was before. Stay informed, keep your dependencies updated, and remember: the community has your back.

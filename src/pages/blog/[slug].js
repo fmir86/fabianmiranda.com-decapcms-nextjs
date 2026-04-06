@@ -54,6 +54,7 @@ const BlogPost = ({ post, relatedPosts, headerData, footerData, locale, alternat
           categories: post.categories
         }}
         faq={post.faq}
+        howto={post.howto}
         breadcrumbs={[
           { name: 'Home', url: '/' },
           { name: 'Blog', url: '/blog' },

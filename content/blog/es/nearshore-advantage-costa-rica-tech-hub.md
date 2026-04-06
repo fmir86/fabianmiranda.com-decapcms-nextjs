@@ -61,7 +61,7 @@ Costa Rica invierte más del 8% de su PIB en educación—uno de los porcentajes
 
 - Alto dominio del inglés en profesionales de tecnología
 - Universidades con programas fuertes en ciencias de la computación e ingeniería
-- Una cultura de aprendizaje continuo y certificación profesional
+- Una cultura de aprendizaje continuo y certificación profesional (como detallo en [mi perfil](/es/acerca-de-mi))
 
 ### Análisis de Costos
 
@@ -93,4 +93,4 @@ Las tarifas de desarrollo en Costa Rica típicamente representan un **40-50% de 
 
 ## Conclusión
 
-El desarrollo nearshore en Costa Rica no es solo una alternativa más barata—es una ventaja estratégica. La combinación de talento, cultura, zona horaria y estabilidad crea las condiciones ideales para equipos de desarrollo distribuidos exitosos.
+El desarrollo nearshore en Costa Rica no es solo una alternativa más barata—es una ventaja estratégica. La combinación de talento, cultura, zona horaria y estabilidad crea las condiciones ideales para equipos de desarrollo distribuidos exitosos. Si querés saber más sobre cómo trabajo, visitá [mi página de servicios](/es/servicios) o leé [cómo construí un chatbot con IA en días](/es/blog/construi-un-chatbot-con-ia-en-dias-no-meses) como ejemplo del tipo de resultados que se pueden lograr.

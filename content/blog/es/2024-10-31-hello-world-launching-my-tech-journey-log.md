@@ -47,7 +47,7 @@ Ahora estamos en medio de quizás el cambio más grande: **la inteligencia artif
 ## Qué Cubriré
 
 ### Inteligencia Artificial y Programación Asistida por IA
-Actualmente estoy trabajando con herramientas de IA como **Claude Code**, **GitHub Copilot** y **ChatGPT** diariamente. Compartiré perspectivas prácticas sobre qué funciona realmente, qué es exageración y cómo estos cambios impactan a los desarrolladores.
+Actualmente estoy trabajando con herramientas de IA como **Claude Code**, **GitHub Copilot** y **ChatGPT** diariamente. Compartiré perspectivas prácticas sobre qué funciona realmente, qué es exageración y cómo estos cambios impactan a los desarrolladores (como hago en [mi análisis del vibe coding](/es/blog/mas-alla-del-vibe-coding)).
 
 ### Desarrollo Web y Mejores Prácticas
 Full-stack es mi terreno. React, Next.js, Node.js, arquitectura cloud—escribiré sobre patrones del mundo real, rendimiento y el trabajo real de enviar software en producción.
@@ -56,7 +56,7 @@ Full-stack es mi terreno. React, Next.js, Node.js, arquitectura cloud—escribir
 He estado involucrado en blockchain desde los primeros días. Cubriré los aspectos prácticos—contratos inteligentes, dApps, DeFi—separando la innovación real de la especulación.
 
 ### Desarrollo Nearshore desde Costa Rica
-Con base en Costa Rica, tengo una perspectiva única sobre el modelo nearshore. Escribiré sobre lo que funciona, lo que no, y por qué la zona horaria importa más de lo que pensás.
+Con base en Costa Rica, tengo una perspectiva única sobre el modelo nearshore. Escribiré sobre lo que funciona, lo que no, y por qué [la zona horaria importa más de lo que pensás](/es/blog/ventaja-nearshore-costa-rica-centro-tech).
 
 ---
 
@@ -64,4 +64,4 @@ Con base en Costa Rica, tengo una perspectiva única sobre el modelo nearshore. 
 
 No vas a encontrar clickbait, publicaciones vacías de liderazgo intelectual, ni publicaciones que rescriben la documentación. Cada publicación apunta a ser algo que me hubiera gustado leer antes en mi carrera.
 
-Bienvenido al viaje. Construyamos algo juntos.
+Bienvenido al viaje. Construyamos algo juntos. Si querés ver un ejemplo concreto de lo que se puede lograr, mirá cómo [construí un chatbot con IA en días](/es/blog/construi-un-chatbot-con-ia-en-dias-no-meses).

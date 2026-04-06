@@ -39,7 +39,7 @@ Tailwind CSS se encontró en una posición paradójica: las herramientas de codi
 
 Tailwind CSS es uno de los frameworks CSS más exitosos de la historia. Su enfoque utility-first revolucionó cómo los desarrolladores construyen interfaces. Pero algo interesante sucedió cuando las herramientas de IA se generalizaron:
 
-**La IA ama Tailwind.** Los modelos de lenguaje generan Tailwind CSS excepcionalmente bien porque:
+**La IA ama Tailwind.** Como exploré en [mi análisis de la programación asistida por IA](/es/blog/mas-alla-del-vibe-coding), los modelos de lenguaje generan Tailwind CSS excepcionalmente bien porque:
 
 - Las clases utility son predecibles y componibles
 - Hay enormes cantidades de datos de entrenamiento
@@ -57,4 +57,4 @@ Esta paradoja no es única de Tailwind. Muchas herramientas para desarrolladores
 2. **Commoditización**: Pero los productos derivados se commoditizan rápidamente
 3. **El valor se mueve**: El valor migra del "qué" al "por qué"—del código al contexto, la experiencia y el juicio
 
-El futuro probablemente pertenece a empresas que pueden proporcionar valor que la IA no puede replicar fácilmente: integración profunda, soporte experto, y soluciones empresariales personalizadas.
+El futuro probablemente pertenece a empresas que pueden proporcionar valor que la IA no puede replicar fácilmente: integración profunda, soporte experto, y [soluciones empresariales personalizadas](/es/servicios). Lo viví de primera mano al [construir un chatbot con IA en días](/es/blog/construi-un-chatbot-con-ia-en-dias-no-meses)—la IA generó el código, pero las decisiones arquitectónicas siguieron siendo humanas.

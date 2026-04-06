@@ -178,7 +178,11 @@ export const generateArticleSchema = (article, locale = 'en') => ({
   },
   keywords: article.tags ? article.tags.join(', ') : '',
   articleSection: article.categories ? article.categories.join(', ') : 'Technology',
-  inLanguage: getLanguageCode(locale)
+  inLanguage: getLanguageCode(locale),
+  speakable: {
+    '@type': 'SpeakableSpecification',
+    cssSelector: ['[class*="title"]', '[class*="content"] > p:first-of-type']
+  }
 });
 
 // Generate Case Study/Project Schema
@@ -301,6 +305,20 @@ export const servicesFaqSchema = {
 };
 
 // SchemaMarkup Component
+// Generate HowTo Schema
+export const generateHowToSchema = (howto) => ({
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: howto.name,
+  description: howto.description,
+  step: howto.steps.map((step, index) => ({
+    '@type': 'HowToStep',
+    position: index + 1,
+    name: step.name,
+    text: step.text
+  }))
+});
+
 // Generate FAQ Schema from array of {question, answer} objects
 export const generateFaqSchema = (faqItems) => ({
   '@context': 'https://schema.org',
@@ -321,6 +339,7 @@ const SchemaMarkup = ({
   caseStudy = null,
   breadcrumbs = null,
   faq = null,
+  howto = null,
   includeServices = false,
   locale = 'en'
 }) => {
@@ -353,6 +372,11 @@ const SchemaMarkup = ({
   // Include FAQ schema if faq items provided (blog posts or any page)
   if (faq && faq.length > 0) {
     schemas.push(generateFaqSchema(faq));
+  }
+
+  // Include HowTo schema if provided
+  if (howto && howto.steps && howto.steps.length > 0) {
+    schemas.push(generateHowToSchema(howto));
   }
 
   // Include Case Study schema

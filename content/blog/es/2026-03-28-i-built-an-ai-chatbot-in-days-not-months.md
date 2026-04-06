@@ -47,7 +47,7 @@ Eso cambió en cuestión de días. No semanas, no meses. Días. Y el proceso me 
 
 ## El Efecto Amplificador
 
-Esto es lo que nadie te dice sobre trabajar con herramientas de IA para programar: amplifican lo que ya sos.
+Esto es lo que nadie te dice sobre trabajar con herramientas de IA para programar (y que exploré a fondo en [mi análisis del vibe coding](/es/blog/mas-alla-del-vibe-coding)): amplifican lo que ya sos.
 
 Si sos un arquitecto con experiencia que entiende diseño de sistemas, gestión de dependencias, límites de seguridad y trade-offs de rendimiento, la IA se convierte en óxido nitroso para tu motor. Toma tu output de 200 caballos de fuerza y lo empuja a 800. Vos dibujás la arquitectura, definís las restricciones, elegís el stack, y la IA llena la implementación a una velocidad inconcebible hace tres años.
 
@@ -63,7 +63,7 @@ Codear es el acto de escribir instrucciones que una computadora puede ejecutar. 
 
 La ingeniería de software es algo completamente distinto. Es la disciplina de diseñar sistemas que son eficientes debajo del capó, no solo funcionales en la superficie. Es saber por qué elegís una base de datos sobre otra, entender las implicaciones de costo de un API call que se hace 10,000 veces por día, reconocer que un system prompt de 220,000 tokens enviado en cada request va a quebrar a tu cliente antes de que el producto salga.
 
-Herramientas de IA como Claude Code ya escriben mejor boilerplate que la mayoría de developers junior. Manejan la sintaxis perfectamente. Conocen cada firma de API en cada framework popular. El rol del "codeador", la persona cuyo valor principal era memorizar cómo escribir un for-loop en siete lenguajes, está genuinamente en riesgo.
+Herramientas de IA como Claude Code (que podés aprender a dominar en [Anthropic Academy](/es/blog/anthropic-academy-entrenamiento-ia-gratis)) ya escriben mejor boilerplate que la mayoría de developers junior. Manejan la sintaxis perfectamente. Conocen cada firma de API en cada framework popular. El rol del "codeador", la persona cuyo valor principal era memorizar cómo escribir un for-loop en siete lenguajes, está genuinamente en riesgo.
 
 Pero el arquitecto, la persona que decide qué construir, cómo se conectan las piezas, dónde viven los límites, ese rol no está amenazado. Está potenciado.
 

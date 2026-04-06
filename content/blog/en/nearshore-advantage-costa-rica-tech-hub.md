@@ -34,6 +34,18 @@ faq:
     answer: Costa Rica has the highest English proficiency rate in Latin America for tech professionals (over 90%), a stable democratic government with strong IP protection, and a tech sector specifically developed through government investment (CINDE). It also has the highest internet penetration and infrastructure quality in Central America.
   - question: How do I start a nearshore partnership with a developer in Costa Rica?
     answer: Start with a single developer or small team on a defined pilot project (30-60 days). Use tools like Slack, GitHub, and Linear for daily collaboration. Treat them as team members, not vendors. Scale after validating communication patterns and code quality.
+howto:
+  name: How to Build a Nearshore Development Team in Costa Rica
+  description: A 4-step guide to setting up a successful nearshore software development partnership with Costa Rica-based developers.
+  steps:
+    - name: Define Your Needs
+      text: Clearly define technical requirements, team structure (individual contributors vs full teams), project duration (short-term vs long-term partnership), and integration model (embedded team members vs autonomous units).
+    - name: Choose the Right Partner
+      text: Evaluate potential partners based on track record in your industry, technical expertise in required technologies, English proficiency and cultural fit, reliable infrastructure, and ability to scale with your needs.
+    - name: Establish Communication Protocols
+      text: Set up daily standups at the same time every day, weekly retrospectives for continuous improvement, shared tools (Slack, Jira, GitHub), documentation standards with everything in writing, and regular video calls to build trust.
+    - name: Cultural Integration
+      text: Foster team cohesion through virtual coffee breaks, shared celebrations, cross-cultural training, quarterly in-person visits, and unified goals so everyone pulls in the same direction.
 ---
 
 ## TLDR
@@ -268,7 +280,7 @@ Costa Rican teams typically follow:
 - **Agile methodologies** - Scrum/Kanban frameworks
 - **Test-driven development** - 80%+ code coverage
 - **Code review practices** - Peer review mandatory
-- **Security-first approach** - OWASP compliance
+- **Security-first approach** - OWASP compliance (critical given recent [React ecosystem vulnerabilities](/blog/2025-12-18-react-under-siege))
 - **Documentation standards** - Comprehensive and updated
 
 ---
@@ -309,7 +321,7 @@ Flexible arrangements include:
 ### Emerging Trends
 
 **1. AI-Augmented Development**
-Costa Rican teams are pioneering AI-assisted coding, reducing development time by 30-40% while maintaining quality.
+Costa Rican teams are pioneering [AI-assisted coding](/blog/2025-10-31-beyond-vibe-coding), reducing development time by 30-40% while maintaining quality. I recently demonstrated this firsthand by [building a production AI chatbot in under a week](/blog/2026-03-28-i-built-an-ai-chatbot-in-days-not-months).
 
 **2. Specialized Expertise**
 Moving beyond general development to specialized fields like blockchain, quantum computing, and biotech.

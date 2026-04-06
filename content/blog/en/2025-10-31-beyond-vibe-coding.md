@@ -80,7 +80,7 @@ This wasn't just about code completion anymore—this was about giving AI access
 
 ### 2025: The Age of Agents
 
-**Claude Code** (February 2025) marked Anthropic's entry into the agentic coding space. Launched alongside Claude 3.7 Sonnet on February 24, 2025, Claude Code enabled developers to delegate substantial engineering tasks directly from their terminal. In October 2025, Anthropic launched Claude Code for web, allowing developers to delegate coding tasks directly from their browser with cloud-based execution.
+**Claude Code** (February 2025) marked Anthropic's entry into the agentic coding space. Launched alongside Claude 3.7 Sonnet on February 24, 2025, Claude Code enabled developers to delegate substantial engineering tasks directly from their terminal. (If you want to get up to speed on Claude's ecosystem, [Anthropic Academy](/blog/2026-03-15-anthropic-academy-free-ai-training) offers free courses covering everything from basics to MCP server development.) In October 2025, Anthropic launched Claude Code for web, allowing developers to delegate coding tasks directly from their browser with cloud-based execution.
 
 **Google Jules Public Launch** (August 2025) saw Jules exit beta in August 2025, becoming available with structured pricing tiers after hundreds of thousands of tasks were submitted during beta.
 
@@ -103,7 +103,7 @@ We're not abandoning AI—we're maturing our relationship with it. Instead of "v
 Software can be created in many ways, but determining the *best* way requires specific knowledge:
 - Choosing the right frontend library
 - Selecting the optimal CMS system
-- Picking the most suitable styling framework
+- Picking the most suitable styling framework (and understanding [why even successful ones like Tailwind face existential business threats from AI](/blog/2026-01-17-tailwind-paradox))
 - Determining the best PaaS or infrastructure
 - Implementing proper security measures
 - Architecting for scalability
@@ -138,7 +138,7 @@ The tools will keep getting better. Cursor reached $100 million in ARR in 2024, 
 
 But the winners won't be those who promise magic. They'll be those who empower developers to be better architects, better reviewers, better decision-makers. The tools that help you move faster *without* sacrificing understanding. The platforms that give you superpowers *with* responsibility.
 
-Because at the end of the day, someone needs to know why the code works, how it can fail, and what happens when it does.
+Because at the end of the day, someone needs to know why the code works, how it can fail, and what happens when it does. I put this thesis to the test when I [built an AI chatbot for my own site in days, not months](/blog/2026-03-28-i-built-an-ai-chatbot-in-days-not-months) — the AI wrote most of the code, but every architectural decision was mine.
 
 That someone is you.
 

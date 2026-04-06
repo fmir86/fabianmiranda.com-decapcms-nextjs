@@ -76,7 +76,7 @@ For experienced users, the value here is more about filling blind spots. I've be
 
 This is the one I was most interested in. The course covers eight areas:
 
-**Coding assistant architecture** explains how Claude Code interacts with your codebase through its tool system. If you've ever wondered why Claude Code sometimes reads files in a certain order or how it decides which tools to use, this clears it up.
+**Coding assistant architecture** explains how Claude Code interacts with your codebase through its tool system. If you've ever wondered why Claude Code sometimes reads files in a certain order or how it decides which tools to use, this clears it up. It's the same tool I used to [build an AI chatbot in days](/blog/2026-03-28-i-built-an-ai-chatbot-in-days-not-months), so the practical relevance is immediate.
 
 **Tool use and context management** teaches you how to get better results by managing what context Claude Code has access to. CLAUDE.md files, project structure, and how to reference resources effectively.
 
@@ -122,7 +122,7 @@ For teams evaluating AI adoption, sending people through Anthropic Academy befor
 
 ## My Take
 
-I've been working with Claude's products daily for well over a year. I use Claude Code for development, claude.ai for research and writing, and the API for client projects. Going through these courses, I expected to skim most of it. Instead, I found myself taking notes. The AI Fluency course reframed how I think about task delegation. The Claude Code course explained architectural decisions that made my existing workflow make more sense. The Skills course gave me structure for something I'd been doing ad hoc.
+I've been working with Claude's products daily for well over a year. I use Claude Code for development, claude.ai for research and writing, and the API for client projects. Going through these courses, I expected to skim most of it. Instead, I found myself taking notes. The AI Fluency course reframed how I think about task delegation — the kind of structured thinking I argued for in [Beyond Vibe Coding](/blog/2025-10-31-beyond-vibe-coding). The Claude Code course explained architectural decisions that made my existing workflow make more sense. The Skills course gave me structure for something I'd been doing ad hoc.
 
 If you use Claude at all, even casually, carve out a few hours for the courses that match your use case. If you're responsible for AI adoption at your company, make Anthropic Academy part of your onboarding process. It's free, it's well-made, and it fills a gap that no other AI vendor is covering this well right now.
 

@@ -83,7 +83,7 @@ As a full-stack developer specializing in Node.js ecosystems, I spend my days wo
 I'll share deep dives into:
 
 * Performance optimization techniques that move the needle
-* Security-first architecture in modern web applications
+* Security-first architecture in modern web applications (see my deep dive on [React's 2025 security crisis](/blog/2025-12-18-react-under-siege))
 * Technical SEO implementation from the ground up
 * Accessibility (WCAG 2.1 AA) best practices that enhance UX for everyone
 
@@ -118,7 +118,7 @@ I've seen frameworks come and go. This taught me an invaluable lesson: **technol
 Today, I operate at the intersection of several exciting domains:
 
 **AI Integration Specialist**
-I help organizations pioneer artificial intelligence integration to automate business workflows, reduce development time and costs, and enhance overall execution efficiency. This isn't about adding "AI" as a buzzword – it's about identifying genuine opportunities for automation and augmentation.
+I help organizations pioneer artificial intelligence integration to automate business workflows, reduce development time and costs, and enhance overall execution efficiency. This isn't about adding "AI" as a buzzword – it's about identifying genuine opportunities for automation and augmentation. A good example is [the AI chatbot I built for this very site](/blog/2026-03-28-i-built-an-ai-chatbot-in-days-not-months) in under a week.
 
 **Cross-Platform Development**
 I build scalable applications for diverse platforms and industries, always leveraging modern programming languages and frameworks. My expertise centers around Node.js backend development, with a strong focus on:
@@ -189,7 +189,7 @@ You can find me on [LinkedIn](https://www.linkedin.com/in/fmir86/) or reach out 
 
 In upcoming posts, I'll dive deep into:
 
-* My current AI-assisted development workflow (tools, prompts, productivity metrics)
+* My current AI-assisted development workflow (tools, prompts, productivity metrics) — start with my [Anthropic Academy review](/blog/2026-03-15-anthropic-academy-free-ai-training) for free training resources
 * Building production-ready Next.js applications with perfect Lighthouse scores
 * AI agents that actually deliver business value
 * The future of nearshore development in the AI era

@@ -60,7 +60,7 @@ Anthropic Academy es la plataforma de aprendizaje gratuita de Anthropic, diseña
 
 ## Mi Experiencia
 
-He completado varios de estos cursos y los encuentro excepcionalmente bien estructurados. Lo que distingue a Anthropic Academy:
+He completado varios de estos cursos y los encuentro excepcionalmente bien estructurados—y los aplico a diario en mi trabajo (como cuando [construí un chatbot con IA usando Claude Code](/es/blog/construi-un-chatbot-con-ia-en-dias-no-meses)). Lo que distingue a Anthropic Academy:
 
 1. **Enfoque práctico**: Cada lección incluye ejercicios de código ejecutable
 2. **Progresión lógica**: Los cursos construyen sobre conocimiento previo
@@ -75,4 +75,4 @@ El curso sobre Model Context Protocol (MCP) es particularmente valioso. MCP es e
 
 ## Recomendación
 
-Si trabajás con IA o planeás hacerlo, Anthropic Academy es un recurso que no podés ignorar. La calidad de los materiales rivaliza con cursos pagados, y el enfoque práctico significa que podés aplicar lo aprendido inmediatamente.
+Si trabajás con IA o planeás hacerlo, Anthropic Academy es un recurso que no podés ignorar. La calidad de los materiales rivaliza con cursos pagados, y el enfoque práctico significa que podés aplicar lo aprendido inmediatamente. Para más contexto sobre cómo estas herramientas están transformando el desarrollo, leé [mi perspectiva sobre la revolución del vibe coding](/es/blog/mas-alla-del-vibe-coding), o [contactame](/es/contacto) si querés implementar IA en tu flujo de trabajo.

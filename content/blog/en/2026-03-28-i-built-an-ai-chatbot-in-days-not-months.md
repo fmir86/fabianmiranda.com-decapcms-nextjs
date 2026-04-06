@@ -52,7 +52,7 @@ If you're a skilled architect who understands system design, dependency manageme
 
 But if you don't know what you're building, or worse, if you think six words in a prompt should produce a million-dollar SaaS, AI becomes an amplifier of a different kind. It amplifies your ignorance. It over-engineers solutions you didn't ask for. It creates Frankenstein components held together by duct tape and optimism. It introduces security vulnerabilities with the confidence of a senior engineer. And the mess grows like a snowball rolling downhill, because you can't debug what you don't understand.
 
-I've seen both outcomes firsthand. The difference is never the AI. It's always the human driving it.
+I've seen both outcomes firsthand. The difference is never the AI. It's always the human driving it. I wrote about this dynamic at length in [Beyond Vibe Coding](/blog/2025-10-31-beyond-vibe-coding), and this chatbot build proved the thesis in practice.
 
 ## Coding vs. Engineering
 
@@ -62,7 +62,7 @@ Coding is the act of writing instructions a computer can execute. It's syntax, s
 
 Software engineering is something else entirely. It's the discipline of designing systems that are efficient under the hood, not just functional on the surface. It's knowing why you pick one database over another, understanding the cost implications of an API call made 10,000 times per day, recognizing that a 220,000-token system prompt sent on every request will bankrupt your client before the product launches.
 
-AI tools like Claude Code already write better boilerplate than most junior developers. They handle syntax perfectly. They know every API signature in every popular framework. The "coder" role, the person whose primary value was memorizing how to write a for-loop in seven languages, is genuinely at risk.
+AI tools like Claude Code already write better boilerplate than most junior developers. (If you want to learn Claude Code properly, [Anthropic Academy offers free courses](/blog/2026-03-15-anthropic-academy-free-ai-training) that cover everything from basics to MCP server development.) They handle syntax perfectly. They know every API signature in every popular framework. The "coder" role, the person whose primary value was memorizing how to write a for-loop in seven languages, is genuinely at risk.
 
 But the architect, the person who decides what to build, how the pieces connect, where the boundaries live, that role isn't threatened. It's supercharged.
 
@@ -130,7 +130,7 @@ The AI was the fastest, most tireless pair programmer I've ever worked with. It 
 
 If you're a developer who has spent years understanding systems, architectures, trade-offs, and the messy reality of shipping software, this is your moment. The tools available today for a few dollars a month give you the output of a small team. Not because the AI replaces your thinking, but because it eliminates the mechanical overhead of turning your thinking into code.
 
-If you're an organization sitting on disconnected data sources, manual processes that could be automated, or customer interactions that could be handled by an intelligent assistant trained on your own content, the barrier to building that solution just dropped by an order of magnitude.
+If you're an organization sitting on disconnected data sources, manual processes that could be automated, or customer interactions that could be handled by an intelligent assistant trained on your own content, the barrier to building that solution just dropped by an order of magnitude. Check out my [AI consulting services](/services) for a closer look at how I help clients ship these solutions.
 
 The question isn't whether AI can help your business. It's whether you have someone who knows how to drive it.
 
