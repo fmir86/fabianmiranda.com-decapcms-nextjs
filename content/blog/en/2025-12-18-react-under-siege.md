@@ -3,7 +3,7 @@ title: "React under Siege: Navigating the 2025 Security Crisis"
 date: 2025-12-18T12:00:00-06:00
 dateModified: 2025-12-18T12:00:00-06:00
 author: Fabian Miranda
-excerpt: React has just faced the most critical security storm in its history. From the level 10 React2Shell vulnerability to source code leaks, the ecosystem is under pressure. Here is why you shouldn't panic, but you must update.
+excerpt: "React2Shell (CVE-2025-29927) is a critical level-10 vulnerability in Next.js that bypasses all middleware auth. If you're running Next.js below 14.2.25 or 15.2.3, you're exposed. Here's what happened, why it matters, and exactly what to do."
 featured_image: /images/react-under-siege.jpg
 categories:
   - Cybersecurity

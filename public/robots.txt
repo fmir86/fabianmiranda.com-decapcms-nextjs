@@ -3,12 +3,124 @@ User-agent: *
 Allow: /
 Disallow: /admin
 
-# Googlebot,Googlebot-Image,Googlebot-News,Googlebot-Video,Bingbot,Slurp,DuckDuckBot,Baiduspider,YandexBot,Sogou,Exabot,facebot,ia_archiver
-User-agent: Googlebot,Googlebot-Image,Googlebot-News,Googlebot-Video,Bingbot,Slurp,DuckDuckBot,Baiduspider,YandexBot,Sogou,Exabot,facebot,ia_archiver
+# Googlebot
+User-agent: Googlebot
 Allow: /
 
-# GPTBot,ChatGPT-User,Google-Extended,GoogleOther,anthropic-ai,ClaudeBot,Claude-Web,PerplexityBot,Applebot,Applebot-Extended,cohere-ai,YouBot,Diffbot,ImagesiftBot,Omgilibot,FacebookBot,PetalBot
-User-agent: GPTBot,ChatGPT-User,Google-Extended,GoogleOther,anthropic-ai,ClaudeBot,Claude-Web,PerplexityBot,Applebot,Applebot-Extended,cohere-ai,YouBot,Diffbot,ImagesiftBot,Omgilibot,FacebookBot,PetalBot
+# Googlebot-Image
+User-agent: Googlebot-Image
+Allow: /
+
+# Googlebot-News
+User-agent: Googlebot-News
+Allow: /
+
+# Googlebot-Video
+User-agent: Googlebot-Video
+Allow: /
+
+# Bingbot
+User-agent: Bingbot
+Allow: /
+
+# Slurp
+User-agent: Slurp
+Allow: /
+
+# DuckDuckBot
+User-agent: DuckDuckBot
+Allow: /
+
+# Baiduspider
+User-agent: Baiduspider
+Allow: /
+
+# YandexBot
+User-agent: YandexBot
+Allow: /
+
+# Sogou
+User-agent: Sogou
+Allow: /
+
+# Exabot
+User-agent: Exabot
+Allow: /
+
+# facebot
+User-agent: facebot
+Allow: /
+
+# ia_archiver
+User-agent: ia_archiver
+Allow: /
+
+# GPTBot
+User-agent: GPTBot
+Allow: /
+
+# ChatGPT-User
+User-agent: ChatGPT-User
+Allow: /
+
+# Google-Extended
+User-agent: Google-Extended
+Allow: /
+
+# GoogleOther
+User-agent: GoogleOther
+Allow: /
+
+# anthropic-ai
+User-agent: anthropic-ai
+Allow: /
+
+# ClaudeBot
+User-agent: ClaudeBot
+Allow: /
+
+# Claude-Web
+User-agent: Claude-Web
+Allow: /
+
+# PerplexityBot
+User-agent: PerplexityBot
+Allow: /
+
+# Applebot
+User-agent: Applebot
+Allow: /
+
+# Applebot-Extended
+User-agent: Applebot-Extended
+Allow: /
+
+# cohere-ai
+User-agent: cohere-ai
+Allow: /
+
+# YouBot
+User-agent: YouBot
+Allow: /
+
+# Diffbot
+User-agent: Diffbot
+Allow: /
+
+# ImagesiftBot
+User-agent: ImagesiftBot
+Allow: /
+
+# Omgilibot
+User-agent: Omgilibot
+Allow: /
+
+# FacebookBot
+User-agent: FacebookBot
+Allow: /
+
+# PetalBot
+User-agent: PetalBot
 Allow: /
 
 # Host

@@ -1,12 +1,9 @@
 ---
-title: "Beyond Vibe Coding: The AI-Assisted Programming Revolution"
+title: "Beyond Vibe Coding: Why AI Tools Amplify What You Already Are"
 date: 2025-10-31T12:00:00-06:00
 dateModified: 2025-10-31T12:00:00-06:00
 author: Fabian Miranda
-excerpt: The bubble grew fast. Almost overnight, a new term emerged that
-  promised to democratize software development - vibe coding. But then reality
-  hit. This is the story of how we evolved from magical thinking to AI-assisted
-  programming mastery.
+excerpt: AI coding tools like Cursor, Claude Code, and Copilot don't replace developers — they amplify what you already are. A skilled architect becomes 4x faster. An inexperienced dev ships bugs 4x faster. Here's what 20 years of engineering taught me about using AI tools effectively.
 featured_image: /images/codebot.jpg
 categories:
   - AI Development

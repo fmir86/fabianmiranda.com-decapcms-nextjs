@@ -3,7 +3,7 @@ title: "The Tailwind Paradox: When Your Product's Success Kills Your Business"
 date: 2026-01-17T12:00:00-06:00
 dateModified: 2026-01-17T12:00:00-06:00
 author: Fabian Miranda
-excerpt: "Adam Wathan, the creator of Tailwind CSS, dropped a bombshell in a GitHub comment: 75% of their engineering team was gone. Laid off. Not because Tailwind was failing — quite the opposite."
+excerpt: "Tailwind CSS hit 75M downloads/month, then laid off 75% of its team. Why? AI tools made their paid UI components worthless. A practitioner's analysis of the open-source business paradox that will hit every dev tool company."
 featured_image: /images/the-tailwind-paradox.jpg
 categories:
   - Business Insights

@@ -2,9 +2,7 @@
 en:
   seo:
     title: Nearshore AI Consulting & Software Development Services
-    description: AI-powered software development & automated digital production.
-      Systems integration for comprehensive data analysis with Artificial
-      Intelligence.
+    description: "Nearshore AI consulting from Costa Rica (GMT-6). Full-stack development, AI integration, and digital production for US companies. 20+ years experience, 40-50% cost savings vs US rates. Book a free discovery call."
     image: /images/services/development-1.jpg
   hero:
     title_line1: Technology Solutions

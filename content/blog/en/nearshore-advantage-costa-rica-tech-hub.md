@@ -1,10 +1,10 @@
 ---
-excerpt: Why US companies are choosing Costa Rica for nearshore software development. A practical guide covering cost analysis, timezone alignment, talent quality, and how to build effective distributed teams — based on 15+ years of hands-on experience.
+excerpt: "Real cost comparisons, timezone advantages, and talent data for nearshore software development in Costa Rica. Not agency marketing — actual numbers from 15+ years as a Costa Rica-based developer working with US companies."
 featured_image: /images/costarica-tech-hub.jpg
 author: Fabian Miranda
 featured: false
 published: true
-title: "The Nearshore Advantage: Why Costa Rica is Your Next Tech Hub"
+title: "Nearshore Development in Costa Rica: A Developer's 15-Year Perspective"
 date: 2024-11-01T10:00:00-06:00
 dateModified: 2026-03-15T10:00:00-06:00
 tags:

@@ -3,7 +3,7 @@ title: "I Built an AI Chatbot in Days, Not Weeks. Here's What That Actually Mean
 date: 2026-03-28T12:00:00-06:00
 dateModified: 2026-03-28T12:00:00-06:00
 author: Fabian Miranda
-excerpt: I've been integrating AI into enterprise workflows for years. But I'd never built something as "simple" as a chatbot for my own site. When I finally did, the process revealed everything that's right and wrong about AI-assisted development today.
+excerpt: "How I built a production AI chatbot in under a week using Gemini 2.5 Flash, Vercel AI SDK, and Claude Code. Full breakdown of the stack, costs (near-zero), and what AI coding tools actually handle vs what still needs a real engineer."
 featured_image: /images/ai-butler.jpg
 categories:
   - AI Development

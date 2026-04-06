@@ -3,7 +3,7 @@ title: "Anthropic Academy: Free AI Training That's Actually Worth Your Time"
 date: 2026-03-15T10:00:00-06:00
 dateModified: 2026-03-15T10:00:00-06:00
 author: Fabian Miranda
-excerpt: Anthropic just launched a free learning platform with 13 courses covering everything from basic Claude usage to MCP development and AI agent skills. Whether you're new to AI tools or already using Claude daily, there's real value here. I went through the courses and here's what matters.
+excerpt: "I took all 13 free Anthropic Academy courses. Here's what's actually worth your time: AI Fluency framework, Claude Code workflows, MCP server development, and agent skills. No paywall, certificates included. Full breakdown by learning track."
 featured_image: /images/anthropic-academy.jpg
 categories:
   - AI Development
