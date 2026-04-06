@@ -394,7 +394,7 @@ Costa Rica continues to invest in:
 
 In today's global economy, the question isn't whether to embrace distributed development – it's how to do it effectively. Costa Rica's nearshore model offers the perfect balance of cost efficiency, quality excellence, and operational compatibility.
 
-With 15+ years of experience bridging North American innovation with Central American talent, I've seen firsthand how the right nearshore partnership can transform businesses. From startups racing to market to enterprises modernizing legacy systems, the Costa Rican advantage is real, measurable, and sustainable.
+With 15+ years of experience bridging North American innovation with Central American talent, I've seen firsthand how the right nearshore partnership can transform businesses. You can see the full range of what I offer on my [services page](/services). From startups racing to market to enterprises modernizing legacy systems, the Costa Rican advantage is real, measurable, and sustainable.
 
 The future of technology development is distributed, collaborative, and borderless. Costa Rica stands ready to be your partner in this journey, offering not just cost savings, but a true competitive advantage in the global marketplace.
 
