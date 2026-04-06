@@ -18,6 +18,15 @@ tags:
 categories:
   - AI & Machine Learning
   - Education
+key_takeaways:
+  - Anthropic Academy ofrece 13 cursos gratuitos con certificados que cubren desde lo básico de Claude hasta desarrollo avanzado de MCP y habilidades de agentes IA
+  - No se requiere suscripción a Claude — todos los cursos son autodirigidos y gratuitos sin paywall
+  - El framework de AI Fluency enseña prompt engineering estructurado que funciona en todos los LLMs, no solo Claude
+  - Los cursos de Claude Code cubren flujos de trabajo reales para desarrolladores incluyendo desarrollo de servidores MCP y patrones de codificación agéntica
+  - Ideal para desarrolladores que ya usan herramientas de IA diariamente y quieren formalizar su enfoque
+related_posts:
+  - 2025-10-31-beyond-vibe-coding
+  - 2026-03-28-i-built-an-ai-chatbot-in-days-not-months
 ---
 
 ## TLDR

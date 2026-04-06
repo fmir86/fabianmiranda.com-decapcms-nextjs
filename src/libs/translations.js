@@ -34,6 +34,9 @@ const translations = {
     'blogPost.haveThoughts': 'Have thoughts on this post? Want to discuss technology, AI, or potential collaborations?',
     'blogPost.getInTouch': 'Get In Touch',
     'blogPost.readMorePosts': 'Read More Posts',
+    'blogPost.keyTakeaways': 'Key Takeaways',
+    'blogPost.relatedPosts': 'Related Posts',
+    'blogPost.faq': 'Frequently Asked Questions',
 
     // Work page
     'work.filterProjects': 'Filter Projects',
@@ -119,6 +122,9 @@ const translations = {
     'blogPost.haveThoughts': '¿Tiene opiniones sobre este artículo? ¿Desea discutir sobre tecnología, IA o posibles colaboraciones?',
     'blogPost.getInTouch': 'Contácteme',
     'blogPost.readMorePosts': 'Leer Más Artículos',
+    'blogPost.keyTakeaways': 'Puntos Clave',
+    'blogPost.relatedPosts': 'Artículos Relacionados',
+    'blogPost.faq': 'Preguntas Frecuentes',
 
     // Work page
     'work.filterProjects': 'Filtrar Proyectos',

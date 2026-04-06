@@ -7,8 +7,17 @@ featured_image: /images/portrait.png
 author: Fabian Miranda
 featured: true
 published: true
+key_takeaways:
+  - This blog covers AI development, web engineering, and the future of software from a practitioner's perspective
+  - Written by Fabian Miranda, a creative technologist with 20+ years of experience based in Costa Rica
+  - Topics include AI-assisted coding, nearshore development, and emerging technology trends
+related_posts:
+  - 2025-10-31-beyond-vibe-coding
+  - nearshore-advantage-costa-rica-tech-hub
+  - 2026-03-28-i-built-an-ai-chatbot-in-days-not-months
 title: "Hello World: Launching My Tech Journey Log"
 date: 2024-10-31T10:00:00-06:00
+dateModified: 2024-10-31T10:00:00-06:00
 tags:
   - AI
   - Web Development

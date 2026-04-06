@@ -5,6 +5,8 @@ import Layout from "../../components/Layout/Layout"
 import SEO from "../../components/SEO/SEO"
 import SchemaMarkup from "../../components/SEO/SchemaMarkup"
 import ShareButtons from "../../components/ShareButtons/ShareButtons"
+import KeyTakeaways from "../../components/KeyTakeaways/KeyTakeaways"
+import RelatedPosts from "../../components/RelatedPosts/RelatedPosts"
 import { loadBlogPosts } from "../../libs/loadBlogPosts"
 import { loadHeaderData, loadFooterData } from "../../libs/loadGlobalData"
 import { t } from "../../libs/translations"
@@ -15,7 +17,7 @@ import rehypeRaw from 'rehype-raw'
 import styles from "./BlogPost.module.scss"
 import useIsMobile from "../../hooks/useIsMobile"
 
-const BlogPost = ({ post, headerData, footerData, locale, alternateSlug }) => {
+const BlogPost = ({ post, relatedPosts, headerData, footerData, locale, alternateSlug }) => {
   const isMobile = useIsMobile();
 
   if (!post) {
@@ -33,6 +35,10 @@ const BlogPost = ({ post, headerData, footerData, locale, alternateSlug }) => {
         keywords={post.tags?.join(', ')}
         locale={locale}
         alternateSlug={alternateSlug}
+        publishedTime={post.date}
+        modifiedTime={post.dateModified || post.date}
+        tags={post.tags || []}
+        categories={post.categories || []}
       />
       <SchemaMarkup
         type="article"
@@ -42,10 +48,12 @@ const BlogPost = ({ post, headerData, footerData, locale, alternateSlug }) => {
           excerpt: post.excerpt,
           slug: post.slug,
           date: post.date,
+          dateModified: post.dateModified,
           featured_image: post.featuredImage,
           tags: post.tags,
           categories: post.categories
         }}
+        faq={post.faq}
         breadcrumbs={[
           { name: 'Home', url: '/' },
           { name: 'Blog', url: '/blog' },
@@ -100,8 +108,17 @@ const BlogPost = ({ post, headerData, footerData, locale, alternateSlug }) => {
                 ))}
               </div>
             )}
+
           </div>
         </header>
+
+        {/* Share Buttons */}
+        <ShareButtons
+          url={localePath(`/blog/${post.slug}`, locale)}
+          title={post.title}
+          description={post.excerpt}
+          locale={locale}
+        />
 
         {/* Featured Image */}
         {post.featuredImage && (
@@ -118,18 +135,31 @@ const BlogPost = ({ post, headerData, footerData, locale, alternateSlug }) => {
           </div>
         )}
 
-        {/* Share Buttons */}
-        <ShareButtons
-          url={localePath(`/blog/${post.slug}`, locale)}
-          title={post.title}
-          description={post.excerpt}
-          locale={locale}
-        />
+        {/* Key Takeaways */}
+        <KeyTakeaways items={post.keyTakeaways} locale={locale} />
 
         {/* Blog Content */}
         <section className={styles.content}>
           <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>{post.body}</ReactMarkdown>
         </section>
+
+        {/* FAQ Section */}
+        {post.faq && post.faq.length > 0 && (
+          <section className={styles.content}>
+            <h2>{t(locale, 'blogPost.faq')}</h2>
+            {post.faq.map((item, index) => (
+              <div key={index} style={{ marginBottom: '1.5rem' }}>
+                <h3 style={{ color: 'white', textTransform: 'none', fontSize: '1.125rem', fontWeight: 400 }}>
+                  {item.question}
+                </h3>
+                <p>{item.answer}</p>
+              </div>
+            ))}
+          </section>
+        )}
+
+        {/* Related Posts */}
+        <RelatedPosts posts={relatedPosts} locale={locale} />
 
         {/* Footer CTA */}
         <section className={styles.cta}>
@@ -138,9 +168,6 @@ const BlogPost = ({ post, headerData, footerData, locale, alternateSlug }) => {
           <div className={styles.ctaButtons}>
             <Link href={localePath('/contact', locale)} className="lightblue-cta">
               {t(locale, 'blogPost.getInTouch')}
-            </Link>
-            <Link href={localePath('/blog', locale)} className={styles.secondaryButton}>
-              {t(locale, 'blogPost.readMorePosts')}
             </Link>
           </div>
         </section>
@@ -182,9 +209,25 @@ export async function getStaticProps({ params, locale }) {
   const altPost = altPosts.find(p => p.filename === post.filename);
   const alternateSlug = altPost?.slug || post.slug;
 
+  // Resolve related posts: by explicit slugs or fallback to same category
+  let relatedPosts = [];
+  if (post.relatedPostSlugs && post.relatedPostSlugs.length > 0) {
+    relatedPosts = post.relatedPostSlugs
+      .map(slug => posts.find(p => p.slug === slug))
+      .filter(Boolean);
+  }
+  if (relatedPosts.length === 0 && post.categories && post.categories.length > 0) {
+    relatedPosts = posts
+      .filter(p => p.slug !== post.slug && p.categories?.some(c => post.categories.includes(c)))
+      .slice(0, 3);
+  }
+  // Strip body from related posts to keep props small
+  relatedPosts = relatedPosts.slice(0, 3).map(({ body, ...rest }) => rest);
+
   return {
     props: {
       post,
+      relatedPosts,
       headerData,
       footerData,
       locale,

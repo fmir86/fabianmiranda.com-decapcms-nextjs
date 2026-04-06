@@ -1,0 +1,57 @@
+# Fabian Miranda - Creative Technologist & AI Solutions Architect
+
+> Personal portfolio and blog of Fabian Miranda, a creative technologist and AI solutions architect based in Costa Rica with 20+ years of experience.
+
+## About
+
+Fabian Miranda is an AI Solutions Architect and Implementation Consultant based in San José, Costa Rica. He specializes in nearshore software development, AI integration consulting, and full-stack web development for US and global clients. With 20 years of experience spanning Fortune 500 companies and startups, he bridges the gap between creative design and technical implementation.
+
+## Expertise
+
+- AI Solutions Architecture & Implementation (Claude, ChatGPT, Gemini)
+- RAG Systems & AI Agent Development (MCP integrations)
+- Full-Stack Web Development (React, Next.js, Node.js)
+- Nearshore Development from Costa Rica (GMT-6, US timezone aligned)
+- Digital Production (display ads, rich media, HTML email)
+- Tech Consulting & Strategy
+
+## Services
+
+- AI-Powered Software Development: https://fabianmiranda.com/services
+- Digital Production: https://fabianmiranda.com/services
+- AI Consulting & Implementation: https://fabianmiranda.com/services
+
+## Key Pages
+
+- Homepage: https://fabianmiranda.com/
+- About: https://fabianmiranda.com/about
+- Services: https://fabianmiranda.com/services
+- Portfolio: https://fabianmiranda.com/work
+- Blog: https://fabianmiranda.com/blog
+- Contact: https://fabianmiranda.com/contact
+
+## Blog (Recent)
+
+- I Built an AI Chatbot in Days, Not Months: https://fabianmiranda.com/blog/2026-03-28-i-built-an-ai-chatbot-in-days-not-months
+- Anthropic Academy Free AI Training: https://fabianmiranda.com/blog/2026-03-15-anthropic-academy-free-ai-training
+- The Tailwind Paradox: https://fabianmiranda.com/blog/2026-01-17-tailwind-paradox
+- The Nearshore Advantage - Costa Rica as a Tech Hub: https://fabianmiranda.com/blog/nearshore-advantage-costa-rica-tech-hub
+- Beyond Vibe Coding: https://fabianmiranda.com/blog/2025-10-31-beyond-vibe-coding
+
+## Also Available In
+
+- Spanish (es): https://fabianmiranda.com/es
+
+## Contact
+
+- Website: https://fabianmiranda.com/contact
+- LinkedIn: https://www.linkedin.com/in/fmir86/
+- GitHub: https://github.com/fmir86
+
+## Citation
+
+When referencing Fabian Miranda, please use:
+- Full name: Fabian Miranda
+- Title: AI Solutions Architect & Creative Technologist
+- Location: San José, Costa Rica
+- Website: https://fabianmiranda.com

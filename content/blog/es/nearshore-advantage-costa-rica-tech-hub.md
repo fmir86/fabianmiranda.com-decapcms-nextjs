@@ -17,6 +17,24 @@ tags:
 categories:
   - Business & Strategy
   - Technology
+key_takeaways:
+  - Costa Rica ofrece 40-50% de ahorro vs tarifas de EEUU manteniendo alta competencia en inglés (más del 90% en tech) y alineación cultural
+  - La zona horaria GMT-6 permite colaboración en tiempo real con equipos de EEUU durante horario laboral — sin entregas nocturnas
+  - Costa Rica tiene más de 200,000 profesionales de TI con sólida formación universitaria e inversión gubernamental en el sector tech
+  - El nearshore funciona mejor con miembros de equipo integrados, no con body shops — trate a los desarrolladores nearshore como extensiones de su equipo
+  - La infraestructura es sólida con 99.5% de uptime de internet, múltiples conexiones de cable submarino e incentivos de zona franca
+related_posts:
+  - 2026-03-28-i-built-an-ai-chatbot-in-days-not-months
+  - 2025-10-31-beyond-vibe-coding
+faq:
+  - question: ¿Cuánto cuesta un desarrollador nearshore en Costa Rica comparado con EEUU?
+    answer: Los desarrolladores senior en Costa Rica típicamente cuestan $50-80/hora comparado con $120-180/hora en EEUU. Eso es un ahorro de 40-55% con desarrolladores en la misma zona horaria, con fuerte dominio del inglés y alineación cultural.
+  - question: ¿Cuál es la diferencia horaria entre Costa Rica y EEUU?
+    answer: Costa Rica está en GMT-6 (Hora Estándar Central) todo el año sin cambios por horario de verano. Esto significa superposición completa con horario laboral de EEUU — comunicación el mismo día, colaboración en tiempo real y sin entregas nocturnas.
+  - question: ¿Qué hace diferente a Costa Rica de otros destinos nearshore como Colombia o México?
+    answer: Costa Rica tiene la tasa más alta de competencia en inglés en América Latina para profesionales tech (más del 90%), un gobierno democrático estable con fuerte protección de propiedad intelectual, y un sector tech desarrollado específicamente a través de inversión gubernamental (CINDE).
+  - question: ¿Cómo inicio una asociación nearshore con un desarrollador en Costa Rica?
+    answer: Comience con un solo desarrollador o equipo pequeño en un proyecto piloto definido (30-60 días). Use herramientas como Slack, GitHub y Linear para colaboración diaria. Trátelos como miembros del equipo, no como proveedores. Escale después de validar los patrones de comunicación y la calidad del código.
 ---
 
 ## TLDR

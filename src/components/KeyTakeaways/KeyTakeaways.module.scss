@@ -1,0 +1,51 @@
+.container {
+  max-width: 720px;
+  margin: 0 auto 3rem;
+  padding: 1.5rem 2rem;
+  background: rgba(38, 214, 252, 0.05);
+  border-left: 4px solid #26d6fc;
+  border-radius: 0 0.5rem 0.5rem 0;
+  border: 1px solid rgba(38, 214, 252, 0.15);
+  border-left: 4px solid #26d6fc;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #26d6fc;
+  flex-shrink: 0;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #26d6fc;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.list {
+  margin: 0;
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+
+.item {
+  font-size: 1rem;
+  line-height: 1.7;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0.5rem;
+}
+
+.item:last-child {
+  margin-bottom: 0;
+}

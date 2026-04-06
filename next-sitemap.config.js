@@ -33,7 +33,7 @@ module.exports = {
   siteUrl: process.env.SITE_URL || 'https://fabianmiranda.com',
   generateRobotsTxt: true,
   generateIndexSitemap: false,
-  exclude: ['/admin', '/admin/*'],
+  exclude: ['/admin', '/admin/*', '/404', '/es/404'],
 
   // No global alternateRefs — we handle hreflang per-entry in transform
   // because translated paths differ between EN and ES.

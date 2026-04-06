@@ -17,6 +17,16 @@ tags:
 categories:
   - AI & Machine Learning
   - Industry Analysis
+key_takeaways:
+  - Tailwind Labs despidió al 75% de su equipo de ingeniería a pesar de que el framework tiene 75M de descargas/mes — el éxito del producto destruyó el modelo de negocio
+  - La paradoja central es que las herramientas de IA hicieron trivial generar componentes UI de Tailwind, destruyendo el valor comercial de las bibliotecas artesanales
+  - Open-sourcear Tailwind UI fue una respuesta estratégica, no una derrota — posiciona a Tailwind como infraestructura
+  - Este patrón se repetirá en todo el ecosistema de herramientas dev a medida que la IA comoditiza lo que antes era propiedad intelectual premium
+  - Para desarrolladores, la lección es clara — desarrollen habilidades en áreas que la IA no puede replicar fácilmente
+related_posts:
+  - 2025-10-31-beyond-vibe-coding
+  - 2026-03-28-i-built-an-ai-chatbot-in-days-not-months
+  - 2025-12-18-react-under-siege
 ---
 
 ## TLDR

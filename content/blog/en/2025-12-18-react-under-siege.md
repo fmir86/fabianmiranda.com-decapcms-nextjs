@@ -1,6 +1,7 @@
 ---
 title: "React under Siege: Navigating the 2025 Security Crisis"
 date: 2025-12-18T12:00:00-06:00
+dateModified: 2025-12-18T12:00:00-06:00
 author: Fabian Miranda
 excerpt: React has just faced the most critical security storm in its history. From the level 10 React2Shell vulnerability to source code leaks, the ecosystem is under pressure. Here is why you shouldn't panic, but you must update.
 featured_image: /images/react-under-siege.jpg
@@ -18,6 +19,15 @@ tags:
   - Server Components
 published: true
 featured: true
+key_takeaways:
+  - React2Shell (CVE-2025-29927) was a critical level-10 vulnerability allowing remote code execution through React Server Components
+  - The attack exploited a middleware bypass in Next.js that let attackers skip authentication and authorization entirely
+  - Update immediately to Next.js 14.2.25+ or 15.2.3+ — any version below these is vulnerable
+  - This is a wake-up call for the JavaScript ecosystem about supply chain security and the risks of complex server-side rendering
+  - Defense in depth matters — never rely solely on middleware for authorization, always validate at the data layer too
+related_posts:
+  - 2026-01-17-tailwind-paradox
+  - 2025-10-31-beyond-vibe-coding
 ---
 
 If you are using **React**, you might be in danger. This isn't just another small bug; it is a full-blown security crisis. In the last few days, the React community has gone from discovering the most critical vulnerability in its history to dealing with a cascade of follow-up threats that have left even the most robust systems vulnerable.

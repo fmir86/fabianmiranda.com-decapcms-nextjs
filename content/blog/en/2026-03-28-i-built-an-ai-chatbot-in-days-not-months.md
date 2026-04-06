@@ -1,6 +1,7 @@
 ---
 title: "I Built an AI Chatbot in Days, Not Weeks. Here's What That Actually Means."
 date: 2026-03-28T12:00:00-06:00
+dateModified: 2026-03-28T12:00:00-06:00
 author: Fabian Miranda
 excerpt: I've been integrating AI into enterprise workflows for years. But I'd never built something as "simple" as a chatbot for my own site. When I finally did, the process revealed everything that's right and wrong about AI-assisted development today.
 featured_image: /images/ai-butler.jpg
@@ -16,6 +17,23 @@ tags:
   - Software Architecture
 published: true
 featured: true
+key_takeaways:
+  - A solo developer can ship a production AI chatbot in under a week using Gemini 2.5 Flash, Vercel AI SDK, and Next.js
+  - The real challenge is not the AI integration but the engineering around it — rate limiting, input sanitization, streaming, error handling
+  - AI coding tools like Claude Code accelerated development by 3-4x but still required architectural decisions from an experienced engineer
+  - Cost of running the chatbot is near-zero thanks to Gemini's free tier and efficient context caching
+  - The chatbot (Alfred AI) handles visitor questions about services, portfolio, and expertise with personality and accuracy
+related_posts:
+  - 2025-10-31-beyond-vibe-coding
+  - 2026-03-15-anthropic-academy-free-ai-training
+  - nearshore-advantage-costa-rica-tech-hub
+faq:
+  - question: How long does it take to build an AI chatbot from scratch?
+    answer: With modern tools like Vercel AI SDK and Gemini API, a production-ready chatbot can be built in 3-5 days by an experienced developer. This includes streaming responses, markdown rendering, rate limiting, and analytics integration.
+  - question: What does it cost to run an AI chatbot on a personal site?
+    answer: Near-zero. Using Gemini 2.5 Flash with context caching, the operational cost is minimal. The free tier of most AI APIs is sufficient for personal sites with moderate traffic.
+  - question: Can AI coding tools like Claude Code build a chatbot by themselves?
+    answer: AI tools can generate 70-80% of the code, but they cannot make architectural decisions, design security boundaries, or handle edge cases without experienced engineering oversight. They amplify skill, not replace it.
 ---
 
 I work with AI every day. I build integrations, analyze data pipelines, connect disconnected systems for clients across industries. I've watched AI rewrite the rules of what a single developer can accomplish.

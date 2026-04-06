@@ -30,6 +30,8 @@ const CaseStudy = ({ caseStudy, headerData, footerData, locale, alternateSlug })
         keywords={caseStudy.tags?.join(', ')}
         locale={locale}
         alternateSlug={alternateSlug}
+        publishedTime={caseStudy.date}
+        tags={caseStudy.tags || []}
       />
       <SchemaMarkup
         type="caseStudy"
@@ -79,7 +81,31 @@ const CaseStudy = ({ caseStudy, headerData, footerData, locale, alternateSlug })
               </div>
             )}
 
-            {/* Action Buttons */}
+          </div>
+        </header>
+
+        {/* Share Buttons */}
+        <ShareButtons
+          url={localePath(`/work/${caseStudy.slug}`, locale)}
+          title={caseStudy.title}
+          description={caseStudy.description}
+          locale={locale}
+        />
+
+        {/* Featured Image with Action Buttons overlay */}
+        {caseStudy.image && (
+          <div className={styles.featuredImage}>
+            <Image
+              src={caseStudy.image}
+              alt={`Project screenshot: ${caseStudy.title}`}
+              width={800}
+              height={400}
+              className={styles.image}
+              style={{ width: '100%', height: 'auto' }}
+              sizes="(max-width: 768px) 100vw, 800px"
+              priority
+              quality={isMobile ? 50 : 100}
+            />
             <div className={styles.actions}>
               {caseStudy.liveUrl && (
                 <a
@@ -104,23 +130,6 @@ const CaseStudy = ({ caseStudy, headerData, footerData, locale, alternateSlug })
                 </a>
               )}
             </div>
-          </div>
-        </header>
-
-        {/* Featured Image */}
-        {caseStudy.image && (
-          <div className={styles.featuredImage}>
-            <Image
-              src={caseStudy.image}
-              alt={`Project screenshot: ${caseStudy.title}`}
-              width={800}
-              height={400}
-              className={styles.image}
-              style={{ width: '100%', height: 'auto' }}
-              sizes="(max-width: 768px) 100vw, 800px"
-              priority
-              quality={isMobile ? 50 : 100}
-            />
           </div>
         )}
 
@@ -156,14 +165,6 @@ const CaseStudy = ({ caseStudy, headerData, footerData, locale, alternateSlug })
             )}
           </div>
         </section>
-
-        {/* Share Buttons */}
-        <ShareButtons
-          url={localePath(`/work/${caseStudy.slug}`, locale)}
-          title={caseStudy.title}
-          description={caseStudy.description}
-          locale={locale}
-        />
 
         {/* Full Case Study Content */}
         {caseStudy.content && (

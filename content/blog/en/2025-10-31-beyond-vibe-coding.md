@@ -1,6 +1,7 @@
 ---
 title: "Beyond Vibe Coding: The AI-Assisted Programming Revolution"
 date: 2025-10-31T12:00:00-06:00
+dateModified: 2025-10-31T12:00:00-06:00
 author: Fabian Miranda
 excerpt: The bubble grew fast. Almost overnight, a new term emerged that
   promised to democratize software development - vibe coding. But then reality
@@ -22,6 +23,16 @@ tags:
   - AI Agents
 published: true
 featured: true
+key_takeaways:
+  - AI coding tools act as amplifiers, not replacements — they multiply the effectiveness of skilled engineers and the mistakes of inexperienced ones
+  - Vibe coding (writing code by describing what you want) works for prototypes but fails for production systems that need security, scalability, and maintainability
+  - The developers who thrive with AI tools are the ones who already understand software architecture, not those who rely on AI to make architectural decisions
+  - The real productivity gain comes from AI-assisted programming within a sound engineering foundation, not from removing the engineer
+  - Tools like Claude Code, Cursor, and GitHub Copilot are most effective when used by developers who can evaluate and correct the AI's output
+related_posts:
+  - 2026-03-28-i-built-an-ai-chatbot-in-days-not-months
+  - 2026-03-15-anthropic-academy-free-ai-training
+  - 2026-01-17-tailwind-paradox
 ---
 
 The bubble grew fast. Almost overnight, a new term emerged that promised to democratize software development: **vibe coding**. By early 2025, when Andrej Karpathy coined the phrase in February, the tech world was already in a frenzy. People everywhere were firing their technical personnel, convinced that thanks to AI, they could build anything themselves. No programmers needed—just vibes and a dream.

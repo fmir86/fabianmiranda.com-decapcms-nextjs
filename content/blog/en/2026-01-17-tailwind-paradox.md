@@ -1,6 +1,7 @@
 ---
 title: "The Tailwind Paradox: When Your Product's Success Kills Your Business"
 date: 2026-01-17T12:00:00-06:00
+dateModified: 2026-01-17T12:00:00-06:00
 author: Fabian Miranda
 excerpt: "Adam Wathan, the creator of Tailwind CSS, dropped a bombshell in a GitHub comment: 75% of their engineering team was gone. Laid off. Not because Tailwind was failing — quite the opposite."
 featured_image: /images/the-tailwind-paradox.jpg
@@ -18,6 +19,16 @@ tags:
   
 published: true
 featured: true
+key_takeaways:
+  - Tailwind Labs laid off 75% of their engineering team despite the framework hitting 75M downloads/month — success of the product killed the business model
+  - The core paradox is that AI coding tools made Tailwind UI components trivially easy to generate, destroying the commercial value of hand-crafted component libraries
+  - Open-sourcing Tailwind UI was a strategic response, not a defeat — it positions Tailwind as infrastructure rather than a product
+  - This pattern will repeat across the entire dev tools ecosystem as AI commoditizes what was previously premium intellectual property
+  - For developers, the lesson is clear — build skills in areas AI cannot easily replicate, like system architecture and business domain expertise
+related_posts:
+  - 2025-10-31-beyond-vibe-coding
+  - 2026-03-28-i-built-an-ai-chatbot-in-days-not-months
+  - 2025-12-18-react-under-siege
 ---
 
 Last week, something happened that made me stop scrolling and actually think. Adam Wathan, the creator of Tailwind CSS, dropped a bombshell in a GitHub comment: 75% of their engineering team was gone. Laid off. Not because Tailwind was failing — quite the opposite. The framework is more popular than ever, hitting 75 million downloads a month. The 2025 State of CSS survey shows 51% of developers use it.

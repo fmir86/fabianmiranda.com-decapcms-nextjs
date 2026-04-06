@@ -1,0 +1,93 @@
+.container {
+  max-width: 720px;
+  margin: 0 auto 3rem;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: #26d6fc;
+  margin-bottom: 1.5rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  text-decoration: none;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.card:hover {
+  border-color: rgba(38, 214, 252, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.imageWrapper {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.cardContent {
+  padding: 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cardTitle {
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: white;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.cardCategory {
+  font-size: 0.75rem;
+  color: #d648d0;
+  font-weight: 300;
+  margin-top: auto;
+}
+
+.morePosts {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.morePostsLink {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  text-decoration: none;
+  border-radius: 0.25rem;
+  font-weight: 300;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+}
+
+.morePostsLink:hover {
+  background: #d648d0;
+  color: white;
+}

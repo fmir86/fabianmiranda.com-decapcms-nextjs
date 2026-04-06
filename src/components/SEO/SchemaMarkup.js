@@ -126,8 +126,8 @@ export const organizationSchema = {
   }
 };
 
-// WebSite Schema
-export const websiteSchema = {
+// WebSite Schema (generated per locale)
+export const generateWebsiteSchema = (locale = 'en') => ({
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   '@id': `${SITE_URL}/#website`,
@@ -139,8 +139,8 @@ export const websiteSchema = {
     '@id': `${SITE_URL}/#person`,
     name: 'Fabian Miranda'
   },
-  inLanguage: 'en-US'
-};
+  inLanguage: getLanguageCode(locale)
+});
 
 // Helper to get language code from locale
 const getLanguageCode = (locale) => locale === 'es' ? 'es-CR' : 'en-US';
@@ -301,11 +301,26 @@ export const servicesFaqSchema = {
 };
 
 // SchemaMarkup Component
+// Generate FAQ Schema from array of {question, answer} objects
+export const generateFaqSchema = (faqItems) => ({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map(item => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer
+    }
+  }))
+});
+
 const SchemaMarkup = ({
   type = 'website',
   article = null,
   caseStudy = null,
   breadcrumbs = null,
+  faq = null,
   includeServices = false,
   locale = 'en'
 }) => {
@@ -315,7 +330,7 @@ const SchemaMarkup = ({
   if (type === 'website' || type === 'homepage') {
     schemas.push(personSchema);
     schemas.push(organizationSchema);
-    schemas.push(websiteSchema);
+    schemas.push(generateWebsiteSchema(locale));
   }
 
   // Include Person schema on About page
@@ -333,6 +348,11 @@ const SchemaMarkup = ({
   // Include Article schema for blog posts
   if (type === 'article' && article) {
     schemas.push(generateArticleSchema(article, locale));
+  }
+
+  // Include FAQ schema if faq items provided (blog posts or any page)
+  if (faq && faq.length > 0) {
+    schemas.push(generateFaqSchema(faq));
   }
 
   // Include Case Study schema

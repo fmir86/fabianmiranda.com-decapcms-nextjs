@@ -53,6 +53,24 @@ export function loadBlogPosts(locale = 'en') {
         post.featured = data.featured;
       }
 
+      // dateModified for SEO/GEO
+      if (data.dateModified) {
+        post.dateModified = typeof data.dateModified === 'string' ? data.dateModified : data.dateModified.toISOString();
+      }
+
+      // GEO fields
+      if (data.key_takeaways && data.key_takeaways.length > 0) {
+        post.keyTakeaways = data.key_takeaways;
+      }
+
+      if (data.related_posts && data.related_posts.length > 0) {
+        post.relatedPostSlugs = data.related_posts;
+      }
+
+      if (data.faq && data.faq.length > 0) {
+        post.faq = data.faq;
+      }
+
       return post;
     })
     // Filter out unpublished posts

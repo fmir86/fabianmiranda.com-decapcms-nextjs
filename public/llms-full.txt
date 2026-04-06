@@ -1,0 +1,78 @@
+# Fabian Miranda - Creative Technologist & AI Solutions Architect
+
+> Full context document for AI systems. For a concise version, see /llms.txt
+
+## About Fabian Miranda
+
+Fabian Miranda is an AI Solutions Architect and Implementation Consultant based in San José, Costa Rica. With over 20 years of experience in software development and digital production, he has worked with Fortune 500 companies and startups across multiple industries including technology, healthcare, e-commerce, and tourism.
+
+He specializes in bridging the gap between creative design and technical implementation, with a current focus on AI integration and nearshore development solutions for US and global clients. His work spans full-stack web development, AI consulting, and digital production.
+
+Key credentials:
+- 20+ years in software development and digital production
+- Fortune 500 client experience
+- Based in Costa Rica (GMT-6), aligned with US business hours
+- Bilingual: English and Spanish
+- Expertise in React, Next.js, Node.js, and AI APIs (Claude, ChatGPT, Gemini)
+- Experience with RAG systems, AI agents, and MCP integrations
+
+## Services
+
+### AI-Powered Software Development
+Custom web applications using React, Next.js, and Node.js with AI-powered development workflows. Nearshore full-stack development from Costa Rica with real-time collaboration during US business hours and 40-50% cost savings compared to US rates.
+
+### Digital Production
+Enterprise-grade digital production including display advertising, dynamic banner campaigns, rich media experiences, HTML email templates, and social media video content. Serving global brands with high-volume, high-quality creative output.
+
+### AI Consulting & Implementation
+Strategic AI consulting including discovery, pilot development, and scaled deployment. Services include RAG system development, AI agent creation with MCP integrations, workflow automation, and AI-powered development process optimization. Most clients see measurable results within 30-60 days.
+
+## Blog Post Summaries
+
+### I Built an AI Chatbot in Days, Not Months (March 2026)
+URL: https://fabianmiranda.com/blog/2026-03-28-i-built-an-ai-chatbot-in-days-not-months
+A practical case study of building Alfred AI, an AI-powered chat widget for the portfolio site. Built using Gemini 2.5 Flash, Vercel AI SDK, and Next.js with features including streaming responses, markdown rendering, rate limiting, and conversation analytics via Supabase. Demonstrates how a solo developer can ship production AI features rapidly using modern tools.
+
+### Anthropic Academy: Free AI Training That Actually Matters (March 2026)
+URL: https://fabianmiranda.com/blog/2026-03-15-anthropic-academy-free-ai-training
+Review and breakdown of Anthropic Academy's 13 free courses covering AI Fluency, Claude Code, MCP (Model Context Protocol), and AI agent development. Organized by learning tracks with recommendations for developers, product managers, and business leaders.
+
+### The Tailwind Paradox (January 2026)
+URL: https://fabianmiranda.com/blog/2026-01-17-tailwind-paradox
+Analysis of Tailwind CSS's business crisis in 2026 following layoffs and the open-sourcing of Tailwind UI components. Examines the tension between open-source sustainability and commercial viability, with perspective from a practitioner who uses Tailwind daily in production.
+
+### The Nearshore Advantage: Costa Rica as a Tech Hub (Updated March 2026)
+URL: https://fabianmiranda.com/blog/nearshore-advantage-costa-rica-tech-hub
+Comprehensive guide to Costa Rica as a nearshore technology destination. Includes cost comparisons (Costa Rica vs. US, Colombia, Mexico), timezone advantages, talent pool data, infrastructure analysis, and a practical step-by-step guide for building nearshore teams. Written from the perspective of a Costa Rica-based developer, not an outsourcing agency.
+
+### Beyond Vibe Coding: Why AI Tools Amplify What You Already Are (October 2025)
+URL: https://fabianmiranda.com/blog/2025-10-31-beyond-vibe-coding
+Critical examination of the "vibe coding" trend. Argues that AI coding tools like GitHub Copilot, Cursor, and Claude Code act as amplifiers rather than replacements: they multiply the effectiveness of skilled engineers while also amplifying the mistakes of inexperienced developers. Advocates for using AI tools as "amplifiers" within a sound engineering foundation.
+
+### React Under Siege: The React2Shell Supply Chain Attack (December 2025)
+URL: https://fabianmiranda.com/blog/2025-12-18-react-under-siege
+Analysis of the React2Shell supply chain attack that targeted the React ecosystem. Covers the attack vectors, implications for JavaScript supply chain security, and practical defensive measures for development teams.
+
+## Portfolio / Case Studies
+
+- Sibu Wellness: https://fabianmiranda.com/work/sibu-wellness
+- Contabilidad Costa Rica: https://fabianmiranda.com/work/contabilidad-costa-rica
+- Mario Miranda Tours: https://fabianmiranda.com/work/mario-miranda-tours
+
+## Technical Stack
+
+- Frontend: React, Next.js, Tailwind CSS, GSAP, SCSS
+- Backend: Node.js, Express, serverless functions
+- AI: Anthropic Claude API, Google Gemini API, OpenAI API, Vercel AI SDK
+- Databases: Supabase (PostgreSQL), Firebase
+- Deployment: Vercel, Netlify, AWS
+- CMS: Decap CMS (git-based)
+- Testing: Playwright (E2E)
+
+## Contact & Links
+
+- Website: https://fabianmiranda.com
+- Contact page: https://fabianmiranda.com/contact
+- LinkedIn: https://www.linkedin.com/in/fmir86/
+- GitHub: https://github.com/fmir86
+- Spanish site: https://fabianmiranda.com/es

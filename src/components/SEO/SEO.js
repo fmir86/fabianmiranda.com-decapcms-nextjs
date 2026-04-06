@@ -11,6 +11,10 @@ const SEO = ({
   keywords = '',
   locale = 'en',
   alternateSlug,
+  publishedTime,
+  modifiedTime,
+  tags = [],
+  categories = [],
 }) => {
   const router = useRouter();
   const siteUrl = 'https://fabianmiranda.com';
@@ -94,6 +98,23 @@ const SEO = ({
       <meta property="og:site_name" content="Fabian Miranda" />
       <meta property="og:locale" content={ogLocale} />
       <meta property="og:locale:alternate" content={ogLocaleAlternate} />
+
+      {/* Article Meta Tags (for blog posts) */}
+      {type === 'article' && publishedTime && (
+        <meta property="article:published_time" content={publishedTime} />
+      )}
+      {type === 'article' && modifiedTime && (
+        <meta property="article:modified_time" content={modifiedTime} />
+      )}
+      {type === 'article' && (
+        <meta property="article:author" content="https://fabianmiranda.com/about" />
+      )}
+      {type === 'article' && categories.length > 0 && (
+        <meta property="article:section" content={categories[0]} />
+      )}
+      {type === 'article' && tags.map((tag, i) => (
+        <meta key={`article-tag-${i}`} property="article:tag" content={tag} />
+      ))}
 
       {/* Twitter Card Meta Tags */}
       <meta name="twitter:card" content="summary_large_image" />

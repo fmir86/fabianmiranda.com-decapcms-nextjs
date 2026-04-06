@@ -17,6 +17,16 @@ tags:
 categories:
   - AI & Machine Learning
   - Software Development
+key_takeaways:
+  - Las herramientas de IA para codear actúan como amplificadores, no reemplazos — multiplican la efectividad de ingenieros calificados y los errores de los inexpertos
+  - El "vibe coding" funciona para prototipos pero falla en sistemas de producción que necesitan seguridad, escalabilidad y mantenibilidad
+  - Los desarrolladores que prosperan con herramientas de IA son los que ya entienden arquitectura de software
+  - La productividad real viene de la programación asistida por IA dentro de una base sólida de ingeniería
+  - Herramientas como Claude Code, Cursor y GitHub Copilot son más efectivas cuando las usa un desarrollador que puede evaluar y corregir el output de la IA
+related_posts:
+  - 2026-03-28-i-built-an-ai-chatbot-in-days-not-months
+  - 2026-03-15-anthropic-academy-free-ai-training
+  - 2026-01-17-tailwind-paradox
 ---
 
 ## TLDR

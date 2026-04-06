@@ -16,6 +16,24 @@ tags:
 categories:
   - Nearshore Development
   - Business Strategy
+key_takeaways:
+  - Costa Rica offers 40-50% cost savings vs US rates while maintaining high English proficiency (over 90% in tech) and cultural alignment
+  - GMT-6 timezone enables real-time collaboration with US teams during business hours — no overnight handoffs
+  - Costa Rica has 200,000+ IT professionals with strong university pipeline and government-backed tech sector investment
+  - Nearshore works best with embedded team members, not body shops — treat nearshore developers as extensions of your team
+  - Infrastructure is solid with 99.5% internet uptime, multiple submarine cable connections, and free trade zone incentives
+related_posts:
+  - 2026-03-28-i-built-an-ai-chatbot-in-days-not-months
+  - 2025-10-31-beyond-vibe-coding
+faq:
+  - question: How much does a nearshore developer in Costa Rica cost compared to the US?
+    answer: Senior developers in Costa Rica typically cost $50-80/hour compared to $120-180/hour in the US. That's a 40-55% savings while getting developers in the same timezone with strong English skills and cultural alignment.
+  - question: What is the timezone difference between Costa Rica and the US?
+    answer: Costa Rica is in GMT-6 (Central Standard Time) year-round with no daylight saving changes. This means full overlap with US business hours — same-day communication, real-time collaboration, and no overnight handoffs.
+  - question: What makes Costa Rica different from other nearshore destinations like Colombia or Mexico?
+    answer: Costa Rica has the highest English proficiency rate in Latin America for tech professionals (over 90%), a stable democratic government with strong IP protection, and a tech sector specifically developed through government investment (CINDE). It also has the highest internet penetration and infrastructure quality in Central America.
+  - question: How do I start a nearshore partnership with a developer in Costa Rica?
+    answer: Start with a single developer or small team on a defined pilot project (30-60 days). Use tools like Slack, GitHub, and Linear for daily collaboration. Treat them as team members, not vendors. Scale after validating communication patterns and code quality.
 ---
 
 ## TLDR

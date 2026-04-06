@@ -18,6 +18,14 @@ tags:
 categories:
   - Personal
   - Technology
+key_takeaways:
+  - Este blog cubre desarrollo con IA, ingeniería web y el futuro del software desde la perspectiva de un practicante
+  - Escrito por Fabian Miranda, un creative technologist con más de 20 años de experiencia basado en Costa Rica
+  - Los temas incluyen codificación asistida por IA, desarrollo nearshore y tendencias tecnológicas emergentes
+related_posts:
+  - 2025-10-31-beyond-vibe-coding
+  - nearshore-advantage-costa-rica-tech-hub
+  - 2026-03-28-i-built-an-ai-chatbot-in-days-not-months
 ---
 
 ## TLDR

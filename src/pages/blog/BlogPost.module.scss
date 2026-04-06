@@ -26,7 +26,7 @@
 
 .heroContent {
   text-align: center;
-  max-width: 800px;
+  max-width: 720px;
   margin: 0 auto;
 }
 
@@ -45,15 +45,15 @@
 }
 
 .title {
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   font-weight: 300;
   text-transform: uppercase;
   margin-bottom: 1rem;
   color: white;
-  line-height: 1.2;
+  line-height: 1.25;
 
   @media (min-width: 768px) {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
   }
 }
 
@@ -110,7 +110,7 @@
 }
 
 .content {
-  max-width: 800px;
+  max-width: 720px;
   margin: 0 auto 4rem;
   color: rgba(255, 255, 255, 0.9);
 
@@ -285,7 +285,7 @@
 }
 
 .cta {
-  max-width: 800px;
+  max-width: 720px;
   margin: 0 auto;
   text-align: center;
   padding: 4rem 2rem;

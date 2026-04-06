@@ -17,6 +17,15 @@ tags:
 categories:
   - Security
   - Software Development
+key_takeaways:
+  - React2Shell (CVE-2025-29927) fue una vulnerabilidad crítica nivel 10 que permitía ejecución remota de código a través de React Server Components
+  - El ataque explotó un bypass de middleware en Next.js que permitía a atacantes saltarse la autenticación por completo
+  - Actualice inmediatamente a Next.js 14.2.25+ o 15.2.3+ — cualquier versión anterior es vulnerable
+  - Esta es una llamada de atención para el ecosistema JavaScript sobre seguridad de cadena de suministro
+  - La defensa en profundidad importa — nunca confíe únicamente en middleware para autorización, siempre valide en la capa de datos también
+related_posts:
+  - 2026-01-17-tailwind-paradox
+  - 2025-10-31-beyond-vibe-coding
 ---
 
 ## TLDR

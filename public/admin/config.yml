@@ -525,6 +525,27 @@ collections:
         field: { label: "Tag", name: "tag", widget: "string" }
       - { label: "Published", name: "published", widget: "boolean", default: true, i18n: duplicate }
       - { label: "Featured", name: "featured", widget: "boolean", default: false, required: false, i18n: duplicate }
+      - { label: "Date Modified", name: "dateModified", widget: "datetime", date_format: "YYYY-MM-DD", time_format: "HH:mm", required: false, i18n: duplicate }
+      - label: "Key Takeaways"
+        name: "key_takeaways"
+        widget: "list"
+        required: false
+        i18n: true
+        field: { label: "Takeaway", name: "takeaway", widget: "string" }
+      - label: "Related Posts"
+        name: "related_posts"
+        widget: "list"
+        required: false
+        i18n: duplicate
+        field: { label: "Post Slug", name: "slug", widget: "string" }
+      - label: "FAQ"
+        name: "faq"
+        widget: "list"
+        required: false
+        i18n: true
+        fields:
+          - { label: "Question", name: "question", widget: "string" }
+          - { label: "Answer", name: "answer", widget: "text" }
 
   # Case Studies (i18n: multiple_folders — EN/ES in separate folders)
   - name: "case_studies"
