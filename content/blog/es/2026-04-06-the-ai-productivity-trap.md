@@ -23,7 +23,7 @@ key_takeaways:
   - La Paradoja de Jevons explica la trampa. Cuando la IA abarata las tareas, las organizaciones no reducen horas, asignan más trabajo. El 77% de los trabajadores reportan que la IA aumentó su carga laboral
   - FOBO (Fear of Becoming Obsolete) es el motor psicológico. 4 de cada 10 trabajadores lo reportan. Terapeutas en EEUU reportan un aumento en pacientes con ansiedad por IA
   - Los que más abrazan la IA son los que peor la pasan. El 62% de trabajadores junior reportan burnout por IA vs 38% de ejecutivos
-  - La neurociencia muestra que el descanso no es opcional. La Default Mode Network del cerebro solo se activa en reposo, y es responsable de la creatividad y resolución de problemas
+  - La neurociencia muestra que el descanso no es opcional. La Red Neuronal por Defecto ("Default Mode Network") del cerebro solo se activa en reposo, y es responsable de la creatividad y resolución de problemas
   - Los empleos no están desapareciendo, están transformándose. El WEF proyecta 170 millones de nuevos roles para 2030, AI Engineer es el título de más rápido crecimiento (+143%), y profesionales con skills de IA ganan 56% más
   - Empresas con semanas de 4 días vieron 24% más productividad y 50% menos burnout. La respuesta no es menos IA, son mejores límites
 related_posts:
@@ -89,7 +89,7 @@ La [Organización Mundial de la Salud](https://www.who.int/health-topics/physica
 
 Pero el daño no es solo muscular. [Investigadores de Stanford](https://lifestylemedicine.stanford.edu/what-excessive-screen-time-does-to-the-adult-brain/) documentaron adelgazamiento del córtex cerebral en adultos con tiempo excesivo de pantalla. Las áreas afectadas incluyen las responsables de memoria, toma de decisiones y regulación emocional. No es un efecto teórico a largo plazo. Es medible ahora.
 
-Y hay algo más sutil que la neurociencia ha dejado claro. El cerebro tiene una red que solo se activa cuando no estamos haciendo nada productivo. Se llama la Default Mode Network, y es [responsable de la creatividad, la resolución de problemas complejos y la consolidación de memoria](https://www.scientificamerican.com/article/q-a-why-a-rested-brain-is-more-creative/). Cada vez que un desarrollador en un WeWork de Madrid o un freelancer en Medellín llena su "tiempo libre" con un prompt más, una revisión más, un output más, esa red no se activa. La máquina que genera las ideas profundas se apaga por falta de descanso.
+Y hay algo más sutil que la neurociencia ha dejado claro. El cerebro tiene una red que solo se activa cuando no estamos haciendo nada productivo. Se llama la Red Neuronal por Defecto ("Default Mode Network"), y es [responsable de la creatividad, la resolución de problemas complejos y la consolidación de memoria](https://www.scientificamerican.com/article/q-a-why-a-rested-brain-is-more-creative/). Cada vez que un desarrollador en un WeWork de Madrid o un freelancer en Medellín llena su "tiempo libre" con un prompt más, una revisión más, un output más, esa red no se activa. La máquina que genera las ideas profundas se apaga por falta de descanso.
 
 La buena noticia es que el ejercicio físico contrarresta parte del daño. Un [meta-análisis reciente](https://pubmed.ncbi.nlm.nih.gov/40049759/) confirmó que la actividad física mejora significativamente la función cognitiva, el estado de ánimo y la calidad del sueño. La OMS recomienda entre [60 y 75 minutos diarios de actividad moderada](https://www.who.int/health-topics/physical-activity) para contrarrestar los riesgos de estar sentado más de 8 horas al día.
 
@@ -121,7 +121,7 @@ La [investigación de BCG publicada en Harvard Business Review](https://hbr.org/
 
 [Cal Newport lo articula bien](https://calnewport.com/on-deep-breaks/): el descanso profundo no es un lujo ni un premio por haber trabajado duro. Es una necesidad biológica para el tipo de pensamiento que genera valor real. El código que resuelve un problema difícil, la arquitectura que escala sin quebrarse, la idea de producto que abre un mercado nuevo. Todo eso requiere una mente que ha tenido espacio para divagar sin rumbo.
 
-Llevo más de una década trabajando en tecnología, los últimos años con IA integrada en casi todo lo que hago. Uso Copilot, uso Claude, construyo sistemas de producción con estas herramientas. Son genuinamente poderosas. Lo que he aprendido, y lo que los datos confirman una y otra vez, es que el poder de la herramienta no determina la calidad del resultado. La determina el estado de la persona que la usa.
+Llevo casi dos décadas trabajando en tecnología, los últimos años con IA integrada en casi todo lo que hago. Uso Claude Code, Codex, Gemini, construyo sistemas de producción con estas herramientas. Son genuinamente poderosas. Lo que he aprendido, y lo que los datos confirman una y otra vez, es que el poder de la herramienta no determina la calidad del resultado. La determina el estado de la persona que la usa.
 
 Si estás quemado, distraído y corriendo entre seis herramientas a la vez, la IA amplifica ese caos. Si estás descansado, enfocado y con claridad sobre lo que importa, la IA amplifica eso también.
 

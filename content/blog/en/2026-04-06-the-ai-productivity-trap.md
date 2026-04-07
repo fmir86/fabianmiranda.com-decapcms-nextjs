@@ -48,7 +48,7 @@ And that's exactly where the trap begins.
 
 Because when a tool genuinely makes you faster, the system around you doesn't hand you the extra time. It absorbs it. You don't finish early and go home. You finish early and get assigned more. The better AI works, the more it's expected of you. And the more that's expected, the harder it becomes to stop.
 
-This article is not anti-AI. I use it every day. I've built production systems with it. But powerful tools require discipline to use sustainably, and right now, most of us don't have that discipline. Not because we're weak. Because the incentives are stacked against it.
+This article is not anti-AI. I use Claude Code, Codex, and Gemini every day. I've built production systems with them. But powerful tools require discipline to use sustainably, and right now, most of us don't have that discipline. Not because we're weak. Because the incentives are stacked against it.
 
 ## The Jevons Paradox: When Getting Faster Means Doing More
 
