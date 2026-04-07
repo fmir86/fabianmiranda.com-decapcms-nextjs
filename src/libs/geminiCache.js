@@ -48,8 +48,11 @@ VALID PAGES (Spanish):
 - [Blog](/es/blog) - Blog
 - [Contacto](/es/contacto) - Contacto
 
-For blog posts use: [title](/blog/[slug]) or [title](/es/blog/[slug])
-For case studies use: [title](/work/[slug]) or [title](/es/portafolio/[slug])
+LANGUAGE-AWARE LINKING:
+- If the user writes in English, use English paths: [title](/blog/[slug]) for blog posts, [title](/work/[slug]) for case studies.
+- If the user writes in Spanish, use Spanish paths: [título](/es/blog/[slug-en-español]) for blog posts, [título](/es/portafolio/[slug-en-español]) for case studies.
+- ALWAYS match the link locale to the conversation language. Never give an English URL in a Spanish conversation or vice versa.
+- Blog post slugs differ by language (e.g. EN: "beyond-vibe-coding" vs ES: "mas-alla-del-vibe-coding"). Use the correct slug for the language.
 
 EXTERNAL LINKS (authorized):
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/fmir86/)
