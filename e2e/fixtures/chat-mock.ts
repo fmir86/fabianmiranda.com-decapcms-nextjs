@@ -42,3 +42,21 @@ export async function mockChatAPIWithMarkdown(page: Page) {
   const markdown = `Here are Fabian's services:\n\n**AI Consulting** - Strategic guidance.\n\n- Web Development\n- Mobile Apps\n\nVisit [services](/services) for more.\n\n\`Next.js\` is the main framework.`;
   await mockChatAPI(page, markdown);
 }
+
+/**
+ * Mocks a failed model call: the API answers 200 and reports the error inside the stream,
+ * exactly as the server does when the provider fails (billing, outage, network).
+ */
+export async function mockChatAPIError(page: Page) {
+  await page.route('**/api/chat', async (route) => {
+    await route.fulfill({
+      status: 200,
+      headers: { 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-cache' },
+      body: [
+        'data: {"type":"start"}\n\n',
+        'data: {"type":"error","errorText":"ALFRED_UNAVAILABLE"}\n\n',
+        'data: [DONE]\n\n',
+      ].join(''),
+    });
+  });
+}

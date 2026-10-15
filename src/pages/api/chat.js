@@ -94,6 +94,15 @@ function getSiteContent(locale) {
 // Max conversation messages to send to model
 const MAX_HISTORY = 10;
 
+// Sent to the browser instead of the provider's error text, which can carry billing or account
+// details. The widget recognises it and shows a friendly fallback with a link to the contact page.
+const UNAVAILABLE_CODE = 'ALFRED_UNAVAILABLE';
+
+function logProviderError(error) {
+  const message = error instanceof Error ? error.message : String(error);
+  console.error('[alfred] model call failed:', message);
+}
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
@@ -104,7 +113,10 @@ export default async function handler(req, res) {
     return res.status(429).json({ error: 'Too many requests. Please try again later.' });
   }
 
-  const { messages } = req.body;
+  const { messages } = req.body || {};
+  if (!Array.isArray(messages) || messages.length === 0) {
+    return res.status(400).json({ error: 'Missing messages' });
+  }
   const locale = req.headers['x-locale'] || 'en';
 
   // Convert UIMessage format to simple model messages
@@ -159,6 +171,11 @@ export default async function handler(req, res) {
     };
   }
 
-  const result = streamText(streamOptions);
-  result.pipeUIMessageStreamToResponse(res);
+  const result = streamText({
+    ...streamOptions,
+    onError: ({ error }) => logProviderError(error),
+  });
+  result.pipeUIMessageStreamToResponse(res, {
+    onError: () => UNAVAILABLE_CODE,
+  });
 }

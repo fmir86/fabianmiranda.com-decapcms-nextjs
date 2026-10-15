@@ -1,0 +1,33 @@
+name: Alfred health check
+
+# Asks Alfred a real question once a day. If the model call fails (billing, quota, outage),
+# this job fails and GitHub emails the repository owner.
+
+on:
+  schedule:
+    - cron: '0 14 * * *' # 08:00 Costa Rica
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Ask Alfred a test question
+        run: |
+          body=$(curl -sS -N --max-time 60 -X POST "https://fabianmiranda.com/api/chat" \
+            -H 'content-type: application/json' \
+            -H 'x-locale: en' \
+            -H 'x-session-id: health-check' \
+            -d '{"messages":[{"id":"health","role":"user","parts":[{"type":"text","text":"What services does Fabian offer?"}]}]}')
+          echo "$body" | head -c 800
+          echo
+          if echo "$body" | grep -q '"type":"error"'; then
+            echo "::error::Alfred returned an error instead of an answer"
+            exit 1
+          fi
+          if ! echo "$body" | grep -q '"type":"text-delta"'; then
+            echo "::error::Alfred returned no text"
+            exit 1
+          fi
+          echo "Alfred is answering."

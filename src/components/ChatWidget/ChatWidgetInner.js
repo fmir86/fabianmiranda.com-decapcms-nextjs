@@ -109,7 +109,7 @@ const ChatWidgetInner = () => {
     } catch { sessionIdRef.current = crypto.randomUUID(); }
   }
 
-  const { messages, sendMessage, status, setMessages } = useChat({
+  const { messages, sendMessage, status, setMessages, error, clearError } = useChat({
     api: '/api/chat',
     headers: {
       'x-locale': router.locale || 'en',
@@ -216,6 +216,7 @@ const ChatWidgetInner = () => {
     const text = inputValue.trim();
     if (!text || isLoading) return;
     trackEvent('chat_message_sent', { locale: router.locale || 'en' });
+    if (error) clearError();
     sendMessage({ text });
     setInputValue('');
   };
@@ -227,6 +228,10 @@ const ChatWidgetInner = () => {
   const welcomeText = isEnglish
     ? `Hi! I'm ${botName}. I can answer questions about Fabian's work, services, and blog. How can I help?`
     : `¡Hola! Soy ${botName}. Puedo responder preguntas sobre el trabajo, servicios y blog de Fabian. ¿En qué te ayudo?`;
+  // Shown when the model call fails (provider outage, billing, network), so the visitor is never left waiting.
+  const unavailableText = isEnglish
+    ? "I'm taking a short break and can't answer right now. You can reach Fabian directly through the [contact page](/contact)."
+    : 'Estoy tomando un breve descanso y no puedo responder ahora. Puedes escribirle a Fabian directamente desde la [página de contacto](/es/contacto).';
 
   return (
     <>
@@ -264,6 +269,8 @@ const ChatWidgetInner = () => {
             const text = getMessageText(msg);
             const isLastAssistant = msg.role === 'assistant' && idx === messages.length - 1;
             const isStreaming = isLastAssistant && status === 'streaming';
+            // A stream that failed before any text leaves an empty assistant message behind
+            if (msg.role === 'assistant' && !text && !isStreaming) return null;
 
             return msg.role === 'assistant' ? (
               <FadeInMessage key={msg.id}>
@@ -285,6 +292,17 @@ const ChatWidgetInner = () => {
               </FadeInMessage>
             );
           })}
+
+          {error && status !== 'submitted' && (
+            <FadeInMessage>
+              <div className={styles.messageRow} data-testid="chat-unavailable">
+                <BotAvatar speaking={false} />
+                <div className={`${styles.message} ${styles.assistant}`}>
+                  <AnimatedText text={unavailableText} isStreaming={false} components={markdownComponents} />
+                </div>
+              </div>
+            </FadeInMessage>
+          )}
 
           {status === 'submitted' && (
             <FadeInMessage>
