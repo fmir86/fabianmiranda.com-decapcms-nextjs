@@ -4,7 +4,7 @@ A modern, high-performance portfolio website built with Next.js and Decap CMS (f
 
 ## Tech Stack
 
-- **Framework**: Next.js 14.2.5
+- **Framework**: Next.js 16 (Pages Router), React 19
 - **CMS**: Decap CMS (git-based)
 - **Styling**: Tailwind CSS + SCSS Modules
 - **Animations**: GSAP
@@ -15,8 +15,8 @@ A modern, high-performance portfolio website built with Next.js and Decap CMS (f
 
 ### Prerequisites
 
-- Node.js (v14 or higher)
-- npm or yarn
+- Node.js 20 or newer
+- npm (the repo ships a `package-lock.json`)
 
 ### Installation
 
@@ -28,8 +28,12 @@ git clone https://github.com/fmir86/fabianmiranda.com-decapcms-nextjs.git
 cd fabianmiranda.com-decapcms-nextjs
 
 # Install dependencies
-npm install
+npm ci
 ```
+
+### Environment variables
+
+Copy `.env.example` to `.env.local`. Every variable is optional for local work: the site builds and renders without them. Only the Alfred chat widget (`/api/chat`, `/api/chat-log`) needs the Google AI and Supabase keys; without them the widget shows its "unavailable" message.
 
 ### Development
 
@@ -67,9 +71,17 @@ npm run build
 
 # Start production server
 npm start
+```
 
-# Build and export static site
-npm run export
+`npm run build` also runs `next-sitemap` (postbuild), which rewrites `public/sitemap.xml`.
+
+### Tests
+
+End-to-end tests for the chat widget use Playwright and mock the chat API, so they need no API keys. They start `npm run dev` on port 3000 automatically.
+
+```bash
+npx playwright install chromium   # first run only
+npm test
 ```
 
 ## Project Structure

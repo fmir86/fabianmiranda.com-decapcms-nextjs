@@ -11,6 +11,7 @@ sitemap.xml
 # Sensitive files
 .env
 .env.*
+!.env.example
 credentials/
 
 # Generated reports

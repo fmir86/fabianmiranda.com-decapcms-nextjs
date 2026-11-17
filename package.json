@@ -8,7 +8,6 @@
     "build": "next build",
     "postbuild": "next-sitemap",
     "start": "next start",
-    "export": "npm run build && next export",
     "audit:pagespeed": "node scripts/pagespeed-audit.js",
     "test": "playwright test",
     "test:ui": "playwright test --ui"
